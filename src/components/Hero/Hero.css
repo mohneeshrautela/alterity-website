@@ -153,6 +153,14 @@
   .hero__stat {
     padding: 0;
     width: 100%;
+    justify-content: flex-start;
+  }
+  .hero__stat svg {
+    width: 28px;
+    min-width: 28px;
+  }
+  .hero__stat-text {
+    align-items: flex-start;
   }
   .hero__stat-divider {
     width: 80px;
