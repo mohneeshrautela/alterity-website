@@ -1,0 +1,115 @@
+.terms-page {
+  min-height: 100vh;
+  padding: 120px 24px 100px;
+}
+
+.terms-page__inner {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Header */
+.terms-page__eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(29, 18, 5, 0.45);
+  background: rgba(29, 18, 5, 0.07);
+  padding: 5px 14px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+}
+
+.terms-page__title {
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  color: var(--dark);
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+
+.terms-page__intro {
+  font-size: 15px;
+  color: var(--dark);
+  line-height: 1.75;
+  margin-bottom: 40px;
+}
+
+.terms-page__link {
+  color: var(--dark);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.terms-page__link:hover { opacity: 0.65; }
+
+/* Accordion wrapper */
+.terms-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Trigger content layout */
+.terms-trigger__content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.terms-trigger__num {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(29, 18, 5, 0.35);
+  min-width: 22px;
+  flex-shrink: 0;
+}
+
+.terms-trigger__title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+/* Body paragraphs */
+.terms-body__para {
+  font-size: 14.5px;
+  color: var(--dark);
+  line-height: 1.75;
+  margin-bottom: 12px;
+}
+
+.terms-body__para:last-child {
+  margin-bottom: 0;
+}
+
+/* Subsection */
+.terms-subsection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 18px;
+  background: rgba(29, 18, 5, 0.04);
+  border-left: 3px solid rgba(29, 18, 5, 0.15);
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 12px;
+}
+
+.terms-subsection:last-child { margin-bottom: 0; }
+
+.terms-subsection__label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+@media (max-width: 600px) {
+  .terms-page { padding: 100px 16px 80px; }
+  .terms-page__title { letter-spacing: -1px; }
+}

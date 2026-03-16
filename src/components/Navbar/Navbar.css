@@ -1,0 +1,236 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(245, 240, 227, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.navbar--scrolled {
+  border-color: var(--border-cream);
+  box-shadow: 0 2px 16px rgba(29, 18, 5, 0.06);
+}
+
+.navbar__inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  position: relative;
+}
+
+/* Logo */
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.navbar__logo-img {
+  height: 80px;
+  width: auto;
+  display: block;
+  /* pull in the whitespace padding inside the PNG */
+  margin-right: -10px;
+}
+
+.navbar__logo-icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.navbar__logo-text {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--dark);
+  letter-spacing: -0.8px;
+  line-height: 1;
+}
+
+/* Nav Links – Slide Tabs */
+.navbar__links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 4px;
+  border-radius: 8px;
+  border: 1.5px solid var(--dark);
+  width: fit-content;
+}
+
+.navbar__slide-tab {
+  position: relative;
+  z-index: 1;
+  list-style: none;
+}
+
+.navbar__slide-tab a {
+  display: block;
+  padding: 7px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--dark);
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.navbar__slide-tab:hover a {
+  color: var(--cream);
+}
+
+.navbar__slide-cursor {
+  position: absolute;
+  z-index: 0;
+  top: 4px;
+  height: calc(100% - 8px);
+  border-radius: 5px;
+  background: var(--dark);
+  list-style: none;
+}
+
+/* Right Side */
+.navbar__right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.navbar__github {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 8px;
+  border: 1.5px solid var(--border-cream);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dark);
+  background: transparent;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+
+.navbar__github:hover {
+  background: rgba(29, 18, 5, 0.05);
+}
+
+.navbar__github-star {
+  color: #f5a623;
+  font-size: 13px;
+}
+
+.navbar__btn {
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.navbar__btn--outlined {
+  background: transparent;
+  border: 1.5px solid var(--dark);
+  color: var(--dark);
+}
+
+.navbar__btn--outlined:hover {
+  background: rgba(29, 18, 5, 0.06);
+}
+
+.navbar__btn--dark {
+  background: var(--dark);
+  border: 1.5px solid var(--dark);
+  color: var(--cream);
+}
+
+.navbar__btn--dark:hover {
+  opacity: 0.85;
+}
+
+/* Mobile toggle */
+.navbar__mobile-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar__mobile-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--dark);
+  border-radius: 2px;
+}
+
+.navbar__mobile-menu {
+  display: none;
+  flex-direction: column;
+  padding: 16px 24px 24px;
+  border-top: 1px solid var(--border-cream);
+  background: var(--cream);
+}
+
+.navbar__mobile-menu a {
+  padding: 12px 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-dark);
+  border-bottom: 1px solid rgba(29, 18, 5, 0.07);
+}
+
+.navbar__mobile-btns {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+@media (max-width: 1100px) {
+  .navbar__links {
+    display: none;
+  }
+  .navbar__github {
+    display: none;
+  }
+  .navbar__mobile-toggle {
+    display: flex;
+  }
+}
+
+@media (max-width: 1100px) {
+  .navbar__mobile-menu {
+    display: flex;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar__inner {
+    padding: 0 20px;
+  }
+  .navbar__btn:not(.navbar__btn--dark) {
+    display: none;
+  }
+}

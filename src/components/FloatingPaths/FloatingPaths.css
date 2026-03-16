@@ -1,0 +1,12 @@
+.animated-bg {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes flowPath {
+  0%   { stroke-dashoffset: 600; }
+  100% { stroke-dashoffset: -2400; }
+}

@@ -1,0 +1,211 @@
+.pricing-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 24px 80px;
+}
+
+.pricing-page__inner {
+  width: 100%;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.pricing-page__heading {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 800;
+  letter-spacing: -2px;
+  color: var(--dark);
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.pricing-page__heading-em {
+  font-style: italic;
+  color: var(--dark);
+}
+
+.pricing-page__desc {
+  font-size: 17px;
+  color: rgba(29, 18, 5, 0.6);
+  line-height: 1.7;
+  max-width: 560px;
+  margin-bottom: 52px;
+}
+
+/* Card */
+.pricing-page__card {
+  width: 100%;
+  background: rgba(245, 240, 227, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(29, 18, 5, 0.12);
+  border-radius: 20px;
+  padding: 48px 40px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 4px 40px rgba(29, 18, 5, 0.07);
+}
+
+/* Form */
+.pricing-page__form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  text-align: left;
+}
+
+.pricing-form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pricing-form__label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--dark);
+  letter-spacing: 0.1px;
+}
+
+.pricing-form__input {
+  background: rgba(29, 18, 5, 0.04);
+  border: 1.5px solid rgba(29, 18, 5, 0.25);
+  border-radius: 10px;
+  padding: 14px 18px;
+  font-size: 15px;
+  color: var(--dark);
+  font-family: var(--font);
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.pricing-form__input::placeholder {
+  color: rgba(29, 18, 5, 0.35);
+}
+
+.pricing-form__input:focus {
+  border-color: rgba(29, 18, 5, 0.6);
+  background: rgba(29, 18, 5, 0.06);
+}
+
+.pricing-form__input--error {
+  border-color: #c0392b;
+}
+
+/* Line-style input */
+.pricing-form__input--line {
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid rgba(29, 18, 5, 0.3);
+  border-radius: 0;
+  padding: 12px 0;
+}
+
+.pricing-form__input--line:focus {
+  border-color: rgba(29, 18, 5, 0.7);
+  background: transparent;
+}
+
+.pricing-form__input--line::-webkit-inner-spin-button,
+.pricing-form__input--line::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.pricing-form__error {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #c0392b;
+  font-weight: 500;
+}
+
+/* Checkbox */
+.pricing-form__checkbox-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.pricing-form__checkbox {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  accent-color: var(--dark);
+  cursor: pointer;
+}
+
+.pricing-form__checkbox-label {
+  font-size: 13px;
+  color: rgba(29, 18, 5, 0.65);
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+.pricing-form__link {
+  color: var(--dark);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.pricing-form__link:hover {
+  opacity: 0.7;
+}
+
+/* Submit */
+.pricing-form__submit {
+  width: 100%;
+  padding: 16px;
+  background: var(--dark);
+  border: 1.5px solid var(--dark);
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: var(--font);
+  color: var(--cream);
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
+  letter-spacing: 0.1px;
+}
+
+.pricing-form__submit:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+/* Success */
+.pricing-page__success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 48px;
+  border: 1.5px solid rgba(29, 18, 5, 0.15);
+  border-radius: 16px;
+  background: rgba(29, 18, 5, 0.04);
+}
+
+.pricing-page__success p {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+@media (max-width: 600px) {
+  .pricing-page {
+    padding: 100px 20px 60px;
+  }
+  .pricing-page__heading {
+    letter-spacing: -1px;
+  }
+}

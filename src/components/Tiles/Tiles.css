@@ -1,0 +1,25 @@
+.tiles-wrap {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  opacity: 0.65;
+}
+
+.tiles-col {
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid rgba(29, 18, 5, 0.07);
+}
+
+.tiles-cell {
+  width: 40px;
+  height: 40px;
+  border-right: 1px solid rgba(29, 18, 5, 0.07);
+  border-bottom: 1px solid rgba(29, 18, 5, 0.07);
+  pointer-events: all;
+}

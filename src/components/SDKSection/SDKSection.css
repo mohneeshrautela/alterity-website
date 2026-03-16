@@ -1,0 +1,258 @@
+.sdk-section {
+  background: transparent;
+  padding: 80px 40px 100px;
+}
+
+.sdk-section__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Two-col layout */
+.sdk-content {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Left panel */
+.sdk-content__eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.sdk-content__heading {
+  font-size: 52px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  color: var(--dark);
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.sdk-content__desc {
+  font-size: 17px;
+  color: #1a1410;
+  line-height: 1.7;
+  margin-bottom: 28px;
+  max-width: 400px;
+}
+
+.sdk-content__features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.sdk-content__features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--dark);
+}
+
+.sdk-feature-check {
+  width: 20px;
+  height: 20px;
+  background: var(--yellow);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--dark);
+  flex-shrink: 0;
+}
+
+/* Terminal wrapper (BorderTrail host) */
+.sdk-terminal-wrapper {
+  position: relative;
+  border-radius: 18px;
+}
+
+/* Player card */
+.sdk-player-card {
+  background: #07060a;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header label */
+.sdk-player-label {
+  padding: 16px 24px;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(245, 240, 227, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* Metric banner */
+.sdk-player-metric {
+  padding: 13px 24px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cream);
+  text-align: center;
+  background: linear-gradient(90deg, rgba(240, 247, 107, 0.08) 0%, rgba(240, 247, 107, 0.14) 50%, rgba(240, 247, 107, 0.08) 100%);
+  border-bottom: 1px solid rgba(240, 247, 107, 0.12);
+  letter-spacing: 0.2px;
+}
+
+/* Globe stage */
+.sdk-player-stage {
+  position: relative;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #050408;
+}
+
+/* Radial glow behind globe */
+.sdk-stage-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(240, 247, 107, 0.07) 0%, transparent 70%);
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+
+.sdk-stage-glow--active {
+  background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(240, 247, 107, 0.14) 0%, transparent 70%);
+}
+
+/* Center container: SVG ring + button */
+.sdk-stage-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 130px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.sdk-ring-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  filter: drop-shadow(0 0 6px rgba(245, 240, 227, 0.3));
+}
+
+/* Play/pause button */
+.sdk-stage-btn {
+  position: relative;
+  z-index: 1;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--yellow);
+  color: var(--dark);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 0 0 10px rgba(240, 247, 107, 0.1), 0 0 32px rgba(240, 247, 107, 0.2);
+  flex-shrink: 0;
+}
+
+.sdk-stage-btn:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 0 12px rgba(240, 247, 107, 0.15), 0 0 48px rgba(240, 247, 107, 0.35);
+}
+
+.sdk-stage-btn--playing {
+  animation: btnPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes btnPulse {
+  0%, 100% { box-shadow: 0 0 0 10px rgba(240, 247, 107, 0.1), 0 0 32px rgba(240, 247, 107, 0.2); }
+  50% { box-shadow: 0 0 0 16px rgba(240, 247, 107, 0.06), 0 0 56px rgba(240, 247, 107, 0.4); }
+}
+
+/* Footer */
+.sdk-player-footer {
+  padding: 20px 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  justify-content: center;
+}
+
+.sdk-player-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 36px;
+  background: rgba(245, 240, 227, 0.06);
+  color: var(--cream);
+  border: 1.5px solid rgba(245, 240, 227, 0.2);
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: var(--font);
+  cursor: pointer;
+  transition: all 0.15s;
+  text-decoration: none;
+}
+
+.sdk-player-cta:hover {
+  background: rgba(245, 240, 227, 0.1);
+  border-color: rgba(245, 240, 227, 0.35);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 1024px) {
+  .sdk-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .sdk-content__heading {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sdk-section {
+    padding: 60px 24px 80px;
+  }
+  .sdk-player-stage {
+    height: 300px;
+  }
+  .sdk-stage-center {
+    width: 110px;
+    height: 110px;
+  }
+  .sdk-stage-btn {
+    width: 60px;
+    height: 60px;
+  }
+  .sdk-player-tab {
+    font-size: 9px;
+    padding: 12px 4px;
+  }
+}

@@ -1,0 +1,148 @@
+.why-page {
+  min-height: 100vh;
+}
+
+.why-page__hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 160px 40px 120px;
+  min-height: 70vh;
+}
+
+.why-page__label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--dark);
+  opacity: 0.45;
+  margin: 0 0 20px;
+}
+
+.why-page__heading {
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: 800;
+  letter-spacing: -2.5px;
+  color: var(--dark);
+  line-height: 1.05;
+  margin: 0;
+}
+
+.why-page__cycling {
+  display: inline-block;
+  min-width: 2ch;
+}
+
+.why-page__cursor {
+  display: inline-block;
+  margin-left: 2px;
+  animation: why-blink 0.8s step-end infinite;
+  font-weight: 300;
+  opacity: 0.5;
+}
+
+@keyframes why-blink {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0; }
+}
+
+/* Content section */
+.why-page__content {
+  padding: 0 40px 100px;
+}
+
+.why-page__card {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: #ece6d5;
+  border-radius: 24px;
+  padding: 64px;
+}
+
+.why-page__card-heading {
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 800;
+  letter-spacing: -1px;
+  text-transform: none;
+  color: var(--dark);
+  margin: 0 0 48px;
+  text-align: center;
+}
+
+.why-page__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.why-page__feature {
+  background: #f5f0e3;
+  border-radius: 12px;
+  border: 1px solid rgba(29, 18, 5, 0.08);
+  overflow: hidden;
+}
+
+.why-page__feature-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 24px;
+}
+
+.why-page__feature-number {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--dark);
+  flex-shrink: 0;
+  min-width: 20px;
+}
+
+.why-page__feature-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--dark);
+  letter-spacing: -0.2px;
+  line-height: 1.3;
+  margin: 0;
+  flex: 1;
+}
+
+.why-page__feature-body {
+  padding: 0 24px 20px 58px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.why-page__feature-tagline {
+  font-size: 14px;
+  font-weight: 500;
+  color: #7a6f1a;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.why-page__feature-desc {
+  font-size: 14px;
+  color: rgba(29, 18, 5, 0.55);
+  line-height: 1.7;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .why-page__hero {
+    padding: 120px 24px 80px;
+  }
+  .why-page__content {
+    padding: 0 20px 80px;
+  }
+  .why-page__card {
+    padding: 40px 28px;
+  }
+  .why-page__feature-body {
+    padding-left: 47px;
+  }
+}

@@ -1,0 +1,131 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --cream: #f5f0e3;
+  --dark: #1d1205;
+  --dark-2: #1a1a18;
+  --yellow: #f0f76b;
+  --text-dark: #1d1c1a;
+  --text-muted: #5c5849;
+  --border-cream: rgba(29, 18, 5, 0.18);
+  --divider: rgba(29, 18, 5, 0.14);
+  --card-dark: #1e1b13;
+  --font: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font);
+  background-color: var(--cream);
+  color: var(--text-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: var(--font);
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* Section divider */
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--divider);
+  margin: 0;
+  width: 100%;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 3px;
+}
+
+/* Utility button styles */
+.btn-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--dark);
+  color: var(--cream);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: var(--font);
+  transition: opacity 0.2s, transform 0.15s;
+  border: 2px solid var(--dark);
+  cursor: pointer;
+}
+
+.btn-dark:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+.btn-outlined {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--dark);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: var(--font);
+  transition: background 0.2s, transform 0.15s;
+  border: 2px solid var(--dark);
+  cursor: pointer;
+}
+
+.btn-outlined:hover {
+  background: rgba(29, 18, 5, 0.06);
+  transform: translateY(-1px);
+}
+
+.btn-outlined-light {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--cream);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: var(--font);
+  transition: background 0.2s, transform 0.15s;
+  border: 2px solid rgba(245, 240, 227, 0.4);
+  cursor: pointer;
+}
+
+.btn-outlined-light:hover {
+  background: rgba(245, 240, 227, 0.1);
+  transform: translateY(-1px);
+}

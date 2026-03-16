@@ -1,0 +1,137 @@
+.flow-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  overflow: hidden;
+  border-radius: 100px;
+  padding: 13px 44px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: var(--font);
+  cursor: pointer;
+  transition: border-color 0.6s cubic-bezier(0.23,1,0.32,1),
+              color 0.6s cubic-bezier(0.23,1,0.32,1),
+              border-radius 0.6s cubic-bezier(0.23,1,0.32,1);
+}
+
+/* Dark variant */
+.flow-btn--dark {
+  background: transparent;
+  color: var(--cream);
+  border: 1.5px solid rgba(245, 240, 227, 0.35);
+}
+.flow-btn--dark:hover {
+  border-color: transparent;
+  color: var(--dark);
+  border-radius: 12px;
+}
+.flow-btn--dark .flow-btn__circle {
+  background: var(--cream);
+}
+.flow-btn--dark .flow-btn__arrow-left,
+.flow-btn--dark .flow-btn__arrow-right {
+  color: var(--cream);
+}
+.flow-btn--dark:hover .flow-btn__arrow-left,
+.flow-btn--dark:hover .flow-btn__arrow-right {
+  color: var(--dark);
+}
+
+/* Outlined variant (on cream bg) */
+.flow-btn--outlined {
+  background: transparent;
+  color: var(--dark);
+  border: 1.5px solid rgba(29, 18, 5, 0.35);
+}
+.flow-btn--outlined:hover {
+  border-color: transparent;
+  color: var(--cream);
+  border-radius: 12px;
+}
+.flow-btn--outlined .flow-btn__circle {
+  background: var(--dark);
+}
+.flow-btn--outlined .flow-btn__arrow-left,
+.flow-btn--outlined .flow-btn__arrow-right {
+  color: var(--dark);
+}
+.flow-btn--outlined:hover .flow-btn__arrow-left,
+.flow-btn--outlined:hover .flow-btn__arrow-right {
+  color: var(--cream);
+}
+
+/* Outlined light variant (on dark bg) */
+.flow-btn--outlined-light {
+  background: transparent;
+  color: var(--cream);
+  border: 1.5px solid rgba(245, 240, 227, 0.35);
+}
+.flow-btn--outlined-light:hover {
+  border-color: transparent;
+  color: var(--dark);
+  border-radius: 12px;
+}
+.flow-btn--outlined-light .flow-btn__circle {
+  background: var(--yellow);
+}
+.flow-btn--outlined-light .flow-btn__arrow-left,
+.flow-btn--outlined-light .flow-btn__arrow-right {
+  color: var(--cream);
+}
+.flow-btn--outlined-light:hover .flow-btn__arrow-left,
+.flow-btn--outlined-light:hover .flow-btn__arrow-right {
+  color: var(--dark);
+}
+
+/* Shared arrow + text + circle */
+.flow-btn__arrow-left {
+  position: absolute;
+  left: -20px;
+  z-index: 9;
+  transition: left 0.8s cubic-bezier(0.34,1.56,0.64,1),
+              color 0.6s ease;
+}
+.flow-btn:hover .flow-btn__arrow-left {
+  left: 14px;
+}
+
+.flow-btn__text {
+  position: relative;
+  z-index: 1;
+  transform: translateX(-4px);
+  transition: transform 0.8s ease;
+}
+.flow-btn:hover .flow-btn__text {
+  transform: translateX(4px);
+}
+
+.flow-btn__circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  opacity: 0;
+  transition: width 0.8s cubic-bezier(0.19,1,0.22,1),
+              height 0.8s cubic-bezier(0.19,1,0.22,1),
+              opacity 0.8s cubic-bezier(0.19,1,0.22,1);
+}
+.flow-btn:hover .flow-btn__circle {
+  width: 280px;
+  height: 280px;
+  opacity: 1;
+}
+
+.flow-btn__arrow-right {
+  position: absolute;
+  right: 14px;
+  z-index: 9;
+  transition: right 0.8s cubic-bezier(0.34,1.56,0.64,1),
+              color 0.6s ease;
+}
+.flow-btn:hover .flow-btn__arrow-right {
+  right: -20px;
+}

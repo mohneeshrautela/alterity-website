@@ -1,0 +1,276 @@
+.community {
+  background: transparent;
+  padding: 40px 40px 100px;
+}
+
+.community__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.community__top-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Base Card */
+.community__card {
+  background: var(--dark);
+  border-radius: 20px;
+  padding: 44px 44px 40px;
+}
+
+.community__eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--yellow);
+  margin-bottom: 14px;
+}
+
+.community__heading {
+  font-size: clamp(22px, 2.2vw, 30px);
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  color: var(--cream);
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.community__desc {
+  font-size: 15px;
+  color: rgba(245, 240, 227, 0.7);
+  line-height: 1.65;
+  margin-bottom: 28px;
+}
+
+/* Community card specific */
+.community__card--community {
+  display: flex;
+  flex-direction: column;
+  min-height: 480px;
+}
+
+.community__card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.community__card-footer {
+  margin-top: auto;
+  padding-top: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.community__star-count {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: 1;
+  padding: 32px 0;
+  cursor: default;
+}
+
+.community__star-number {
+  font-size: clamp(48px, 5vw, 72px);
+  font-weight: 800;
+  letter-spacing: -3px;
+  color: var(--yellow);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+  text-shadow: 0 0 24px rgba(240, 247, 107, 0.5);
+}
+
+.community__star-label {
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: 500;
+  line-height: 1.3;
+  text-align: center;
+}
+
+/* Use Cases Card – full width */
+.community__card--usecases {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+  overflow: hidden;
+  min-height: 320px;
+}
+
+.community__usecases-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.community__usecases-left .community__desc {
+  margin-bottom: 0;
+}
+
+.community__usecases-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.community__stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(245, 240, 227, 0.08);
+}
+
+.community__stat-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(245, 240, 227, 0.06);
+  cursor: default;
+  transition: background 0.15s;
+}
+
+.community__stat-item:last-child {
+  border-bottom: none;
+}
+
+.community__stat-value {
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 800;
+  letter-spacing: -2px;
+  line-height: 1;
+  color: var(--yellow);
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 24px rgba(240, 247, 107, 0.5);
+}
+
+.community__stat-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+  text-align: right;
+  max-width: 160px;
+  line-height: 1.4;
+}
+
+.community__integration-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(245, 240, 227, 0.5);
+  text-align: center;
+  letter-spacing: 0.2px;
+}
+
+/* Enterprise Card */
+.community__card--enterprise {
+  padding: 40px 44px;
+}
+
+.community__enterprise-content {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.community__enterprise-icon {
+  width: 72px;
+  height: 72px;
+  background: rgba(232, 245, 90, 0.1);
+  border: 1px solid rgba(232, 245, 90, 0.2);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.community__enterprise-text {
+  flex: 1;
+}
+
+.community__enterprise-heading {
+  font-size: clamp(20px, 2vw, 26px);
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--cream);
+  margin-bottom: 8px;
+}
+
+.community__enterprise-desc {
+  font-size: 14px;
+  color: rgba(245, 240, 227, 0.5);
+  line-height: 1.6;
+  max-width: 520px;
+}
+
+.community__enterprise-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  background: var(--yellow);
+  color: var(--dark);
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: var(--font);
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.community__enterprise-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+
+@media (max-width: 1024px) {
+  .community__top-row {
+    grid-template-columns: 1fr;
+  }
+  .community__card--usecases {
+    grid-template-columns: 1fr;
+  }
+  .community__enterprise-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .community {
+    padding: 0 24px 80px;
+  }
+  .community__card {
+    padding: 32px 28px;
+    border-radius: 16px;
+  }
+  .community__integrations {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .community__integration-icon {
+    width: 52px;
+    height: 52px;
+  }
+  .community__star-number {
+    font-size: 40px;
+  }
+}

@@ -1,0 +1,144 @@
+.devlove {
+  background: transparent;
+  padding: 100px 40px;
+  border-top: none;
+}
+
+.devlove__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+.devlove__header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.devlove__heading {
+  font-size: clamp(32px, 3.5vw, 48px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  color: var(--dark);
+  line-height: 1.1;
+}
+
+.devlove__subtext {
+  font-size: 18px;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+/* Grid */
+.devlove__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+/* Tweet Card */
+.tweet-card {
+  background: white;
+  border: 1px solid rgba(29, 18, 5, 0.09);
+  border-radius: 10px;
+  padding: 12px 14px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.tweet-card:hover {
+  box-shadow: 0 8px 28px rgba(29, 18, 5, 0.09);
+  transform: translateY(-2px);
+}
+
+.tweet-card__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tweet-card__avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+}
+
+.tweet-card__author {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex: 1;
+}
+
+.tweet-card__name {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.tweet-card__handle {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.tweet-card__x-icon {
+  color: var(--dark);
+  opacity: 0.3;
+}
+
+.tweet-card__text {
+  font-size: 12px;
+  color: var(--text-dark);
+  line-height: 1.5;
+  flex: 1;
+}
+
+.tweet-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 6px;
+  border-top: 1px solid rgba(29, 18, 5, 0.07);
+}
+
+.tweet-card__time {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.tweet-card__likes {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+@media (max-width: 1024px) {
+  .devlove__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .devlove {
+    padding: 72px 24px;
+  }
+  .devlove__grid {
+    grid-template-columns: 1fr;
+  }
+}

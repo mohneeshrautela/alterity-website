@@ -1,0 +1,63 @@
+/* Data Protection section */
+.privacy-protection {
+  margin-top: 60px;
+}
+
+.privacy-protection__header {
+  margin-bottom: 28px;
+}
+
+.privacy-protection__title {
+  font-size: clamp(22px, 2.5vw, 32px);
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+
+.privacy-protection__sub {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+
+.privacy-protection__desc {
+  font-size: 14.5px;
+  color: var(--dark);
+  line-height: 1.7;
+}
+
+.privacy-protection__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.privacy-card {
+  padding: 22px 24px;
+  background: #f5f0e3;
+  border: 1.5px solid rgba(29, 18, 5, 0.12);
+  border-radius: 12px;
+  box-shadow: 3px 3px 0px 0px rgba(29, 18, 5, 0.1);
+}
+
+.privacy-card__title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 8px;
+  letter-spacing: -0.2px;
+}
+
+.privacy-card__desc {
+  font-size: 13.5px;
+  color: var(--dark);
+  line-height: 1.65;
+}
+
+@media (max-width: 600px) {
+  .privacy-protection__grid {
+    grid-template-columns: 1fr;
+  }
+}
