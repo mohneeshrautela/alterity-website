@@ -228,10 +228,15 @@
 
 @media (max-width: 600px) {
   .navbar__inner {
-    padding: 0 20px;
+    padding: 0 16px;
     gap: 0;
   }
-  .navbar__btn {
+  .navbar__btn:not(.navbar__btn--dark) {
     display: none;
+  }
+  .navbar__btn--dark {
+    font-size: 13px;
+    padding: 8px 14px;
+    border-radius: 8px;
   }
 }

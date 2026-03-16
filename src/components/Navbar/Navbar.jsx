@@ -90,8 +90,9 @@ export default function Navbar({ onPricingClick, onLogoClick, onCallsClick, onUs
       {/* Mobile Menu */}
       {mobileOpen && (
         <div className="navbar__mobile-menu">
+          <a href="#why-us" onClick={(e) => { e.preventDefault(); setMobileOpen(false); onWhyUsClick?.() }}>Why Us</a>
           <a href="#calls" onClick={(e) => { e.preventDefault(); setMobileOpen(false); onCallsClick?.() }}>Real Customer Calls</a>
-          <a href="#use-cases">Use Cases</a>
+          <a href="#use-cases" onClick={(e) => { e.preventDefault(); setMobileOpen(false); onUseCasesClick?.() }}>Use Cases</a>
           <a href="#pricing" onClick={(e) => { e.preventDefault(); setMobileOpen(false); onPricingClick?.() }}>Pricing</a>
           <div className="navbar__mobile-btns">
             <button className="navbar__btn navbar__btn--dark" onClick={() => window.dispatchEvent(new CustomEvent('open-contact-modal'))}>Start a Pilot</button>
