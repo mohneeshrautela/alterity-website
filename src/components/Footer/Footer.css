@@ -124,6 +124,19 @@
   .footer {
     padding: 40px 24px 0;
   }
+  .footer__top {
+    flex-direction: column;
+    gap: 32px;
+  }
+  .footer__nav-list {
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+  }
+  .footer__nav-link {
+    font-size: 14px;
+  }
   .footer__big-logo {
     font-size: 52px;
     letter-spacing: -2px;
@@ -131,6 +144,10 @@
   .footer__bottom {
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
+    gap: 12px;
+    padding: 24px 0;
+  }
+  .footer__legal-row {
+    gap: 20px;
   }
 }
