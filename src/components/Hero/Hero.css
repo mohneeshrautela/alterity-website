@@ -56,6 +56,8 @@
   color: #5a5a5a;
   opacity: 1;
   display: block;
+  width: 100%;
+  text-align: center;
 }
 
 .hero__cursor {
@@ -150,6 +152,7 @@
   }
   .hero__stat {
     padding: 0;
+    width: 100%;
   }
   .hero__stat-divider {
     width: 80px;

@@ -229,8 +229,9 @@
 @media (max-width: 600px) {
   .navbar__inner {
     padding: 0 20px;
+    gap: 0;
   }
-  .navbar__btn:not(.navbar__btn--dark) {
+  .navbar__btn {
     display: none;
   }
 }

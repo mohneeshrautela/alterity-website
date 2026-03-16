@@ -220,7 +220,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 22px;
+  padding: 12px 40px;
   background: var(--yellow);
   color: var(--dark);
   border: none;
@@ -237,6 +237,11 @@
 .community__enterprise-btn:hover {
   opacity: 0.88;
   transform: translateY(-1px);
+}
+
+.community__enterprise-btn .flow-btn__arrow-left,
+.community__enterprise-btn .flow-btn__arrow-right {
+  color: var(--dark);
 }
 
 

@@ -3,7 +3,7 @@ import './FlowButton.css'
 
 const MODAL_TRIGGERS = ['Start a Pilot', 'Talk to Sales', 'Contact us']
 const CALLS_TRIGGERS = ['Hear a Real Call']
-const CALC_TRIGGERS  = ['Calculator']
+const CALC_TRIGGERS  = ['Calculator', 'Calculate Your Monthly Cost Leak']
 
 export default function FlowButton({ text, variant = 'dark', className = '', onClick, children }) {
   const label = text || children

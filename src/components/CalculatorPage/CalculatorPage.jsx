@@ -73,7 +73,7 @@ export default function CalculatorPage() {
   const [connectedCallsPerDay, setConnectedCallsPerDay] = useState(45)
 
   /* AI */
-  const [aiRatePerMinute,      setAiRatePerMinute]      = useState(7)
+  const [aiRatePerMinute,      setAiRatePerMinute]      = useState(10)
   const [aiCallDurationSec,    setAiCallDurationSec]    = useState(75)
 
   /* RECOVERY */
@@ -158,7 +158,7 @@ export default function CalculatorPage() {
             {/* Human team */}
             <div className="calc-input-card">
               <div className="calc-input-card__badge calc-input-card__badge--human">Human Telecaller Cost</div>
-              <SliderField label="Salary per Agent (₹)"          value={salaryPerAgent}     min={10000} max={35000}  step={500}  onChange={setSalaryPerAgent}     display={v => '₹' + v.toLocaleString('en-IN')} />
+              <SliderField label="Salary per Agent (₹)"          value={salaryPerAgent}     min={10000} max={55000}  step={500}  onChange={setSalaryPerAgent}     display={v => '₹' + v.toLocaleString('en-IN')} />
               <SliderField label="PF + ESI (₹)"                  value={pfEsi}              min={1000}  max={8000}   step={250}  onChange={setPfEsi}              display={v => '₹' + v.toLocaleString('en-IN')} />
               <SliderField label="Incentives (₹)"                value={incentives}         min={0}     max={15000}  step={500}  onChange={setIncentives}         display={v => '₹' + v.toLocaleString('en-IN')} />
               <SliderField label="Telephony / Dialer (₹)"        value={telephony}          min={500}   max={6000}   step={250}  onChange={setTelephony}          display={v => '₹' + v.toLocaleString('en-IN')} />

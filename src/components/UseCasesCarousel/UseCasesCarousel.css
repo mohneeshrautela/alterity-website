@@ -145,10 +145,24 @@
 }
 
 @media (max-width: 600px) {
+  .uc-wrap {
+    padding: 28px 16px 36px;
+    border-radius: 14px;
+  }
   .uc-embla__slide {
-    flex: 0 0 80%;
+    flex: 0 0 88%;
   }
   .uc-hero__title {
-    font-size: 34px;
+    font-size: 30px;
+    letter-spacing: -1px;
+  }
+  .uc-hero__sub {
+    font-size: 14px;
+  }
+  .uc-card {
+    padding: 24px 20px 28px;
+  }
+  .uc-card__title {
+    font-size: 16px;
   }
 }

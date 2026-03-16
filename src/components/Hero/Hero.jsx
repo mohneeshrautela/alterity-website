@@ -59,7 +59,7 @@ export default function Hero() {
 
         <div className="hero__actions">
           <FlowButton text="Hear a Real Call" variant="outlined" className="hero__btn-primary" />
-          <FlowButton text="Calculator" variant="outlined" className="hero__btn-secondary" />
+          <FlowButton text="Calculate Your Monthly Cost Leak" variant="outlined" className="hero__btn-secondary" />
         </div>
 
         <div className="hero__stats">
