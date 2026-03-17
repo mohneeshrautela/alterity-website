@@ -1,67 +1,87 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import './CalculatorPage.css'
+import FlowButton from '../FlowButton/FlowButton'
 
 /* ── Helpers ─────────────────────────────────────────── */
-const inr  = (n) => '₹' + Math.round(n).toLocaleString('en-IN')
+const fmt  = (n) => Math.round(n).toLocaleString('en-IN')
+const inr  = (n) => '₹' + fmt(n)
 const inr2 = (n) => '₹' + n.toFixed(2)
 const pct  = (n) => n.toFixed(1) + '%'
 const ratio= (n) => n.toFixed(1) + 'x'
 
-/* ── Sub-components ──────────────────────────────────── */
+/* ── Slider field ────────────────────────────────────── */
 function SliderField({ label, value, min, max, step, onChange, display, hint }) {
   return (
     <div className="sf">
       <div className="sf__top">
-        <span className="sf__label">{label}{hint && <span className="sf__hint"> — {hint}</span>}</span>
+        <span className="sf__label">
+          {label}
+          {hint && <span className="sf__hint"> — {hint}</span>}
+        </span>
         <span className="sf__value">{display(value)}</span>
       </div>
-      <input className="sf__slider" type="range" min={min} max={max} step={step}
-        value={value} onChange={(e) => onChange(Number(e.target.value))} />
-      <div className="sf__range"><span>{display(min)}</span><span>{display(max)}</span></div>
-    </div>
-  )
-}
-
-function BarRow({ label, widthPct, displayVal, type }) {
-  return (
-    <div className="bar-row">
-      <div className="bar-row__label">{label}</div>
-      <div className="bar-row__track">
-        <div className={`bar-row__fill bar-row__fill--${type}`} style={{ width: `${Math.max(widthPct, 2)}%` }} />
+      <input
+        className="sf__slider" type="range"
+        min={min} max={max} step={step}
+        value={value}
+        onChange={(e) => onChange(Number(e.target.value))}
+      />
+      <div className="sf__range">
+        <span>{display(min)}</span>
+        <span>{display(max)}</span>
       </div>
-      <div className="bar-row__val">{displayVal}</div>
     </div>
   )
 }
 
-function BRow({ label, value, bold, indent }) {
+/* ── Callout box ─────────────────────────────────────── */
+function Callout({ label, value, variant }) {
   return (
-    <div className={`brow ${bold ? 'brow--bold' : ''} ${indent ? 'brow--indent' : ''}`}>
-      <span className="brow__label">{label}</span>
-      <span className="brow__val">{value}</span>
+    <div className={`wiz-callout${variant ? ` wiz-callout--${variant}` : ''}`}>
+      <span className="wiz-callout__label">{label}</span>
+      <span className="wiz-callout__val">{value}</span>
     </div>
   )
 }
 
-function CompRow({ factor, human, ai, aiWins }) {
+/* ── Step config ─────────────────────────────────────── */
+const STEPS = [
+  { title: 'Call Volume',           subtitle: 'How many accounts are you working each month?',               badge: null },
+  { title: 'Human Telecaller Cost', subtitle: 'What does your current team actually cost?',                   badge: 'human' },
+  { title: 'AI Pay per Minute',     subtitle: 'Configure the Alterity AI pricing — pay only for talk time.',  badge: 'ai' },
+  { title: 'Recovery Impact',       subtitle: 'Estimate the financial uplift from higher recovery rates.',    badge: 'recovery' },
+]
+
+/* ── Result row ──────────────────────────────────────── */
+function BRow({ label, val, bold }) {
   return (
-    <tr className="comp-row">
-      <td className="comp-row__factor">{factor}</td>
-      <td className={`comp-row__human ${!aiWins ? 'comp-row__winner' : ''}`}>{human}</td>
-      <td className={`comp-row__ai   ${ aiWins ? 'comp-row__winner' : ''}`}>{ai}</td>
-    </tr>
+    <div className={`res-brow${bold ? ' res-brow--bold' : ''}`}>
+      <span>{label}</span><span>{val}</span>
+    </div>
   )
 }
 
-/* ── Main Component ──────────────────────────────────── */
+/* ════════════════════════════════════════════════════════
+   MAIN COMPONENT
+   ════════════════════════════════════════════════════════ */
 export default function CalculatorPage() {
+
+  const [step,       setStep]       = useState(0)
+  const [calculated, setCalculated] = useState(false)
+  const resultsRef = useRef(null)
+
+  useEffect(() => {
+    if (calculated && resultsRef.current) {
+      resultsRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }, [calculated])
 
   /* VOLUME */
   const [accountsPerMonth,     setAccountsPerMonth]     = useState(20000)
   const [attemptsPerAccount,   setAttemptsPerAccount]   = useState(3)
   const [workingDays,          setWorkingDays]          = useState(24)
 
-  /* HUMAN TEAM */
+  /* HUMAN */
   const [salaryPerAgent,       setSalaryPerAgent]       = useState(18000)
   const [pfEsi,                setPfEsi]                = useState(3000)
   const [incentives,           setIncentives]           = useState(4000)
@@ -73,253 +93,396 @@ export default function CalculatorPage() {
   const [connectedCallsPerDay, setConnectedCallsPerDay] = useState(45)
 
   /* AI */
-  const [aiRatePerMinute,      setAiRatePerMinute]      = useState(10)
-  const [aiCallDurationSec,    setAiCallDurationSec]    = useState(75)
+  const [aiRatePerMinute,   setAiRatePerMinute]   = useState(10)
+  const [aiCallDurationSec, setAiCallDurationSec] = useState(75)
 
   /* RECOVERY */
-  const [avgLoanAmount,        setAvgLoanAmount]        = useState(50000)
-  const [currentRecoveryRate,  setCurrentRecoveryRate]  = useState(35)   // stored as %
-  const [aiRecoveryUplift,     setAiRecoveryUplift]     = useState(15)   // stored as %
+  const [avgLoanAmount,       setAvgLoanAmount]       = useState(50000)
+  const [currentRecoveryRate, setCurrentRecoveryRate] = useState(35)
+  const [aiRecoveryUplift,    setAiRecoveryUplift]    = useState(15)
 
-  /* ── STEP 1: Total calls ──────────────────────────── */
-  const totalConnectedCalls = accountsPerMonth * attemptsPerAccount
-
-  /* ── STEP 2: Human team sizing ────────────────────── */
+  /* ── CALCULATIONS ─────────────────────────────────── */
+  const totalConnectedCalls            = accountsPerMonth * attemptsPerAccount
   const connectedCallsPerMonthPerAgent = connectedCallsPerDay * workingDays
-  const agentsRequired = Math.max(1, Math.ceil(totalConnectedCalls / connectedCallsPerMonthPerAgent))
+  const agentsRequired                 = Math.max(1, Math.ceil(totalConnectedCalls / connectedCallsPerMonthPerAgent))
 
-  /* ── STEP 3: Human monthly cost ───────────────────── */
   const fullyLoadedPerAgent = salaryPerAgent + pfEsi + incentives + telephony
                             + seatCost + supervisorAlloc + trainingAmortized + attritionAmortized
-  const humanMonthlyCost = agentsRequired * fullyLoadedPerAgent
+  const humanMonthlyCost    = agentsRequired * fullyLoadedPerAgent
+  const humanCostPerCall    = humanMonthlyCost / totalConnectedCalls
 
-  /* ── STEP 4: Human cost per call ──────────────────── */
-  const humanCostPerCall = humanMonthlyCost / totalConnectedCalls
-
-  /* ── STEP 5: AI monthly cost ──────────────────────── */
   const aiCallDurationMin = aiCallDurationSec / 60
   const totalAiMinutes    = Math.round(totalConnectedCalls * aiCallDurationMin)
   const aiMonthlyCost     = totalAiMinutes * aiRatePerMinute
+  const aiCostPerCall     = aiMonthlyCost / totalConnectedCalls
 
-  /* ── STEP 6: AI cost per call ─────────────────────── */
-  const aiCostPerCall = aiMonthlyCost / totalConnectedCalls
+  const monthlySavings  = Math.max(0, humanMonthlyCost - aiMonthlyCost)
+  const savingsPct      = humanMonthlyCost > 0 ? (monthlySavings / humanMonthlyCost) * 100 : 0
+  const annualSavings   = monthlySavings * 12
+  const costRatio       = aiCostPerCall > 0 ? humanCostPerCall / aiCostPerCall : 0
+  const aiMoreExpensive = aiMonthlyCost > humanMonthlyCost
 
-  /* ── STEP 7: Savings ──────────────────────────────── */
-  const aiMoreExpensive  = aiMonthlyCost > humanMonthlyCost
-  const monthlySavings   = Math.max(0, humanMonthlyCost - aiMonthlyCost)
-  const savingsPct       = humanMonthlyCost > 0 ? (monthlySavings / humanMonthlyCost) * 100 : 0
-  const annualSavings    = monthlySavings * 12
-
-  /* ── STEP 8: Cost ratio ───────────────────────────── */
-  const costRatio = aiCostPerCall > 0 ? humanCostPerCall / aiCostPerCall : 0
-
-  /* ── STEP 9: Recovery ROI ─────────────────────────── */
-  const crFrac           = currentRecoveryRate / 100
-  const upliftFrac       = aiRecoveryUplift / 100
-  const newRecoveryRate  = Math.min(crFrac + upliftFrac, 0.85)
+  const crFrac          = currentRecoveryRate / 100
+  const upliftFrac      = aiRecoveryUplift / 100
+  const newRecoveryRate = Math.min(crFrac + upliftFrac, 0.85)
 
   const accountsRecoveredNow = accountsPerMonth * crFrac
   const recoveryValueNow     = accountsRecoveredNow * avgLoanAmount
-
   const accountsRecoveredAI  = accountsPerMonth * newRecoveryRate
   const recoveryValueAI      = accountsRecoveredAI * avgLoanAmount
   const additionalRecovery   = recoveryValueAI - recoveryValueNow
 
-  /* ── STEP 10: Net benefit & ROI ───────────────────── */
   const netMonthlyBenefit = monthlySavings + additionalRecovery
   const roiMultiplier     = aiMonthlyCost > 0 ? netMonthlyBenefit / aiMonthlyCost : 0
 
-  /* ── Chart scales ─────────────────────────────────── */
   const maxCost = Math.max(humanMonthlyCost, aiMonthlyCost)
-  const maxCPC  = Math.max(humanCostPerCall,  aiCostPerCall)
+  const maxCPC  = Math.max(humanCostPerCall, aiCostPerCall)
+
+  /* ── Step nav ─────────────────────────────────────── */
+  const goNext = () => { if (step < 3) setStep(s => s + 1) }
+  const goBack = () => { if (step > 0) { setStep(s => s - 1); setCalculated(false) } }
+  const goTo   = (i) => { if (i < step) { setStep(i); setCalculated(false) } }
+
+  const stepSummaries = [
+    `${fmt(accountsPerMonth)} accounts · ${attemptsPerAccount} attempts · ${workingDays} days`,
+    `${agentsRequired} agents · ${inr(fullyLoadedPerAgent)}/agent · Total ${inr(humanMonthlyCost)}/mo`,
+    `₹${aiRatePerMinute.toFixed(1)}/min · ${aiCallDurationSec}s · Total ${inr(aiMonthlyCost)}/mo`,
+    `${currentRecoveryRate}% → ${pct(newRecoveryRate * 100)} · +${inr(additionalRecovery)}/mo`,
+  ]
 
   return (
     <div className="calc-page">
       <div className="calc-page__inner">
 
+        {/* ── Header ────────────────────────────────────── */}
         <div className="calc-header">
-          <h1 className="calc-header__title">ROI Calculator</h1>
-          <p className="calc-header__sub">AI Voice Agents vs Human Telecallers — built for loan recovery operations</p>
+          <h1 className="calc-header__title">See your savings in 4 steps</h1>
+          <p className="calc-header__sub">
+            AI Agents vs Human Telecallers
+          </p>
         </div>
 
-        <div className="calc-layout">
+        {/* ── Stepper ───────────────────────────────────── */}
+        <div className="wiz-stepper">
+          {STEPS.map((s, i) => (
+            <div
+              key={i}
+              className={`wiz-step${i < step ? ' wiz-step--done' : ''}${i === step ? ' wiz-step--active' : ''}`}
+              onClick={() => goTo(i)}
+            >
+              <div className="wiz-step__dot">
+                {i < step
+                  ? <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5l3 3L11 3" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  : String(i + 1).padStart(2, '0')
+                }
+              </div>
+              <div className="wiz-step__label">{s.title}</div>
+            </div>
+          ))}
+        </div>
 
-          {/* ── LEFT: INPUTS ─────────────────────────── */}
-          <div className="calc-inputs-col">
+        {/* ── Completed chips ───────────────────────────── */}
+        {step > 0 && (
+          <div className="wiz-chips">
+            {STEPS.slice(0, step).map((s, i) => (
+              <button key={i} className="wiz-chip" onClick={() => goTo(i)}>
+                <span className="wiz-chip__num">{i + 1}</span>
+                <span className="wiz-chip__title">{s.title}</span>
+                <span className="wiz-chip__val">{stepSummaries[i]}</span>
+                <span className="wiz-chip__edit">Edit</span>
+              </button>
+            ))}
+          </div>
+        )}
 
-            {/* Volume */}
-            <div className="calc-input-card">
-              <div className="calc-input-card__badge" style={{ background: 'rgba(29,18,5,0.08)', color: 'var(--dark)' }}>Call Volume</div>
+        {/* ── Active step card ──────────────────────────── */}
+        <div className="wiz-card" key={step}>
+          <div className="wiz-card__header">
+            <div className="wiz-card__num">0{step + 1}</div>
+            <div>
+              <div className={`wiz-card__badge${STEPS[step].badge ? ` wiz-card__badge--${STEPS[step].badge}` : ''}`}>{STEPS[step].title}</div>
+              <div className="wiz-card__subtitle">{STEPS[step].subtitle}</div>
+            </div>
+          </div>
+
+          <div className="wiz-card__body">
+
+            {step === 0 && <>
               <SliderField label="Delinquent Accounts / Month" value={accountsPerMonth}   min={1000}  max={100000} step={1000} onChange={setAccountsPerMonth}   display={v => v.toLocaleString('en-IN')} />
-              <SliderField label="Call Attempts per Account"   value={attemptsPerAccount} min={1}     max={10}     step={1}    onChange={setAttemptsPerAccount} display={v => v} hint="attempts before giving up" />
+              <SliderField label="Call Attempts per Account"   value={attemptsPerAccount} min={1}     max={10}     step={1}    onChange={setAttemptsPerAccount} display={v => v + ' attempts'} hint="before giving up" />
               <SliderField label="Working Days per Month"      value={workingDays}        min={20}    max={28}     step={1}    onChange={setWorkingDays}        display={v => v + ' days'} />
-            </div>
+              <Callout label="Total Calls to Handle" value={totalConnectedCalls.toLocaleString('en-IN')} variant="accent" />
+            </>}
 
-            {/* Human team */}
-            <div className="calc-input-card">
-              <div className="calc-input-card__badge calc-input-card__badge--human">Human Telecaller Cost</div>
-              <SliderField label="Salary per Agent (₹)"          value={salaryPerAgent}     min={10000} max={55000}  step={500}  onChange={setSalaryPerAgent}     display={v => '₹' + v.toLocaleString('en-IN')} />
-              <SliderField label="PF + ESI (₹)"                  value={pfEsi}              min={1000}  max={8000}   step={250}  onChange={setPfEsi}              display={v => '₹' + v.toLocaleString('en-IN')} />
-              <SliderField label="Incentives (₹)"                value={incentives}         min={0}     max={15000}  step={500}  onChange={setIncentives}         display={v => '₹' + v.toLocaleString('en-IN')} />
-              <SliderField label="Telephony / Dialer (₹)"        value={telephony}          min={500}   max={6000}   step={250}  onChange={setTelephony}          display={v => '₹' + v.toLocaleString('en-IN')} />
-              <SliderField label="Seat + Office Cost (₹)"        value={seatCost}           min={1000}  max={10000}  step={500}  onChange={setSeatCost}           display={v => '₹' + v.toLocaleString('en-IN')} />
-              <SliderField label="Supervisor Allocation (₹)"     value={supervisorAlloc}    min={500}   max={6000}   step={250}  onChange={setSupervisorAlloc}    display={v => '₹' + v.toLocaleString('en-IN')} />
-              <SliderField label="Training Cost Amortised (₹)"   value={trainingAmortized}  min={0}     max={6000}   step={250}  onChange={setTrainingAmortized}  display={v => '₹' + v.toLocaleString('en-IN')} />
-              <SliderField label="Attrition Cost Amortised (₹)"  value={attritionAmortized} min={0}     max={8000}   step={250}  onChange={setAttritionAmortized} display={v => '₹' + v.toLocaleString('en-IN')} />
-              <SliderField label="Connected Calls / Agent / Day" value={connectedCallsPerDay} min={20} max={100}    step={1}    onChange={setConnectedCallsPerDay} display={v => v} hint="40–55% connect rate in recovery" />
-            </div>
+            {step === 1 && <>
+              <SliderField label="Salary per Agent (₹)"          value={salaryPerAgent}       min={10000} max={55000}  step={500}  onChange={setSalaryPerAgent}       display={v => '₹' + v.toLocaleString('en-IN')} />
+              <SliderField label="PF + ESI (₹)"                  value={pfEsi}                min={1000}  max={8000}   step={250}  onChange={setPfEsi}                display={v => '₹' + v.toLocaleString('en-IN')} />
+              <SliderField label="Incentives (₹)"                value={incentives}           min={0}     max={15000}  step={500}  onChange={setIncentives}           display={v => '₹' + v.toLocaleString('en-IN')} />
+              <SliderField label="Telephony / Dialer (₹)"        value={telephony}            min={500}   max={6000}   step={250}  onChange={setTelephony}            display={v => '₹' + v.toLocaleString('en-IN')} />
+              <SliderField label="Seat + Office Cost (₹)"        value={seatCost}             min={1000}  max={10000}  step={500}  onChange={setSeatCost}             display={v => '₹' + v.toLocaleString('en-IN')} />
+              <SliderField label="Supervisor Allocation (₹)"     value={supervisorAlloc}      min={500}   max={6000}   step={250}  onChange={setSupervisorAlloc}      display={v => '₹' + v.toLocaleString('en-IN')} />
+              <SliderField label="Training Cost Amortised (₹)"   value={trainingAmortized}    min={0}     max={6000}   step={250}  onChange={setTrainingAmortized}    display={v => '₹' + v.toLocaleString('en-IN')} />
+              <SliderField label="Attrition Cost Amortised (₹)"  value={attritionAmortized}   min={0}     max={8000}   step={250}  onChange={setAttritionAmortized}   display={v => '₹' + v.toLocaleString('en-IN')} />
+              <SliderField label="Connected Calls / Agent / Day" value={connectedCallsPerDay} min={20}    max={100}    step={1}    onChange={setConnectedCallsPerDay} display={v => v + ' calls'} hint="40–55% connect rate" />
+              <div className="wiz-callout-row">
+                <Callout label="Agents Required"      value={agentsRequired} />
+                <Callout label="Fully Loaded / Agent" value={inr(fullyLoadedPerAgent)} />
+              </div>
+              <Callout label="Total Human Monthly Cost" value={inr(humanMonthlyCost)} variant="total" />
+            </>}
 
-            {/* AI */}
-            <div className="calc-input-card">
-              <div className="calc-input-card__badge calc-input-card__badge--ai">Alterity AI — Pay per Minute</div>
-              <SliderField label="Rate per Minute (₹)"    value={aiRatePerMinute}  min={1}  max={20}  step={0.5} onChange={setAiRatePerMinute}  display={v => '₹' + v.toFixed(1) + '/min'} hint="no SaaS fee, no per-call fee" />
-              <SliderField label="Avg Call Duration"      value={aiCallDurationSec} min={30} max={300} step={5}  onChange={setAiCallDurationSec} display={v => `${v}s (${(v/60).toFixed(2)} min)`} hint="60–90s typical for recovery" />
-            </div>
+            {step === 2 && <>
+              <SliderField label="Rate per Minute (₹)" value={aiRatePerMinute}   min={1}  max={20}  step={0.5} onChange={setAiRatePerMinute}   display={v => '₹' + v.toFixed(1) + '/min'} hint="no SaaS fee, no per-call fee" />
+              <SliderField label="Avg Call Duration"   value={aiCallDurationSec} min={30} max={300} step={5}   onChange={setAiCallDurationSec} display={v => `${v}s (${(v/60).toFixed(2)} min)`} hint="60–90s typical for recovery" />
+              <div className="wiz-callout-row">
+                <Callout label="Total Calls"          value={totalConnectedCalls.toLocaleString('en-IN')} />
+                <Callout label="Total Minutes Billed" value={totalAiMinutes.toLocaleString('en-IN') + ' min'} />
+              </div>
+              <Callout label="AI Monthly Cost" value={inr(aiMonthlyCost)} variant="total" />
+              {aiMoreExpensive && (
+                <div className="wiz-warning">
+                  Adjust rate or call duration — AI cost currently exceeds human cost at these settings
+                </div>
+              )}
+            </>}
 
-            {/* Recovery */}
-            <div className="calc-input-card">
-              <div className="calc-input-card__badge" style={{ background: 'rgba(240,247,107,0.4)', color: 'var(--dark)' }}>Recovery Impact</div>
-              <SliderField label="Avg Loan Amount (₹)"          value={avgLoanAmount}       min={5000}  max={500000} step={5000} onChange={setAvgLoanAmount}       display={v => '₹' + v.toLocaleString('en-IN')} />
-              <SliderField label="Current Recovery Rate"        value={currentRecoveryRate} min={5}     max={80}     step={1}    onChange={setCurrentRecoveryRate} display={v => v + '%'} />
-              <SliderField label="AI Recovery Uplift"           value={aiRecoveryUplift}    min={1}     max={40}     step={1}    onChange={setAiRecoveryUplift}    display={v => '+' + v + '%'} hint="capped at 85% total" />
-            </div>
+            {step === 3 && <>
+              <SliderField label="Avg Loan Amount (₹)"   value={avgLoanAmount}       min={5000}  max={500000} step={5000} onChange={setAvgLoanAmount}       display={v => '₹' + v.toLocaleString('en-IN')} />
+              <SliderField label="Current Recovery Rate" value={currentRecoveryRate} min={5}     max={80}     step={1}    onChange={setCurrentRecoveryRate} display={v => v + '%'} />
+              <SliderField label="AI Recovery Uplift"    value={aiRecoveryUplift}    min={1}     max={40}     step={1}    onChange={setAiRecoveryUplift}    display={v => '+' + v + '%'} hint="capped at 85% total" />
+              <div className="wiz-callout-row">
+                <Callout label="New Recovery Rate"  value={pct(newRecoveryRate * 100) + (crFrac + upliftFrac > 0.85 ? ' (capped)' : '')} />
+                <Callout label="Accounts Recovered" value={Math.round(accountsRecoveredAI).toLocaleString('en-IN')} />
+              </div>
+              <Callout label="Additional Recovery / Month" value={inr(additionalRecovery)} variant="total" />
+            </>}
 
           </div>
 
-          {/* ── RIGHT: RESULTS ───────────────────────── */}
-          <div className="calc-results-col">
-
-            {/* Warning banner */}
-            {aiMoreExpensive && (
-              <div className="calc-warning">
-                ⚠ Adjust AI rate or call duration — AI cost exceeds human cost at these settings
-              </div>
+          <div className="wiz-card__footer">
+            {step > 0 && (
+              <button className="wiz-btn wiz-btn--back" onClick={goBack}>← Back</button>
             )}
+            {step < 3 ? (
+              <button className="wiz-btn wiz-btn--next" onClick={goNext}>
+                Next: {STEPS[step + 1].title}
+              </button>
+            ) : (
+              <button className="wiz-btn wiz-btn--calculate" onClick={() => setCalculated(true)}>
+                Calculate My ROI
+              </button>
+            )}
+          </div>
+        </div>
 
-            {/* Summary tiles */}
-            <div className="calc-summary">
-              <div className="calc-tile calc-tile--hero">
-                <div className="calc-tile__label">Monthly Savings</div>
-                <div className="calc-tile__value">{inr(monthlySavings)}</div>
-                <div className="calc-tile__sub">{pct(savingsPct)} cost reduction · {ratio(costRatio)} cheaper per call</div>
+        {/* ════════════════════════════════════════════════
+            RESULTS
+            ════════════════════════════════════════════════ */}
+        {calculated && (
+          <div className="calc-results" ref={resultsRef}>
+
+            {/* ── Hero banner ── */}
+            <div className="res-hero">
+              <div className="res-hero__left">
+                <div className="res-hero__kicker">Your ROI Analysis</div>
+                <div className="res-hero__savings">{inr(monthlySavings)}</div>
+                <div className="res-hero__saved-label">saved every month</div>
+                <div className="res-hero__pills">
+                  <span className="res-pill">{pct(savingsPct)} cost reduction</span>
+                  <span className="res-pill">{ratio(costRatio)} cheaper per call</span>
+                  <span className="res-pill">{inr(annualSavings)} annually</span>
+                </div>
               </div>
-              <div className="calc-tile">
-                <div className="calc-tile__label">Annual Savings</div>
-                <div className="calc-tile__value">{inr(annualSavings)}</div>
-              </div>
-              <div className="calc-tile">
-                <div className="calc-tile__label">ROI (incl. recovery)</div>
-                <div className="calc-tile__value">{ratio(roiMultiplier)}</div>
-              </div>
-              <div className="calc-tile">
-                <div className="calc-tile__label">Agents Required</div>
-                <div className="calc-tile__value">{agentsRequired}</div>
-                <div className="calc-tile__note">for {totalConnectedCalls.toLocaleString('en-IN')} calls/mo</div>
+              <div className="res-hero__divider" />
+              <div className="res-hero__right">
+                <div className="res-metric">
+                  <div className="res-metric__val">{ratio(roiMultiplier)}</div>
+                  <div className="res-metric__label">ROI incl. recovery</div>
+                </div>
+                <div className="res-metric">
+                  <div className="res-metric__val">{agentsRequired}</div>
+                  <div className="res-metric__label">Agents replaced</div>
+                </div>
+                <div className="res-metric">
+                  <div className="res-metric__val">{inr(netMonthlyBenefit)}</div>
+                  <div className="res-metric__label">Net monthly benefit</div>
+                </div>
               </div>
             </div>
 
-            {/* Bar charts */}
-            <div className="calc-charts">
-              <div className="calc-chart-card">
-                <h3 className="calc-chart-card__title">Monthly Cost</h3>
-                <BarRow label="Human Team"  widthPct={(humanMonthlyCost / maxCost) * 100} displayVal={inr(humanMonthlyCost)} type="human" />
-                <BarRow label="Alterity AI" widthPct={(aiMonthlyCost    / maxCost) * 100} displayVal={inr(aiMonthlyCost)}    type="ai"    />
+            {/* ── 6-tile grid ── */}
+            <div className="res-grid">
+              <div className="res-card res-card--hero">
+                <div className="res-card__label">Monthly Savings</div>
+                <div className="res-card__value">{inr(monthlySavings)}</div>
+                <div className="res-card__note">{pct(savingsPct)} cost reduction</div>
               </div>
-              <div className="calc-chart-card">
-                <h3 className="calc-chart-card__title">Cost per Connected Call</h3>
-                <BarRow label="Human Team"  widthPct={(humanCostPerCall / maxCPC) * 100} displayVal={inr2(humanCostPerCall)} type="human" />
-                <BarRow label="Alterity AI" widthPct={(aiCostPerCall    / maxCPC) * 100} displayVal={inr2(aiCostPerCall)}    type="ai"    />
+              <div className="res-card">
+                <div className="res-card__label">Annual Savings</div>
+                <div className="res-card__value">{inr(annualSavings)}</div>
+                <div className="res-card__note">across 12 months</div>
               </div>
-            </div>
-
-            {/* Cost breakdown */}
-            <div className="calc-breakdown">
-              <h3 className="calc-breakdown__title">Cost Breakdown</h3>
-              <div className="calc-breakdown__cols">
-
-                <div className="calc-breakdown__col">
-                  <div className="calc-breakdown__col-head calc-breakdown__col-head--human">Human Team ({agentsRequired} agents)</div>
-                  <BRow label="Salary"                  value={inr(salaryPerAgent)}     indent />
-                  <BRow label="PF + ESI"                value={inr(pfEsi)}              indent />
-                  <BRow label="Incentives"              value={inr(incentives)}         indent />
-                  <BRow label="Telephony / Dialer"      value={inr(telephony)}          indent />
-                  <BRow label="Seat + Office"           value={inr(seatCost)}           indent />
-                  <BRow label="Supervisor Allocation"   value={inr(supervisorAlloc)}    indent />
-                  <BRow label="Training (amortised)"    value={inr(trainingAmortized)}  indent />
-                  <BRow label="Attrition (amortised)"   value={inr(attritionAmortized)} indent />
-                  <BRow label="Fully Loaded / Agent"    value={inr(fullyLoadedPerAgent)} bold />
-                  <BRow label="Total Monthly"           value={inr(humanMonthlyCost)}   bold />
-                  <BRow label="Cost per Connected Call" value={inr2(humanCostPerCall)}  bold />
-                </div>
-
-                <div className="calc-breakdown__col">
-                  <div className="calc-breakdown__col-head calc-breakdown__col-head--ai">Alterity AI (1 agent)</div>
-                  <BRow label="Total Connected Calls"   value={totalConnectedCalls.toLocaleString('en-IN')} indent />
-                  <BRow label="Avg Call Duration"       value={`${aiCallDurationSec}s (${aiCallDurationMin.toFixed(2)} min)`} indent />
-                  <BRow label="Total Minutes Billed"    value={totalAiMinutes.toLocaleString('en-IN') + ' min'} indent />
-                  <BRow label="Rate per Minute"         value={'₹' + aiRatePerMinute.toFixed(1) + '/min'} indent />
-                  <BRow label="SaaS / Platform Fee"     value="₹0" indent />
-                  <BRow label="Per-Call Fee"            value="₹0" indent />
-                  <BRow label="Total Monthly"           value={inr(aiMonthlyCost)}  bold />
-                  <BRow label="Cost per Connected Call" value={inr2(aiCostPerCall)} bold />
-                </div>
-
+              <div className="res-card">
+                <div className="res-card__label">ROI Multiplier</div>
+                <div className="res-card__value">{ratio(roiMultiplier)}</div>
+                <div className="res-card__note">net benefit ÷ AI cost</div>
+              </div>
+              <div className="res-card">
+                <div className="res-card__label">Agents Required</div>
+                <div className="res-card__value">{agentsRequired}</div>
+                <div className="res-card__note">vs 1 AI agent</div>
+              </div>
+              <div className="res-card">
+                <div className="res-card__label">Monthly AI Cost</div>
+                <div className="res-card__value">{inr(aiMonthlyCost)}</div>
+                <div className="res-card__note">pay per minute only</div>
+              </div>
+              <div className="res-card">
+                <div className="res-card__label">Cost / Connected Call</div>
+                <div className="res-card__value">{inr2(aiCostPerCall)}</div>
+                <div className="res-card__note">vs {inr2(humanCostPerCall)} human</div>
               </div>
             </div>
 
-            {/* Recovery ROI */}
-            <div className="calc-breakdown">
-              <h3 className="calc-breakdown__title">Recovery Impact</h3>
-              <div className="calc-breakdown__cols">
-                <div className="calc-breakdown__col">
-                  <div className="calc-breakdown__col-head calc-breakdown__col-head--human">Without AI</div>
-                  <BRow label="Recovery Rate"           value={pct(crFrac * 100)} indent />
-                  <BRow label="Accounts Recovered"      value={Math.round(accountsRecoveredNow).toLocaleString('en-IN')} indent />
-                  <BRow label="Recovery Value / Month"  value={inr(recoveryValueNow)} bold />
+            {/* ── Bar charts ── */}
+            <div className="res-charts">
+              <div className="res-chart">
+                <div className="res-chart__title">Monthly Cost</div>
+                <div className="res-bar-group">
+                  <div className="res-bar-label">Human Team</div>
+                  <div className="res-bar-track">
+                    <div className="res-bar-fill res-bar-fill--human" style={{ width: `${Math.max((humanMonthlyCost / maxCost) * 100, 2)}%` }} />
+                  </div>
+                  <div className="res-bar-val">{inr(humanMonthlyCost)}</div>
                 </div>
-                <div className="calc-breakdown__col">
-                  <div className="calc-breakdown__col-head calc-breakdown__col-head--ai">With Alterity AI</div>
-                  <BRow label="Recovery Rate"           value={pct(newRecoveryRate * 100) + (crFrac + upliftFrac > 0.85 ? ' (capped)' : '')} indent />
-                  <BRow label="Accounts Recovered"      value={Math.round(accountsRecoveredAI).toLocaleString('en-IN')} indent />
-                  <BRow label="Recovery Value / Month"  value={inr(recoveryValueAI)} bold />
-                  <BRow label="Additional Recovery"     value={inr(additionalRecovery)} bold />
+                <div className="res-bar-group">
+                  <div className="res-bar-label">Alterity AI</div>
+                  <div className="res-bar-track">
+                    <div className="res-bar-fill res-bar-fill--ai" style={{ width: `${Math.max((aiMonthlyCost / maxCost) * 100, 2)}%` }} />
+                  </div>
+                  <div className="res-bar-val">{inr(aiMonthlyCost)}</div>
                 </div>
               </div>
-              <div className="calc-breakdown__total-row">
+              <div className="res-chart">
+                <div className="res-chart__title">Cost per Connected Call</div>
+                <div className="res-bar-group">
+                  <div className="res-bar-label">Human Team</div>
+                  <div className="res-bar-track">
+                    <div className="res-bar-fill res-bar-fill--human" style={{ width: `${Math.max((humanCostPerCall / maxCPC) * 100, 2)}%` }} />
+                  </div>
+                  <div className="res-bar-val">{inr2(humanCostPerCall)}</div>
+                </div>
+                <div className="res-bar-group">
+                  <div className="res-bar-label">Alterity AI</div>
+                  <div className="res-bar-track">
+                    <div className="res-bar-fill res-bar-fill--ai" style={{ width: `${Math.max((aiCostPerCall / maxCPC) * 100, 2)}%` }} />
+                  </div>
+                  <div className="res-bar-val">{inr2(aiCostPerCall)}</div>
+                </div>
+              </div>
+            </div>
+
+            {/* ── Cost breakdown ── */}
+            <div className="res-section">
+              <div className="res-section__title">Cost Breakdown</div>
+              <div className="res-two-col">
+                <div className="res-col">
+                  <div className="res-col__head res-col__head--human">Human Team ({agentsRequired} agents)</div>
+                  <BRow label="Salary / agent"            val={inr(salaryPerAgent)} />
+                  <BRow label="PF + ESI"                  val={inr(pfEsi)} />
+                  <BRow label="Incentives"                val={inr(incentives)} />
+                  <BRow label="Telephony / Dialer"        val={inr(telephony)} />
+                  <BRow label="Seat + Office"             val={inr(seatCost)} />
+                  <BRow label="Supervisor Allocation"     val={inr(supervisorAlloc)} />
+                  <BRow label="Training (amortised)"      val={inr(trainingAmortized)} />
+                  <BRow label="Attrition (amortised)"     val={inr(attritionAmortized)} />
+                  <BRow label="Fully Loaded / Agent / Mo" val={inr(fullyLoadedPerAgent)} bold />
+                  <BRow label="Total Monthly"             val={inr(humanMonthlyCost)}   bold />
+                  <BRow label="Cost per Connected Call"   val={inr2(humanCostPerCall)}  bold />
+                </div>
+                <div className="res-col">
+                  <div className="res-col__head res-col__head--ai">Alterity AI (1 agent)</div>
+                  <BRow label="Total Connected Calls"  val={totalConnectedCalls.toLocaleString('en-IN')} />
+                  <BRow label="Avg Call Duration"      val={`${aiCallDurationSec}s (${aiCallDurationMin.toFixed(2)} min)`} />
+                  <BRow label="Total Minutes Billed"   val={totalAiMinutes.toLocaleString('en-IN') + ' min'} />
+                  <BRow label="Rate per Minute"        val={'₹' + aiRatePerMinute.toFixed(1) + '/min'} />
+                  <BRow label="SaaS / Platform Fee"    val="₹0" />
+                  <BRow label="Per-Call Fee"           val="₹0" />
+                  <BRow label="Total Monthly"          val={inr(aiMonthlyCost)}  bold />
+                  <BRow label="Cost per Connected Call" val={inr2(aiCostPerCall)} bold />
+                </div>
+              </div>
+            </div>
+
+            {/* ── Recovery impact ── */}
+            <div className="res-section">
+              <div className="res-section__title">Recovery Impact</div>
+              <div className="res-two-col">
+                <div className="res-col">
+                  <div className="res-col__head res-col__head--human">Without AI</div>
+                  <BRow label="Recovery Rate"          val={pct(crFrac * 100)} />
+                  <BRow label="Accounts Recovered"     val={Math.round(accountsRecoveredNow).toLocaleString('en-IN')} />
+                  <BRow label="Recovery Value / Month" val={inr(recoveryValueNow)} bold />
+                </div>
+                <div className="res-col">
+                  <div className="res-col__head res-col__head--ai">With Alterity AI</div>
+                  <BRow label="Recovery Rate"          val={pct(newRecoveryRate * 100) + (crFrac + upliftFrac > 0.85 ? ' (capped)' : '')} />
+                  <BRow label="Accounts Recovered"     val={Math.round(accountsRecoveredAI).toLocaleString('en-IN')} />
+                  <BRow label="Recovery Value / Month" val={inr(recoveryValueAI)}    bold />
+                  <BRow label="Additional Recovery"    val={inr(additionalRecovery)} bold />
+                </div>
+              </div>
+              <div className="res-net-row">
                 <span>Net Monthly Benefit (savings + extra recovery)</span>
-                <span className="calc-breakdown__total-val">{inr(netMonthlyBenefit)}</span>
+                <span className="res-net-row__val">{inr(netMonthlyBenefit)}</span>
               </div>
             </div>
 
-            {/* Comparison table */}
-            <div className="calc-comparison">
-              <h3 className="calc-comparison__title">Head-to-Head</h3>
-              <table className="comp-table">
+            {/* ── Head-to-head ── */}
+            <div className="res-section">
+              <div className="res-section__title">Head-to-Head</div>
+              <table className="hth-table">
                 <thead>
                   <tr>
                     <th>Factor</th>
-                    <th className="comp-table__human-head">Human Team</th>
-                    <th className="comp-table__ai-head">Alterity AI</th>
+                    <th className="hth-head--human">Human Team</th>
+                    <th className="hth-head--ai">Alterity AI</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <CompRow factor="Monthly Cost"          human={inr(humanMonthlyCost)}    ai={inr(aiMonthlyCost)}                aiWins />
-                  <CompRow factor="Cost per Call"         human={inr2(humanCostPerCall)}   ai={inr2(aiCostPerCall)}               aiWins />
-                  <CompRow factor="Cost Ratio"            human={ratio(costRatio) + ' more expensive'} ai="Baseline"              aiWins />
-                  <CompRow factor="Team Size"             human={agentsRequired + ' agents'} ai="1 AI agent"                     aiWins />
-                  <CompRow factor="Calls / Month"         human={totalConnectedCalls.toLocaleString('en-IN')} ai={totalConnectedCalls.toLocaleString('en-IN') + ' (same)'} aiWins />
-                  <CompRow factor="Availability"          human="8–10 hrs/day"             ai="24 / 7 / 365"                     aiWins />
-                  <CompRow factor="Script Accuracy"       human="60–80%"                   ai="100%"                             aiWins />
-                  <CompRow factor="Pricing Model"         human="Fixed salary (risk)"      ai="Pay per minute (no waste)"        aiWins />
-                  <CompRow factor="Scale-up"              human="Hire + train (weeks)"     ai="Instant"                          aiWins />
-                  <CompRow factor="Attrition Risk"        human="30–50% / year"            ai="Zero"                             aiWins />
-                  <CompRow factor="Recovery Rate"         human={pct(crFrac * 100)}        ai={pct(newRecoveryRate * 100)}       aiWins />
+                  {[
+                    ['Monthly Cost',     inr(humanMonthlyCost),                         inr(aiMonthlyCost)],
+                    ['Cost per Call',    inr2(humanCostPerCall),                         inr2(aiCostPerCall)],
+                    ['Cost Ratio',       ratio(costRatio) + '× more expensive',          'Baseline'],
+                    ['Team Size',        agentsRequired + ' agents',                     '1 AI agent'],
+                    ['Monthly Calls',    totalConnectedCalls.toLocaleString('en-IN'),    totalConnectedCalls.toLocaleString('en-IN') + ' (same)'],
+                    ['Availability',     '8–10 hrs / day',                               '24 / 7 / 365'],
+                    ['Script Accuracy',  '60–80%',                                       '100%'],
+                    ['Pricing Model',    'Fixed salary (risk)',                          'Pay per minute'],
+                    ['Scale-up',         'Hire + train (weeks)',                         'Instant'],
+                    ['Attrition Risk',   '30–50% / year',                               'Zero'],
+                    ['Recovery Rate',    pct(crFrac * 100),                              pct(newRecoveryRate * 100)],
+                  ].map(([factor, human, ai]) => (
+                    <tr key={factor} className="hth-row">
+                      <td className="hth-row__factor">{factor}</td>
+                      <td className="hth-row__human">{human}</td>
+                      <td className="hth-row__ai hth-row__winner">{ai}</td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
 
+            {/* ── Recalculate CTA ── */}
+            <div className="res-cta">
+              <FlowButton variant="outlined" onClick={() => { setStep(0); setCalculated(false) }}>
+                Adjust Inputs & Recalculate
+              </FlowButton>
+            </div>
+
           </div>
-        </div>
+        )}
+
       </div>
     </div>
   )
