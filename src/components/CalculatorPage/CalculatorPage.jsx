@@ -209,7 +209,7 @@ export default function CalculatorPage() {
 
             {step === 0 && <>
               <SliderField label="Delinquent Accounts / Month" value={accountsPerMonth}   min={1000}  max={100000} step={1000} onChange={setAccountsPerMonth}   display={v => v.toLocaleString('en-IN')} />
-              <SliderField label="Call Attempts per Account"   value={attemptsPerAccount} min={1}     max={10}     step={1}    onChange={setAttemptsPerAccount} display={v => v + ' attempts'} hint="before giving up" />
+              <SliderField label="Call Attempts per Account"   value={attemptsPerAccount} min={1}     max={100}    step={1}    onChange={setAttemptsPerAccount} display={v => v + ' attempts'} hint="before giving up" />
               <SliderField label="Working Days per Month"      value={workingDays}        min={20}    max={28}     step={1}    onChange={setWorkingDays}        display={v => v + ' days'} />
               <Callout label="Total Calls to Handle" value={totalConnectedCalls.toLocaleString('en-IN')} variant="accent" />
             </>}

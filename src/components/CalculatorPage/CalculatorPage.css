@@ -739,7 +739,7 @@
 .res-brow:last-child { border-bottom: none; }
 
 .res-brow span:first-child {
-  color: rgba(29, 18, 5, 0.55);
+  color: rgba(29, 18, 5, 0.75);
 }
 
 .res-brow span:last-child {
@@ -818,11 +818,11 @@
 }
 
 .hth-row__human {
-  color: rgba(29, 18, 5, 0.5);
+  color: rgba(29, 18, 5, 0.75);
 }
 
 .hth-row__ai {
-  color: rgba(29, 18, 5, 0.5);
+  color: rgba(29, 18, 5, 0.75);
 }
 
 .hth-row__winner {
