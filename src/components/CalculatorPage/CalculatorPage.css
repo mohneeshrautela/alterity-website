@@ -874,4 +874,10 @@
   .calc-page  { padding: 80px 16px 60px; }
   .res-grid   { grid-template-columns: 1fr; }
   .wiz-chip__val { display: none; }
+  .hth-table  { font-size: 11.5px; }
+  .hth-table th,
+  .hth-row td { padding: 8px 8px; }
+  .res-section { overflow-x: auto; }
+  .res-net-row { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .wiz-callout { flex-direction: column; align-items: flex-start; gap: 4px; }
 }

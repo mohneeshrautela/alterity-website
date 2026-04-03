@@ -34,6 +34,13 @@
   line-height: 1.6;
 }
 
+@media (max-width: 900px) {
+  .uc-subheading {
+    white-space: normal;
+    font-size: 16px;
+  }
+}
+
 /* Cards — must NOT have overflow:hidden so sticky works */
 .uc-cards {
   position: relative;
@@ -137,9 +144,10 @@
 
   .uc-card-row {
     height: auto;
-    min-height: calc(100vh - 68px);
+    min-height: unset;
     position: relative;
     top: auto;
+    padding: 12px 0;
   }
 
   .uc-card {
@@ -187,5 +195,21 @@
     object-position: center top;
     border-radius: 10px;
     margin-top: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .uc-header {
+    padding: 48px 16px 16px;
+  }
+  .uc-card {
+    width: 95%;
+    padding: 20px 16px;
+  }
+  .uc-card__image {
+    height: 180px;
+  }
+  .uc-card__body {
+    font-size: 13px;
   }
 }

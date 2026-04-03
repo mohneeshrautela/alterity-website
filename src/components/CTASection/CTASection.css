@@ -119,8 +119,17 @@
   .cta-section__subtext {
     font-size: 15px;
   }
+  .cta-section__actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
   .cta-section__actions .flow-btn {
     width: 100%;
+    justify-content: center;
+  }
+  .cta-section__socials {
+    flex-wrap: wrap;
     justify-content: center;
   }
 }

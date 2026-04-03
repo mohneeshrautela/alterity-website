@@ -252,3 +252,12 @@
     justify-content: center;
   }
 }
+
+@media (max-width: 380px) {
+  .navbar__logo-text {
+    display: none;
+  }
+  .navbar__logo-img {
+    margin-right: 0;
+  }
+}
