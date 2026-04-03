@@ -143,10 +143,10 @@
   }
 
   .uc-card-row {
-    height: auto;
+    height: 100svh;
     min-height: unset;
-    position: relative;
-    top: auto;
+    position: sticky;
+    top: 68px;
     padding: 12px 0;
   }
 
