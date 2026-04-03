@@ -1,6 +1,6 @@
 .community {
   background: transparent;
-  padding: 40px 40px 100px;
+  padding: 60px 40px 100px;
 }
 
 .community__inner {
@@ -8,6 +8,7 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 32px;
 }
 
@@ -174,74 +175,56 @@
   letter-spacing: 0.2px;
 }
 
-/* Enterprise Card */
-.community__card--enterprise {
-  padding: 40px 44px;
-}
-
-.community__enterprise-content {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-}
-
-.community__enterprise-icon {
-  width: 72px;
-  height: 72px;
-  background: rgba(232, 245, 90, 0.1);
-  border: 1px solid rgba(232, 245, 90, 0.2);
+/* Compliance Card */
+.compliance-card {
+  width: 73%;
+  max-width: 1065px;
   border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid #000000;
+  outline: 1px solid #000000;
+  margin: 0 auto;
   display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.compliance-card__image {
+  width: 100%;
+  height: 320px;
+  object-fit: contain;
+  object-position: center top;
+  padding: 24px 24px 0;
+}
+
+.compliance-card__content {
+  padding: 32px 60px 48px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+  gap: 16px;
+  text-align: center;
 }
 
-.community__enterprise-text {
-  flex: 1;
-}
-
-.community__enterprise-heading {
-  font-size: clamp(20px, 2vw, 26px);
-  font-weight: 800;
-  letter-spacing: -0.6px;
-  color: var(--cream);
-  margin-bottom: 8px;
-}
-
-.community__enterprise-desc {
-  font-size: 14px;
-  color: rgba(245, 240, 227, 0.5);
-  line-height: 1.6;
-  max-width: 520px;
-}
-
-.community__enterprise-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 40px;
-  background: var(--yellow);
-  color: var(--dark);
-  border: none;
-  border-radius: 8px;
-  font-size: 14px;
+.compliance-card__title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 38px;
   font-weight: 700;
-  font-family: var(--font);
-  cursor: pointer;
-  transition: all 0.15s;
-  white-space: nowrap;
-  flex-shrink: 0;
+  color: #0d0d0d;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  text-align: center;
+  max-width: 640px;
 }
 
-.community__enterprise-btn:hover {
-  opacity: 0.88;
-  transform: translateY(-1px);
-}
-
-.community__enterprise-btn .flow-btn__arrow-left,
-.community__enterprise-btn .flow-btn__arrow-right {
-  color: var(--dark);
+.compliance-card__body {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.8;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 400;
+  text-align: center;
+  max-width: 600px;
 }
 
 
@@ -261,21 +244,26 @@
 
 @media (max-width: 768px) {
   .community {
-    padding: 0 24px 80px;
+    padding: 0 20px 60px;
   }
   .community__card {
-    padding: 32px 28px;
+    padding: 32px 24px;
     border-radius: 16px;
   }
-  .community__integrations {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+  .compliance-card {
+    width: 95%;
   }
-  .community__integration-icon {
-    width: 52px;
-    height: 52px;
+  .compliance-card__image {
+    height: 220px;
+    padding: 16px 16px 0;
   }
-  .community__star-number {
-    font-size: 40px;
+  .compliance-card__content {
+    padding: 24px 24px 36px;
+  }
+  .compliance-card__title {
+    font-size: clamp(24px, 6vw, 36px);
+  }
+  .compliance-card__body {
+    font-size: 14px;
   }
 }

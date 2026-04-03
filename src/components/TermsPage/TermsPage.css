@@ -16,31 +16,32 @@
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(29, 18, 5, 0.45);
-  background: rgba(29, 18, 5, 0.07);
+  color: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.06);
   padding: 5px 14px;
   border-radius: 100px;
   margin-bottom: 20px;
 }
 
 .terms-page__title {
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: clamp(32px, 4vw, 52px);
   font-weight: 800;
   letter-spacing: -1.5px;
-  color: var(--dark);
+  color: #000000;
   line-height: 1.05;
   margin-bottom: 20px;
 }
 
 .terms-page__intro {
   font-size: 15px;
-  color: var(--dark);
+  color: #000000;
   line-height: 1.75;
   margin-bottom: 40px;
 }
 
 .terms-page__link {
-  color: var(--dark);
+  color: #000000;
   font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -66,7 +67,7 @@
 .terms-trigger__num {
   font-size: 12px;
   font-weight: 700;
-  color: rgba(29, 18, 5, 0.35);
+  color: rgba(0, 0, 0, 0.35);
   min-width: 22px;
   flex-shrink: 0;
 }
@@ -74,13 +75,13 @@
 .terms-trigger__title {
   font-size: 15px;
   font-weight: 600;
-  color: var(--dark);
+  color: #000000;
 }
 
 /* Body paragraphs */
 .terms-body__para {
   font-size: 14.5px;
-  color: var(--dark);
+  color: #000000;
   line-height: 1.75;
   margin-bottom: 12px;
 }
@@ -95,8 +96,8 @@
   flex-direction: column;
   gap: 8px;
   padding: 14px 18px;
-  background: rgba(29, 18, 5, 0.04);
-  border-left: 3px solid rgba(29, 18, 5, 0.15);
+  background: rgba(0, 0, 0, 0.03);
+  border-left: 3px solid rgba(0, 0, 0, 0.15);
   border-radius: 0 8px 8px 0;
   margin-bottom: 12px;
 }
@@ -106,7 +107,7 @@
 .terms-subsection__label {
   font-size: 13px;
   font-weight: 700;
-  color: var(--dark);
+  color: #000000;
 }
 
 @media (max-width: 600px) {

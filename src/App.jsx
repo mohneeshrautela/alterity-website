@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar/Navbar'
 import Hero from './components/Hero/Hero'
-import AnimatedBackground from './components/FloatingPaths/FloatingPaths'
-import Tiles from './components/Tiles/Tiles'
 import SDKSection from './components/SDKSection/SDKSection'
 import WhyOpenHands from './components/WhyOpenHands/WhyOpenHands'
-import AutomateSection from './components/AutomateSection/AutomateSection'
+import UseCasesSection from './components/UseCasesSection/UseCasesSection'
+import LanguagesSection from './components/LanguagesSection/LanguagesSection'
 import CommunitySection from './components/CommunitySection/CommunitySection'
 import CTASection from './components/CTASection/CTASection'
 import Footer from './components/Footer/Footer'
@@ -50,9 +49,7 @@ function App() {
 
   return (
     <>
-      <Tiles />
-      <AnimatedBackground />
-      <div style={{ position: 'relative', zIndex: 1 }}>
+      <div>
         <Navbar onPricingClick={goPricing} onLogoClick={goHome} onCallsClick={() => goToSection('calls')} onUseCasesClick={() => goToSection('use-cases')} onWhyUsClick={goWhyUs} />
         {page === 'why-us' ? (
           <WhyUsPage />
@@ -68,13 +65,13 @@ function App() {
           <>
             <Hero />
             <SDKSection />
-            <WhyOpenHands />
-            <AutomateSection />
+            <UseCasesSection />
+            <LanguagesSection />
             <CommunitySection />
             <CTASection />
-            <Footer onTermsClick={goTerms} onPrivacyClick={goPrivacy} onPricingClick={goPricing} onWhyUsClick={goWhyUs} onLogoClick={goHome} />
           </>
         )}
+        <Footer onTermsClick={goTerms} onPrivacyClick={goPrivacy} onPricingClick={goPricing} onWhyUsClick={goWhyUs} onUseCasesClick={() => goToSection('use-cases')} onLogoClick={goHome} />
       </div>
       {showModal && <ContactModal onClose={() => setShowModal(false)} />}
     </>

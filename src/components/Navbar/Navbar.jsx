@@ -4,7 +4,6 @@ import './Navbar.css'
 
 const NAV_LINKS = [
   { label: 'Why Us', href: '#why-us' },
-  { label: 'Real Customer Calls', href: '#calls' },
   { label: 'Use Cases', href: '#use-cases' },
   { label: 'Pricing', href: '#pricing' },
 ]
@@ -91,8 +90,7 @@ export default function Navbar({ onPricingClick, onLogoClick, onCallsClick, onUs
       {mobileOpen && (
         <div className="navbar__mobile-menu">
           <a onClick={() => { setMobileOpen(false); onWhyUsClick?.() }}>Why Us</a>
-          <a onClick={() => { setMobileOpen(false); onCallsClick?.() }}>Real Customer Calls</a>
-          <a onClick={() => { setMobileOpen(false); onUseCasesClick?.() }}>Use Cases</a>
+<a onClick={() => { setMobileOpen(false); onUseCasesClick?.() }}>Use Cases</a>
           <a onClick={() => { setMobileOpen(false); onPricingClick?.() }}>Pricing</a>
           <div className="navbar__mobile-btns">
             <button className="navbar__btn navbar__btn--dark" onClick={() => window.dispatchEvent(new CustomEvent('open-contact-modal'))}>Start a Pilot</button>

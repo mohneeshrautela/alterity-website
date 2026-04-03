@@ -1,8 +1,9 @@
 .footer {
-  background: var(--dark);
-  color: var(--cream);
+  background: #ffffff;
+  color: #000000;
   padding: 60px 40px 0;
   overflow: hidden;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .footer__inner {
@@ -29,21 +30,22 @@
 .footer__company-name {
   font-size: 13px;
   font-weight: 700;
-  color: rgba(245, 240, 227, 0.9);
+  color: #000000;
   margin: 0;
 }
 
 .footer__company-address {
   font-size: 13px;
-  color: rgba(245, 240, 227, 0.4);
+  color: rgba(0, 0, 0, 0.45);
   line-height: 1.6;
   margin: 0;
 }
 
 .footer__brand-heading {
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: 22px;
   font-weight: 800;
-  color: #fff;
+  color: #000000;
   letter-spacing: -0.5px;
   margin: 0 0 6px;
 }
@@ -60,13 +62,13 @@
 
 .footer__nav-link {
   font-size: 15px;
-  color: rgba(245, 240, 227, 0.6);
+  color: rgba(0, 0, 0, 0.5);
   text-decoration: none;
   transition: color 0.15s;
 }
 
 .footer__nav-link:hover {
-  color: var(--cream);
+  color: #000000;
 }
 
 /* Big watermark */
@@ -74,7 +76,7 @@
   font-size: clamp(60px, 10vw, 130px);
   font-weight: 800;
   letter-spacing: -4px;
-  color: rgba(245, 240, 227, 0.05);
+  color: rgba(0, 0, 0, 0.05);
   text-align: center;
   line-height: 1;
   padding: 20px 0;
@@ -86,7 +88,7 @@
 /* Divider */
 .footer__divider {
   height: 1px;
-  background: rgba(245, 240, 227, 0.08);
+  background: rgba(0, 0, 0, 0.1);
   margin: 0;
 }
 
@@ -100,7 +102,7 @@
 
 .footer__copyright {
   font-size: 13px;
-  color: rgba(245, 240, 227, 0.3);
+  color: rgba(0, 0, 0, 0.35);
 }
 
 /* Legal links */
@@ -111,13 +113,13 @@
 
 .footer__legal-link {
   font-size: 13px;
-  color: rgba(245, 240, 227, 0.3);
+  color: rgba(0, 0, 0, 0.35);
   text-decoration: none;
   transition: color 0.15s;
 }
 
 .footer__legal-link:hover {
-  color: rgba(245, 240, 227, 0.7);
+  color: #000000;
 }
 
 @media (max-width: 768px) {

@@ -21,9 +21,7 @@ export default function PricingPage() {
           Pricing built for <em className="pricing-page__heading-em"><Highlight>your scale</Highlight></em>
         </h1>
         <p className="pricing-page__desc">
-          Alterity doesn't believe in one-size-fits-all pricing. Our platform is designed
-          for high-volume, mission-critical use cases — so our pricing is tailored to your
-          business needs, scale, and compliance requirements.
+          Alterity doesn't believe in one-size-fits-all pricing. Our platform is designed for high-volume, mission-critical use cases, so our pricing is tailored to your business needs, scale, and compliance requirements.
         </p>
 
         <div className="pricing-page__card">

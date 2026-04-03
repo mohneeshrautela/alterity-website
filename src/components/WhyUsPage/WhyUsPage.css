@@ -23,6 +23,7 @@
 }
 
 .why-page__heading {
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: clamp(40px, 6vw, 80px);
   font-weight: 800;
   letter-spacing: -2.5px;
@@ -57,12 +58,14 @@
 .why-page__card {
   max-width: 1100px;
   margin: 0 auto;
-  background: #ece6d5;
+  background: #ffffff;
+  border: 1px solid #000000;
   border-radius: 24px;
   padding: 64px;
 }
 
 .why-page__card-heading {
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: clamp(28px, 3.5vw, 44px);
   font-weight: 800;
   letter-spacing: -1px;
@@ -79,9 +82,9 @@
 }
 
 .why-page__feature {
-  background: #f5f0e3;
+  background: #ffffff;
   border-radius: 12px;
-  border: 1px solid rgba(29, 18, 5, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.15);
   overflow: hidden;
 }
 
@@ -101,6 +104,7 @@
 }
 
 .why-page__feature-title {
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: 16px;
   font-weight: 700;
   color: var(--dark);
@@ -120,29 +124,45 @@
 .why-page__feature-tagline {
   font-size: 14px;
   font-weight: 500;
-  color: #7a6f1a;
+  color: #000000;
   margin: 0;
   line-height: 1.5;
 }
 
 .why-page__feature-desc {
   font-size: 14px;
-  color: rgba(29, 18, 5, 0.55);
+  color: rgba(0, 0, 0, 0.55);
   line-height: 1.7;
   margin: 0;
 }
 
 @media (max-width: 768px) {
   .why-page__hero {
-    padding: 120px 24px 80px;
+    padding: 100px 20px 60px;
+    min-height: auto;
+  }
+  .why-page__heading {
+    font-size: clamp(32px, 9vw, 60px);
+    letter-spacing: -1.5px;
   }
   .why-page__content {
-    padding: 0 20px 80px;
+    padding: 0 16px 60px;
   }
   .why-page__card {
-    padding: 40px 28px;
+    padding: 32px 20px;
+    border-radius: 16px;
+  }
+  .why-page__card-heading {
+    font-size: clamp(22px, 6vw, 36px);
+    margin-bottom: 28px;
+  }
+  .why-page__feature-header {
+    padding: 16px 18px;
   }
   .why-page__feature-body {
-    padding-left: 47px;
+    padding: 0 18px 16px 18px;
+  }
+  .why-page__feature-title {
+    font-size: 15px;
   }
 }

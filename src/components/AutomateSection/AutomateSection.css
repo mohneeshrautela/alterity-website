@@ -58,7 +58,7 @@
 
 /* Card */
 .auto-card {
-  background: var(--cream);
+  background: #ffffff;
   border-radius: 16px;
   padding: 36px 24px;
   cursor: default;

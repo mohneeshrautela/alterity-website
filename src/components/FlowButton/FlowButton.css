@@ -84,6 +84,52 @@
   color: var(--dark);
 }
 
+/* Solid black variant */
+.flow-btn--black {
+  background: #0d0d0d;
+  color: #ffffff;
+  border: 1.5px solid #0d0d0d;
+}
+.flow-btn--black:hover {
+  border-color: #0d0d0d;
+  color: #0d0d0d;
+  border-radius: 12px;
+}
+.flow-btn--black .flow-btn__circle {
+  background: #ffffff;
+}
+.flow-btn--black .flow-btn__arrow-left,
+.flow-btn--black .flow-btn__arrow-right {
+  color: #ffffff;
+}
+.flow-btn--black:hover .flow-btn__arrow-left,
+.flow-btn--black:hover .flow-btn__arrow-right {
+  color: #0d0d0d;
+}
+
+/* Solid white variant (on dark/video bg) */
+.flow-btn--white {
+  background: #ffffff;
+  color: #000000;
+  border: 1.5px solid #ffffff;
+}
+.flow-btn--white:hover {
+  border-color: #000000;
+  color: #ffffff;
+  border-radius: 12px;
+}
+.flow-btn--white .flow-btn__circle {
+  background: #000000;
+}
+.flow-btn--white .flow-btn__arrow-left,
+.flow-btn--white .flow-btn__arrow-right {
+  color: #000000;
+}
+.flow-btn--white:hover .flow-btn__arrow-left,
+.flow-btn--white:hover .flow-btn__arrow-right {
+  color: #ffffff;
+}
+
 /* Shared arrow + text + circle */
 .flow-btn__arrow-left {
   position: absolute;

@@ -1,9 +1,9 @@
 import './Footer.css'
 
-const NAV_LINKS = ['Why Us', 'Real Customer Calls', 'Use Cases', 'Pricing']
+const NAV_LINKS = ['Why Us', 'Use Cases', 'Pricing']
 const LEGAL_LINKS = ['Terms', 'Privacy', 'Contact']
 
-export default function Footer({ onTermsClick, onPrivacyClick, onPricingClick, onWhyUsClick, onLogoClick }) {
+export default function Footer({ onTermsClick, onPrivacyClick, onPricingClick, onWhyUsClick, onUseCasesClick, onLogoClick }) {
   return (
     <footer className="footer">
       <div className="footer__inner">
@@ -28,6 +28,7 @@ export default function Footer({ onTermsClick, onPrivacyClick, onPricingClick, o
                   onClick={
                     label === 'Pricing' ? (e) => { e.preventDefault(); onPricingClick?.() }
                     : label === 'Why Us' ? (e) => { e.preventDefault(); onWhyUsClick?.() }
+                    : label === 'Use Cases' ? (e) => { e.preventDefault(); onUseCasesClick?.() }
                     : undefined
                   }
                 >{label}</a>

@@ -1,20 +1,44 @@
 .hero {
   position: relative;
-  background: transparent;
-  min-height: 80vh;
+  background: #ffffff;
+  height: calc(100vh - 68px - 20px);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: 100px 40px 60px;
+  padding: 60px;
+  margin: 68px 20px 20px;
 }
 
+
+/* Dark overlay over video */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 0;
+}
+
+/* Background video */
+.hero__bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
 
 /* Content */
 .hero__content {
   position: relative;
-  z-index: 1;
-  max-width: 900px;
+  z-index: 2;
+  max-width: 1200px;
+  width: 100%;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -23,47 +47,23 @@
 }
 
 .hero__heading {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(48px, 6.5vw, 96px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  color: #ffffff;
+  text-align: center;
   margin: 0;
-}
-
-.hero__heading-line1 {
-  font-size: clamp(38px, 5.5vw, 72px);
-  font-weight: 800;
-  line-height: 1.08;
-  letter-spacing: -2px;
-  color: var(--dark);
-  display: block;
 }
 
 .hero__subheader {
-  font-size: clamp(15px, 1.4vw, 17px);
-  color: rgba(29, 18, 5, 0.6);
-  line-height: 1.7;
-  max-width: 620px;
+  font-size: clamp(15px, 1.3vw, 18px);
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  max-width: 560px;
   text-align: center;
   margin: 0;
-}
-
-.hero__typewriter {
-  font-size: clamp(38px, 5.5vw, 72px);
-  font-weight: 400;
-  line-height: 1.08;
-  letter-spacing: -2px;
-  color: #5a5a5a;
-  opacity: 1;
-  display: block;
-  width: 100%;
-  text-align: center;
-}
-
-.hero__cursor {
-  font-weight: 300;
-  margin-left: 2px;
-  transition: opacity 0.1s;
 }
 
 .hero__actions {
@@ -74,99 +74,34 @@
   justify-content: center;
 }
 
-.hero__btn-primary {
-  padding: 15px 32px;
-  font-size: 16px;
-}
-
-.hero__btn-secondary {
-  padding: 15px 32px;
-  font-size: 16px;
-}
-
-.hero__stats {
-  display: flex;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.6);
-  border: 2.5px solid var(--dark);
-  border-radius: 14px;
-  padding: 20px 36px;
-  backdrop-filter: blur(6px);
-  gap: 0;
-  margin-top: 8px;
-}
-
-.hero__stat {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 0 32px;
-  color: var(--dark);
-}
-
-.hero__stat svg {
-  opacity: 0.7;
-  flex-shrink: 0;
-}
-
-.hero__stat-text {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-}
-
-.hero__stat-text strong {
-  font-size: 20px;
-  font-weight: 800;
-  color: var(--dark);
-  letter-spacing: -0.5px;
-  line-height: 1.1;
-}
-
-.hero__stat-text span {
-  font-size: 12px;
-  color: var(--text-muted);
-  font-weight: 500;
-}
-
-.hero__stat-divider {
-  width: 1px;
-  height: 36px;
-  background: rgba(29, 18, 5, 0.1);
-  flex-shrink: 0;
-}
-
 @media (max-width: 768px) {
   .hero {
-    padding: 80px 24px 50px;
-    min-height: 70vh;
+    padding: 32px 20px;
+    margin: 68px 10px 10px;
+    height: auto;
+    min-height: calc(100vh - 68px - 20px);
+    border-radius: 12px;
   }
-  .hero__heading-line1,
-  .hero__heading-line2 {
-    letter-spacing: -1.5px;
+  .hero__content {
+    gap: 24px;
   }
-  .hero__stats {
+  .hero__subheader {
+    font-size: 15px;
+  }
+  .hero__actions {
     flex-direction: column;
-    gap: 16px;
-    padding: 20px 24px;
-  }
-  .hero__stat {
-    padding: 0;
     width: 100%;
-    justify-content: flex-start;
+    align-items: stretch;
   }
-  .hero__stat svg {
-    width: 28px;
-    min-width: 28px;
+  .hero__actions .flow-btn {
+    width: 100%;
+    justify-content: center;
   }
-  .hero__stat-text {
-    align-items: flex-start;
-  }
-  .hero__stat-divider {
-    width: 80px;
-    height: 1px;
-  }
-  .hero__stat-text strong {
-    font-size: 18px;
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 28px 16px;
+    margin: 68px 8px 8px;
   }
 }

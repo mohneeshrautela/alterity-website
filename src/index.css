@@ -5,7 +5,8 @@
 }
 
 :root {
-  --cream: #f5f0e3;
+  --cream: #FFFAEB;
+  --background: #F0EEE6;
   --dark: #1d1205;
   --dark-2: #1a1a18;
   --yellow: #f0f76b;
@@ -19,12 +20,11 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 body {
   font-family: var(--font);
-  background-color: var(--cream);
+  background-color: #ffffff;
   color: var(--text-dark);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -60,7 +60,7 @@ img {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--cream);
+  background: #ffffff;
 }
 ::-webkit-scrollbar-thumb {
   background: var(--text-muted);
