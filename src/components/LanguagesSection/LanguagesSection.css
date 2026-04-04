@@ -94,4 +94,8 @@
     min-width: calc(50% - 5px);
     flex: 1;
   }
+  .lang-card--more {
+    min-width: 150px;
+    flex: 0;
+  }
 }

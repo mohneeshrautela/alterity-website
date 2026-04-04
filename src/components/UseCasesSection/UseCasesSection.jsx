@@ -1,6 +1,5 @@
 import { useRef } from 'react'
 import { useTransform, motion, useScroll } from 'motion/react'
-// useScroll still needed for the outer container
 import './UseCasesSection.css'
 
 const INDUSTRIES = [
@@ -96,7 +95,7 @@ export default function UseCasesSection() {
 
       <div className="uc-cards" ref={container}>
         {INDUSTRIES.map((industry, i) => {
-          const targetScale = 1 - (INDUSTRIES.length - i) * 0.05
+          const targetScale = 1 - (INDUSTRIES.length - i) * 0.08
           return (
             <Card
               key={i}

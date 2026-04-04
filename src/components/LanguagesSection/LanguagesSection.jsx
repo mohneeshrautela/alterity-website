@@ -29,6 +29,10 @@ export default function LanguagesSection() {
               <span className="lang-card__name">{l.name}</span>
             </div>
           ))}
+          <div className="lang-card lang-card--more">
+            <span className="lang-card__flag" style={{ fontSize: '20px', lineHeight: 1 }}>🌐</span>
+            <span className="lang-card__name">More</span>
+          </div>
         </div>
       </div>
     </section>
