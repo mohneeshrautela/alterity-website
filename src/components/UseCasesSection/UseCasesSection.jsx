@@ -59,6 +59,7 @@ function Card({ i, title, body, color, image, progress, range, targetScale }) {
         style={{
           backgroundColor: color,
           scale,
+          top: `calc(-5vh + ${i * 25}px)`,
         }}
       >
         {image ? (

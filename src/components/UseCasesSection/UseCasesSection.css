@@ -147,14 +147,14 @@
     min-height: unset;
     position: sticky;
     top: 68px;
-    align-items: flex-start;
-    padding: 20px 0 0;
+    align-items: center;
+    justify-content: center;
   }
 
   .uc-card {
     width: 92%;
-    height: calc(100svh - 68px - 40px);
-    max-height: unset;
+    height: 500px;
+    max-height: 500px;
     min-height: unset;
     padding: 24px 20px;
     flex-direction: column;
@@ -211,6 +211,7 @@
   }
   .uc-card {
     width: 95%;
+    height: 500px;
     padding: 20px 16px;
   }
   .uc-card__image {
