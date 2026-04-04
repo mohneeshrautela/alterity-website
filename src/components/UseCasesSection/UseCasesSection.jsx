@@ -53,13 +53,12 @@ function Card({ i, title, body, color, image, progress, range, targetScale }) {
   const scale = useTransform(progress, range, [1, targetScale])
 
   return (
-    <div ref={container} className="uc-card-row">
+    <div ref={container} className="uc-card-row" style={{ zIndex: i }}>
       <motion.div
         className="uc-card"
         style={{
           backgroundColor: color,
           scale,
-          zIndex: i,
         }}
       >
         {image ? (
