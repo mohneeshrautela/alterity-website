@@ -101,6 +101,66 @@
   border-color: #c0392b;
 }
 
+.pricing-form__select-wrap {
+  position: relative;
+}
+
+.pricing-form__select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: none;
+  padding-right: 36px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.pricing-form__select-arrow {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.pricing-form__call-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.pricing-form__call-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pricing-form__call-tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 5px;
+  align-self: flex-start;
+}
+
+.pricing-form__call-tag--out {
+  background: rgba(0, 120, 80, 0.08);
+  color: #006644;
+}
+
+.pricing-form__call-tag--in {
+  background: rgba(0, 80, 180, 0.08);
+  color: #004eaa;
+}
+
+@media (max-width: 480px) {
+  .pricing-form__call-row {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Line-style input */
 .pricing-form__input--line {
   background: transparent;

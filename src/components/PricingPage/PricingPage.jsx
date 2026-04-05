@@ -5,9 +5,21 @@ import Highlight from '../ui/Highlight'
 export default function PricingPage() {
   const [email, setEmail] = useState('')
   const [agents, setAgents] = useState('')
+  const [outboundCalls, setOutboundCalls] = useState('')
+  const [inboundCalls, setInboundCalls] = useState('')
   const [consent, setConsent] = useState(false)
   const [emailError, setEmailError] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+
+  const callRangeOptions = [
+    { value: '', label: 'Select range' },
+    { value: '0', label: 'None (0 calls)' },
+    { value: '0-30k', label: '0 – 30K' },
+    { value: '30k-60k', label: '30K – 60K' },
+    { value: '60k-1L', label: '60K – 1L' },
+    { value: '1L-3L', label: '1L – 3L' },
+    { value: '3L+', label: '3L+' },
+  ]
 
   const handleSubmit = (e) => {
     if (!email) { e.preventDefault(); setEmailError(true); return }
@@ -69,6 +81,50 @@ export default function PricingPage() {
                 value={agents}
                 onChange={(e) => setAgents(e.target.value)}
               />
+            </div>
+
+            <div className="pricing-form__group">
+              <label className="pricing-form__label">Monthly call volume</label>
+              <div className="pricing-form__call-row">
+                <div className="pricing-form__call-col">
+                  <span className="pricing-form__call-tag pricing-form__call-tag--out">↑ Outbound</span>
+                  <div className="pricing-form__select-wrap">
+                    <select
+                      id="pricing-outbound"
+                      name="outbound_calls"
+                      className="pricing-form__input pricing-form__select"
+                      value={outboundCalls}
+                      onChange={(e) => setOutboundCalls(e.target.value)}
+                    >
+                      {callRangeOptions.map(opt => (
+                        <option key={opt.value} value={opt.value}>{opt.label}</option>
+                      ))}
+                    </select>
+                    <svg className="pricing-form__select-arrow" viewBox="0 0 12 8" width="12" height="8" fill="none">
+                      <path d="M1 1l5 5 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                </div>
+                <div className="pricing-form__call-col">
+                  <span className="pricing-form__call-tag pricing-form__call-tag--in">↓ Inbound</span>
+                  <div className="pricing-form__select-wrap">
+                    <select
+                      id="pricing-inbound"
+                      name="inbound_calls"
+                      className="pricing-form__input pricing-form__select"
+                      value={inboundCalls}
+                      onChange={(e) => setInboundCalls(e.target.value)}
+                    >
+                      {callRangeOptions.map(opt => (
+                        <option key={opt.value} value={opt.value}>{opt.label}</option>
+                      ))}
+                    </select>
+                    <svg className="pricing-form__select-arrow" viewBox="0 0 12 8" width="12" height="8" fill="none">
+                      <path d="M1 1l5 5 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div className="pricing-form__checkbox-row">
