@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './PricingPage.css'
 import Highlight from '../ui/Highlight'
 
-export default function PricingPage() {
+export default function PricingPage({ onPrivacyClick }) {
   const [email, setEmail] = useState('')
   const [agents, setAgents] = useState('')
   const [outboundCalls, setOutboundCalls] = useState('')
@@ -137,7 +137,7 @@ export default function PricingPage() {
               />
               <label htmlFor="pricing-consent" className="pricing-form__checkbox-label">
                 I consent to the collection and processing of my personal data in accordance with the{' '}
-                <a href="#" className="pricing-form__link">Privacy Policy</a>
+                <a href="#" className="pricing-form__link" onClick={(e) => { e.preventDefault(); onPrivacyClick && onPrivacyClick(); }}>Privacy Policy</a>
                 {' '}and understand that I may withdraw my consent at any time.
               </label>
             </div>

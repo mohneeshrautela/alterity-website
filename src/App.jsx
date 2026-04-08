@@ -54,7 +54,7 @@ function App() {
         {page === 'why-us' ? (
           <WhyUsPage />
         ) : page === 'pricing' ? (
-          <PricingPage />
+          <PricingPage onPrivacyClick={goPrivacy} />
         ) : page === 'terms' ? (
           <TermsPage />
         ) : page === 'privacy' ? (
