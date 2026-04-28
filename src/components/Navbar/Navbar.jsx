@@ -68,7 +68,7 @@ export default function Navbar({ onPricingClick, onLogoClick, onCallsClick, onUs
         </ul>
 
         <div className="navbar__right">
-          <a href="https://dashboard.alterity.io/" target="_blank" rel="noopener noreferrer" className="navbar__btn navbar__btn--outlined">Login</a>
+          <a href="https://dashboard.alterity.io/" className="navbar__btn navbar__btn--outlined">Login</a>
           <button className="navbar__btn navbar__btn--dark" onClick={() => window.dispatchEvent(new CustomEvent('open-contact-modal'))}>Start a Pilot</button>
           <button
             className="navbar__mobile-toggle"
@@ -86,7 +86,7 @@ export default function Navbar({ onPricingClick, onLogoClick, onCallsClick, onUs
           <a onClick={() => { setMobileOpen(false); onUseCasesClick?.() }}>Use Cases</a>
           <a onClick={() => { setMobileOpen(false); onPricingClick?.() }}>Pricing</a>
           <div className="navbar__mobile-btns">
-            <a href="https://dashboard.alterity.io/" target="_blank" rel="noopener noreferrer" className="navbar__btn navbar__btn--outlined">Login</a>
+            <a href="https://dashboard.alterity.io/" className="navbar__btn navbar__btn--outlined">Login</a>
             <button className="navbar__btn navbar__btn--dark" onClick={() => window.dispatchEvent(new CustomEvent('open-contact-modal'))}>Start a Pilot</button>
           </div>
         </div>
