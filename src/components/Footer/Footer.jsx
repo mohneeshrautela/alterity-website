@@ -14,8 +14,8 @@ export default function Footer({ onTermsClick, onPrivacyClick, onPricingClick, o
           {/* Left: company info */}
           <div className="footer__company">
             <p className="footer__brand-heading" style={{cursor:'pointer'}} onClick={() => onLogoClick?.()}>Alterity</p>
-            <p className="footer__company-name">GoodKlicks Digital Ventures LLP</p>
-            <p className="footer__company-address">Lotus Boulevard, Tower 22/803, Sector 100,<br />Noida – 201304</p>
+            <p className="footer__company-name">Alterity Labs Pvt Ltd.</p>
+            <p className="footer__company-address">C-703, Wisway Complex, Sampada Society,<br />Andheri East, Mumbai, Maharashtra 400069</p>
           </div>
 
           {/* Right: nav links */}
@@ -46,7 +46,7 @@ export default function Footer({ onTermsClick, onPrivacyClick, onPricingClick, o
 
         {/* Bottom bar */}
         <div className="footer__bottom">
-          <p className="footer__copyright">© 2026 Alterity is a brand under GoodKlicks Digital Ventures LLP.</p>
+          <p className="footer__copyright">© 2026 Alterity is a brand under Alterity Labs Pvt Ltd.</p>
           <div className="footer__legal-row">
             {LEGAL_LINKS.map((link) => (
               <a
