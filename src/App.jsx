@@ -19,12 +19,13 @@ function App() {
   const [page, setPage] = useState('home')
   const [showModal, setShowModal] = useState(false)
 
-  const goHome = () => { setPage('home'); window.scrollTo(0, 0) }
-  const goPricing = () => { setPage('pricing'); window.scrollTo(0, 0) }
-  const goTerms = () => { setPage('terms'); window.scrollTo(0, 0) }
-  const goPrivacy = () => { setPage('privacy'); window.scrollTo(0, 0) }
-  const goCalculator = () => { setPage('calculator'); window.scrollTo(0, 0) }
-  const goWhyUs = () => { setPage('why-us'); window.scrollTo(0, 0) }
+  const goHome      = () => { setPage('home');       window.scrollTo(0, 0) }
+  const goPricing   = () => { setPage('pricing');    window.scrollTo(0, 0) }
+  const goTerms     = () => { setPage('terms');      window.scrollTo(0, 0) }
+  const goPrivacy   = () => { setPage('privacy');    window.scrollTo(0, 0) }
+  const goCalculator= () => { setPage('calculator'); window.scrollTo(0, 0) }
+  const goWhyUs     = () => { setPage('why-us');     window.scrollTo(0, 0) }
+
   const goToSection = (id) => {
     setPage('home')
     setTimeout(() => {
@@ -37,12 +38,14 @@ function App() {
     const openModal = () => setShowModal(true)
     const goToCalls = () => goToSection('calls')
     const goToCalc  = () => goCalculator()
-    window.addEventListener('open-contact-modal', openModal)
-    window.addEventListener('navigate-to-calls', goToCalls)
+    window.addEventListener('open-contact-modal',     openModal)
+    window.addEventListener('navigate-to-privacy',    goPrivacy)
+    window.addEventListener('navigate-to-calls',      goToCalls)
     window.addEventListener('navigate-to-calculator', goToCalc)
     return () => {
-      window.removeEventListener('open-contact-modal', openModal)
-      window.removeEventListener('navigate-to-calls', goToCalls)
+      window.removeEventListener('open-contact-modal',     openModal)
+      window.removeEventListener('navigate-to-privacy',    goPrivacy)
+      window.removeEventListener('navigate-to-calls',      goToCalls)
       window.removeEventListener('navigate-to-calculator', goToCalc)
     }
   }, [])
@@ -50,7 +53,14 @@ function App() {
   return (
     <>
       <div>
-        <Navbar onPricingClick={goPricing} onLogoClick={goHome} onCallsClick={() => goToSection('calls')} onUseCasesClick={() => goToSection('use-cases')} onWhyUsClick={goWhyUs} />
+        <Navbar
+          onPricingClick={goPricing}
+          onLogoClick={goHome}
+          onCallsClick={() => goToSection('calls')}
+          onUseCasesClick={() => goToSection('use-cases')}
+          onWhyUsClick={goWhyUs}
+        />
+
         {page === 'why-us' ? (
           <WhyUsPage />
         ) : page === 'pricing' ? (
@@ -71,7 +81,15 @@ function App() {
             <CTASection />
           </>
         )}
-        <Footer onTermsClick={goTerms} onPrivacyClick={goPrivacy} onPricingClick={goPricing} onWhyUsClick={goWhyUs} onUseCasesClick={() => goToSection('use-cases')} onLogoClick={goHome} />
+
+        <Footer
+          onTermsClick={goTerms}
+          onPrivacyClick={goPrivacy}
+          onPricingClick={goPricing}
+          onWhyUsClick={goWhyUs}
+          onUseCasesClick={() => goToSection('use-cases')}
+          onLogoClick={goHome}
+        />
       </div>
       {showModal && <ContactModal onClose={() => setShowModal(false)} />}
     </>

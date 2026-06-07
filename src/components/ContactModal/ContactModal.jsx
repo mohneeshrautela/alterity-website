@@ -108,7 +108,15 @@ export default function ContactModal({ onClose }) {
                 />
                 <label htmlFor="cm-consent" className="cm-checkbox-label">
                   I consent to the collection and processing of my personal data in accordance with the{' '}
-                  <a href="#" className="cm-link">Privacy Policy</a>.
+                  <a
+                    href="#"
+                    className="cm-link"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      onClose()
+                      window.dispatchEvent(new CustomEvent('navigate-to-privacy'))
+                    }}
+                  >Privacy Policy</a>.
                 </label>
               </div>
 
