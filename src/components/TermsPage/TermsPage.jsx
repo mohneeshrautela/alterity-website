@@ -108,7 +108,7 @@ const SECTIONS = [
   {
     num: '19',
     title: 'Get in Touch',
-    body: 'For any questions or concerns regarding these Terms, reach out to us at support@alterity.io',
+    body: 'For any questions or concerns regarding these Terms, reach out to us at contact@alterity.io',
   },
 ]
 

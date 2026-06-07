@@ -113,7 +113,7 @@ const SECTIONS = [
   {
     num: '9',
     title: 'Grievance Redressal Officer',
-    body: 'In compliance with the Information Technology Act, 2000 and the Digital Personal Data Protection Act, 2023, users may contact our Grievance Officer for any privacy-related concerns.\n\nName: Aaryan Mehta\nDesignation: Grievance and Data Protection Officer\nEmail: support@alterity.io\n\nAddress: Lotus Boulevard, Tower 22/803, Sector 100, Noida, Uttar Pradesh \u2013 201304, India',
+    body: 'In compliance with the Information Technology Act, 2000 and the Digital Personal Data Protection Act, 2023, users may contact our Grievance Officer for any privacy-related concerns.\n\nName: Aaryan Mehta\nDesignation: Grievance and Data Protection Officer\nEmail: contact@alterity.io\n\nAddress: C-703, Wisway Complex, Sampada Society, Andheri East, Mumbai, Maharashtra 400069, India',
   },
   {
     num: '10',
@@ -152,7 +152,7 @@ export default function PrivacyPage() {
             Last Updated: March 15, 2026
           </p>
           <p className="terms-page__intro">
-            This Privacy Policy (&ldquo;Policy&rdquo;) explains how GOODKLICKS DIGITAL VENTURES LLP (&ldquo;Company&rdquo;, &ldquo;We&rdquo;, &ldquo;Us&rdquo;, or &ldquo;Our&rdquo;) collects, processes, stores, and shares personal data from users (&ldquo;You&rdquo; or &ldquo;Your&rdquo;) of the Alterity platform available at{' '}
+            This Privacy Policy (&ldquo;Policy&rdquo;) explains how Alterity Labs Pvt Ltd (&ldquo;Company&rdquo;, &ldquo;We&rdquo;, &ldquo;Us&rdquo;, or &ldquo;Our&rdquo;) collects, processes, stores, and shares personal data from users (&ldquo;You&rdquo; or &ldquo;Your&rdquo;) of the Alterity platform available at{' '}
             <a href="https://alterity.io" className="terms-page__link">https://alterity.io</a> (&ldquo;Platform&rdquo;).
           </p>
           <p className="terms-page__intro" style={{ marginBottom: '40px' }}>

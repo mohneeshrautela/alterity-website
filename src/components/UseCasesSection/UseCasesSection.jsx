@@ -1,89 +1,77 @@
-import { useRef } from 'react'
-import { useTransform, motion, useScroll } from 'motion/react'
+import { useCallback, useEffect, useState, useRef } from 'react'
+import useEmblaCarousel from 'embla-carousel-react'
+import Autoplay from 'embla-carousel-autoplay'
+import { Banknote, Package, CalendarCheck, Users, PhoneCall, Check } from 'lucide-react'
 import './UseCasesSection.css'
 
-const INDUSTRIES = [
+const USE_CASES = [
   {
-    title: 'Pharma and Healthcare',
-    description: 'Automate patient appointment scheduling, medication reminders, and follow-up calls — freeing your team to focus on care, not calls.',
-    body: 'Alterity enables healthcare and pharmaceutical organizations to elevate patient engagement through an advanced Voice AI platform that automates communication, appointment reminders, and follow-ups at scale. Designed with enterprise-grade security and HIPAA compliance in mind, Alterity helps streamline operations while delivering consistent, high-quality patient experiences.',
-    color: '#F3F1E6',
-    image: '/Doctor.png',
+    Icon: Banknote,
+    iconBg: '#5B9CF6',
+    title: 'Collection',
+    description: 'Identify overdue accounts and screen payment capabilities. Automate follow-ups for better recovery rates.',
+    features: ['Handles payment objections automatically', 'Escalates to human agent on demand', 'Works across all DPD buckets'],
+    tags: ['BFSI', 'NBFCs', 'Lending'],
   },
   {
-    title: 'Supply and Logistics',
-    description: 'Handle shipment updates, delivery confirmations, and driver coordination at scale with voice agents that never miss a beat.',
-    body: 'Alterity equips logistics companies with an intelligent AI agent purpose-built to streamline delivery operations, automate real-time updates, coordinate drivers, and manage customer communication. By reducing manual intervention and optimizing workflows, Alterity drives greater operational efficiency and scalability across the logistics lifecycle.',
-    color: '#F3F1E6',
-    image: '/Logistics.png',
+    Icon: Package,
+    iconBg: '#F59E0B',
+    title: 'Last Mile Delivery',
+    description: 'Identify delivery windows and screen recipient availability. Automate delivery coordination for better success rates.',
+    features: ['Confirms delivery slots in real time', 'Sends instant re-attempt scheduling', 'Reduces failed delivery costs at scale'],
+    tags: ['Logistics', 'Quick Commerce', 'D2C'],
   },
   {
-    title: 'E-commerce and Retail',
-    description: 'Resolve order queries, process returns, and upsell products through natural voice conversations — 24/7, in any language.',
-    body: 'Alterity helps ecommerce businesses streamline customer engagement through intelligent voice AI agents that reduce service overhead and improve conversion rates. From recovering lost sales to assisting with order inquiries, the platform manages customer interactions end to end.',
-    color: '#F3F1E6',
-    image: '/Ecom.png',
+    Icon: CalendarCheck,
+    iconBg: '#38BDF8',
+    title: 'Appointment Booking',
+    description: 'Identify patient needs and screen appointment preferences. Automate scheduling for better booking conversions.',
+    features: ['Books and reschedules without human input', 'Sends automated reminders to reduce no-shows', 'Collects pre-visit information from patients'],
+    tags: ['Healthcare', 'Diagnostics', 'Clinics'],
   },
   {
-    title: 'Finance and Fintech',
-    description: 'Run compliant collections, loan follow-ups, and KYC verification calls with deterministic workflows and full audit trails.',
-    body: 'Alterity brings secure, intelligent voice AI agents to banking and fintech, transforming collections and customer servicing across the lifecycle. From early-stage reminders to late-stage debt recovery across all DPD buckets, our AI agents handle payment follow-ups, negotiate resolutions, and manage customer interactions with consistency and compliance. This enables financial institutions to improve recovery rates, reduce operational costs, and deliver a more structured, scalable approach to collections and support.',
-    color: '#F3F1E6',
-    image: '/Finance.png',
+    Icon: PhoneCall,
+    iconBg: '#34D399',
+    title: 'Lead Qualification',
+    description: 'Engage inbound leads instantly and qualify by intent. Automate outreach for higher conversion rates.',
+    features: ['Responds to leads within seconds of sign-up', 'Scores and routes based on intent signals', 'Runs follow-up sequences without manual effort'],
+    tags: ['Real Estate', 'EdTech', 'Insurance'],
   },
   {
-    title: 'Talent and Hiring',
-    description: 'Screen candidates, schedule interviews, and send offer updates through conversational voice agents that represent your brand.',
-    body: 'Alterity streamlines hiring with intelligent AI voice agents that manage candidate outreach, initial screening, and follow-ups with speed and consistency. By automating high-volume interactions and keeping candidates engaged throughout the process, Alterity helps teams fill roles faster while significantly reducing manual effort.',
-    color: '#F3F1E6',
-    image: '/Talent.png',
-  },
-  {
-    title: 'EdTech and Learning',
-    description: "Engage students with personalised check-ins, course reminders, and support calls that adapt to each learner's journey.",
-    body: 'Alterity elevates EdTech platforms with intelligent voice AI agents that deliver personalized, automated support across onboarding, learner inquiries, and retention efforts. By streamlining communication and maintaining consistent engagement at scale, Alterity enables organizations to operate more efficiently while supporting sustainable growth.',
-    color: '#F3F1E6',
-    image: '/Teacher.png',
+    Icon: Users,
+    iconBg: '#A78BFA',
+    title: 'Candidate Screening',
+    description: 'Screen candidates efficiently and identify top talent faster. Automate first-round interviews for better hiring outcomes.',
+    features: ['Runs structured screening calls at scale', 'Summarises responses for recruiter review', 'Coordinates interview scheduling automatically'],
+    tags: ['Staffing', 'HR Tech', 'Recruitment'],
   },
 ]
 
-function Card({ i, title, body, color, image, progress, range, targetScale }) {
-  const container = useRef(null)
-  const scale = useTransform(progress, range, [1, targetScale])
-
-  return (
-    <div ref={container} className="uc-card-row" style={{ zIndex: i }}>
-      <motion.div
-        className="uc-card"
-        style={{
-          backgroundColor: color,
-          scale,
-          top: `calc(-5vh + ${i * 25}px)`,
-        }}
-      >
-        {image ? (
-          <div className="uc-card__left">
-            <h3 className="uc-card__title uc-card__title--has-image">{title}</h3>
-            {body && <p className="uc-card__body">{body}</p>}
-          </div>
-        ) : (
-          <h3 className="uc-card__title">{title}</h3>
-        )}
-        {image && (
-          <img src={image} alt={title} className="uc-card__image" />
-        )}
-      </motion.div>
-    </div>
-  )
-}
-
 export default function UseCasesSection() {
-  const container = useRef(null)
+  const autoplay = useRef(Autoplay({ delay: 3000, stopOnInteraction: false, stopOnMouseEnter: true }))
 
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ['start start', 'end end'],
-  })
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { loop: true, align: 'center' },
+    [autoplay.current]
+  )
+
+  const [selectedIndex, setSelectedIndex] = useState(0)
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return
+    setSelectedIndex(emblaApi.selectedScrollSnap())
+  }, [emblaApi])
+
+  useEffect(() => {
+    if (!emblaApi) return
+    emblaApi.on('select', onSelect)
+    emblaApi.on('reInit', onSelect)
+    onSelect()
+    return () => {
+      emblaApi.off('select', onSelect)
+      emblaApi.off('reInit', onSelect)
+    }
+  }, [emblaApi, onSelect])
 
   return (
     <section className="uc-section" id="use-cases">
@@ -93,23 +81,63 @@ export default function UseCasesSection() {
         <p className="uc-subheading">Voice AI built for the workflows that matter most in your industry.</p>
       </div>
 
-      <div className="uc-cards" ref={container}>
-        {INDUSTRIES.map((industry, i) => {
-          const targetScale = 1 - (INDUSTRIES.length - i) * 0.08
-          return (
-            <Card
-              key={i}
-              i={i}
-              title={industry.title}
-              body={industry.body}
-              color={industry.color}
-              image={industry.image}
-              progress={scrollYProgress}
-              range={[i * (1 / INDUSTRIES.length), 1]}
-              targetScale={targetScale}
-            />
-          )
-        })}
+      <div className="uc-carousel-outer">
+        <div className="uc-carousel-viewport" ref={emblaRef}>
+          <div className="uc-track">
+            {USE_CASES.map(({ Icon, iconBg, title, description, features, tags }, i) => {
+              const isActive = i === selectedIndex
+              return (
+                <div
+                  key={i}
+                  className={`uc-slide${isActive ? ' uc-slide--active' : ''}`}
+                  onClick={() => {
+                    emblaApi?.scrollTo(i)
+                    autoplay.current.reset()
+                  }}
+                >
+                  <div className="uc-slide__inner">
+                    <div className="uc-icon" style={{ background: iconBg }}>
+                      <Icon size={26} color="#fff" strokeWidth={1.8} />
+                    </div>
+
+                    <h3 className="uc-title">{title}</h3>
+                    <p className="uc-desc">{description}</p>
+
+                    <ul className="uc-features">
+                      {features.map((f, fi) => (
+                        <li key={fi} className="uc-feature">
+                          <Check size={14} strokeWidth={2.5} className="uc-feature__icon" />
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="uc-divider" />
+
+                    <div className="uc-tags">
+                      {tags.map((t, ti) => (
+                        <span key={ti} className="uc-tag">{t}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </div>
+
+      <div className="uc-dots">
+        {USE_CASES.map((_, i) => (
+          <button
+            key={i}
+            className={`uc-dot${i === selectedIndex ? ' uc-dot--active' : ''}`}
+            onClick={() => {
+              emblaApi?.scrollTo(i)
+              autoplay.current.reset()
+            }}
+          />
+        ))}
       </div>
     </section>
   )
