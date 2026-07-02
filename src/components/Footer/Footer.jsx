@@ -1,69 +1,61 @@
 import './Footer.css'
 
-const NAV_LINKS = ['Why Us', 'Use Cases', 'Pricing']
-const LEGAL_LINKS = ['Terms', 'Privacy', 'Contact']
+const COLUMNS = [
+  { h: 'Product', items: [
+    { label: 'Product', key: 'product' },
+    { label: 'Use cases', key: 'use-cases' },
+    { label: 'Languages', key: 'languages' },
+    { label: 'Pricing', pricing: true },
+  ] },
+  { h: 'Company', items: [
+    { label: 'About', href: '#' },
+    { label: 'Careers', href: '#' },
+    { label: 'Contact', contact: true },
+  ] },
+  { h: 'Legal', items: [
+    { label: 'Privacy policy', privacy: true },
+    { label: 'Terms of use', terms: true },
+  ] },
+]
 
-export default function Footer({ onTermsClick, onPrivacyClick, onPricingClick, onWhyUsClick, onUseCasesClick, onLogoClick }) {
+export default function Footer({ onTermsClick, onPrivacyClick, onPricingClick, onSectionClick, onLogoClick }) {
+  const handlerFor = (item) => {
+    if (item.pricing) return (e) => { e.preventDefault(); onPricingClick?.() }
+    if (item.terms) return (e) => { e.preventDefault(); onTermsClick?.() }
+    if (item.privacy) return (e) => { e.preventDefault(); onPrivacyClick?.() }
+    if (item.contact) return (e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('open-contact-modal')) }
+    if (item.key) return (e) => { e.preventDefault(); onSectionClick?.(item.key) }
+    return undefined
+  }
+
   return (
     <footer className="footer">
-      <div className="footer__inner">
-
-        {/* Top row */}
+      <div className="alt-wrap">
         <div className="footer__top">
-
-          {/* Left: company info */}
-          <div className="footer__company">
-            <p className="footer__brand-heading" style={{cursor:'pointer'}} onClick={() => onLogoClick?.()}>Alterity</p>
-            <p className="footer__company-name">Alterity Labs Pvt Ltd.</p>
-            <p className="footer__company-address">C-703, Wisway Complex, Sampada Society,<br />Andheri East, Mumbai, Maharashtra 400069</p>
+          <div className="footer__brand">
+            <a className="navbar__brand" href="/" onClick={(e) => { e.preventDefault(); onLogoClick?.() }}>
+              <img src="/alt logo.png" alt="Alterity" className="navbar__brand-img" />
+              <span>Alterity</span>
+            </a>
+            <p className="footer__tag">AI voice agents for the calls your operations run on.</p>
+            <p className="footer__sub alt-mono">Bengaluru &middot; Mumbai &middot; Delhi</p>
+            <p className="footer__legal-name">Alterity Labs Pvt Ltd. &middot; C-703, Wisway Complex, Sampada Society, Andheri East, Mumbai, Maharashtra 400069</p>
           </div>
-
-          {/* Right: nav links */}
-          <ul className="footer__nav-list">
-            {NAV_LINKS.map((label) => (
-              <li key={label}>
-                <a
-                  href="#"
-                  className="footer__nav-link"
-                  onClick={
-                    label === 'Pricing' ? (e) => { e.preventDefault(); onPricingClick?.() }
-                    : label === 'Why Us' ? (e) => { e.preventDefault(); onWhyUsClick?.() }
-                    : label === 'Use Cases' ? (e) => { e.preventDefault(); onUseCasesClick?.() }
-                    : undefined
-                  }
-                >{label}</a>
-              </li>
-            ))}
-          </ul>
-
+          {COLUMNS.map((c) => (
+            <div className="footer__col" key={c.h}>
+              <div className="footer__h alt-mono">{c.h}</div>
+              <ul>
+                {c.items.map((item) => (
+                  <li key={item.label}><a href={item.href || '#'} onClick={handlerFor(item)}>{item.label}</a></li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
-
-        {/* Big watermark */}
-        <div className="footer__big-logo" aria-hidden="true">Alterity</div>
-
-        {/* Divider */}
-        <div className="footer__divider"></div>
-
-        {/* Bottom bar */}
         <div className="footer__bottom">
-          <p className="footer__copyright">© 2026 Alterity is a brand under Alterity Labs Pvt Ltd.</p>
-          <div className="footer__legal-row">
-            {LEGAL_LINKS.map((link) => (
-              <a
-                key={link}
-                href="#"
-                className="footer__legal-link"
-                onClick={
-                  link === 'Terms' ? (e) => { e.preventDefault(); onTermsClick?.() }
-                  : link === 'Privacy' ? (e) => { e.preventDefault(); onPrivacyClick?.() }
-                  : link === 'Contact' ? (e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('open-contact-modal')) }
-                  : undefined
-                }
-              >{link}</a>
-            ))}
-          </div>
+          <span className="alt-mono alt-muted">&copy; 2026 Alterity &mdash; Made in India.</span>
+          <span className="alt-mono alt-muted">contact@alterity.io</span>
         </div>
-
       </div>
     </footer>
   )

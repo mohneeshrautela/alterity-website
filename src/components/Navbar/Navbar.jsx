@@ -1,80 +1,50 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import './Navbar.css'
 
 const NAV_LINKS = [
-  { label: 'Why Us', href: '#why-us' },
-  { label: 'Use Cases', href: '#use-cases' },
-  { label: 'Pricing', href: '#pricing' },
+  { label: 'Product', key: 'product' },
+  { label: 'Use cases', key: 'use-cases' },
+  { label: 'Languages', key: 'languages' },
 ]
 
-export default function Navbar({ onPricingClick, onLogoClick, onCallsClick, onUseCasesClick, onWhyUsClick }) {
+export default function Navbar({ onPricingClick, onLogoClick, onSectionClick }) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [cursor, setCursor] = useState({ left: 0, width: 0, visible: false })
-  const tabRefs = useRef([])
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10)
-    window.addEventListener('scroll', onScroll)
+    const onScroll = () => setScrolled(window.scrollY > 12)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const handleMouseEnter = (i) => {
-    const el = tabRefs.current[i]
-    if (!el) return
-    setCursor({ left: el.offsetLeft, width: el.offsetWidth, visible: true })
-  }
-
-  const handleMouseLeave = () => {
-    setCursor(c => ({ ...c, visible: false }))
-  }
-
-  const CLICKS = [
-    (e) => { e.preventDefault(); onWhyUsClick?.() },
-    (e) => { e.preventDefault(); onUseCasesClick?.() },
-    (e) => { e.preventDefault(); onPricingClick?.() },
-  ]
+  const go = (key) => (e) => { e.preventDefault(); setMobileOpen(false); onSectionClick?.(key) }
+  const goPricing = (e) => { e.preventDefault(); setMobileOpen(false); onPricingClick?.() }
 
   return (
-    <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
+    <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <div className="navbar__inner">
-        <a href="/" className="navbar__logo" onClick={(e) => { e.preventDefault(); onLogoClick?.() }}>
-          <img src="/alt logo.png" alt="Alterity" className="navbar__logo-img" />
-          <span className="navbar__logo-text">Alterity</span>
+        <a className="navbar__brand" href="/" onClick={(e) => { e.preventDefault(); onLogoClick?.() }}>
+          <img src="/alt logo.png" alt="Alterity" className="navbar__brand-img" />
+          <span>Alterity</span>
         </a>
 
-        <ul className="navbar__links" onMouseLeave={handleMouseLeave}>
-          {NAV_LINKS.map((link, i) => (
-            <li
-              key={link.href}
-              ref={el => tabRefs.current[i] = el}
-              className="navbar__slide-tab"
-              onMouseEnter={() => handleMouseEnter(i)}
-            >
-              <a href={link.href} onClick={CLICKS[i]}>{link.label}</a>
-            </li>
+        <nav className="navbar__menu" aria-label="Primary">
+          {NAV_LINKS.map((l) => (
+            <a key={l.key} href={`#${l.key}`} onClick={go(l.key)}>{l.label}</a>
           ))}
-          <li
-            className="navbar__slide-cursor"
-            style={{
-              left: cursor.left,
-              width: cursor.width,
-              opacity: cursor.visible ? 1 : 0,
-              transition: cursor.visible
-                ? 'left 0.2s ease, width 0.2s ease, opacity 0.15s ease'
-                : 'opacity 0.15s ease',
-            }}
-          />
-        </ul>
+          <a href="#pricing" onClick={goPricing}>Pricing</a>
+        </nav>
 
-        <div className="navbar__right">
-          <a href="https://dashboard.alterity.io/" className="navbar__btn navbar__btn--outlined">Login</a>
-          <button className="navbar__btn navbar__btn--dark" onClick={() => window.dispatchEvent(new CustomEvent('open-contact-modal'))}>Start a Pilot</button>
-          <button
-            className="navbar__mobile-toggle"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
-          >
+        <div className="navbar__actions">
+          <a href="https://dashboard.alterity.io/" className="navbar__link">Sign in</a>
+          <button className="alt-btn alt-btn--ink" onClick={() => window.dispatchEvent(new CustomEvent('open-contact-modal'))}>
+            Book a demo
+            <span className="alt-ico">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 3.5 11 7l-3.5 3.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            </span>
+          </button>
+          <button className="navbar__mobile-toggle" onClick={() => setMobileOpen(v => !v)} aria-label="Toggle menu">
             <span></span><span></span><span></span>
           </button>
         </div>
@@ -82,15 +52,16 @@ export default function Navbar({ onPricingClick, onLogoClick, onCallsClick, onUs
 
       {mobileOpen && (
         <div className="navbar__mobile-menu">
-          <a onClick={() => { setMobileOpen(false); onWhyUsClick?.() }}>Why Us</a>
-          <a onClick={() => { setMobileOpen(false); onUseCasesClick?.() }}>Use Cases</a>
-          <a onClick={() => { setMobileOpen(false); onPricingClick?.() }}>Pricing</a>
+          {NAV_LINKS.map((l) => (
+            <a key={l.key} href={`#${l.key}`} onClick={go(l.key)}>{l.label}</a>
+          ))}
+          <a href="#pricing" onClick={goPricing}>Pricing</a>
           <div className="navbar__mobile-btns">
-            <a href="https://dashboard.alterity.io/" className="navbar__btn navbar__btn--outlined">Login</a>
-            <button className="navbar__btn navbar__btn--dark" onClick={() => window.dispatchEvent(new CustomEvent('open-contact-modal'))}>Start a Pilot</button>
+            <a href="https://dashboard.alterity.io/" className="navbar__link">Sign in</a>
+            <button className="alt-btn alt-btn--ink" onClick={() => window.dispatchEvent(new CustomEvent('open-contact-modal'))}>Book a demo</button>
           </div>
         </div>
       )}
-    </nav>
+    </header>
   )
 }

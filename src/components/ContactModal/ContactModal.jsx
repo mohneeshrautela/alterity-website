@@ -27,102 +27,99 @@ export default function ContactModal({ onClose }) {
 
   return (
     <div
-      className="cm-overlay"
+      className="modal"
       ref={overlayRef}
-      onClick={(e) => { if (e.target === overlayRef.current) onClose() }}
+      onMouseDown={(e) => { if (e.target === overlayRef.current) onClose() }}
     >
-      <div className="cm-card">
-        <button className="cm-close" onClick={onClose} aria-label="Close">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-            <path d="M18 6L6 18M6 6l12 12"/>
-          </svg>
+      <div className="modal__card">
+        <button className="modal__close" onClick={onClose} aria-label="Close">
+          <svg width="14" height="14" viewBox="0 0 14 14"><path d="M3 3l8 8M11 3l-8 8" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" /></svg>
         </button>
 
         {submitted ? (
-          <div className="cm-success">
-            <svg viewBox="0 0 48 48" fill="none" width="52" height="52">
-              <circle cx="24" cy="24" r="22" stroke="var(--dark)" strokeWidth="2"/>
-              <path d="M14 24l7 7 13-14" stroke="var(--dark)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-            <h3>Thanks! We'll be in touch shortly.</h3>
-            <p>Our team typically responds within one business day.</p>
+          <div className="modal__done">
+            <div className="modal__tick">
+              <svg width="28" height="28" viewBox="0 0 28 28"><circle cx="14" cy="14" r="13" stroke="currentColor" fill="none" /><path d="M8 14l4 4 8-9" stroke="currentColor" strokeWidth="1.8" fill="none" strokeLinecap="round" /></svg>
+            </div>
+            <h3 className="alt-h-section" style={{ fontSize: 32 }}>We're on it.</h3>
+            <p style={{ color: 'var(--alt-ink-2)', fontSize: 15, lineHeight: 1.55 }}>Someone from our team will reach out within a business day. Look for an email from <span className="alt-mono">contact@alterity.io</span>.</p>
+            <button className="alt-btn alt-btn--ink" onClick={onClose}>Close</button>
           </div>
         ) : (
           <>
-            <div className="cm-header">
-              <h2 className="cm-title">Let's talk</h2>
-              <p className="cm-subtitle">Tell us a bit about your team and we'll reach out with a custom plan.</p>
-            </div>
+            <span className="alt-eyebrow"><span className="alt-dot" />Book a demo</span>
+            <h3 className="alt-h-section" style={{ fontSize: 32, marginTop: 8 }}>Tell us about your calls.</h3>
+            <p style={{ color: 'var(--alt-ink-2)', fontSize: 15, marginTop: 8, lineHeight: 1.55 }}>Two minutes. We use what you share to come back with an agent built around your actual use case.</p>
 
-            <form className="cm-form" action="https://formspree.io/f/xbdzanrv" method="POST" onSubmit={handleSubmit} noValidate>
-              <div className="cm-row">
-                <div className="cm-group">
-                  <label className="cm-label" htmlFor="cm-email">Work email</label>
-                  <input
-                    id="cm-email"
-                    name="email"
-                    type="email"
-                    className={`cm-input ${emailError ? 'cm-input--error' : ''}`}
-                    placeholder="you@company.com"
-                    value={email}
-                    onChange={(e) => { setEmail(e.target.value); setEmailError(false) }}
-                  />
-                  {emailError && <span className="cm-error">Email is required</span>}
-                </div>
+            <form
+              className="modal__form"
+              action="https://formspree.io/f/xbdzanrv"
+              method="POST"
+              onSubmit={handleSubmit}
+              noValidate
+            >
+              <label>
+                <span className="alt-mono alt-muted">Work email</span>
+                <input
+                  id="cm-email"
+                  name="email"
+                  type="email"
+                  placeholder="rahul@company.in"
+                  value={email}
+                  onChange={(e) => { setEmail(e.target.value); setEmailError(false) }}
+                />
+                {emailError && <span className="modal__error">Email is required</span>}
+              </label>
 
-                <div className="cm-group">
-                  <label className="cm-label" htmlFor="cm-phone">Phone number</label>
-                  <input
-                    id="cm-phone"
-                    name="phone"
-                    type="tel"
-                    className="cm-input"
-                    placeholder="+1 (555) 000-0000"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                  />
-                </div>
-              </div>
+              <label>
+                <span className="alt-mono alt-muted">Phone number</span>
+                <input
+                  id="cm-phone"
+                  name="phone"
+                  type="tel"
+                  placeholder="+91 98765 43210"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
+              </label>
 
-              <div className="cm-group">
-                <label className="cm-label" htmlFor="cm-agents">Number of calling agents</label>
+              <label className="full">
+                <span className="alt-mono alt-muted">Number of calling agents</span>
                 <input
                   id="cm-agents"
                   name="agents"
                   type="number"
                   min="1"
-                  className="cm-input"
                   placeholder="How many tele-callers do you have today?"
                   value={agents}
                   onChange={(e) => setAgents(e.target.value)}
                 />
-              </div>
+              </label>
 
-              <div className="cm-checkbox-row">
+              <label className="full modal__checkbox-row">
                 <input
                   id="cm-consent"
                   type="checkbox"
-                  className="cm-checkbox"
                   checked={consent}
                   onChange={(e) => setConsent(e.target.checked)}
                 />
-                <label htmlFor="cm-consent" className="cm-checkbox-label">
+                <span className="modal__checkbox-label">
                   I consent to the collection and processing of my personal data in accordance with the{' '}
                   <a
                     href="#"
-                    className="cm-link"
                     onClick={(e) => {
                       e.preventDefault()
                       onClose()
                       window.dispatchEvent(new CustomEvent('navigate-to-privacy'))
                     }}
                   >Privacy Policy</a>.
-                </label>
-              </div>
+                </span>
+              </label>
 
-              <button type="submit" className="cm-submit">
-                Contact us
-              </button>
+              <div className="modal__actions full">
+                <button type="button" className="alt-btn alt-btn--paper" onClick={onClose}>Cancel</button>
+                <button type="submit" className="alt-btn alt-btn--ink">Contact us &rarr;</button>
+              </div>
             </form>
           </>
         )}

@@ -1,30 +1,28 @@
 import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar/Navbar'
 import Hero from './components/Hero/Hero'
-import SDKSection from './components/SDKSection/SDKSection'
-import WhyOpenHands from './components/WhyOpenHands/WhyOpenHands'
-import UseCasesSection from './components/UseCasesSection/UseCasesSection'
-import LanguagesSection from './components/LanguagesSection/LanguagesSection'
-import CommunitySection from './components/CommunitySection/CommunitySection'
-import CTASection from './components/CTASection/CTASection'
+import CallDemo from './components/CallDemo/CallDemo'
+import Capabilities from './components/Capabilities/Capabilities'
+import UseCases from './components/UseCases/UseCases'
+import IndiaBand from './components/IndiaBand/IndiaBand'
+import Languages from './components/Languages/Languages'
+import HowItWorks from './components/HowItWorks/HowItWorks'
+import CTA from './components/CTA/CTA'
 import Footer from './components/Footer/Footer'
 import PricingPage from './components/PricingPage/PricingPage'
 import TermsPage from './components/TermsPage/TermsPage'
 import PrivacyPage from './components/PrivacyPage/PrivacyPage'
-import CalculatorPage from './components/CalculatorPage/CalculatorPage'
-import WhyUsPage from './components/WhyUsPage/WhyUsPage'
 import ContactModal from './components/ContactModal/ContactModal'
+import Tweaks from './components/Tweaks/Tweaks'
 
 function App() {
   const [page, setPage] = useState('home')
   const [showModal, setShowModal] = useState(false)
 
-  const goHome      = () => { setPage('home');       window.scrollTo(0, 0) }
-  const goPricing   = () => { setPage('pricing');    window.scrollTo(0, 0) }
-  const goTerms     = () => { setPage('terms');      window.scrollTo(0, 0) }
-  const goPrivacy   = () => { setPage('privacy');    window.scrollTo(0, 0) }
-  const goCalculator= () => { setPage('calculator'); window.scrollTo(0, 0) }
-  const goWhyUs     = () => { setPage('why-us');     window.scrollTo(0, 0) }
+  const goHome    = () => { setPage('home');    window.scrollTo(0, 0) }
+  const goPricing = () => { setPage('pricing'); window.scrollTo(0, 0) }
+  const goTerms   = () => { setPage('terms');   window.scrollTo(0, 0) }
+  const goPrivacy = () => { setPage('privacy'); window.scrollTo(0, 0) }
 
   const goToSection = (id) => {
     setPage('home')
@@ -36,19 +34,25 @@ function App() {
 
   useEffect(() => {
     const openModal = () => setShowModal(true)
-    const goToCalls = () => goToSection('calls')
-    const goToCalc  = () => goCalculator()
-    window.addEventListener('open-contact-modal',     openModal)
-    window.addEventListener('navigate-to-privacy',    goPrivacy)
-    window.addEventListener('navigate-to-calls',      goToCalls)
-    window.addEventListener('navigate-to-calculator', goToCalc)
+    const goToCalls = () => goToSection('product')
+    window.addEventListener('open-contact-modal', openModal)
+    window.addEventListener('navigate-to-privacy', goPrivacy)
+    window.addEventListener('navigate-to-calls', goToCalls)
     return () => {
-      window.removeEventListener('open-contact-modal',     openModal)
-      window.removeEventListener('navigate-to-privacy',    goPrivacy)
-      window.removeEventListener('navigate-to-calls',      goToCalls)
-      window.removeEventListener('navigate-to-calculator', goToCalc)
+      window.removeEventListener('open-contact-modal', openModal)
+      window.removeEventListener('navigate-to-privacy', goPrivacy)
+      window.removeEventListener('navigate-to-calls', goToCalls)
     }
   }, [])
+
+  useEffect(() => {
+    const els = document.querySelectorAll('.alt-reveal')
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('is-in') })
+    }, { threshold: 0.12 })
+    els.forEach((el) => io.observe(el))
+    return () => io.disconnect()
+  }, [page])
 
   return (
     <>
@@ -56,29 +60,25 @@ function App() {
         <Navbar
           onPricingClick={goPricing}
           onLogoClick={goHome}
-          onCallsClick={() => goToSection('calls')}
-          onUseCasesClick={() => goToSection('use-cases')}
-          onWhyUsClick={goWhyUs}
+          onSectionClick={goToSection}
         />
 
-        {page === 'why-us' ? (
-          <WhyUsPage />
-        ) : page === 'pricing' ? (
+        {page === 'pricing' ? (
           <PricingPage onPrivacyClick={goPrivacy} />
         ) : page === 'terms' ? (
           <TermsPage />
         ) : page === 'privacy' ? (
           <PrivacyPage />
-        ) : page === 'calculator' ? (
-          <CalculatorPage />
         ) : (
           <>
-            <Hero />
-            <SDKSection />
-            <UseCasesSection />
-            <LanguagesSection />
-            <CommunitySection />
-            <CTASection />
+            <Hero onContact={() => setShowModal(true)} onSectionClick={goToSection} />
+            <CallDemo />
+            <Capabilities />
+            <UseCases />
+            <IndiaBand />
+            <Languages />
+            <HowItWorks />
+            <CTA onContact={() => setShowModal(true)} />
           </>
         )}
 
@@ -86,12 +86,12 @@ function App() {
           onTermsClick={goTerms}
           onPrivacyClick={goPrivacy}
           onPricingClick={goPricing}
-          onWhyUsClick={goWhyUs}
-          onUseCasesClick={() => goToSection('use-cases')}
+          onSectionClick={goToSection}
           onLogoClick={goHome}
         />
       </div>
       {showModal && <ContactModal onClose={() => setShowModal(false)} />}
+      <Tweaks />
     </>
   )
 }

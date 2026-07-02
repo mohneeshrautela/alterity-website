@@ -1,0 +1,15 @@
+.how__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.how__card {
+  position: relative; overflow: hidden;
+  background: var(--alt-paper-2); border: 1px solid var(--alt-rule);
+  border-radius: var(--alt-radius-lg); padding: 30px 28px;
+  display: flex; flex-direction: column; gap: 16px;
+  transition: transform 240ms ease, box-shadow 240ms ease;
+}
+.how__card:hover { transform: translateY(-3px); box-shadow: 0 30px 56px -40px rgba(20,19,15,0.3); }
+.how__icon { position: relative; z-index: 2; }
+.how__step { font-family: var(--alt-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--alt-ink-3); }
+.how__title { font-family: var(--alt-serif); font-size: 24px; letter-spacing: -0.01em; color: var(--alt-ink); position: relative; z-index: 2; font-weight: 400; margin: 0; }
+.how__body { color: var(--alt-ink-2); font-size: 14.5px; line-height: 1.6; position: relative; z-index: 2; margin: 0; }
+
+@media (max-width: 900px) { .how__grid { grid-template-columns: 1fr; } }

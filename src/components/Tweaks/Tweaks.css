@@ -1,0 +1,25 @@
+.tw {
+  position: fixed; right: 20px; bottom: 20px; z-index: 90;
+  width: 268px; background: var(--alt-paper-2);
+  border: 1px solid var(--alt-rule); border-radius: 18px;
+  box-shadow: 0 30px 70px -30px rgba(20,19,15,0.4);
+  padding: 16px 18px 18px; font-family: var(--alt-sans);
+}
+.tw__head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.tw__title { font-family: var(--alt-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--alt-ink-3); }
+.tw__close { background: var(--alt-bg); border: 1px solid var(--alt-rule); border-radius: 8px; width: 24px; height: 24px; color: var(--alt-ink-2); display: flex; align-items: center; justify-content: center; }
+.tw__group { margin-bottom: 16px; }
+.tw__label { font-size: 12px; color: var(--alt-ink-2); font-weight: 500; margin-bottom: 8px; display: flex; justify-content: space-between; }
+.tw__label .alt-mono { color: var(--alt-ink-3); }
+.tw__swatches { display: flex; gap: 8px; }
+.tw__sw { width: 30px; height: 30px; border-radius: 99px; border: 2px solid transparent; cursor: pointer; transition: transform 150ms ease; }
+.tw__sw:hover { transform: scale(1.08); }
+.tw__sw.is-on { border-color: var(--alt-ink); }
+.tw input[type=range] { width: 100%; accent-color: var(--accent); }
+.tw__toggle-btn {
+  position: fixed; right: 20px; bottom: 20px; z-index: 90;
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--alt-ink); color: #fff; border: none;
+  border-radius: 99px; padding: 11px 16px; font-size: 13px; font-weight: 500;
+  box-shadow: 0 16px 36px -18px rgba(20,19,15,0.6);
+}

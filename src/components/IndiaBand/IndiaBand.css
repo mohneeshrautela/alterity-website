@@ -1,0 +1,21 @@
+.india { position: relative; overflow: hidden; background: var(--alt-dark); color: var(--alt-warm-light); }
+.india__wash {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(70% 90% at 15% 20%, oklch(0.55 0.14 40 / 0.35), transparent 60%),
+    radial-gradient(60% 80% at 85% 90%, oklch(0.45 0.06 278 / 0.4), transparent 62%);
+}
+.india__inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: center; }
+.india__title { font-family: var(--alt-serif); font-size: clamp(32px, 4vw, 54px); line-height: 1.08; letter-spacing: -0.02em; color: var(--alt-warm-light); font-weight: 400; margin: 0; }
+.india__title em { font-style: italic; color: var(--accent-bright); }
+.india__body { color: var(--alt-warm-light-2); font-size: 16.5px; line-height: 1.7; max-width: 48ch; margin: 22px 0 0; }
+.india__stats { display: flex; gap: 44px; margin-top: 34px; flex-wrap: wrap; }
+.india__stat-v { font-family: var(--alt-serif); font-size: 44px; line-height: 1; letter-spacing: -0.02em; color: var(--alt-warm-light); }
+.india__stat-l { font-family: var(--alt-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--alt-warm-light-2); margin-top: 8px; text-transform: uppercase; }
+.india__art { position: relative; display: flex; align-items: center; justify-content: center; min-height: 340px; }
+.india__mandala { color: var(--accent-bright); opacity: calc(0.26 * var(--motif)); }
+.india__glyphs {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-family: var(--alt-deva); font-size: 200px; color: var(--alt-warm-light); opacity: 0.10;
+}
+@media (max-width: 900px) { .india__inner { grid-template-columns: 1fr; gap: 36px; } .india__art { min-height: 240px; } }

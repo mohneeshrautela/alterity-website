@@ -1,0 +1,18 @@
+.cta__card { position: relative; overflow: hidden; border-radius: 30px; background: var(--alt-dark); padding: 92px 60px; isolation: isolate; }
+.cta__bg { position: absolute; inset: 0; z-index: 0; }
+.cta__wash {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(70% 80% at 50% 118%, oklch(0.55 0.15 40 / 0.6), transparent 62%),
+    radial-gradient(60% 70% at 20% -10%, oklch(0.45 0.06 278 / 0.5), transparent 60%);
+}
+.cta__mandala { position: absolute; left: 50%; top: 46%; transform: translate(-50%,-50%); color: var(--accent-bright); opacity: calc(0.14 * var(--motif)); }
+.cta__inner { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center; }
+.cta__inner .alt-eyebrow { color: var(--alt-warm-light-2); }
+.cta__inner .alt-eyebrow .alt-dot { background: var(--accent-bright); }
+.cta__title { color: var(--alt-warm-light); max-width: 15ch; font-size: clamp(46px, 6vw, 82px); text-wrap: balance; }
+.cta__title em { color: var(--accent-bright); font-style: italic; }
+.cta__sub { color: var(--alt-warm-light-2); max-width: 56ch; font-size: 17px; line-height: 1.6; margin: 0; font-family: var(--alt-sans); }
+.cta__actions { display: flex; gap: 13px; flex-wrap: wrap; justify-content: center; margin-top: 8px; }
+
+@media (max-width: 900px) { .cta__card { padding: 56px 26px; border-radius: 22px; } }
