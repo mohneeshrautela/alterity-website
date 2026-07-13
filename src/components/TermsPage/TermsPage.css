@@ -24,7 +24,7 @@
 }
 
 .terms-page__title {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-heading);
   font-size: clamp(32px, 4vw, 52px);
   font-weight: 800;
   letter-spacing: -1.5px;

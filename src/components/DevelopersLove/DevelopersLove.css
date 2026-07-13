@@ -44,7 +44,7 @@
 /* Tweet Card */
 .tweet-card {
   background: white;
-  border: 1px solid rgba(29, 18, 5, 0.09);
+  border: 1px solid rgba(0, 0, 0, 0.09);
   border-radius: 10px;
   padding: 12px 14px 10px;
   display: flex;
@@ -54,7 +54,7 @@
 }
 
 .tweet-card:hover {
-  box-shadow: 0 8px 28px rgba(29, 18, 5, 0.09);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.09);
   transform: translateY(-2px);
 }
 
@@ -112,7 +112,7 @@
   align-items: center;
   justify-content: space-between;
   padding-top: 6px;
-  border-top: 1px solid rgba(29, 18, 5, 0.07);
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
 }
 
 .tweet-card__time {

@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar/Navbar'
 import Hero from './components/Hero/Hero'
-import SDKSection from './components/SDKSection/SDKSection'
+import CallDemoCarousel from './components/CallDemoCarousel/CallDemoCarousel'
+import TestimonialTicker from './components/TestimonialTicker/TestimonialTicker'
+import ConversationsHeading from './components/ConversationsHeading/ConversationsHeading'
+import PlatformFeatures from './components/PlatformFeatures/PlatformFeatures'
 import WhyOpenHands from './components/WhyOpenHands/WhyOpenHands'
-import UseCasesSection from './components/UseCasesSection/UseCasesSection'
-import LanguagesSection from './components/LanguagesSection/LanguagesSection'
-import CommunitySection from './components/CommunitySection/CommunitySection'
+import IntegrationsSection from './components/IntegrationsSection/IntegrationsSection'
+import DeploymentTimeline from './components/DeploymentTimeline/DeploymentTimeline'
 import CTASection from './components/CTASection/CTASection'
+import FAQSection from './components/FAQSection/FAQSection'
 import Footer from './components/Footer/Footer'
 import PricingPage from './components/PricingPage/PricingPage'
 import TermsPage from './components/TermsPage/TermsPage'
@@ -57,7 +60,7 @@ function App() {
           onPricingClick={goPricing}
           onLogoClick={goHome}
           onCallsClick={() => goToSection('calls')}
-          onUseCasesClick={() => goToSection('use-cases')}
+          onUseCasesClick={() => goToSection('calls')}
           onWhyUsClick={goWhyUs}
         />
 
@@ -74,11 +77,14 @@ function App() {
         ) : (
           <>
             <Hero />
-            <SDKSection />
-            <UseCasesSection />
-            <LanguagesSection />
-            <CommunitySection />
+            <CallDemoCarousel />
+            <TestimonialTicker />
+            <ConversationsHeading />
+            <PlatformFeatures />
+            <IntegrationsSection />
+            <DeploymentTimeline />
             <CTASection />
+            <FAQSection />
           </>
         )}
 
@@ -87,7 +93,7 @@ function App() {
           onPrivacyClick={goPrivacy}
           onPricingClick={goPricing}
           onWhyUsClick={goWhyUs}
-          onUseCasesClick={() => goToSection('use-cases')}
+          onUseCasesClick={() => goToSection('calls')}
           onLogoClick={goHome}
         />
       </div>

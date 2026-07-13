@@ -1,12 +1,27 @@
 .footer {
-  background: #ffffff;
-  color: #000000;
+  position: relative;
+  background: #444BFB;
+  color: #ffffff;
   padding: 60px 40px 0;
   overflow: hidden;
-  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='linear' slope='3.2' intercept='-1.1'/%3E%3CfeFuncG type='linear' slope='3.2' intercept='-1.1'/%3E%3CfeFuncB type='linear' slope='3.2' intercept='-1.1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 140px 140px;
+  opacity: 0.6;
+  mix-blend-mode: overlay;
+  pointer-events: none;
 }
 
 .footer__inner {
+  position: relative;
+  z-index: 1;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -30,22 +45,22 @@
 .footer__company-name {
   font-size: 13px;
   font-weight: 700;
-  color: #000000;
+  color: #ffffff;
   margin: 0;
 }
 
 .footer__company-address {
   font-size: 13px;
-  color: rgba(0, 0, 0, 0.45);
+  color: #ffffff;
   line-height: 1.6;
   margin: 0;
 }
 
 .footer__brand-heading {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font);
   font-size: 22px;
   font-weight: 800;
-  color: #000000;
+  color: #ffffff;
   letter-spacing: -0.5px;
   margin: 0 0 6px;
 }
@@ -62,13 +77,13 @@
 
 .footer__nav-link {
   font-size: 15px;
-  color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
   text-decoration: none;
   transition: color 0.15s;
 }
 
 .footer__nav-link:hover {
-  color: #000000;
+  color: #ffffff;
 }
 
 /* Big watermark */
@@ -76,7 +91,7 @@
   font-size: clamp(60px, 10vw, 130px);
   font-weight: 800;
   letter-spacing: -4px;
-  color: rgba(0, 0, 0, 0.05);
+  color: rgba(255, 255, 255, 0.12);
   text-align: center;
   line-height: 1;
   padding: 20px 0;
@@ -88,7 +103,7 @@
 /* Divider */
 .footer__divider {
   height: 1px;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.2);
   margin: 0;
 }
 
@@ -102,7 +117,7 @@
 
 .footer__copyright {
   font-size: 13px;
-  color: rgba(0, 0, 0, 0.35);
+  color: #ffffff;
 }
 
 /* Legal links */
@@ -113,13 +128,13 @@
 
 .footer__legal-link {
   font-size: 13px;
-  color: rgba(0, 0, 0, 0.35);
+  color: #ffffff;
   text-decoration: none;
   transition: color 0.15s;
 }
 
 .footer__legal-link:hover {
-  color: #000000;
+  color: #ffffff;
 }
 
 @media (max-width: 768px) {

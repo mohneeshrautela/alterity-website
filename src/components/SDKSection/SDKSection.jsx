@@ -58,7 +58,7 @@ function Typewriter({ words, speed = 90, deleteSpeed = 50, delay = 1800 }) {
 
 export default function SDKSection() {
   return (
-    <section className="sdk-section" id="calls">
+    <section className="sdk-section">
       <div className="sdk-layout">
 
         {/* Left */}

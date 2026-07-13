@@ -41,7 +41,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: rgba(29, 18, 5, 0.5);
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .testimonials__quote {
@@ -97,7 +97,7 @@
 
 .testimonials__author-info span {
   font-size: 13px;
-  color: rgba(29, 18, 5, 0.55);
+  color: rgba(0, 0, 0, 0.55);
 }
 
 .testimonials__controls {
@@ -128,7 +128,7 @@
 .testimonials__counter {
   font-size: 14px;
   font-weight: 600;
-  color: rgba(29, 18, 5, 0.5);
+  color: rgba(0, 0, 0, 0.5);
   min-width: 32px;
   text-align: center;
 }

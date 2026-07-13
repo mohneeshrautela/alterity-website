@@ -1,0 +1,252 @@
+.pf-section {
+  background: #FFFFFF;
+  padding: 40px 24px 56px;
+}
+
+.pf-grid {
+  max-width: 1040px;
+  margin: 0 auto;
+  border: 1px solid var(--divider);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.pf-cell {
+  position: relative;
+}
+
+.pf-cell--map {
+  border-right: 1px solid var(--divider);
+  border-bottom: 1px solid var(--divider);
+}
+
+.pf-cell--chat {
+  border-bottom: 1px solid var(--divider);
+  background: #faf9f4;
+}
+
+.pf-cell--stat {
+  grid-column: 1 / -1;
+  border-bottom: 1px solid var(--divider);
+  padding: 56px 24px;
+  text-align: center;
+  background: #FFFCEC;
+}
+
+.pf-cell--activity {
+  grid-column: 1 / -1;
+}
+
+.pf-cell__head {
+  padding: 32px 32px 0;
+}
+
+.pf-cell__head--activity {
+  padding: 32px 32px 0;
+  max-width: 560px;
+}
+
+.pf-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.pf-cell__title {
+  margin: 20px 0 0;
+  font-size: 21px;
+  font-weight: 600;
+  color: var(--dark);
+  line-height: 1.5;
+}
+
+.pf-cell__title-muted {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.pf-cell__body {
+  margin: 12px 0 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* ── Map / language cloud ── */
+.pf-map-wrap {
+  position: relative;
+  margin-top: 28px;
+  overflow: hidden;
+}
+
+.pf-map-fade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(circle at 50% 50%, transparent 0%, transparent 55%, #ffffff 100%);
+  pointer-events: none;
+}
+
+.pf-lang-cloud {
+  position: relative;
+  height: 300px;
+}
+
+.pf-lang-word {
+  position: absolute;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.pf-lang-word--bold {
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--dark);
+}
+
+.pf-lang-word--center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 260px;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--dark);
+  text-align: center;
+  z-index: 2;
+  white-space: normal;
+}
+
+/* ── Chat ── */
+.pf-chat-mount {
+  margin-top: 24px;
+  padding: 0 32px 32px;
+}
+
+/* ── Stat ── */
+.pf-stat {
+  margin: 0;
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 700;
+  color: #444BFB;
+  letter-spacing: -1px;
+}
+
+.pf-stat__unit {
+  font-size: 0.4em;
+  font-weight: 600;
+  margin-left: 0.15em;
+  letter-spacing: normal;
+}
+
+.pf-stat-sub {
+  margin: 14px auto 0;
+  max-width: 480px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-dark);
+}
+
+/* ── Chart ── */
+.pf-chart {
+  width: 100%;
+  height: 340px;
+  margin-top: 24px;
+}
+
+.pf-tooltip {
+  background: #ffffff;
+  border: 1px solid var(--border-cream);
+  border-radius: 10px;
+  padding: 10px 12px;
+  box-shadow: 0 12px 30px rgba(29, 18, 5, 0.12);
+  min-width: 120px;
+}
+
+.pf-tooltip__label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+
+.pf-tooltip__row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: capitalize;
+}
+
+.pf-tooltip__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.pf-tooltip__name {
+  flex: 1;
+}
+
+.pf-tooltip__value {
+  font-weight: 700;
+  color: var(--dark);
+}
+
+@media (max-width: 900px) {
+  .pf-grid {
+    grid-template-columns: 1fr;
+  }
+  .pf-cell--map {
+    border-right: none;
+  }
+  .pf-cell__title {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pf-section {
+    padding: 24px 16px 80px;
+  }
+  .pf-cell__head,
+  .pf-cell__head--activity {
+    padding: 26px 20px 0;
+  }
+  .pf-chat-mount {
+    padding: 0 20px 26px;
+  }
+  .pf-cell--stat {
+    padding: 40px 20px;
+  }
+  .pf-map-badge {
+    font-size: 11px;
+    padding: 7px 12px;
+  }
+  /* The word-cloud positions in LANGUAGE_WORDS are percentage-based, but
+     each word's own pixel width doesn't shrink with the container — on a
+     narrow phone the same percentage gaps aren't enough room at the
+     desktop font size, so neighboring words (e.g. தமிழ்/Português)
+     collide. Shrinking the type here is far simpler than re-tuning every
+     coordinate for a second breakpoint, and closes the gap that mattered. */
+  .pf-lang-cloud {
+    height: 240px;
+  }
+  .pf-lang-word {
+    font-size: 11px;
+  }
+  .pf-lang-word--bold {
+    font-size: 13px;
+  }
+  .pf-lang-word--center {
+    width: 180px;
+    font-size: 15px;
+  }
+}

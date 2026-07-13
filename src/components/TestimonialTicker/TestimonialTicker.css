@@ -1,0 +1,128 @@
+/*
+ * Single thin wavy STROKE at the section's true bottom edge (the same
+ * ring-gradient technique as .cta-wave-connector, proven correct there).
+ * Two earlier attempts both broke: (1) masking both the outer blue layer
+ * and the inset cream layer with the same wave 3px apart produced two
+ * distinct parallel lines instead of one ribbon; (2) a filled single-edge
+ * wave cut into .ticker's own blue background rendered as a thick bumpy
+ * scallop, not the thin uniform-width line the reference shows; (3) an
+ * earlier stroke attempt used a blue/white split backdrop, and since the
+ * stroke itself is blue too, the upper half of every wave circle (against
+ * the blue half) was invisible, leaving disconnected hook shapes.
+ * Backing the stroke with cream/white (both light, so blue reads clearly
+ * against either) and letting the cream ticker content run right up to
+ * the seam — no solid blue margin — matches the reference exactly.
+ */
+.ticker {
+  position: relative;
+  background: #444BFB;
+  height: 70px;
+}
+
+.ticker__inner {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 20px;
+  background: #FFFCEC;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.ticker::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 20px;
+  background: linear-gradient(to bottom, #FFFCEC 50%, #FFFFFF 50%);
+}
+
+.ticker::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 20px;
+  background: #444BFB;
+  z-index: 1;
+  --line-size: 6px;
+  --line-b: 2px;
+  --line-m: 1.2;
+  --line-p: calc(var(--line-m) * var(--line-size));
+  --line-r: calc(var(--line-size) * sqrt(var(--line-m) * var(--line-m) + 1) + var(--line-b) / 2);
+  --line-g: #0000 calc(99% - var(--line-b)), #000 calc(101% - var(--line-b)) 99%, #0000 101%;
+  -webkit-mask:
+    radial-gradient(var(--line-r) at left 50% bottom calc(-1 * var(--line-p)), var(--line-g))
+      calc(50% - 2 * var(--line-size)) calc(50% - var(--line-size) / 2 - var(--line-b) / 2) / calc(4 * var(--line-size)) calc(var(--line-size) + var(--line-b)) repeat-x,
+    radial-gradient(var(--line-r) at left 50% top calc(-1 * var(--line-p)), var(--line-g))
+      50% calc(50% + var(--line-size) / 2 + var(--line-b) / 2) / calc(4 * var(--line-size)) calc(var(--line-size) + var(--line-b)) repeat-x;
+  mask:
+    radial-gradient(var(--line-r) at left 50% bottom calc(-1 * var(--line-p)), var(--line-g))
+      calc(50% - 2 * var(--line-size)) calc(50% - var(--line-size) / 2 - var(--line-b) / 2) / calc(4 * var(--line-size)) calc(var(--line-size) + var(--line-b)) repeat-x,
+    radial-gradient(var(--line-r) at left 50% top calc(-1 * var(--line-p)), var(--line-g))
+      50% calc(50% + var(--line-size) / 2 + var(--line-b) / 2) / calc(4 * var(--line-size)) calc(var(--line-size) + var(--line-b)) repeat-x;
+}
+
+.ticker__track {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: ticker-scroll 26s linear infinite;
+}
+
+@keyframes ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+  flex-shrink: 0;
+  padding: 0 28px;
+}
+
+.ticker__quote {
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: 15px;
+  color: #444BFB;
+  white-space: nowrap;
+}
+
+.ticker__sep {
+  color: #444BFB;
+  opacity: 0.45;
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .ticker {
+    height: 56px;
+  }
+  .ticker__inner {
+    top: 0;
+    bottom: 16px;
+  }
+  .ticker::after,
+  .ticker::before {
+    height: 16px;
+  }
+  .ticker__quote {
+    font-size: 13px;
+  }
+  .ticker__item {
+    gap: 20px;
+    padding: 0 20px;
+  }
+}

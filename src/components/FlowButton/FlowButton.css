@@ -19,7 +19,7 @@
 .flow-btn--dark {
   background: transparent;
   color: var(--cream);
-  border: 1.5px solid rgba(245, 240, 227, 0.35);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
 }
 .flow-btn--dark:hover {
   border-color: transparent;
@@ -42,7 +42,7 @@
 .flow-btn--outlined {
   background: transparent;
   color: var(--dark);
-  border: 1.5px solid rgba(29, 18, 5, 0.35);
+  border: 1.5px solid rgba(0, 0, 0, 0.35);
 }
 .flow-btn--outlined:hover {
   border-color: transparent;
@@ -65,7 +65,7 @@
 .flow-btn--outlined-light {
   background: transparent;
   color: var(--cream);
-  border: 1.5px solid rgba(245, 240, 227, 0.35);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
 }
 .flow-btn--outlined-light:hover {
   border-color: transparent;
@@ -86,13 +86,13 @@
 
 /* Solid black variant */
 .flow-btn--black {
-  background: #0d0d0d;
+  background: #000000;
   color: #ffffff;
-  border: 1.5px solid #0d0d0d;
+  border: 1.5px solid #000000;
 }
 .flow-btn--black:hover {
-  border-color: #0d0d0d;
-  color: #0d0d0d;
+  border-color: #000000;
+  color: #000000;
   border-radius: 12px;
 }
 .flow-btn--black .flow-btn__circle {
@@ -104,7 +104,7 @@
 }
 .flow-btn--black:hover .flow-btn__arrow-left,
 .flow-btn--black:hover .flow-btn__arrow-right {
-  color: #0d0d0d;
+  color: #000000;
 }
 
 /* Solid white variant (on dark/video bg) */

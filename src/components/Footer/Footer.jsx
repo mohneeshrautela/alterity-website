@@ -15,7 +15,7 @@ export default function Footer({ onTermsClick, onPrivacyClick, onPricingClick, o
           <div className="footer__company">
             <p className="footer__brand-heading" style={{cursor:'pointer'}} onClick={() => onLogoClick?.()}>Alterity</p>
             <p className="footer__company-name">Alterity Labs Pvt Ltd.</p>
-            <p className="footer__company-address">C-703, Wisway Complex, Sampada Society,<br />Andheri East, Mumbai, Maharashtra 400069</p>
+            <p className="footer__company-address">C-703, Winsway Complex, Sampada Society,<br />Andheri East, Mumbai, Maharashtra 400069</p>
           </div>
 
           {/* Right: nav links */}

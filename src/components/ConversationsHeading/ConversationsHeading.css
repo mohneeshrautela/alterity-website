@@ -1,0 +1,54 @@
+.conv-heading {
+  background: #FFFFFF;
+  padding: 90px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.conv-heading__text {
+  font-family: var(--font-heading);
+  font-size: clamp(44px, 7.5vw, 104px);
+  font-weight: 500;
+  letter-spacing: -2px;
+  line-height: 1.05;
+  color: var(--dark);
+  margin: 0;
+}
+
+.conv-heading__body {
+  margin: 28px 0 0;
+  max-width: 620px;
+  font-size: clamp(16px, 1.4vw, 19px);
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.conv-word {
+  position: relative;
+  display: inline-block;
+}
+
+.conv-word__underline {
+  position: absolute;
+  left: 0;
+  bottom: -0.16em;
+  width: 100%;
+  height: 0.3em;
+  overflow: visible;
+}
+
+.conv-word__underline path {
+  fill: none;
+  stroke: #444BFB;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+@media (max-width: 480px) {
+  .conv-heading {
+    padding: 64px 20px;
+  }
+}

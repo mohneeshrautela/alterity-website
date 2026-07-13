@@ -1,0 +1,349 @@
+/*
+ * Wavy top + bottom edges, same construction as the navbar wave (two offset
+ * radial gradients per edge, feeding a single mask on the element itself —
+ * no separate overlapping strip, so there's no seam to leave a line). The
+ * asymmetric transition zones (100%->108% / 92%->100%, rather than a
+ * symmetric 99%/101%) guarantee the two gradients are never simultaneously
+ * mid-fade at the point where they meet, which is what caused the visible
+ * line on the navbar before that fix. Each pair covers 51% of the height
+ * (not 50%) so the two edges overlap slightly in the middle and never gap.
+ * Generous existing padding (100px) keeps the wave motion (~20px) well
+ * clear of any real content.
+ */
+.calls {
+  position: relative;
+  background: #444BFB;
+  margin: 0;
+  padding: 100px 80px;
+  scroll-margin-top: 88px;
+  overflow: hidden;
+  --wave-size: 5px;
+  --wave-m: 1.4;
+  --wave-p: calc(var(--wave-m) * var(--wave-size));
+  --wave-r: calc(var(--wave-size) * sqrt(var(--wave-m) * var(--wave-m) + 1));
+  -webkit-mask:
+    radial-gradient(var(--wave-r) at left 50% bottom calc(var(--wave-size) + var(--wave-p)), #000 100%, #0000 108%)
+      left calc(50% - 2 * var(--wave-size)) bottom 0 / calc(4 * var(--wave-size)) 51% repeat-x,
+    radial-gradient(var(--wave-r) at left 50% bottom calc(-1 * var(--wave-p)), #0000 92%, #000 100%)
+      left 50% bottom var(--wave-size) / calc(4 * var(--wave-size)) calc(51% - var(--wave-size)) repeat-x,
+    radial-gradient(var(--wave-r) at left 50% top calc(var(--wave-size) + var(--wave-p)), #000 100%, #0000 108%)
+      left calc(50% - 2 * var(--wave-size)) top 0 / calc(4 * var(--wave-size)) 51% repeat-x,
+    radial-gradient(var(--wave-r) at left 50% top calc(-1 * var(--wave-p)), #0000 92%, #000 100%)
+      left 50% top var(--wave-size) / calc(4 * var(--wave-size)) calc(51% - var(--wave-size)) repeat-x;
+  mask:
+    radial-gradient(var(--wave-r) at left 50% bottom calc(var(--wave-size) + var(--wave-p)), #000 100%, #0000 108%)
+      left calc(50% - 2 * var(--wave-size)) bottom 0 / calc(4 * var(--wave-size)) 51% repeat-x,
+    radial-gradient(var(--wave-r) at left 50% bottom calc(-1 * var(--wave-p)), #0000 92%, #000 100%)
+      left 50% bottom var(--wave-size) / calc(4 * var(--wave-size)) calc(51% - var(--wave-size)) repeat-x,
+    radial-gradient(var(--wave-r) at left 50% top calc(var(--wave-size) + var(--wave-p)), #000 100%, #0000 108%)
+      left calc(50% - 2 * var(--wave-size)) top 0 / calc(4 * var(--wave-size)) 51% repeat-x,
+    radial-gradient(var(--wave-r) at left 50% top calc(-1 * var(--wave-p)), #0000 92%, #000 100%)
+      left 50% top var(--wave-size) / calc(4 * var(--wave-size)) calc(51% - var(--wave-size)) repeat-x;
+  mask-composite: add, add, add, add;
+  -webkit-mask-composite: source-over, source-over, source-over, source-over;
+}
+
+.calls::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='linear' slope='3.2' intercept='-1.1'/%3E%3CfeFuncG type='linear' slope='3.2' intercept='-1.1'/%3E%3CfeFuncB type='linear' slope='3.2' intercept='-1.1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 140px 140px;
+  opacity: 0.75;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+.calls__layout {
+  position: relative;
+  z-index: 1;
+}
+
+.calls__layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1fr;
+  gap: 80px;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* ── Left: copy ── */
+.calls__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.calls__heading {
+  font-family: var(--font);
+  font-size: clamp(34px, 3.4vw, 48px);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -1px;
+  line-height: 1.15;
+  margin: 0 0 20px;
+}
+
+.calls__sub {
+  font-size: 16px;
+  color: #ffffff;
+  line-height: 1.7;
+  max-width: 420px;
+  margin: 0 0 36px;
+}
+
+.calls__cta.flow-btn--white {
+  color: #3B19C8;
+}
+
+.calls__cta.flow-btn--white .flow-btn__arrow-left,
+.calls__cta.flow-btn--white .flow-btn__arrow-right {
+  color: #3B19C8;
+}
+
+/* Explicit :hover overrides win the specificity tie against the rules
+   above (same 0,2,0 weight) regardless of stylesheet order, keeping the
+   text/arrows white against the expanding black circle on hover instead
+   of staying #3B19C8. */
+.calls__cta.flow-btn--white:hover {
+  color: #ffffff;
+}
+
+.calls__cta.flow-btn--white:hover .flow-btn__arrow-left,
+.calls__cta.flow-btn--white:hover .flow-btn__arrow-right {
+  color: #ffffff;
+}
+
+/* ── Right: carousel stage ── */
+.calls__stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 420px;
+}
+
+.calls__cards {
+  position: relative;
+  width: 300px;
+  height: 400px;
+}
+
+.calls__arrow {
+  position: relative;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(245, 240, 227, 0.28);
+  background: #241f18;
+  color: rgba(245, 240, 227, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
+  z-index: 5;
+}
+
+.calls__arrow:hover {
+  background: #34291c;
+  border-color: rgba(245, 240, 227, 0.5);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.calls__arrow--left {
+  margin-right: -16px;
+}
+
+.calls__arrow--right {
+  margin-left: -16px;
+}
+
+/* ── Cards ── */
+.call-card {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f3f1ea;
+  border: 1.5px solid #000000;
+  border-radius: 26px;
+  padding: 40px 20px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+.call-card__orb {
+  position: relative;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin-top: 6px;
+  box-shadow:
+    0 0 0 10px rgba(var(--orb-glow), 0.14),
+    0 20px 44px rgba(0, 0, 0, 0.22),
+    inset 0 -16px 28px rgba(0, 0, 0, 0.25),
+    inset 0 10px 18px rgba(255, 255, 255, 0.35);
+}
+
+/* rotating conic swirl — the marbled liquid ribbons */
+.call-card__orb::before {
+  content: '';
+  position: absolute;
+  inset: -35%;
+  z-index: 0;
+  background: conic-gradient(
+    from 0deg,
+    var(--orb-a),
+    #fff8 25%,
+    var(--orb-b) 50%,
+    #fff6 68%,
+    var(--orb-a) 88%,
+    var(--orb-b)
+  );
+  filter: blur(7px) saturate(1.25);
+  animation: orb-rotate 10s linear infinite;
+}
+
+/* second swirl layer, opposite direction + different speed for texture depth */
+.call-card__orb-swirl {
+  content: '';
+  position: absolute;
+  inset: -10%;
+  z-index: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 15%, #fff9 0%, transparent 30%),
+    radial-gradient(circle at 20% 70%, #fff5 0%, transparent 26%);
+  filter: blur(4px);
+  animation: orb-rotate 7s linear infinite reverse;
+}
+
+/* fixed grain texture — sits above the swirl, below the glossy highlight.
+   feComponentTransfer punches up the noise's contrast so it reads as
+   distinct speckled grain instead of a soft, low-contrast haze. */
+.call-card__orb-grain {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: 50%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='linear' slope='2.6' intercept='-0.8'/%3E%3CfeFuncG type='linear' slope='2.6' intercept='-0.8'/%3E%3CfeFuncB type='linear' slope='2.6' intercept='-0.8'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 100px 100px;
+  opacity: 0.8;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* fixed glossy highlight on top */
+.call-card__orb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.95), transparent 42%),
+    radial-gradient(circle at 78% 80%, rgba(0, 0, 0, 0.18), transparent 55%);
+}
+
+@keyframes orb-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.call-card__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 4;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+  transition: transform 0.15s, background 0.15s;
+}
+
+.call-card__play:hover {
+  transform: translate(-50%, -50%) scale(1.06);
+  background: #ffffff;
+}
+
+.call-card__label {
+  margin: 26px 0 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+}
+
+.call-card__title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--dark);
+  letter-spacing: -0.3px;
+  text-align: center;
+}
+
+@media (max-width: 1000px) {
+  .calls {
+    padding: 72px 32px;
+  }
+  .calls__layout {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+  .calls__text {
+    align-items: center;
+    text-align: center;
+  }
+  .calls__sub {
+    max-width: 480px;
+  }
+}
+
+@media (max-width: 600px) {
+  .calls__cards {
+    width: 240px;
+    height: 320px;
+  }
+  .call-card__orb {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .calls {
+    padding: 56px 20px;
+  }
+  .calls__cards {
+    width: 210px;
+    height: 290px;
+  }
+  .call-card__orb {
+    width: 120px;
+    height: 120px;
+  }
+  .calls__cta {
+    width: 100%;
+  }
+  .calls__cta .flow-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

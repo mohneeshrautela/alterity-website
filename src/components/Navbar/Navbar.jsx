@@ -3,7 +3,7 @@ import './Navbar.css'
 
 const NAV_LINKS = [
   { label: 'Why Us', href: '#why-us' },
-  { label: 'Use Cases', href: '#use-cases' },
+  { label: 'Use Cases', href: '#calls' },
   { label: 'Pricing', href: '#pricing' },
 ]
 

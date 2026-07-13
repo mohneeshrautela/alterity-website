@@ -13,7 +13,7 @@
 }
 
 .lang-heading {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-heading);
   font-size: clamp(32px, 4.5vw, 64px);
   font-weight: 700;
   color: #000000;

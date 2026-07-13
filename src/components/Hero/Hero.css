@@ -1,97 +1,247 @@
 .hero {
   position: relative;
-  background: #ffffff;
-  height: calc(100vh - 68px - 20px);
+  background: #FFFFFF;
+  min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: 60px;
-  margin: 68px 20px 20px;
-}
-
-
-/* Dark overlay over video */
-.hero::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-  z-index: 0;
-}
-
-/* Background video */
-.hero__bg-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-  transform: translateZ(0);
-  will-change: transform;
-  backface-visibility: hidden;
+  padding: 64px 24px 64px;
+  padding-top: calc(68px + 70px);
+  isolation: isolate;
 }
 
 /* Content */
 .hero__content {
   position: relative;
-  z-index: 2;
-  max-width: 1200px;
+  z-index: 10;
+  max-width: 900px;
   width: 100%;
-  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  text-align: center;
 }
 
 .hero__heading {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(48px, 6.5vw, 96px);
-  font-weight: 400;
-  line-height: 1.05;
+  font-family: var(--font-heading);
+  font-size: clamp(44px, 6.5vw, 88px);
+  font-weight: 500;
+  line-height: 1.1;
   letter-spacing: -1px;
-  color: #ffffff;
-  text-align: center;
   margin: 0;
+}
+
+.hero__heading-muted {
+  display: block;
+  color: var(--dark);
+}
+
+.hero__heading-dark {
+  color: var(--dark);
+}
+
+/* Rotating industry word */
+.hero__heading-rotate {
+  position: relative;
+  display: block;
+  width: 100%;
+  line-height: 1.35;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.hero__heading-word {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dark);
+  font-weight: 700;
 }
 
 .hero__subheader {
-  font-size: clamp(15px, 1.3vw, 18px);
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.6;
-  max-width: 560px;
-  text-align: center;
-  margin: 0;
+  margin: 24px 0 0;
+  max-width: 540px;
+  font-size: clamp(16px, 1.4vw, 20px);
+  line-height: 1.65;
+  color: rgba(29, 18, 5, 0.72);
 }
 
 .hero__actions {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition-delay: 0.3s;
+}
+
+.hero__actions .flow-btn--black {
+  background: #3C3B3A;
+  border-color: #3C3B3A;
+}
+
+.hero__actions .flow-btn--black .flow-btn__circle {
+  background: #3F46FB;
+}
+
+.hero__actions .flow-btn--black:hover {
+  color: #ffffff;
+}
+
+.hero__actions .flow-btn--black:hover .flow-btn__arrow-left,
+.hero__actions .flow-btn--black:hover .flow-btn__arrow-right {
+  color: #ffffff;
+}
+
+.hero__actions--in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Voice widget */
+.hero__voice {
+  position: relative;
+  z-index: 5;
+  width: 300px;
+  max-width: 90vw;
+  margin-top: 48px;
+}
+
+.hero__curves {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+/*
+ * Each curve SVG is anchored by the fractional (x,y) coordinate of its
+ * path's start/end point within its own viewBox, translated so that exact
+ * point lands on the pill's left/right edge at the pill's vertical center.
+ * left curve ends at (1046.43, 565.235) of a 1048x594 viewBox -> (99.85%, 95.16%)
+ * right curve starts at (2.043, 563.872) of a 1024x620 viewBox -> (0.2%, 90.95%)
+ * The two SVGs are rendered at different px-per-viewBox-unit scales (left is
+ * kept smaller so the spiral loop stays on-screen instead of running off the
+ * left edge) so each side's font-size is set separately to land on the same
+ * physical rendered size (~17px) despite the different scale factors.
+ */
+.hero__curve-svg {
+  position: absolute;
+  height: auto;
+  overflow: visible;
+}
+
+.hero__curve-svg--left {
+  left: 0%;
+  top: 50%;
+  width: 860px;
+  transform: translate(-99.85%, -95.16%);
+}
+
+.hero__curve-svg--right {
+  left: 100%;
+  top: 50%;
+  width: 980px;
+  transform: translate(-0.2%, -90.95%);
+}
+
+.hero__curve-path {
+  fill: none;
+  stroke: none;
+}
+
+.hero__curve-ribbon {
+  fill: none;
+  stroke: var(--dark);
+  stroke-width: 44;
+  stroke-linecap: round;
+}
+
+/*
+ * font-weight must match between the two sides: the left/right sync in
+ * Hero.jsx assumes identical per-character glyph widths for the same text,
+ * which only holds if both curves render at the same weight (bold widens
+ * glyphs vs. medium, which would drift the sync over a long sentence).
+ */
+.hero__curve-text {
+  font-family: var(--font);
+  font-weight: 600;
+}
+
+.hero__curve-text--left {
+  fill: var(--dark);
+  opacity: 0.38;
+  font-size: 20.716px;
+}
+
+.hero__curve-text--right {
+  fill: var(--cream);
+  font-size: 17.763px;
+}
+
+.hero__pill {
+  position: relative;
+  z-index: 10;
+  height: 84px;
+  width: 100%;
+  border-radius: 999px;
+  border: 2px solid var(--dark);
+  background: #FFFFFF;
+  box-shadow: 0 16px 40px rgba(29, 18, 5, 0.1);
   display: flex;
   align-items: center;
-  gap: 14px;
-  flex-wrap: wrap;
-  justify-content: center;
+  overflow: hidden;
+}
+
+.hero__waveform {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero__waveform-track {
+  display: flex;
+  height: 100%;
+  width: max-content;
+  align-items: center;
+  gap: 6px;
+  padding: 0 16px;
+}
+
+.hero__waveform-bar {
+  display: block;
+  width: 6px;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: var(--dark);
+}
+
+@media (max-width: 900px) {
+  .hero__curves {
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {
   .hero {
-    padding: 32px 20px;
-    margin: 68px 10px 10px;
-    height: auto;
-    min-height: calc(100vh - 68px - 20px);
-    border-radius: 12px;
-  }
-  .hero__content {
-    gap: 24px;
+    justify-content: center;
+    padding: 32px 20px 80px;
+    padding-top: calc(68px + 32px);
+    min-height: 100vh;
   }
   .hero__subheader {
     font-size: 15px;
   }
-  .hero__actions {
-    flex-direction: column;
-    width: 100%;
-    align-items: stretch;
+  .hero__voice {
+    margin-top: 48px;
   }
   .hero__actions .flow-btn {
     width: 100%;
@@ -101,7 +251,18 @@
 
 @media (max-width: 480px) {
   .hero {
-    padding: 28px 16px;
-    margin: 68px 8px 8px;
+    padding: 28px 16px 64px;
+    padding-top: calc(68px + 28px);
+  }
+  .hero__pill {
+    height: 76px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__curve-text,
+  .hero__waveform-track,
+  .hero__waveform-bar {
+    animation: none !important;
   }
 }

@@ -1,7 +1,7 @@
 import { ArrowRight } from 'lucide-react'
 import './FlowButton.css'
 
-const MODAL_TRIGGERS = ['Start a Pilot', 'Talk to Sales', 'Contact us']
+const MODAL_TRIGGERS = ['Start a Pilot', 'Talk to Sales', 'Contact us', 'Book a call']
 const CALLS_TRIGGERS = ['Hear a Real Call']
 const CALC_TRIGGERS  = ['Calculator', 'Calculate Your Monthly Cost Leak']
 

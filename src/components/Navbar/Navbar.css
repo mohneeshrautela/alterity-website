@@ -1,18 +1,54 @@
+/*
+ * The wave is not a separate overlapping element sitting below the bar —
+ * that two-layer approach (grain strip + navbar, stitched together at a
+ * seam) kept leaving a hairline visible at the join no matter how much the
+ * overlap or blend was tuned. Instead the whole navbar box is made tall
+ * enough to include the wave's dip, and a single mask cuts the wave directly
+ * into this one element's own bottom edge — there is nothing to seam
+ * against because it's one continuously-painted surface.
+ */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(8px);
+  height: 84px;
+  background: #444BFB;
+  --wave-size: 5px;
+  --wave-m: 1.4;
+  --wave-p: calc(var(--wave-m) * var(--wave-size));
+  --wave-r: calc(var(--wave-size) * sqrt(var(--wave-m) * var(--wave-m) + 1));
+  -webkit-mask:
+    radial-gradient(var(--wave-r) at left 50% bottom calc(var(--wave-size) + var(--wave-p)), #000 100%, #0000 108%)
+      calc(50% - 2 * var(--wave-size)) 0 / calc(4 * var(--wave-size)) 100% repeat-x,
+    radial-gradient(var(--wave-r) at left 50% bottom calc(-1 * var(--wave-p)), #0000 92%, #000 100%)
+      left 50% bottom var(--wave-size) / calc(4 * var(--wave-size)) 100% repeat-x;
+  mask:
+    radial-gradient(var(--wave-r) at left 50% bottom calc(var(--wave-size) + var(--wave-p)), #000 100%, #0000 108%)
+      calc(50% - 2 * var(--wave-size)) 0 / calc(4 * var(--wave-size)) 100% repeat-x,
+    radial-gradient(var(--wave-r) at left 50% bottom calc(-1 * var(--wave-p)), #0000 92%, #000 100%)
+      left 50% bottom var(--wave-size) / calc(4 * var(--wave-size)) 100% repeat-x;
+  mask-composite: add, add;
+  -webkit-mask-composite: source-over, source-over;
   border-bottom: 1px solid transparent;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
+.navbar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='linear' slope='3.2' intercept='-1.1'/%3E%3CfeFuncG type='linear' slope='3.2' intercept='-1.1'/%3E%3CfeFuncB type='linear' slope='3.2' intercept='-1.1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 140px 140px;
+  opacity: 0.6;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
 .navbar--scrolled {
-  border-color: var(--border-cream);
-  box-shadow: 0 2px 16px rgba(29, 18, 5, 0.06);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .navbar__inner {
@@ -24,6 +60,7 @@
   align-items: center;
   gap: 40px;
   position: relative;
+  z-index: 1;
 }
 
 /* Logo */
@@ -51,7 +88,7 @@
 .navbar__logo-text {
   font-size: 22px;
   font-weight: 800;
-  color: var(--dark);
+  color: #000000;
   letter-spacing: -0.8px;
   line-height: 1;
 }
@@ -67,7 +104,7 @@
   margin: 0;
   padding: 4px;
   border-radius: 8px;
-  border: 1.5px solid var(--dark);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
   width: fit-content;
 }
 
@@ -82,7 +119,7 @@
   padding: 7px 16px;
   font-size: 14px;
   font-weight: 500;
-  color: var(--dark);
+  color: #ffffff;
   white-space: nowrap;
   text-decoration: none;
   cursor: pointer;
@@ -90,7 +127,7 @@
 }
 
 .navbar__slide-tab:hover a {
-  color: var(--cream);
+  color: #444BFB;
 }
 
 .navbar__slide-cursor {
@@ -99,7 +136,7 @@
   top: 4px;
   height: calc(100% - 8px);
   border-radius: 5px;
-  background: var(--dark);
+  background: #ffffff;
   list-style: none;
 }
 
@@ -128,7 +165,7 @@
 }
 
 .navbar__github:hover {
-  background: rgba(29, 18, 5, 0.05);
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .navbar__github-star {
@@ -149,12 +186,12 @@
 
 .navbar__btn--outlined {
   background: transparent;
-  border: 1.5px solid var(--dark);
-  color: var(--dark);
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  color: #ffffff;
 }
 
 .navbar__btn--outlined:hover {
-  background: rgba(29, 18, 5, 0.06);
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .navbar__btn--dark {
@@ -182,7 +219,7 @@
   display: block;
   width: 22px;
   height: 2px;
-  background: var(--dark);
+  background: #ffffff;
   border-radius: 2px;
 }
 
@@ -190,16 +227,16 @@
   display: none;
   flex-direction: column;
   padding: 16px 24px 24px;
-  border-top: 1px solid var(--border-cream);
-  background: #ffffff;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  background: #444BFB;
 }
 
 .navbar__mobile-menu a {
   padding: 12px 0;
   font-size: 16px;
   font-weight: 500;
-  color: var(--text-dark);
-  border-bottom: 1px solid rgba(29, 18, 5, 0.07);
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .navbar__mobile-btns {

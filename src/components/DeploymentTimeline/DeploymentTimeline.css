@@ -1,0 +1,161 @@
+.dt-section {
+  background: #FFFFFF;
+  padding: 72px 24px 96px;
+}
+
+.dt-container {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.dt-heading {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: clamp(26px, 3.4vw, 38px);
+  line-height: 1.2;
+  color: var(--dark);
+  letter-spacing: -0.5px;
+  text-align: center;
+  margin: 0 0 76px;
+}
+
+/* ── Timeline row ── */
+.dt-row {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  height: 210px;
+}
+
+.dt-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  margin-top: -1px;
+  height: 2px;
+  background: #16a34a;
+  transform-origin: left center;
+  z-index: 0;
+}
+
+.dt-point {
+  position: relative;
+  flex: 1;
+  z-index: 1;
+}
+
+.dt-point__dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #16a34a;
+  border: 3px solid #ffffff;
+}
+
+.dt-point__dot--live {
+  box-shadow: 0 0 0 8px rgba(22, 163, 74, 0.14);
+}
+
+.dt-point__ping {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #16a34a;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.dt-point__content {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 190px;
+  text-align: center;
+}
+
+.dt-point--above .dt-point__content {
+  bottom: calc(50% + 26px);
+}
+
+.dt-point--below .dt-point__content {
+  top: calc(50% + 26px);
+}
+
+.dt-point__day {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+
+.dt-point__day--live {
+  color: var(--text-muted);
+}
+
+.dt-point__title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--dark);
+  margin: 0 0 4px;
+  line-height: 1.35;
+}
+
+.dt-point__body {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── Responsive: vertical timeline ── */
+@media (max-width: 860px) {
+  .dt-row {
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    padding-left: 20px;
+  }
+
+  .dt-line {
+    left: 6px;
+    right: auto;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    height: auto;
+    transform-origin: top center;
+  }
+
+  .dt-point {
+    flex: none;
+    width: 100%;
+  }
+
+  .dt-point__dot {
+    top: 4px;
+    left: 6px;
+    transform: translate(-50%, -50%);
+  }
+
+  .dt-point__content,
+  .dt-point--above .dt-point__content,
+  .dt-point--below .dt-point__content {
+    position: static;
+    transform: none;
+    width: auto;
+    text-align: left;
+    padding-left: 24px;
+  }
+}

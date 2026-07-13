@@ -1,135 +1,139 @@
 .cta-section {
   position: relative;
-  background: #DDE8D8;
-  padding: 120px 40px;
-  overflow: hidden;
+  background: #FFFFFF;
+  padding: 24px 24px 80px;
 }
 
-.cta-section__ascii-bg {
+/* Thin wavy blue STROKE sitting exactly on the seam between this white
+   section and the cream FAQ section below — matching the reference: a
+   smooth, constant-thickness line with white touching it from above and
+   cream touching it from below, no gap on either side.
+   The connector's own background is split white/cream right at the
+   stroke's centerline (a hard-edge 2-stop gradient, 50/50) so the areas
+   the mask leaves transparent above vs. below the stroke resolve to the
+   correct color instead of both sharing one background — that shared-bg
+   version was the earlier bug: it left a sliver of white visible just
+   below the line, inside what should already be cream. */
+.cta-wave-connector {
+  position: relative;
+  height: 20px;
+  background: linear-gradient(to bottom, #FFFFFF 50%, #FFFCEC 50%);
+}
+
+.cta-wave-connector::after {
+  content: '';
   position: absolute;
   inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  font-family: 'Courier New', monospace;
-  font-size: 12px;
-  line-height: 1.8;
-  color: var(--dark);
-  opacity: 0.07;
-  white-space: nowrap;
-  user-select: none;
+  background: #444BFB;
+  --line-size: 6px;
+  --line-b: 2px;
+  --line-m: 1.2;
+  --line-p: calc(var(--line-m) * var(--line-size));
+  --line-r: calc(var(--line-size) * sqrt(var(--line-m) * var(--line-m) + 1) + var(--line-b) / 2);
+  --line-g: #0000 calc(99% - var(--line-b)), #000 calc(101% - var(--line-b)) 99%, #0000 101%;
+  -webkit-mask:
+    radial-gradient(var(--line-r) at left 50% bottom calc(-1 * var(--line-p)), var(--line-g))
+      calc(50% - 2 * var(--line-size)) calc(50% - var(--line-size) / 2 - var(--line-b) / 2) / calc(4 * var(--line-size)) calc(var(--line-size) + var(--line-b)) repeat-x,
+    radial-gradient(var(--line-r) at left 50% top calc(-1 * var(--line-p)), var(--line-g))
+      50% calc(50% + var(--line-size) / 2 + var(--line-b) / 2) / calc(4 * var(--line-size)) calc(var(--line-size) + var(--line-b)) repeat-x;
+  mask:
+    radial-gradient(var(--line-r) at left 50% bottom calc(-1 * var(--line-p)), var(--line-g))
+      calc(50% - 2 * var(--line-size)) calc(50% - var(--line-size) / 2 - var(--line-b) / 2) / calc(4 * var(--line-size)) calc(var(--line-size) + var(--line-b)) repeat-x,
+    radial-gradient(var(--line-r) at left 50% top calc(-1 * var(--line-p)), var(--line-g))
+      50% calc(50% + var(--line-size) / 2 + var(--line-b) / 2) / calc(4 * var(--line-size)) calc(var(--line-size) + var(--line-b)) repeat-x;
 }
 
-.cta-section__ascii-row {
-  display: block;
-  letter-spacing: 2px;
-  overflow: hidden;
-}
-
-.cta-pixel-trail {
-  z-index: 1;
-}
-
-.cta-section__inner {
+.cta-card {
   position: relative;
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
+  border-radius: 32px;
+  border: 2.5px solid #000000;
+  overflow: hidden;
+  background: #FFFCEC;
+}
+
+/* The source SVG is a 600x600 square with the figure sitting in the upper
+   two-thirds and empty transparent space below it — cropping with
+   object-fit removes that dead space so the visible art actually touches
+   the card's bottom edge instead of floating above it with a gap. */
+.cta-card__illustration {
+  position: absolute;
+  left: 40px;
+  bottom: 0;
+  width: 270px;
+  height: 184px;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.cta-card__illustration img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+.cta-card__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 96px 40px 72px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
   text-align: center;
 }
 
-.cta-section__label {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: rgba(29, 18, 5, 0.5);
-  background: rgba(29, 18, 5, 0.08);
-  padding: 5px 14px;
-  border-radius: 100px;
-  margin-bottom: 8px;
-}
-
-.cta-section__heading {
-  font-size: clamp(40px, 6vw, 82px);
+.cta-card__heading {
+  font-size: clamp(30px, 4.2vw, 46px);
   font-weight: 800;
-  letter-spacing: -3px;
-  color: var(--dark);
-  line-height: 1.05;
+  letter-spacing: -1px;
+  line-height: 1.15;
+  color: #000000;
+  margin: 0;
 }
 
-.cta-section__subtext {
-  font-size: 18px;
-  color: rgba(29, 18, 5, 0.65);
+.cta-card__subtext {
+  font-size: 16px;
+  color: var(--text-dark);
   line-height: 1.65;
-  max-width: 600px;
-  margin-top: 4px;
+  max-width: 520px;
+  margin: 0;
 }
 
-.cta-section__actions {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 16px;
-  position: relative;
-  z-index: 2;
+.cta-card__actions {
+  margin-top: 8px;
 }
 
-
-.cta-section__socials {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 12px;
+/* Talk to Sales button: hover fill switches to the site's blue instead of
+   the FlowButton default white, text/arrows stay white for contrast. */
+.cta-card__actions .flow-btn--black .flow-btn__circle {
+  background: #444BFB;
 }
-
-.cta-section__social {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 9px 16px;
-  border-radius: 8px;
-  border: 1.5px solid rgba(29, 18, 5, 0.2);
-  color: var(--dark);
-  font-size: 13px;
-  font-weight: 600;
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.15s;
-  text-decoration: none;
+.cta-card__actions .flow-btn--black:hover {
+  border-color: #444BFB;
+  color: #ffffff;
 }
-
-.cta-section__social:hover {
-  background: rgba(29, 18, 5, 0.07);
-  border-color: rgba(29, 18, 5, 0.35);
+.cta-card__actions .flow-btn--black:hover .flow-btn__arrow-left,
+.cta-card__actions .flow-btn--black:hover .flow-btn__arrow-right {
+  color: #ffffff;
 }
 
 @media (max-width: 768px) {
-  .cta-section {
-    padding: 72px 24px;
+  .cta-card {
+    border-radius: 24px;
   }
-  .cta-section__heading {
-    letter-spacing: -1.5px;
-    font-size: clamp(32px, 8vw, 60px);
+  .cta-card__inner {
+    padding: 64px 24px 48px;
   }
-  .cta-section__subtext {
-    font-size: 15px;
-  }
-  .cta-section__actions {
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
-  }
-  .cta-section__actions .flow-btn {
-    width: 100%;
-    justify-content: center;
-  }
-  .cta-section__socials {
-    flex-wrap: wrap;
-    justify-content: center;
+  .cta-card__illustration {
+    width: 185px;
+    height: 126px;
+    left: 20px;
   }
 }

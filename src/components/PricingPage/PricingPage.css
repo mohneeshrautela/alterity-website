@@ -16,7 +16,7 @@
 }
 
 .pricing-page__heading {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-heading);
   font-size: clamp(24px, 4vw, 64px);
   font-weight: 800;
   letter-spacing: -2px;

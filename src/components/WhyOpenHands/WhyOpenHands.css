@@ -48,11 +48,11 @@
   display: flex;
   gap: 20px;
   padding: 28px 0;
-  border-bottom: 1px solid rgba(29, 18, 5, 0.09);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
 }
 
 .why-oh__feature:first-child {
-  border-top: 1px solid rgba(29, 18, 5, 0.09);
+  border-top: 1px solid rgba(0, 0, 0, 0.09);
 }
 
 .why-oh__feature-icon {

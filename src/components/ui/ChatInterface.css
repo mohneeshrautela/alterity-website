@@ -1,0 +1,149 @@
+.chatui {
+  position: relative;
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.chatui__fade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.chatui__scroll {
+  height: 100%;
+  overflow-y: auto;
+  overflow-anchor: none; /* stop the browser's automatic scroll-anchoring
+    from snapping scrollTop on its own whenever a new message is inserted —
+    that fought with the JS-driven smooth scroll and was the real source
+    of the jump, independent of any easing curve. */
+  padding: 22px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.chatui__scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.chatui__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.chatui__spacer--tight {
+  margin-top: 6px;
+}
+
+.chatui__spacer--wide {
+  margin-top: 18px;
+}
+
+.chatui__row {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.chatui__row--right {
+  flex-direction: row-reverse;
+}
+
+.chatui__avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chatui__avatar--customer {
+  background: rgba(29, 18, 5, 0.1);
+  color: var(--text-muted);
+}
+
+.chatui__avatar--agent {
+  background: var(--dark);
+  color: var(--cream);
+}
+
+.chatui__avatar-spacer {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+}
+
+.chatui__col {
+  display: flex;
+  flex-direction: column;
+}
+
+.chatui__name {
+  font-size: 11px;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+.chatui__bubble {
+  position: relative;
+  max-width: 260px;
+  padding: 11px 14px;
+  border-style: solid;
+  font-size: 13px;
+}
+
+.chatui__bubble--left {
+  border-radius: 4px 12px 12px 12px;
+}
+
+.chatui__bubble--right {
+  border-radius: 12px 4px 12px 12px;
+}
+
+.chatui__text {
+  margin: 0;
+  line-height: 1.55;
+}
+
+.chatui__text--links {
+  margin-bottom: 10px;
+}
+
+.chatui__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chatui__link-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border-radius: 999px;
+  padding: 4px 9px;
+  font-size: 11px;
+  border-width: 1px;
+  border-style: solid;
+  letter-spacing: 0.3px;
+}
+
+.chatui__loader {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 4px;
+}
+
+.chatui__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+}
