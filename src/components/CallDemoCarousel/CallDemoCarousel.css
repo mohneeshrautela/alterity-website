@@ -339,11 +339,4 @@
     width: 120px;
     height: 120px;
   }
-  .calls__cta {
-    width: 100%;
-  }
-  .calls__cta .flow-btn {
-    width: 100%;
-    justify-content: center;
-  }
 }

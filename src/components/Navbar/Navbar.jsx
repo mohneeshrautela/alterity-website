@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
+import { motion, AnimatePresence } from 'motion/react'
+import { X } from 'lucide-react'
 import './Navbar.css'
 
 const NAV_LINKS = [
@@ -19,6 +21,11 @@ export default function Navbar({ onPricingClick, onLogoClick, onCallsClick, onUs
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [mobileOpen])
+
   const handleMouseEnter = (i) => {
     const el = tabRefs.current[i]
     if (!el) return
@@ -36,6 +43,7 @@ export default function Navbar({ onPricingClick, onLogoClick, onCallsClick, onUs
   ]
 
   return (
+    <>
     <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <div className="navbar__inner">
         <a href="/" className="navbar__logo" onClick={(e) => { e.preventDefault(); onLogoClick?.() }}>
@@ -79,18 +87,33 @@ export default function Navbar({ onPricingClick, onLogoClick, onCallsClick, onUs
           </button>
         </div>
       </div>
-
-      {mobileOpen && (
-        <div className="navbar__mobile-menu">
-          <a onClick={() => { setMobileOpen(false); onWhyUsClick?.() }}>Why Us</a>
-          <a onClick={() => { setMobileOpen(false); onUseCasesClick?.() }}>Use Cases</a>
-          <a onClick={() => { setMobileOpen(false); onPricingClick?.() }}>Pricing</a>
-          <div className="navbar__mobile-btns">
-            <a href="https://dashboard.alterity.io/" className="navbar__btn navbar__btn--outlined">Login</a>
-            <button className="navbar__btn navbar__btn--dark" onClick={() => window.dispatchEvent(new CustomEvent('open-contact-modal'))}>Start a Pilot</button>
-          </div>
-        </div>
-      )}
     </nav>
+
+    <AnimatePresence>
+      {mobileOpen && (
+        <motion.div
+          className="navbar__mobile-menu"
+          initial={{ clipPath: 'inset(0 0 100% 0)' }}
+          animate={{ clipPath: 'inset(0 0 0% 0)' }}
+          exit={{ clipPath: 'inset(0 0 100% 0)' }}
+          transition={{ duration: 0.45, ease: [0.65, 0, 0.35, 1] }}
+        >
+          <button
+            className="navbar__mobile-close"
+            onClick={() => setMobileOpen(false)}
+            aria-label="Close menu"
+          >
+            <X size={26} />
+          </button>
+
+          <div className="navbar__mobile-links">
+            <a onClick={() => { setMobileOpen(false); onWhyUsClick?.() }}>Why Us</a>
+            <a onClick={() => { setMobileOpen(false); onUseCasesClick?.() }}>Use Cases</a>
+            <a onClick={() => { setMobileOpen(false); onPricingClick?.() }}>Pricing</a>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+    </>
   )
 }

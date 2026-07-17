@@ -223,26 +223,70 @@
   border-radius: 2px;
 }
 
+/* Full-screen mobile menu: a fixed overlay revealed by animating clip-path
+   top-down (a "curtain" unrolling), rather than sliding/scaling the whole
+   panel — clip-path only changes what's visible, so the big link text never
+   gets stretched or squashed mid-animation the way a scaleY reveal would. */
 .navbar__mobile-menu {
-  display: none;
-  flex-direction: column;
-  padding: 16px 24px 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  background: #444BFB;
-}
-
-.navbar__mobile-menu a {
-  padding: 12px 0;
-  font-size: 16px;
-  font-weight: 500;
-  color: #ffffff;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.navbar__mobile-btns {
+  position: fixed;
+  inset: 0;
+  z-index: 1001;
   display: flex;
-  gap: 10px;
-  margin-top: 16px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 32px 40px;
+  background: #1a1f6e;
+  overflow-y: auto;
+}
+
+.navbar__mobile-menu::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='linear' slope='3.2' intercept='-1.1'/%3E%3CfeFuncG type='linear' slope='3.2' intercept='-1.1'/%3E%3CfeFuncB type='linear' slope='3.2' intercept='-1.1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 140px 140px;
+  opacity: 0.6;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+.navbar__mobile-close,
+.navbar__mobile-links {
+  position: relative;
+  z-index: 1;
+}
+
+.navbar__mobile-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.navbar__mobile-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navbar__mobile-links a {
+  display: block;
+  padding: 14px 0;
+  font-size: 52px;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: -1px;
+  color: #ffffff;
+  cursor: pointer;
 }
 
 @media (max-width: 1100px) {
@@ -257,36 +301,21 @@
   }
 }
 
-@media (max-width: 1100px) {
-  .navbar__mobile-menu {
-    display: flex;
-  }
-}
-
 @media (max-width: 600px) {
   .navbar__inner {
     padding: 0 16px;
     gap: 0;
   }
-  .navbar__btn:not(.navbar__btn--dark) {
+  .navbar__logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .navbar__right .navbar__btn {
     display: none;
   }
-  .navbar__btn--dark {
-    font-size: 13px;
-    padding: 8px 14px;
-    border-radius: 8px;
-  }
-  .navbar__mobile-menu {
-    padding: 12px 16px 20px;
-  }
-  .navbar__mobile-menu a {
-    font-size: 15px;
-    padding: 11px 0;
-  }
-  .navbar__mobile-btns .navbar__btn--dark {
-    width: 100%;
-    text-align: center;
-    justify-content: center;
+  .navbar__mobile-links a {
+    font-size: 42px;
   }
 }
 

@@ -18,6 +18,19 @@ export default function Footer({ onTermsClick, onPrivacyClick, onPricingClick, o
             <p className="footer__company-address">C-703, Winsway Complex, Sampada Society,<br />Andheri East, Mumbai, Maharashtra 400069</p>
           </div>
 
+          {/* Middle: socials */}
+          <div className="footer__socials">
+            <p className="footer__socials-heading">Socials</p>
+            <div className="footer__socials-row">
+              <a href="https://x.com/alterityio" target="_blank" rel="noopener noreferrer" className="footer__social-link" aria-label="Twitter">
+                <img src="/twitter.png" alt="Twitter" />
+              </a>
+              <a href="https://www.linkedin.com/company/alterity-io?trk=public_post_follow-view-profile" target="_blank" rel="noopener noreferrer" className="footer__social-link" aria-label="LinkedIn">
+                <img src="/linkedin.png" alt="LinkedIn" />
+              </a>
+            </div>
+          </div>
+
           {/* Right: nav links */}
           <ul className="footer__nav-list">
             {NAV_LINKS.map((label) => (

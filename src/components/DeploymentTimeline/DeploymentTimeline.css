@@ -129,7 +129,7 @@
   }
 
   .dt-line {
-    left: 6px;
+    left: 26px;
     right: auto;
     top: 0;
     bottom: 0;
@@ -143,7 +143,8 @@
     width: 100%;
   }
 
-  .dt-point__dot {
+  .dt-point__dot,
+  .dt-point__ping {
     top: 4px;
     left: 6px;
     transform: translate(-50%, -50%);
