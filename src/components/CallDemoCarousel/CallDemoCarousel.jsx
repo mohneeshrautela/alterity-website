@@ -30,7 +30,7 @@ const CARDS = [
     colorA: '#8fe640',
     colorB: '#4fce3a',
     glowRgb: '143,230,64',
-    audio: '/audio/edtech-demo.mp3',
+    audio: '/edtech%20demo.mp3',
   },
 ]
 

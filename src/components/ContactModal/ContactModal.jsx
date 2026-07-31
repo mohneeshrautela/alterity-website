@@ -7,6 +7,7 @@ export default function ContactModal({ onClose }) {
   const [agents, setAgents] = useState('')
   const [consent, setConsent] = useState(false)
   const [emailError, setEmailError] = useState(false)
+  const [phoneError, setPhoneError] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const overlayRef = useRef(null)
 
@@ -21,8 +22,16 @@ export default function ContactModal({ onClose }) {
   }, [onClose])
 
   const handleSubmit = (e) => {
-    if (!email) { e.preventDefault(); setEmailError(true); return }
+    const missingEmail = !email.trim()
+    const missingPhone = !phone.trim()
+    if (missingEmail || missingPhone) {
+      e.preventDefault()
+      setEmailError(missingEmail)
+      setPhoneError(missingPhone)
+      return
+    }
     setEmailError(false)
+    setPhoneError(false)
   }
 
   return (
@@ -57,7 +66,7 @@ export default function ContactModal({ onClose }) {
             <form className="cm-form" action="https://formspree.io/f/xbdzanrv" method="POST" onSubmit={handleSubmit} noValidate>
               <div className="cm-row">
                 <div className="cm-group">
-                  <label className="cm-label" htmlFor="cm-email">Work email</label>
+                  <label className="cm-label" htmlFor="cm-email">Work email *</label>
                   <input
                     id="cm-email"
                     name="email"
@@ -71,16 +80,17 @@ export default function ContactModal({ onClose }) {
                 </div>
 
                 <div className="cm-group">
-                  <label className="cm-label" htmlFor="cm-phone">Phone number</label>
+                  <label className="cm-label" htmlFor="cm-phone">Phone number *</label>
                   <input
                     id="cm-phone"
                     name="phone"
                     type="tel"
-                    className="cm-input"
+                    className={`cm-input ${phoneError ? 'cm-input--error' : ''}`}
                     placeholder="+1 (555) 000-0000"
                     value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
+                    onChange={(e) => { setPhone(e.target.value); setPhoneError(false) }}
                   />
+                  {phoneError && <span className="cm-error">Phone number is required</span>}
                 </div>
               </div>
 
