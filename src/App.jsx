@@ -22,15 +22,21 @@ function App() {
   const [page, setPage] = useState('home')
   const [showModal, setShowModal] = useState(false)
 
-  const goHome      = () => { setPage('home');       window.scrollTo(0, 0) }
-  const goPricing   = () => { setPage('pricing');    window.scrollTo(0, 0) }
-  const goTerms     = () => { setPage('terms');      window.scrollTo(0, 0) }
-  const goPrivacy   = () => { setPage('privacy');    window.scrollTo(0, 0) }
-  const goCalculator= () => { setPage('calculator'); window.scrollTo(0, 0) }
-  const goWhyUs     = () => { setPage('why-us');     window.scrollTo(0, 0) }
+  const navigateTo = (target) => {
+    setPage(target)
+    window.history.pushState({ page: target }, '')
+    window.scrollTo(0, 0)
+  }
+
+  const goHome      = () => navigateTo('home')
+  const goPricing   = () => navigateTo('pricing')
+  const goTerms     = () => navigateTo('terms')
+  const goPrivacy   = () => navigateTo('privacy')
+  const goCalculator= () => navigateTo('calculator')
+  const goWhyUs     = () => navigateTo('why-us')
 
   const goToSection = (id) => {
-    setPage('home')
+    navigateTo('home')
     setTimeout(() => {
       const el = document.getElementById(id)
       if (el) el.scrollIntoView({ behavior: 'smooth' })
@@ -38,14 +44,22 @@ function App() {
   }
 
   useEffect(() => {
+    window.history.replaceState({ page: 'home' }, '')
+
+    const onPopState = (e) => {
+      setPage(e.state?.page || 'home')
+      window.scrollTo(0, 0)
+    }
     const openModal = () => setShowModal(true)
     const goToCalls = () => goToSection('calls')
     const goToCalc  = () => goCalculator()
+    window.addEventListener('popstate',               onPopState)
     window.addEventListener('open-contact-modal',     openModal)
     window.addEventListener('navigate-to-privacy',    goPrivacy)
     window.addEventListener('navigate-to-calls',      goToCalls)
     window.addEventListener('navigate-to-calculator', goToCalc)
     return () => {
+      window.removeEventListener('popstate',               onPopState)
       window.removeEventListener('open-contact-modal',     openModal)
       window.removeEventListener('navigate-to-privacy',    goPrivacy)
       window.removeEventListener('navigate-to-calls',      goToCalls)
