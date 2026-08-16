@@ -302,14 +302,27 @@
 }
 
 @media (max-width: 600px) {
+  /* Centering the logo on the full bar width looks off, because the
+     hamburger button only sits on the right — nothing balances it on the
+     left. Mirroring its width as a spacer doesn't fix this either: that
+     just reproduces plain viewport-centering, since two equal flanking
+     zones average out to the same center. The logo needs to be centered
+     in the space that's actually free of other UI (everything left of the
+     toggle), not the full bar — so the toggle gets its own fixed column
+     and the logo centers in whatever remains. */
   .navbar__inner {
     padding: 0 16px;
     gap: 0;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
   }
   .navbar__logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    grid-column: 1;
+    justify-self: center;
+  }
+  .navbar__right {
+    grid-column: 2;
   }
   .navbar__right .navbar__btn {
     display: none;

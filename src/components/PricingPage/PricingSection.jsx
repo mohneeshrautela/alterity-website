@@ -1,133 +1,124 @@
-import { Fragment } from 'react'
-import { motion } from 'motion/react'
-import { Check, Minus, PhoneCall } from 'lucide-react'
+import { useRef } from 'react'
+import { Check } from 'lucide-react'
+import TimelineContent from '../ui/TimelineContent'
+import AnimatedNumber from '../ui/AnimatedNumber'
 import './PricingSection.css'
 
 const PLANS = [
   {
     key: 'payg',
     name: 'Pay as you go',
-    price: '₹5',
-    unit: '/connected minute',
+    badge: 'Flexible',
+    description:
+      'The full stack — STT, TTS, LLM reasoning, telephony, and analytics — bundled into one flat rate per minute. No setup fee.',
+    price: 7,
+    features: [
+      'Pay only for connected minutes',
+      'Full platform: STT, TTS, LLM, telephony & analytics',
+      'No contracts or long-term commitments',
+      'Scale seamlessly as your call volume grows',
+    ],
+    ctaLabel: 'Get Started',
+    ctaVariant: 'light',
   },
   {
     key: 'enterprise',
-    name: 'Enterprise',
+    name: 'Enterprise plan',
+    description: 'Built for BFSI, healthcare, and large BPOs running voice AI at scale.',
+    price: null,
+    features: [
+      'Custom per-minute pricing for your call volume',
+      'On-prem / VPC deployment & dedicated infrastructure',
+      'Dedicated forward-deployed engineers & priority support',
+      'SOC 2 / ISO 27001-ready compliance & data residency',
+    ],
     ctaLabel: 'Contact Sales',
-    ctaIcon: PhoneCall,
-    ctaVariant: 'outline',
+    ctaVariant: 'dark',
   },
 ]
 
-const FEATURE_ROWS = [
-  { label: 'Proprietary STT — tuned for Indian speech', values: ['check', 'check'] },
-  { label: 'Natural TTS', values: ['check', 'check'] },
-  { label: 'Best-in-class LLM', values: ['check', 'check'] },
-  { label: 'Telephony', values: ['check', 'check'] },
-  { label: 'Basic Analytics', values: ['check', 'check'] },
-  { label: 'On-Prem Deployment', values: ['minus', 'check'] },
-  { label: 'FDE Support (Outcome Support)', values: ['minus', 'check'] },
-  { label: 'Phone number', values: ['₹499 / month', 'Included'] },
-  { label: 'Concurrency', values: ['As per requirement', 'Dedicated, unlimited'] },
-]
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 18 },
-  visible: (i = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, delay: i * 0.06, ease: 'easeOut' },
-  }),
-}
-
-function handleContactSales() {
+function handleTalkToSales() {
   window.dispatchEvent(new CustomEvent('open-contact-modal'))
 }
 
-export default function PricingSection({ onTalkToSales }) {
-  return (
-    <section className="pricing-section">
-      <motion.div
-        className="pricing-section__head"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.4 }}
-        variants={fadeUp}
-      >
-        <h1 className="pricing-section__heading">
-          Conversations at scale.
-        </h1>
-        <p className="pricing-section__subtext">
-          Costs that stay predictable.
-        </p>
-      </motion.div>
+export default function PricingSection() {
+  const pricingRef = useRef(null)
 
-      <motion.div
-        className="pricing-compare"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={fadeUp}
-        custom={1}
-      >
-        <div className="pricing-compare__scroll">
-          <div className="pricing-compare__grid">
-            <div className="pricing-compare__header-spacer" />
-            {PLANS.map((plan) => (
-              <div className="pricing-compare__plan" key={plan.key}>
-                <p className="pricing-compare__plan-name">{plan.name}</p>
-                {plan.price && (
-                  <p className="pricing-compare__plan-price">
-                    <span className="pricing-compare__plan-amount">{plan.price}</span>
-                    <span className="pricing-compare__plan-unit">{plan.unit}</span>
-                  </p>
-                )}
-                {plan.ctaLabel && (
-                  <button
-                    className={`pricing-compare__cta pricing-compare__cta--${plan.ctaVariant}`}
-                    onClick={handleContactSales}
-                  >
-                    {plan.ctaLabel}
-                    <plan.ctaIcon size={16} strokeWidth={2.2} />
-                  </button>
+  return (
+    <section className="pricing-section2" ref={pricingRef}>
+      <div className="pricing-section2__glow" aria-hidden="true" />
+
+      <div className="pricing-section2__head">
+        <TimelineContent
+          as="h1"
+          animationNum={0}
+          className="pricing-section2__heading"
+        >
+          One rate per minute,{' '}
+          <TimelineContent
+            as="span"
+            animationNum={1}
+            className="pricing-section2__heading-highlight"
+          >
+            everything bundled in
+          </TimelineContent>
+        </TimelineContent>
+
+        <TimelineContent
+          as="p"
+          animationNum={2}
+          className="pricing-section2__subtext"
+        >
+          No separate bills for STT, TTS, LLM tokens, or telephony. The price is the price.
+        </TimelineContent>
+      </div>
+
+      <div className="pricing-section2__pair">
+        {PLANS.map((plan, index) => (
+          <TimelineContent key={plan.key} as="div" animationNum={3 + index}>
+            <div className="plan-card">
+              <div className="plan-card__top">
+                <h3 className="plan-card__name">{plan.name}</h3>
+                {plan.badge && <span className="plan-card__badge">{plan.badge}</span>}
+              </div>
+
+              <p className="plan-card__description">{plan.description}</p>
+
+              <div className="plan-card__price">
+                {plan.price != null ? (
+                  <>
+                    <span className="plan-card__currency">₹</span>
+                    <AnimatedNumber value={plan.price} className="plan-card__amount" />
+                    <span className="plan-card__unit">/min</span>
+                  </>
+                ) : (
+                  <span className="plan-card__amount plan-card__amount--custom">Custom</span>
                 )}
               </div>
-            ))}
 
-            {FEATURE_ROWS.map((row, rowIndex) => {
-              const alt = rowIndex % 2 === 1
-              return (
-                <Fragment key={row.label}>
-                  <div className={`pricing-compare__feature ${alt ? 'pricing-compare__cell--alt' : ''}`}>
-                    {row.label}
-                  </div>
-                  {row.values.map((val, i) => (
-                    <div
-                      className={`pricing-compare__value ${alt ? 'pricing-compare__cell--alt' : ''}`}
-                      key={i}
-                    >
-                      {val === 'check' && (
-                        <Check size={16} strokeWidth={2.6} className="pricing-compare__icon pricing-compare__icon--check" />
-                      )}
-                      {val === 'minus' && (
-                        <Minus size={16} strokeWidth={2.6} className="pricing-compare__icon pricing-compare__icon--minus" />
-                      )}
-                      {val !== 'check' && val !== 'minus' && (
-                        <span className="pricing-compare__text">{val}</span>
-                      )}
-                    </div>
-                  ))}
-                </Fragment>
-              )
-            })}
-          </div>
-        </div>
-      </motion.div>
+              <ul className="plan-card__features">
+                {plan.features.map((feature) => (
+                  <li key={feature}>
+                    <Check size={16} strokeWidth={2.2} className="plan-card__check" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
 
-      <p className="pricing-section__footnote">
-        *Final billed amount may vary based on prevailing exchange rates and applicable
-        taxes. Enterprise rates are quoted on request.
-      </p>
+              <button
+                className={`plan-card__cta plan-card__cta--${plan.ctaVariant}`}
+                onClick={handleTalkToSales}
+              >
+                {plan.ctaLabel}
+              </button>
+            </div>
+          </TimelineContent>
+        ))}
+      </div>
+
+      <TimelineContent as="p" animationNum={5} className="pricing-section2__footnote">
+        All rates in INR, exclusive of GST. Billed per connected minute in 30-second pulses.
+      </TimelineContent>
     </section>
   )
 }
