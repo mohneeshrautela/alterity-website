@@ -11,7 +11,7 @@ const PLANS = [
     badge: 'Flexible',
     description:
       'The full stack — STT, TTS, LLM reasoning, telephony, and analytics — bundled into one flat rate per minute. No setup fee.',
-    price: 7,
+    price: 4,
     features: [
       'Pay only for connected minutes',
       'Full platform: STT, TTS, LLM, telephony & analytics',
