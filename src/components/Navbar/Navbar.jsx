@@ -5,6 +5,7 @@ import { X } from 'lucide-react'
 import './Navbar.css'
 
 const NAV_LINKS = [
+  { label: 'Product', to: '/product' },
   { label: 'Why Us', to: '/why-us' },
   { label: 'Use Cases', to: '/#calls' },
   { label: 'Pricing', to: '/pricing' },
