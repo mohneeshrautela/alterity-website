@@ -330,3 +330,7 @@
     animation: none !important;
   }
 }
+
+.hero__actions { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+.hero__product-link { display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border-radius: 8px; background: #444BFB; color: #fff; font-size: 15px; font-weight: 700; transition: transform .15s, opacity .2s; }
+.hero__product-link:hover { transform: translateY(-1px); opacity: .88; }

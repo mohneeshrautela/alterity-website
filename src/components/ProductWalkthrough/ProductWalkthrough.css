@@ -1,0 +1,9 @@
+.product-walkthrough { display: flex; flex-direction: column; gap: 72px; }
+.product-walkthrough__item { margin: 0; }
+.product-walkthrough__copy { display: flex; gap: 20px; align-items: flex-start; max-width: 720px; margin: 0 0 22px; }
+.product-walkthrough__number { font-size: 12px; font-weight: 700; color: rgba(29,18,5,.42); padding-top: 9px; }
+.product-walkthrough__copy h2 { font-family: var(--font-heading); font-size: clamp(28px, 3.5vw, 44px); font-weight: 700; line-height: 1.05; margin: 0 0 8px; }
+.product-walkthrough__copy p { color: rgba(29,18,5,.68); font-size: 16px; line-height: 1.65; margin: 0; }
+.product-walkthrough__frame { padding: 10px; background: #fff; border: 1.5px solid rgba(29,18,5,.16); border-radius: 18px; box-shadow: 7px 7px 0 rgba(29,18,5,.08); overflow: hidden; }
+.product-walkthrough__frame img { width: 100%; height: auto; display: block; border-radius: 10px; }
+@media (max-width: 600px) { .product-walkthrough { gap: 48px; } .product-walkthrough__copy { gap: 12px; } .product-walkthrough__frame { padding: 5px; border-radius: 12px; box-shadow: 4px 4px 0 rgba(29,18,5,.08); } }
