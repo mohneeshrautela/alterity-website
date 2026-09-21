@@ -19,7 +19,7 @@ const FAQ_ITEMS = [
     id: 'faq-3',
     question: 'How long does it take to deploy an Alterity AI agent?',
     answer:
-      'Most Alterity deployments are completed within days. We work with your team to understand your workflows, configure conversation logic, connect your existing systems, and launch a production-ready AI voice agent with minimal effort.',
+      'Configure workflows, integrations, guardrails, and launch checks in Alterity; the team can support onboarding where needed.',
   },
   {
     id: 'faq-4',

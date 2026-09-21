@@ -24,13 +24,13 @@ const PLANS = [
   {
     key: 'enterprise',
     name: 'Enterprise plan',
-    description: 'Built for BFSI, healthcare, and large BPOs running voice AI at scale.',
+    description: 'Platform controls, analytics, integrations, and private deployment options for teams running voice AI at scale.',
     price: null,
     features: [
-      'Custom per-minute pricing for your call volume',
-      'On-prem / VPC deployment & dedicated infrastructure',
-      'Dedicated forward-deployed engineers & priority support',
-      'SOC 2 / ISO 27001-ready compliance & data residency',
+      'Custom usage pricing for your call volume',
+      'Advanced platform controls and analytics',
+      'Integrations and private deployment options',
+      'Priority onboarding and support',
     ],
     ctaLabel: 'Contact Sales',
     ctaVariant: 'dark',

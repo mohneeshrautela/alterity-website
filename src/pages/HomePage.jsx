@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import Hero from '../components/Hero/Hero'
 import CallDemoCarousel from '../components/CallDemoCarousel/CallDemoCarousel'
-import TestimonialTicker from '../components/TestimonialTicker/TestimonialTicker'
 import ConversationsHeading from '../components/ConversationsHeading/ConversationsHeading'
 import PlatformFeatures from '../components/PlatformFeatures/PlatformFeatures'
 import IntegrationsSection from '../components/IntegrationsSection/IntegrationsSection'
@@ -22,7 +21,6 @@ export default function HomePage() {
     <>
       <Hero />
       <CallDemoCarousel />
-      <TestimonialTicker />
       <ConversationsHeading />
       <PlatformFeatures />
       <IntegrationsSection />
