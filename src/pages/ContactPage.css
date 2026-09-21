@@ -1,0 +1,8 @@
+.contact-page { min-height: 100vh; padding: 120px 24px 100px; }
+.contact-page__inner { width: 100%; max-width: 800px; margin: 0 auto; }
+.contact-page__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 0 0 32px; }
+.contact-page__card { padding: 24px; background: #fff; border: 1.5px solid rgba(0,0,0,.15); border-radius: 12px; box-shadow: 3px 3px 0 rgba(0,0,0,.08); }
+.contact-page__card h2 { font-family: var(--font-heading); font-size: 20px; margin: 14px 0 10px; }
+.contact-page__card p, .contact-page__card a { color: #000; font-size: 14px; line-height: 1.7; }
+.contact-page__card a { font-weight: 600; text-underline-offset: 3px; }
+@media (max-width: 600px) { .contact-page { padding: 100px 16px 80px; } .contact-page__grid { grid-template-columns: 1fr; } }
