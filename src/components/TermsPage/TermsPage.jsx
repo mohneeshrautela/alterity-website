@@ -93,7 +93,7 @@ const SECTIONS = [
   {
     num: '16',
     title: 'Governing Law',
-    body: 'These Terms shall be governed by and construed in accordance with the laws of the Republic of India. Any dispute arising out of or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts at Noida, Uttar Pradesh [or New Delhi], India.',
+    body: 'These Terms shall be governed by and construed in accordance with the laws of the Republic of India. Any dispute arising out of or in connection with these Terms shall be subject to the jurisdiction of the competent courts in India.',
   },
   {
     num: '17',

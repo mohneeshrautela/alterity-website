@@ -69,8 +69,7 @@ export default function SDKSection() {
             <Typewriter words={WORDS} speed={90} deleteSpeed={50} delay={1800} />
           </h2>
           <p className="sdk-desc">
-            Voice AI agents customized to your workflows, enabling seamless customer interactions,
-            intelligent decision-making, and continuous operations around the clock.
+            Configure voice agents for your workflows and connect them to your existing systems.
           </p>
           <FlowButton text="Start a Pilot" variant="outlined" className="sdk-cta" />
         </div>

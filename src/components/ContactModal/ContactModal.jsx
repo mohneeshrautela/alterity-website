@@ -61,7 +61,7 @@ export default function ContactModal({ onClose }) {
           <>
             <div className="cm-header">
               <h2 className="cm-title">Let's talk</h2>
-              <p className="cm-subtitle">Tell us a bit about your team and we'll reach out with a custom plan.</p>
+              <p className="cm-subtitle">Share your use case and expected call volume. We'll help you select the right plan.</p>
             </div>
 
             <form className="cm-form" action="https://formspree.io/f/xbdzanrv" method="POST" onSubmit={handleSubmit} noValidate>

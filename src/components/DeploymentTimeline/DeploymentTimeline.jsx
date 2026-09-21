@@ -3,33 +3,33 @@ import './DeploymentTimeline.css'
 
 const MILESTONES = [
   {
-    day: 'DAY 1',
-    title: 'Share a real call',
-    body: 'Our engineers learn your business from one recorded conversation.',
+    day: 'STEP 1',
+    title: 'Define the use case',
+    body: 'Share the workflow, goals, and representative call samples.',
     position: 'above',
   },
   {
-    day: 'DAY 2',
-    title: 'Build phase begins',
-    body: 'Voice, conversation flow, and testing.',
+    day: 'STEP 2',
+    title: 'Configure the agent',
+    body: 'Set the voice, conversation flow, and operating rules.',
     position: 'below',
   },
   {
-    day: 'DAY 4',
-    title: 'First end-to-end run',
-    body: 'Voice cloned, agent handling test calls.',
+    day: 'STEP 3',
+    title: 'Connect tools and guardrails',
+    body: 'Add integrations, handoffs, limits, and safety checks.',
     position: 'above',
   },
   {
-    day: 'DAY 6',
-    title: 'Dry run + safety checks',
-    body: 'All tests pass, ready for production.',
+    day: 'STEP 4',
+    title: 'Run test calls',
+    body: 'Review outcomes and tune the agent before launch.',
     position: 'below',
   },
   {
-    day: 'DAY 7 · LIVE',
-    title: 'Live in production',
-    body: 'Your team reviews calls daily.',
+    day: 'LAUNCH',
+    title: 'Launch and monitor',
+    body: 'Track calls, outcomes, and usage in the dashboard.',
     position: 'above',
     live: true,
   },
@@ -46,7 +46,7 @@ export default function DeploymentTimeline() {
           viewport={{ once: true, amount: 0.8 }}
           transition={{ duration: 0.6 }}
         >
-          Go live in as little as 7 days
+          From setup to monitored launch
         </motion.h2>
 
         <div className="dt-row">

@@ -15,13 +15,13 @@ const PRICING_FAQ_ITEMS = [
     id: 'pricing-faq-2',
     question: "What's the difference between Pay as you go and Enterprise?",
     answer:
-      "Pay as you go gives you the full stack — STT, TTS, LLM reasoning, telephony, and analytics — at a flat ₹4/connected minute with no minimum. Enterprise is for BFSI, healthcare, and large BPOs that need on-prem/VPC deployment, custom model fine-tuning, SOC 2/ISO 27001 compliance, and dedicated forward-deployed engineer support, priced to your volume.",
+      "Pay as you go gives you the full stack — STT, TTS, LLM reasoning, telephony, and analytics — at a flat ₹4/connected minute with no minimum. Enterprise adds advanced platform controls, analytics, integrations, private deployment options, priority support, and pricing based on your volume.",
   },
   {
     id: 'pricing-faq-3',
     question: 'Is there a setup fee?',
     answer:
-      "No. Pay as you go is a flat per-minute rate with no setup fee — STT, TTS, LLM, telephony, and analytics are all bundled in. Enterprise deployments that need custom fine-tuning or on-prem/VPC setup get a dedicated onboarding scoped during the volume review.",
+      "No. Pay as you go is a flat per-minute rate with no setup fee — STT, TTS, LLM, telephony, and analytics are all bundled in. Enterprise onboarding and deployment options are scoped during the volume review.",
   },
   {
     id: 'pricing-faq-4',
