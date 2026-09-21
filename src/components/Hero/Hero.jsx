@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { motion } from 'motion/react'
 import './Hero.css'
 import FlowButton from '../FlowButton/FlowButton'
+import { Link } from 'react-router-dom'
 
 const WAVE_BAR_COUNT = 32
 
@@ -174,6 +175,7 @@ export default function Hero() {
         </p>
 
         <div className={`hero__actions ${isLoaded ? 'hero__actions--in' : ''}`}>
+          <Link to="/product" className="hero__product-link">See the product</Link>
           <FlowButton text="Calculate Your Monthly Cost Leak" variant="black" />
         </div>
       </div>

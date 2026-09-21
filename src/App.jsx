@@ -1,16 +1,9 @@
-import { useState, useEffect } from 'react'
-import Navbar from './components/Navbar/Navbar'
-import Hero from './components/Hero/Hero'
-import CallDemoCarousel from './components/CallDemoCarousel/CallDemoCarousel'
-import TestimonialTicker from './components/TestimonialTicker/TestimonialTicker'
-import ConversationsHeading from './components/ConversationsHeading/ConversationsHeading'
-import PlatformFeatures from './components/PlatformFeatures/PlatformFeatures'
-import WhyOpenHands from './components/WhyOpenHands/WhyOpenHands'
-import IntegrationsSection from './components/IntegrationsSection/IntegrationsSection'
-import DeploymentTimeline from './components/DeploymentTimeline/DeploymentTimeline'
-import CTASection from './components/CTASection/CTASection'
-import FAQSection from './components/FAQSection/FAQSection'
-import Footer from './components/Footer/Footer'
+import { useState } from 'react'
+import { Navigate, Route, Routes } from 'react-router-dom'
+import SiteLayout from './layouts/SiteLayout'
+import HomePage from './pages/HomePage'
+import ContactPage from './pages/ContactPage'
+import ProductPage from './pages/ProductPage'
 import PricingPage from './components/PricingPage/PricingPage'
 import TermsPage from './components/TermsPage/TermsPage'
 import PrivacyPage from './components/PrivacyPage/PrivacyPage'
@@ -19,98 +12,23 @@ import WhyUsPage from './components/WhyUsPage/WhyUsPage'
 import ContactModal from './components/ContactModal/ContactModal'
 
 function App() {
-  const [page, setPage] = useState('home')
   const [showModal, setShowModal] = useState(false)
-
-  const navigateTo = (target) => {
-    setPage(target)
-    window.history.pushState({ page: target }, '')
-    window.scrollTo(0, 0)
-  }
-
-  const goHome      = () => navigateTo('home')
-  const goPricing   = () => navigateTo('pricing')
-  const goTerms     = () => navigateTo('terms')
-  const goPrivacy   = () => navigateTo('privacy')
-  const goCalculator= () => navigateTo('calculator')
-  const goWhyUs     = () => navigateTo('why-us')
-
-  const goToSection = (id) => {
-    navigateTo('home')
-    setTimeout(() => {
-      const el = document.getElementById(id)
-      if (el) el.scrollIntoView({ behavior: 'smooth' })
-    }, 50)
-  }
-
-  useEffect(() => {
-    window.history.replaceState({ page: 'home' }, '')
-
-    const onPopState = (e) => {
-      setPage(e.state?.page || 'home')
-      window.scrollTo(0, 0)
-    }
-    const openModal = () => setShowModal(true)
-    const goToCalls = () => goToSection('calls')
-    const goToCalc  = () => goCalculator()
-    window.addEventListener('popstate',               onPopState)
-    window.addEventListener('open-contact-modal',     openModal)
-    window.addEventListener('navigate-to-privacy',    goPrivacy)
-    window.addEventListener('navigate-to-calls',      goToCalls)
-    window.addEventListener('navigate-to-calculator', goToCalc)
-    return () => {
-      window.removeEventListener('popstate',               onPopState)
-      window.removeEventListener('open-contact-modal',     openModal)
-      window.removeEventListener('navigate-to-privacy',    goPrivacy)
-      window.removeEventListener('navigate-to-calls',      goToCalls)
-      window.removeEventListener('navigate-to-calculator', goToCalc)
-    }
-  }, [])
 
   return (
     <>
-      <div>
-        <Navbar
-          onPricingClick={goPricing}
-          onLogoClick={goHome}
-          onCallsClick={() => goToSection('calls')}
-          onUseCasesClick={() => goToSection('calls')}
-          onWhyUsClick={goWhyUs}
-        />
-
-        {page === 'why-us' ? (
-          <WhyUsPage />
-        ) : page === 'pricing' ? (
-          <PricingPage onPrivacyClick={goPrivacy} />
-        ) : page === 'terms' ? (
-          <TermsPage />
-        ) : page === 'privacy' ? (
-          <PrivacyPage />
-        ) : page === 'calculator' ? (
-          <CalculatorPage />
-        ) : (
-          <>
-            <Hero />
-            <CallDemoCarousel />
-            <TestimonialTicker />
-            <ConversationsHeading />
-            <PlatformFeatures />
-            <IntegrationsSection />
-            <DeploymentTimeline />
-            <CTASection />
-            <FAQSection />
-          </>
-        )}
-
-        <Footer
-          onTermsClick={goTerms}
-          onPrivacyClick={goPrivacy}
-          onPricingClick={goPricing}
-          onWhyUsClick={goWhyUs}
-          onUseCasesClick={() => goToSection('calls')}
-          onLogoClick={goHome}
-        />
-      </div>
+      <Routes>
+        <Route element={<SiteLayout onOpenContact={() => setShowModal(true)} />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/product" element={<ProductPage />} />
+          <Route path="/pricing" element={<PricingPage />} />
+          <Route path="/why-us" element={<WhyUsPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/terms" element={<TermsPage />} />
+          <Route path="/contact" element={<ContactPage onOpenContact={() => setShowModal(true)} />} />
+          <Route path="/calculator" element={<CalculatorPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Route>
+      </Routes>
       {showModal && <ContactModal onClose={() => setShowModal(false)} />}
     </>
   )

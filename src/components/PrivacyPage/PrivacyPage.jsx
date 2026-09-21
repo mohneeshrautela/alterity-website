@@ -113,7 +113,7 @@ const SECTIONS = [
   {
     num: '9',
     title: 'Grievance Redressal Officer',
-    body: 'In compliance with the Information Technology Act, 2000 and the Digital Personal Data Protection Act, 2023, users may contact our Grievance Officer for any privacy-related concerns.\n\nName: Aaryan Mehta\nDesignation: Grievance and Data Protection Officer\nEmail: contact@alterity.io\n\nAddress: C-703, Wisway Complex, Sampada Society, Andheri East, Mumbai, Maharashtra 400069, India',
+    body: 'In compliance with the Information Technology Act, 2000 and the Digital Personal Data Protection Act, 2023, users may contact our Grievance Officer for any privacy-related concerns.\n\nName: Aaryan Mehta\nDesignation: Grievance and Data Protection Officer\nEmail: contact@alterity.io\n\nAddress: 1st Floor, 214/A Wing, ORM Premises Co-op Society, Aarey Milk Colony, Goregaon (East), Royal Palms, Nr. Unit No. 26, Mumbai 400065, India',
   },
   {
     num: '10',

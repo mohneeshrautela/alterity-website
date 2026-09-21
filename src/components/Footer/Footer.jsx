@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import './Footer.css'
 
 const NAV_LINKS = [
+  { label: 'Product', to: '/product' },
   { label: 'Why Us', to: '/why-us' },
   { label: 'Use Cases', to: '/#calls' },
   { label: 'Pricing', to: '/pricing' },
@@ -20,7 +21,7 @@ export default function Footer() {
           <div className="footer__company">
             <Link to="/" className="footer__brand-heading">Alterity</Link>
             <p className="footer__company-name">Alterity Labs Pvt Ltd.</p>
-            <p className="footer__company-address">C-703, Winsway Complex, Sampada Society,<br />Andheri East, Mumbai, Maharashtra 400069</p>
+            <p className="footer__company-address">1st Floor, 214/A Wing, ORM Premises Co-op Society,<br />Aarey Milk Colony, Goregaon (East), Royal Palms,<br />Nr. Unit No. 26, Mumbai 400065</p>
           </div>
           <div className="footer__socials">
             <p className="footer__socials-heading">Socials</p>
