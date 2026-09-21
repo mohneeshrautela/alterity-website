@@ -11,7 +11,7 @@ export default function ContactPage({ onOpenContact }) {
         <p className="terms-page__intro">Contact information stays available even if the enquiry form is unavailable.</p>
         <div className="contact-page__grid">
           <section className="contact-page__card"><Mail size={22} /><h2>Email</h2><a href="mailto:contact@alterity.io">contact@alterity.io</a></section>
-          <section className="contact-page__card"><MapPin size={22} /><h2>Company</h2><p>Alterity Labs Pvt Ltd.</p><p><strong>Correspondence address</strong><br />C-703, Winsway Complex, Sampada Society, Andheri East, Mumbai, Maharashtra 400069</p></section>
+          <section className="contact-page__card"><MapPin size={22} /><h2>Company</h2><p>Alterity Labs Pvt Ltd.</p><p><strong>Correspondence address</strong><br />1st Floor, 214/A Wing, ORM Premises Co-op Society, Aarey Milk Colony, Goregaon (East), Royal Palms, Nr. Unit No. 26, Mumbai 400065</p></section>
         </div>
         <FlowButton text="Start a Pilot" onClick={onOpenContact} />
       </div>
