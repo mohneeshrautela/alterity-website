@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import './ContactModal.css'
 
 export default function ContactModal({ onClose }) {
@@ -118,15 +119,7 @@ export default function ContactModal({ onClose }) {
                 />
                 <label htmlFor="cm-consent" className="cm-checkbox-label">
                   I consent to the collection and processing of my personal data in accordance with the{' '}
-                  <a
-                    href="#"
-                    className="cm-link"
-                    onClick={(e) => {
-                      e.preventDefault()
-                      onClose()
-                      window.dispatchEvent(new CustomEvent('navigate-to-privacy'))
-                    }}
-                  >Privacy Policy</a>.
+                  <Link to="/privacy" className="cm-link" onClick={onClose}>Privacy Policy</Link>.
                 </label>
               </div>
 

@@ -120,6 +120,7 @@ export default function TermsPage() {
         {/* Header */}
         <div className="terms-page__header">
           <h1 className="terms-page__title">Terms of Use</h1>
+          <p className="terms-page__intro" style={{ fontSize: '13px', opacity: 0.6, marginBottom: '8px' }}>Last Updated: September 22, 2026</p>
           <p className="terms-page__intro">
             By accessing or using the website at{' '}
             <a href="https://alterity.io" className="terms-page__link">https://alterity.io</a>{' '}

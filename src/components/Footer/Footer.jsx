@@ -1,82 +1,42 @@
+import { Link } from 'react-router-dom'
 import './Footer.css'
 
-const NAV_LINKS = ['Why Us', 'Use Cases', 'Pricing']
-const LEGAL_LINKS = ['Terms', 'Privacy', 'Contact']
+const NAV_LINKS = [
+  { label: 'Why Us', to: '/why-us' },
+  { label: 'Use Cases', to: '/#calls' },
+  { label: 'Pricing', to: '/pricing' },
+]
+const LEGAL_LINKS = [
+  { label: 'Terms', to: '/terms' },
+  { label: 'Privacy', to: '/privacy' },
+  { label: 'Contact', to: '/contact' },
+]
 
-export default function Footer({ onTermsClick, onPrivacyClick, onPricingClick, onWhyUsClick, onUseCasesClick, onLogoClick }) {
+export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer__inner">
-
-        {/* Top row */}
         <div className="footer__top">
-
-          {/* Left: company info */}
           <div className="footer__company">
-            <p className="footer__brand-heading" style={{cursor:'pointer'}} onClick={() => onLogoClick?.()}>Alterity</p>
+            <Link to="/" className="footer__brand-heading">Alterity</Link>
             <p className="footer__company-name">Alterity Labs Pvt Ltd.</p>
             <p className="footer__company-address">C-703, Winsway Complex, Sampada Society,<br />Andheri East, Mumbai, Maharashtra 400069</p>
           </div>
-
-          {/* Middle: socials */}
           <div className="footer__socials">
             <p className="footer__socials-heading">Socials</p>
             <div className="footer__socials-row">
-              <a href="https://x.com/alterityio" target="_blank" rel="noopener noreferrer" className="footer__social-link" aria-label="Twitter">
-                <img src="/twitter.png" alt="Twitter" />
-              </a>
-              <a href="https://www.linkedin.com/company/alterity-io?trk=public_post_follow-view-profile" target="_blank" rel="noopener noreferrer" className="footer__social-link" aria-label="LinkedIn">
-                <img src="/linkedin.png" alt="LinkedIn" />
-              </a>
+              <a href="https://x.com/alterityio" target="_blank" rel="noopener noreferrer" className="footer__social-link" aria-label="Twitter"><img src="/twitter.png" alt="Twitter" /></a>
+              <a href="https://www.linkedin.com/company/alterity-io?trk=public_post_follow-view-profile" target="_blank" rel="noopener noreferrer" className="footer__social-link" aria-label="LinkedIn"><img src="/linkedin.png" alt="LinkedIn" /></a>
             </div>
           </div>
-
-          {/* Right: nav links */}
-          <ul className="footer__nav-list">
-            {NAV_LINKS.map((label) => (
-              <li key={label}>
-                <a
-                  href="#"
-                  className="footer__nav-link"
-                  onClick={
-                    label === 'Pricing' ? (e) => { e.preventDefault(); onPricingClick?.() }
-                    : label === 'Why Us' ? (e) => { e.preventDefault(); onWhyUsClick?.() }
-                    : label === 'Use Cases' ? (e) => { e.preventDefault(); onUseCasesClick?.() }
-                    : undefined
-                  }
-                >{label}</a>
-              </li>
-            ))}
-          </ul>
-
+          <ul className="footer__nav-list">{NAV_LINKS.map(link => <li key={link.to}><Link to={link.to} className="footer__nav-link">{link.label}</Link></li>)}</ul>
         </div>
-
-        {/* Big watermark */}
         <div className="footer__big-logo" aria-hidden="true">Alterity</div>
-
-        {/* Divider */}
         <div className="footer__divider"></div>
-
-        {/* Bottom bar */}
         <div className="footer__bottom">
           <p className="footer__copyright">© 2026 Alterity is a brand under Alterity Labs Pvt Ltd.</p>
-          <div className="footer__legal-row">
-            {LEGAL_LINKS.map((link) => (
-              <a
-                key={link}
-                href="#"
-                className="footer__legal-link"
-                onClick={
-                  link === 'Terms' ? (e) => { e.preventDefault(); onTermsClick?.() }
-                  : link === 'Privacy' ? (e) => { e.preventDefault(); onPrivacyClick?.() }
-                  : link === 'Contact' ? (e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('open-contact-modal')) }
-                  : undefined
-                }
-              >{link}</a>
-            ))}
-          </div>
+          <div className="footer__legal-row">{LEGAL_LINKS.map(link => <Link key={link.to} to={link.to} className="footer__legal-link">{link.label}</Link>)}</div>
         </div>
-
       </div>
     </footer>
   )
