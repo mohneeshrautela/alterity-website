@@ -1,4 +1,12 @@
 {
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "alterity.io" }],
+      "destination": "https://www.alterity.io/:path*",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     { "source": "/((?!assets/|.*\\..*).*)", "destination": "/index.html" }
   ]
