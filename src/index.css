@@ -133,3 +133,85 @@ img {
   background: rgba(245, 240, 227, 0.1);
   transform: translateY(-1px);
 }
+
+/* Startup supporter marquee */
+.supported-by {
+  background: #fff;
+  padding: 36px 0 44px;
+  scroll-margin-top: 100px;
+  overflow: hidden;
+}
+.supported-by__header {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto 24px;
+  padding: 0 24px;
+  text-align: center;
+}
+.supported-by__header h2 {
+  font-family: var(--font);
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.supported-by__toggle {
+  position: absolute;
+  right: 24px;
+  top: -5px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--text-muted);
+  border-radius: 50%;
+}
+.supported-by__toggle:hover { background: var(--cream); }
+.supported-by__toggle:focus-visible { outline: 2px solid var(--dark); outline-offset: 3px; }
+.supported-by__lane { overflow: hidden; }
+.supported-by__track {
+  display: flex;
+  width: max-content;
+  animation: supporters-scroll 36s linear infinite;
+}
+.supported-by__group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  list-style: none;
+}
+.supported-by__logo {
+  width: 240px;
+  height: 88px;
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.supported-by__logo img { width: 180px; height: 42px; object-fit: contain; }
+.supported-by__logo--aws img { width: 78px; height: 46px; }
+.supported-by__logo--google img { height: 32px; }
+.supported-by__logo--claude img { width: 158px; }
+.supported-by__logo--assemblyai img { width: 170px; }
+.supported-by__lane:hover .supported-by__track,
+.supported-by__lane--paused .supported-by__track { animation-play-state: paused; }
+@keyframes supporters-scroll { to { transform: translateX(-25%); } }
+@media (max-width: 680px) {
+  .supported-by { padding: 28px 0 32px; }
+  .supported-by__header { margin-bottom: 12px; }
+  .supported-by__logo { width: 190px; padding: 18px 24px; height: 76px; }
+  .supported-by__logo img { max-width: 142px; height: 34px; }
+  .supported-by__logo--aws img { width: 68px; height: 40px; }
+  .supported-by__logo--google img { height: 25px; }
+  .supported-by__track { animation-duration: 32s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .supported-by__track { animation: none; width: 100%; }
+  .supported-by__group { flex-wrap: wrap; justify-content: center; width: 100%; }
+  .supported-by__group[aria-hidden="true"] { display: none; }
+  .supported-by__toggle { display: none; }
+}
