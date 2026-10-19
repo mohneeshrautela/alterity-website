@@ -21,11 +21,11 @@ for (const route of publicRoutes) {
     <meta property="og:description" content="${esc(meta.description)}" />
     <meta property="og:url" content="${canonical}" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="${SITE_URL}/og-image.png" />
+    <meta property="og:image" content="${SITE_URL}/1-og-image.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${esc(meta.title)}" />
     <meta name="twitter:description" content="${esc(meta.description)}" />
-    <meta name="twitter:image" content="${SITE_URL}/og-image.png" />`
+    <meta name="twitter:image" content="${SITE_URL}/1-og-image.png" />`
   let html = template
     .replace(/<title>.*?<\/title>/, `<title>${esc(meta.title)}</title>`)
     .replace(/\s*<meta name="description"[^>]*>/, '')
