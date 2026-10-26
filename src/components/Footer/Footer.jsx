@@ -6,6 +6,7 @@ const NAV_LINKS = [
   { label: 'Why Us', to: '/why-us' },
   { label: 'Use Cases', to: '/#calls' },
   { label: 'Pricing', to: '/pricing' },
+  { label: 'Cost Calculator', to: '/calculator' },
 ]
 const LEGAL_LINKS = [
   { label: 'Terms', to: '/terms' },
