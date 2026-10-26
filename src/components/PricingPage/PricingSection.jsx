@@ -1,7 +1,6 @@
 import { useRef } from 'react'
 import { Check } from 'lucide-react'
 import TimelineContent from '../ui/TimelineContent'
-import AnimatedNumber from '../ui/AnimatedNumber'
 import './PricingSection.css'
 
 const PLANS = [
@@ -88,7 +87,7 @@ export default function PricingSection() {
                 {plan.price != null ? (
                   <>
                     <span className="plan-card__currency">₹</span>
-                    <AnimatedNumber value={plan.price} className="plan-card__amount" />
+                    <span className="plan-card__amount">{plan.price}</span>
                     <span className="plan-card__unit">/min</span>
                   </>
                 ) : (
