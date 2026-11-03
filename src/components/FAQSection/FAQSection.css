@@ -107,7 +107,7 @@
 }
 
 .faq-item__content[data-state='closed'] {
-  animation: faq-up 0.22s ease-out;
+  display: none;
 }
 
 @keyframes faq-down {
