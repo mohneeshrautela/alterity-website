@@ -112,7 +112,7 @@
 }
 
 .pricing-faq__content[data-state='closed'] {
-  animation: pricing-faq-up 0.22s ease-out;
+  display: none;
 }
 
 @keyframes pricing-faq-down {
