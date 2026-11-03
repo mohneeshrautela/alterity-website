@@ -66,7 +66,7 @@ export default function PricingPage() {
                     <span className="pricing-faq__question">{item.question}</span>
                   </AccordionPrimitive.Trigger>
                 </AccordionPrimitive.Header>
-                <AccordionPrimitive.Content className="pricing-faq__content">
+                <AccordionPrimitive.Content forceMount className="pricing-faq__content">
                   <p className="pricing-faq__answer">{item.answer}</p>
                 </AccordionPrimitive.Content>
               </AccordionPrimitive.Item>
