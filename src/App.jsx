@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
+import IndustryPage from './components/IndustryPage/IndustryPage'
+import UseCasesIndex from './components/IndustryPage/UseCasesIndex'
 import SiteLayout from './layouts/SiteLayout'
 import HomePage from './pages/HomePage'
 import ContactPage from './pages/ContactPage'
@@ -26,6 +28,8 @@ function App() {
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/contact" element={<ContactPage onOpenContact={() => setShowModal(true)} />} />
           <Route path="/calculator" element={<CalculatorPage />} />
+          <Route path="/use-cases" element={<UseCasesIndex />} />
+          <Route path="/use-cases/:slug" element={<IndustryPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
