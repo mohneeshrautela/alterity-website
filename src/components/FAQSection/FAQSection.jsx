@@ -34,6 +34,34 @@ const FAQ_ITEMS = [
       'Alterity supports conversations in multiple languages, including English, Hindi, Tamil, Telugu, Bengali, Marathi, Kannada, Malayalam, Gujarati, Punjabi, and more. Our AI is designed to understand regional accents and can naturally switch between languages during a conversation, creating a seamless experience for your customers.',
   },
   {
+    id: 'faq-new-1',
+    question: 'How is an AI voice agent different from an IVR?',
+    answer:
+      'Traditional IVR systems follow fixed menus, whether keypad presses or simple speech commands, and rigid call trees. An AI voice agent holds a free-form two-way conversation: it understands what the caller says in their own words, asks follow-up questions, and can take actions during the call, like updating a record in your CRM or booking an appointment. Where a handoff is configured, the call can be transferred to your team.',
+  },
+  {
+    id: 'faq-new-2',
+    question: 'Is automated calling legal in India?',
+    answer: (
+      <>
+        Automated calls are not categorically banned in India, but the requirements depend on the call&apos;s purpose, the recipient&apos;s consent and preferences, your sector, and your telecom provider. TRAI&apos;s commercial communication rules (TCCCPR) govern this space, and specific mandates like calling windows and designated number series apply differently by call category. Review every campaign against the current rules with your compliance team before launch. Official source:{' '}
+        <a href="https://trai.gov.in/tcccpr" target="_blank" rel="noopener noreferrer">trai.gov.in/tcccpr</a>. This is a plain-language overview, not legal advice.
+      </>
+    ),
+  },
+  {
+    id: 'faq-new-3',
+    question: 'Do people hang up when they realize it is an AI?',
+    answer:
+      'Hang-up rates depend heavily on the use case, the contact list, and the script, so we measure them with you during a pilot rather than quoting generic numbers. You can configure the agent to identify itself as an AI assistant at the start of the call, conversations are designed to be short and purposeful, and when a handoff number is configured, callers can be routed to a person.',
+  },
+  {
+    id: 'faq-new-4',
+    question: 'How does an AI voice agent actually work?',
+    answer:
+      'Three things happen in real time on every turn of the conversation: speech-to-text transcribes what the caller says, a language model decides the next response using your script and business rules, and text-to-speech speaks the reply back in a natural voice, fast enough to feel like a normal phone call. Alterity adds telephony, integrations, and guardrails around this loop, and the agent is designed to follow the script and rules you configure.',
+  },
+  {
     id: 'faq-6',
     question: 'Can Alterity integrate with our existing systems?',
     answer:
