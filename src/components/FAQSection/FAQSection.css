@@ -129,6 +129,12 @@
   max-width: 640px;
 }
 
+.faq-item__answer a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 @media (max-width: 600px) {
   .faq-section {
     padding: 64px 20px;
