@@ -1,0 +1,263 @@
+.ind-page {
+  min-height: 100vh;
+}
+
+/* Hero */
+.ind-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 180px 40px 90px;
+}
+
+.ind-kicker {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--dark);
+  opacity: 0.45;
+  margin-bottom: 22px;
+}
+
+.ind-h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(38px, 5.5vw, 72px);
+  font-weight: 800;
+  letter-spacing: -2px;
+  color: var(--dark);
+  line-height: 1.08;
+  margin: 0 0 22px;
+  max-width: 900px;
+}
+
+.ind-u {
+  text-decoration: underline;
+  text-decoration-color: #444BFB;
+  text-decoration-thickness: 5px;
+  text-underline-offset: 8px;
+}
+
+.ind-sub {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  max-width: 720px;
+  margin: 0 0 36px;
+}
+
+.ind-btnrow {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.ind-btnrow .btn-outlined {
+  text-decoration: none;
+}
+
+/* Sections */
+.ind-sect {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 40px;
+}
+
+.ind-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--dark);
+  opacity: 0.45;
+  margin-bottom: 12px;
+}
+
+.ind-h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: var(--dark);
+  margin: 0 0 32px;
+}
+
+/* Cards */
+.ind-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 760px) {
+  .ind-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.ind-card {
+  background: #ffffff;
+  border: 1.5px solid var(--border-cream);
+  border-radius: 14px;
+  padding: 22px;
+}
+
+.ind-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.ind-card-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.ind-chip {
+  font-size: 11px;
+  font-weight: 600;
+  color: #444BFB;
+  background: rgba(68, 75, 251, 0.09);
+  border: 1px solid rgba(68, 75, 251, 0.25);
+  border-radius: 999px;
+  padding: 3px 10px;
+  white-space: nowrap;
+}
+
+.ind-card-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+  letter-spacing: -0.2px;
+}
+
+.ind-card-desc {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+/* Steps */
+.ind-steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+@media (min-width: 760px) {
+  .ind-steps { grid-template-columns: 1fr 1fr; }
+}
+
+.ind-step {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.ind-step-num {
+  font-size: 20px;
+  font-weight: 800;
+  color: #444BFB;
+  line-height: 1.2;
+  flex-shrink: 0;
+}
+
+.ind-step-txt {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text-dark);
+  padding-top: 3px;
+}
+
+/* Strip */
+.ind-strip {
+  background: var(--dark);
+  border-radius: 18px;
+  padding: 32px 28px;
+  text-align: center;
+}
+
+.ind-strip-title {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--cream);
+  margin-bottom: 18px;
+}
+
+.ind-strip-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.ind-strip-item {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--cream);
+  border: 1.5px solid rgba(255, 250, 235, 0.3);
+  border-radius: 999px;
+  padding: 7px 16px;
+}
+
+/* Band */
+.ind-band {
+  background: #444BFB;
+  border-radius: 20px;
+  padding: 52px 28px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.ind-band h3 {
+  font-family: var(--font-heading);
+  font-size: clamp(26px, 3vw, 34px);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+  margin: 0 0 24px;
+}
+
+.ind-band-sub {
+  margin: 22px 0 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.ind-band-sub a {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .ind-hero { padding: 150px 20px 60px; }
+  .ind-sect { padding: 28px 20px; }
+}
+
+/* Index cards */
+.ind-card--link {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+.ind-card--link:hover {
+  border-color: #444BFB;
+  transform: translateY(-2px);
+}
+
+.ind-card-arrow {
+  color: #444BFB;
+}
