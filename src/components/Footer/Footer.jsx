@@ -4,7 +4,7 @@ import './Footer.css'
 const NAV_LINKS = [
   { label: 'Product', to: '/product' },
   { label: 'Why Us', to: '/why-us' },
-  { label: 'Use Cases', to: '/#calls' },
+  { label: 'Use Cases', to: '/use-cases' },
   { label: 'Pricing', to: '/pricing' },
   { label: 'Cost Calculator', to: '/calculator' },
 ]
