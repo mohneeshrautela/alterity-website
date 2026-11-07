@@ -94,7 +94,7 @@ export default function Navbar({ onOpenContact }) {
           </div>
         </div>
       </nav>
-      {createPortal(
+      {typeof document !== 'undefined' && createPortal(
         <AnimatePresence>
           {dropdown.open && (
             <motion.div
