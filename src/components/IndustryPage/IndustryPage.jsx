@@ -95,7 +95,7 @@ export default function IndustryPage() {
                     <span className="faq-item__question">{f.q}</span>
                   </AccordionPrimitive.Trigger>
                 </AccordionPrimitive.Header>
-                <AccordionPrimitive.Content className="faq-item__content">
+                <AccordionPrimitive.Content forceMount className="faq-item__content">
                   <p className="faq-item__answer">{f.a}</p>
                 </AccordionPrimitive.Content>
               </AccordionPrimitive.Item>
