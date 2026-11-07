@@ -11,6 +11,7 @@ import TermsPage from './components/TermsPage/TermsPage'
 import PrivacyPage from './components/PrivacyPage/PrivacyPage'
 import CalculatorPage from './components/CalculatorPage/CalculatorPage'
 import WhyUsPage from './components/WhyUsPage/WhyUsPage'
+import PricingComparisonPage from './components/PricingComparisonPage/PricingComparisonPage'
 import ContactModal from './components/ContactModal/ContactModal'
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/contact" element={<ContactPage onOpenContact={() => setShowModal(true)} />} />
           <Route path="/calculator" element={<CalculatorPage />} />
+          <Route path="/pricing-comparison" element={<PricingComparisonPage />} />
           <Route path="/use-cases" element={<UseCasesIndex />} />
           <Route path="/use-cases/:slug" element={<IndustryPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
