@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "alterity-website",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    // Serve prerendered /pricing from dist/pricing/index.html without a trailing slash.
+    "html_handling": "drop-trailing-slash",
+    // Unknown client-side routes fall back to index.html (replaces the Vercel rewrite).
+    "not_found_handling": "single-page-application",
+    // Run the worker first so the apex -> www redirect applies to every path.
+    "run_worker_first": true
+  },
+  "routes": [
+    { "pattern": "www.alterity.io", "custom_domain": true },
+    { "pattern": "alterity.io", "custom_domain": true }
+  ],
+  "observability": { "enabled": true }
+}
