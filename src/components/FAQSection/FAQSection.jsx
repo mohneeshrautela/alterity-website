@@ -37,7 +37,7 @@ const FAQ_ITEMS = [
     id: 'faq-new-1',
     question: 'How is an AI voice agent different from an IVR?',
     answer:
-      'Traditional IVR systems follow fixed menus, whether keypad presses or simple speech commands, and rigid call trees. An AI voice agent holds a free-form two-way conversation: it understands what the caller says in their own words, asks follow-up questions, and can take actions during the call, like updating a record in your CRM or booking an appointment. Where a handoff is configured, the call can be transferred to your team.',
+      'Traditional IVR systems follow fixed menus, whether keypad presses or simple speech commands, and rigid call trees. An AI voice agent holds a free-form two-way conversation: it understands what the caller says in their own words, asks follow-up questions, and can take actions during the call, like updating a record in your CRM or booking an appointment. Alterity offers both in one platform: IVR Studio lets you design menu-based call flows visually, and any step in a flow can hand the caller to an AI voice agent or to your team.',
   },
   {
     id: 'faq-new-2',
