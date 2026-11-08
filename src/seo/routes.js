@@ -4,6 +4,7 @@ export const SEO_ROUTES = {
   '/product': { title: 'See the Alterity Voice-Agent Platform', description: 'View the Alterity platform for agent setup, campaign management, call review, usage, and integrations.' },
   '/pricing': { title: 'Voice AI Pricing | Alterity', description: 'Explore usage-based pricing for Alterity AI voice agents and enterprise voice operations.' },
   '/pricing-comparison': { title: 'AI Voice Agent Pricing in India, Compared (Nov 2026) | Alterity', description: 'A selected comparison of public per-minute rates for AI voice agent platforms in India, with what each rate bundles, billing and rounding differences, re-checked 6-8 November 2026.' },
+  '/ivr': { title: 'IVR Studio: A Modern Replacement for Traditional IVR | Alterity', description: 'Replace keypad menus with an AI voice agent that understands free-form speech, takes actions during the call, and hands off to your team when configured.' },
   '/why-us': { title: 'Why Alterity | AI Voice Operations', description: 'See how Alterity helps teams answer, act, and follow up across high-volume voice workflows.' },
   '/privacy': { title: 'Privacy Policy | Alterity', description: 'Read how Alterity Labs Pvt Ltd handles personal data and voice-service information.' },
   '/terms': { title: 'Terms of Use | Alterity', description: 'Read the terms that govern access to and use of Alterity services.' },
