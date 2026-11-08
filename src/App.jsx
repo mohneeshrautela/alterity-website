@@ -12,6 +12,7 @@ import PrivacyPage from './components/PrivacyPage/PrivacyPage'
 import CalculatorPage from './components/CalculatorPage/CalculatorPage'
 import WhyUsPage from './components/WhyUsPage/WhyUsPage'
 import PricingComparisonPage from './components/PricingComparisonPage/PricingComparisonPage'
+import IVRPage from './pages/IVRPage'
 import ContactModal from './components/ContactModal/ContactModal'
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path="/contact" element={<ContactPage onOpenContact={() => setShowModal(true)} />} />
           <Route path="/calculator" element={<CalculatorPage />} />
           <Route path="/pricing-comparison" element={<PricingComparisonPage />} />
+          <Route path="/ivr" element={<IVRPage />} />
           <Route path="/use-cases" element={<UseCasesIndex />} />
           <Route path="/use-cases/:slug" element={<IndustryPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
