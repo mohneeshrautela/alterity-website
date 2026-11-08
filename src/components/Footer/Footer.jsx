@@ -3,6 +3,7 @@ import './Footer.css'
 
 const NAV_LINKS = [
   { label: 'Product', to: '/product' },
+  { label: 'IVR Studio', to: '/ivr' },
   { label: 'Why Us', to: '/why-us' },
   { label: 'Use Cases', to: '/use-cases' },
   { label: 'Pricing', to: '/pricing' },
