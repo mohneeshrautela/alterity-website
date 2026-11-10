@@ -30,6 +30,7 @@ export const INDUSTRIES = {
       { q: 'How closely does the agent follow our script?', a: 'You approve the script and configuration, and campaigns pin that exact version so it cannot change mid-campaign. The conversation itself is dynamic: the agent follows the script\'s instructions rather than reading it word for word.' },
       { q: 'How do calls stay within allowed hours?', a: 'Calling windows are set per campaign and enforced by the dialer before any call goes out. Contacts outside the window wait instead of being called.' },
       { q: 'How do outcomes reach our LOS or CRM?', a: 'Outcomes are delivered to your systems over webhooks, with structured fields captured from answered conversations. CSV export is available from the dashboard as well.' },
+      { q: 'Are the calls compliant with TRAI rules for NBFC outreach?', a: 'Two separate things matter. On Alterity\'s side, each campaign runs with the caller ID, schedule and script your institution configures, and call outcomes are logged for review. The telecom obligations - sender registration, the right number series for each call type, and declaration of automated calling - sit with your institution and your telecom setup. Review every campaign with your compliance team before it runs. This is general information, not legal advice.' },
     ],
   },
   'pharma-healthcare': {
@@ -98,6 +99,7 @@ export const INDUSTRIES = {
       { q: 'How does it talk to our TMS?', a: 'Answered calls end with structured outcome fields delivered over webhooks. During a pilot we map the fields to your system together.' },
       { q: 'Which languages can it call in?', a: 'Hindi, English, Hinglish and other major Indian languages, selectable per agent and per campaign.' },
       { q: 'How many calls can it run?', a: 'Campaigns run with configurable concurrency. We size the throughput with you during the pilot instead of quoting a number here.' },
+      { q: 'How does COD confirmation work end to end?', a: 'Before dispatch, the agent calls the customer, confirms the items, delivery address and time slot, and records the outcome. Confirmations, cancellations and address changes come back as structured outcomes that sync into your systems over webhooks once connected. The goal is fewer failed deliveries - we measure the actual reduction with you during a pilot rather than quote a generic figure.' },
     ],
   },
   education: {
