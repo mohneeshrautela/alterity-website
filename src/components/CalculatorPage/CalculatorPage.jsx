@@ -95,7 +95,7 @@ export default function CalculatorPage() {
   const [connectedCallsPerDay, setConnectedCallsPerDay] = useState(45)
 
   /* AI */
-  const [aiRatePerMinute,   setAiRatePerMinute]   = useState(10)
+  const [aiRatePerMinute,   setAiRatePerMinute]   = useState(4)
   const [aiCallDurationSec, setAiCallDurationSec] = useState(75)
 
   /* RECOVERY */
