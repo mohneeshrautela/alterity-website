@@ -164,6 +164,10 @@ export default function Navbar({ onOpenContact }) {
             )
           ))}
         </div>
+        <div className="navbar__mobile-cta">
+          <a href="https://dashboard.alterity.io/" className="navbar__mobile-cta-login" onClick={() => setMobileOpen(false)}>Login</a>
+          <button type="button" className="navbar__mobile-cta-pilot" onClick={() => { setMobileOpen(false); onOpenContact() }}>Start a Pilot</button>
+        </div>
       </div>
     </>
   )
