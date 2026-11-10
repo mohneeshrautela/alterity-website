@@ -44,8 +44,15 @@ const FEATURES = [
 
 function CyclingTypewriter() {
   const [wordIndex, setWordIndex] = useState(0)
-  const [displayed, setDisplayed] = useState('')
+  // Start with the full first word so server HTML and the first client render
+  // both read "Answer," (no hydration mismatch); the cycle then continues on the client.
+  const [displayed, setDisplayed] = useState(CYCLING_WORDS[0])
   const [deleting, setDeleting] = useState(false)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
     const current = CYCLING_WORDS[wordIndex]
@@ -77,7 +84,7 @@ function CyclingTypewriter() {
   return (
     <span className="why-page__cycling">
       {displayed}
-      <span className="why-page__cursor" aria-hidden="true">|</span>
+      {mounted && <span className="why-page__cursor" aria-hidden="true">|</span>}
     </span>
   )
 }
@@ -87,9 +94,9 @@ export default function WhyUsPage() {
     <div className="why-page">
       <div className="why-page__hero">
         <h1 className="why-page__heading">
-          AI Voice Agents That
+          AI Voice Agents That{' '}
           <br />
-          <CyclingTypewriter />
+          <CyclingTypewriter />{' '}
           <br />
           Instantly.
         </h1>

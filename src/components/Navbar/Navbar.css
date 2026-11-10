@@ -238,6 +238,16 @@
   padding: 100px 32px 40px;
   background: #1a1f6e;
   overflow-y: auto;
+  /* Closed: clipped away and hidden, but still in the server HTML. */
+  clip-path: inset(0 0 100% 0);
+  visibility: hidden;
+  transition: clip-path 0.45s cubic-bezier(0.65, 0, 0.35, 1), visibility 0s linear 0.45s;
+}
+
+.navbar__mobile-menu--open {
+  clip-path: inset(0 0 0% 0);
+  visibility: visible;
+  transition: clip-path 0.45s cubic-bezier(0.65, 0, 0.35, 1), visibility 0s;
 }
 
 .navbar__mobile-menu::before {
@@ -378,13 +388,14 @@
   transform: rotate(180deg);
 }
 
-/* The menu is portaled to <body>: the navbar's wave mask clips anything
-   painted outside its own box, so an in-tree dropdown would be cut off at
-   the bar's bottom edge. Fixed coordinates come from the tab's rect. */
+/* The menu is a sibling of the <nav> (always in the server HTML): the navbar's
+   wave mask clips anything painted inside its own box, so it can't live
+   within the bar. Fixed coordinates come from the tab's rect. Closed state is
+   hidden with opacity/visibility so the links stay in the DOM for crawlers. */
 .navbar__dropdown-menu {
   position: fixed;
   z-index: 1002;
-  transform: translateX(-50%);
+  transform: translate(-50%, -6px);
   width: 320px;
   padding: 8px;
   border-radius: 12px;
@@ -393,6 +404,18 @@
   box-shadow: 0 16px 40px rgba(20, 16, 60, 0.22);
   display: flex;
   flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.16s ease-out, transform 0.16s ease-out, visibility 0s linear 0.16s;
+}
+
+.navbar__dropdown-menu--open {
+  transform: translate(-50%, 0);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 0.16s ease-out, transform 0.16s ease-out, visibility 0s;
 }
 
 .navbar__dropdown-item {
@@ -449,7 +472,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  transition: max-height 0.3s ease, visibility 0s linear 0.3s;
+}
+
+.navbar__mobile-use-cases--open .navbar__mobile-sub-links {
+  max-height: 600px;
   padding-bottom: 6px;
+  visibility: visible;
+  transition: max-height 0.3s ease, visibility 0s;
 }
 
 .navbar__mobile-sub-links a {

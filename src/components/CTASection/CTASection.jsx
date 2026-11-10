@@ -7,7 +7,7 @@ export default function CTASection() {
       <section className="cta-section">
         <div className="cta-card">
           <div className="cta-card__illustration">
-            <img src="/every%20usecase%20pic.svg" alt="" aria-hidden="true" />
+            <img src="/every%20usecase%20pic.svg" alt="" aria-hidden="true" width="600" height="600" loading="lazy" decoding="async" />
           </div>
 
           <div className="cta-card__inner">

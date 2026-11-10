@@ -153,7 +153,7 @@ export default function PrivacyPage() {
           </p>
           <p className="terms-page__intro">
             This Privacy Policy (&ldquo;Policy&rdquo;) explains how Alterity Labs Pvt Ltd (&ldquo;Company&rdquo;, &ldquo;We&rdquo;, &ldquo;Us&rdquo;, or &ldquo;Our&rdquo;) collects, processes, stores, and shares personal data from users (&ldquo;You&rdquo; or &ldquo;Your&rdquo;) of the Alterity platform available at{' '}
-            <a href="https://alterity.io" className="terms-page__link">https://alterity.io</a> (&ldquo;Platform&rdquo;).
+            <a href="https://www.alterity.io/" className="terms-page__link">https://www.alterity.io/</a> (&ldquo;Platform&rdquo;).
           </p>
           <p className="terms-page__intro" style={{ marginBottom: '40px' }}>
             By using our Services, you consent to the practices described in this Policy. If you do not agree with this Policy, please do not use the Platform.

@@ -86,6 +86,28 @@
   color: #ffffff;
 }
 
+/* Nav columns: "Explore" links plus a "Use cases" group side by side */
+.footer__nav-groups {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 40px;
+}
+
+.footer__nav-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.footer__nav-heading {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
 /* Big watermark */
 .footer__big-logo {
   font-size: clamp(60px, 10vw, 130px);
@@ -200,6 +222,22 @@
   }
   .footer__nav-link {
     font-size: 14px;
+  }
+  .footer__nav-groups {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 28px;
+    width: 100%;
+  }
+  .footer__nav-group {
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .footer__nav-list--sub {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px 24px;
   }
   .footer__big-logo {
     font-size: 52px;

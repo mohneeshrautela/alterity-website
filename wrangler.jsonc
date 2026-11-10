@@ -10,7 +10,7 @@
     "html_handling": "drop-trailing-slash",
     // Unknown paths serve public/404.html with a real 404 status (fixes soft-404s).
     "not_found_handling": "404-page",
-    // Run the worker first so the apex -> www redirect applies to every path.
+    // Run the worker first so its host, protocol and trailing-slash redirects and headers apply to every path.
     "run_worker_first": true
   },
   "routes": [

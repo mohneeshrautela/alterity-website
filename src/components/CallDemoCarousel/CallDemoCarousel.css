@@ -299,6 +299,32 @@
   text-align: center;
 }
 
+.call-card__link {
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--dark);
+  text-align: center;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.call-card__link--idle {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.calls__all {
+  margin: 20px 0 0;
+}
+
+.calls__all-link {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  text-underline-offset: 4px;
+}
+
 @media (max-width: 1000px) {
   .calls {
     padding: 72px 32px;

@@ -77,7 +77,7 @@ export default function PricingSection() {
           <TimelineContent key={plan.key} as="div" animationNum={3 + index}>
             <div className="plan-card">
               <div className="plan-card__top">
-                <h3 className="plan-card__name">{plan.name}</h3>
+                <h2 className="plan-card__name">{plan.name}</h2>
                 {plan.badge && <span className="plan-card__badge">{plan.badge}</span>}
               </div>
 

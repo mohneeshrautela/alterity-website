@@ -6,17 +6,17 @@ import './IntegrationsSection.css'
 // else rolls up into the "many more" tile at the end instead of using a
 // generic stand-in icon.
 const INTEGRATIONS = [
-  { name: 'Slack', description: 'Post call summaries to channels.', logoSrc: '/slack-new-logo-logo-svgrepo-com.svg' },
-  { name: 'Gmail', description: 'Send follow-up emails after calls.', logoSrc: '/google-gmail-svgrepo-com.svg' },
-  { name: 'Salesforce', description: 'Log activities and update records.', logoSrc: '/salesforce%20logo.svg' },
-  { name: 'Zoom', description: 'Schedule and start meetings.', logoSrc: '/Zoom_idWrhVhrtF_0.svg' },
-  { name: 'Stripe', description: 'Check payments and send invoices.', logoSrc: '/stripe%20logo.svg' },
-  { name: 'Airtable', description: 'Look up and update your bases.', logoSrc: '/airtable%20logo.svg' },
-  { name: 'Google Sheets', description: 'Read and update sheets after calls.', logoSrc: '/Google_Sheets_Logo.svg' },
-  { name: 'Shopify', description: 'Take and track orders by voice.', logoSrc: '/shopify%20logo.svg' },
-  { name: 'Calendly', description: 'Book and update meetings on call.', logoSrc: '/calendly%20logo.svg' },
-  { name: 'Notion', description: 'Read and update docs and databases.', logoSrc: '/Notion_Logo_0.svg' },
-  { name: 'HubSpot', description: 'Capture and sync new leads.', logoSrc: '/hubspot%20logo.svg' },
+  { name: 'Slack', description: 'Post call summaries to channels.', logoSrc: '/slack-new-logo-logo-svgrepo-com.svg', logoWidth: 800, logoHeight: 800 },
+  { name: 'Gmail', description: 'Send follow-up emails after calls.', logoSrc: '/google-gmail-svgrepo-com.svg', logoWidth: 800, logoHeight: 800 },
+  { name: 'Salesforce', description: 'Log activities and update records.', logoSrc: '/salesforce%20logo.svg', logoWidth: 273, logoHeight: 191 },
+  { name: 'Zoom', description: 'Schedule and start meetings.', logoSrc: '/Zoom_idWrhVhrtF_0.svg', logoWidth: 229, logoHeight: 52 },
+  { name: 'Stripe', description: 'Check payments and send invoices.', logoSrc: '/stripe%20logo.svg', logoWidth: 468, logoHeight: 223 },
+  { name: 'Airtable', description: 'Look up and update your bases.', logoSrc: '/airtable%20logo.svg', logoWidth: 112, logoHeight: 93 },
+  { name: 'Google Sheets', description: 'Read and update sheets after calls.', logoSrc: '/Google_Sheets_Logo.svg', logoWidth: 74, logoHeight: 100 },
+  { name: 'Shopify', description: 'Take and track orders by voice.', logoSrc: '/shopify%20logo.svg', logoWidth: 31, logoHeight: 35 },
+  { name: 'Calendly', description: 'Book and update meetings on call.', logoSrc: '/calendly%20logo.svg', logoWidth: 526, logoHeight: 536 },
+  { name: 'Notion', description: 'Read and update docs and databases.', logoSrc: '/Notion_Logo_0.svg', logoWidth: 180, logoHeight: 63 },
+  { name: 'HubSpot', description: 'Capture and sync new leads.', logoSrc: '/hubspot%20logo.svg', logoWidth: 585, logoHeight: 166 },
   { name: 'And many more', description: 'Integrate with thousands of tools using Zapier, Make, or custom webhooks.', Icon: Plus },
 ]
 
@@ -73,10 +73,10 @@ export default function IntegrationsSection() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          {INTEGRATIONS.map(({ name, description, logoSrc, Icon }) => (
+          {INTEGRATIONS.map(({ name, description, logoSrc, logoWidth, logoHeight, Icon }) => (
             <motion.div key={name} className="int-item" variants={itemVariants}>
               <div className="int-item__icon">
-                {logoSrc ? <img src={logoSrc} alt={`${name} logo`} /> : <Icon size={20} strokeWidth={1.8} />}
+                {logoSrc ? <img src={logoSrc} alt={name} width={logoWidth} height={logoHeight} loading="lazy" decoding="async" /> : <Icon size={20} strokeWidth={1.8} />}
               </div>
               <div>
                 <h3 className="int-item__name">{name}</h3>

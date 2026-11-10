@@ -16,7 +16,7 @@
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.45);
+  color: #595959;
   background: rgba(0, 0, 0, 0.06);
   padding: 5px 14px;
   border-radius: 100px;
@@ -67,7 +67,7 @@
 .terms-trigger__num {
   font-size: 12px;
   font-weight: 700;
-  color: rgba(0, 0, 0, 0.35);
+  color: #666666;
   min-width: 22px;
   flex-shrink: 0;
 }

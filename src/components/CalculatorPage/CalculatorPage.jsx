@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import './CalculatorPage.css'
+import { Link } from 'react-router-dom'
 import FlowButton from '../FlowButton/FlowButton'
 
 /* ── Helpers ─────────────────────────────────────────── */
@@ -22,6 +23,7 @@ function SliderField({ label, value, min, max, step, onChange, display, hint }) 
       </div>
       <input
         className="sf__slider" type="range"
+        aria-label={label}
         min={min} max={max} step={step}
         value={value}
         onChange={(e) => onChange(Number(e.target.value))}
@@ -482,6 +484,47 @@ export default function CalculatorPage() {
 
           </div>
         )}
+
+        {/* ── How it works (static, always rendered) ───── */}
+        <section className="calc-explainer">
+          <h2 className="calc-explainer__heading">How this calculator works</h2>
+          <p>
+            It compares the monthly cost of a human telecaller team with a pay-per-minute
+            Alterity AI agent handling the same connected calls. Work through the four steps to see the results.
+          </p>
+
+          <h2 className="calc-explainer__heading">Inputs</h2>
+          <ul>
+            <li>Call volume: delinquent accounts per month, call attempts per account, and working days per month.</li>
+            <li>Human telecaller cost: salary, PF and ESI, incentives, telephony, seat and office cost, supervisor allocation, amortised training and attrition, and connected calls per agent per day.</li>
+            <li>AI pay per minute: rate per minute and average call duration in seconds.</li>
+            <li>Recovery impact: average loan amount, current recovery rate, and the AI recovery uplift.</li>
+          </ul>
+
+          <h2 className="calc-explainer__heading">Formulas</h2>
+          <ul>
+            <li>Total connected calls = accounts per month × attempts per account.</li>
+            <li>Agents required = total connected calls ÷ (connected calls per agent per day × working days), rounded up, with a minimum of 1.</li>
+            <li>Human monthly cost = agents required × fully loaded cost per agent. Cost per call = monthly cost ÷ total connected calls.</li>
+            <li>AI minutes = total connected calls × call duration in minutes, rounded to a whole number. AI monthly cost = AI minutes × rate per minute, with no platform or per-call fee added.</li>
+            <li>Monthly savings = human monthly cost minus AI monthly cost, never below zero. Annual savings = monthly savings × 12.</li>
+            <li>New recovery rate = current rate + uplift, capped at 85%. Additional recovery = accounts × (new rate − current rate) × average loan.</li>
+            <li>ROI multiplier = (monthly savings + additional recovery) ÷ AI monthly cost.</li>
+          </ul>
+
+          <h2 className="calc-explainer__heading">Reading the result</h2>
+          <p>
+            Monthly savings is what the human team costs beyond the AI bill for the same calls.
+            Net monthly benefit adds the extra recovery on top. If the AI cost is higher than the
+            human cost at your settings, the calculator shows a warning and savings read zero.
+            All figures are estimates from the inputs you enter, not guaranteed outcomes.
+          </p>
+
+          <p>
+            Compare plan details on the <Link to="/pricing">pricing page</Link>, or
+            {' '}<Link to="/contact">contact us</Link> to discuss your call volumes.
+          </p>
+        </section>
 
       </div>
     </div>

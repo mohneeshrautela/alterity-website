@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import { motion } from 'motion/react'
 import { ChevronLeft, ChevronRight, Play, Pause } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import FlowButton from '../FlowButton/FlowButton'
 import './CallDemoCarousel.css'
 
@@ -13,6 +14,8 @@ const CARDS = [
     colorB: '#ff5a1f',
     glowRgb: '255,157,31',
     audio: '/Collections.mp3',
+    href: '/use-cases/nbfc-lending',
+    linkText: 'Voice AI for NBFC collections',
   },
   {
     id: 'fnol',
@@ -22,6 +25,8 @@ const CARDS = [
     colorB: '#ff2f52',
     glowRgb: '255,90,122',
     audio: '/FNOL%20Demo.mp3',
+    href: '/use-cases/insurance',
+    linkText: 'Voice AI for insurance claims',
   },
   {
     id: 'edtech',
@@ -31,6 +36,8 @@ const CARDS = [
     colorB: '#4fce3a',
     glowRgb: '143,230,64',
     audio: '/edtech%20demo.mp3',
+    href: '/use-cases/education',
+    linkText: 'Voice AI for education',
   },
 ]
 
@@ -78,6 +85,14 @@ function CallCard({ card, slot, isPlaying, onToggle }) {
           <h3 className="call-card__title">{card.title}</h3>
         </>
       )}
+      <Link
+        to={card.href}
+        className={`call-card__link${isActive ? '' : ' call-card__link--idle'}`}
+        tabIndex={isActive ? undefined : -1}
+        aria-hidden={isActive ? undefined : true}
+      >
+        {card.linkText} &rarr;
+      </Link>
     </motion.div>
   )
 }
@@ -118,6 +133,9 @@ export default function CallDemoCarousel() {
             From insurance claims and policy support to student enrollment and payment collections, hear how our AI voice agents handle industry-specific conversations with confidence and precision.
           </p>
           <FlowButton text="Book a call" variant="white" className="calls__cta" />
+          <p className="calls__all">
+            <Link to="/use-cases" className="calls__all-link">See all use cases</Link>
+          </p>
         </div>
 
         <div className="calls__stage">

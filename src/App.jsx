@@ -1,19 +1,22 @@
-import { useState } from 'react'
+import { lazy, Suspense, useState } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
-import IndustryPage from './components/IndustryPage/IndustryPage'
-import UseCasesIndex from './components/IndustryPage/UseCasesIndex'
 import SiteLayout from './layouts/SiteLayout'
-import HomePage from './pages/HomePage'
-import ContactPage from './pages/ContactPage'
-import ProductPage from './pages/ProductPage'
-import PricingPage from './components/PricingPage/PricingPage'
-import TermsPage from './components/TermsPage/TermsPage'
-import PrivacyPage from './components/PrivacyPage/PrivacyPage'
-import CalculatorPage from './components/CalculatorPage/CalculatorPage'
-import WhyUsPage from './components/WhyUsPage/WhyUsPage'
-import PricingComparisonPage from './components/PricingComparisonPage/PricingComparisonPage'
-import IVRPage from './pages/IVRPage'
-import ContactModal from './components/ContactModal/ContactModal'
+import {
+  HomePage,
+  ProductPage,
+  PricingPage,
+  WhyUsPage,
+  PrivacyPage,
+  TermsPage,
+  ContactPage,
+  CalculatorPage,
+  PricingComparisonPage,
+  IVRPage,
+  UseCasesIndex,
+  IndustryPage,
+} from './routeComponents'
+
+const ContactModal = lazy(() => import('./components/ContactModal/ContactModal'))
 
 function App() {
   const [showModal, setShowModal] = useState(false)
@@ -37,7 +40,11 @@ function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
-      {showModal && <ContactModal onClose={() => setShowModal(false)} />}
+      {showModal && (
+        <Suspense fallback={null}>
+          <ContactModal onClose={() => setShowModal(false)} />
+        </Suspense>
+      )}
     </>
   )
 }

@@ -188,6 +188,21 @@
   margin: 0;
 }
 
+.pricing-compare__related {
+  font-family: var(--font);
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.pricing-compare__related a {
+  color: #444BFB;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .pricing-compare__cta-actions {
   display: flex;
   align-items: center;

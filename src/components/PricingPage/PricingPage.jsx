@@ -2,6 +2,7 @@ import * as AccordionPrimitive from '@radix-ui/react-accordion'
 import { Plus } from 'lucide-react'
 import './PricingPage.css'
 import FlowButton from '../FlowButton/FlowButton'
+import { Link } from 'react-router-dom'
 import PricingSection from './PricingSection'
 
 const PRICING_FAQ_ITEMS = [
@@ -72,6 +73,12 @@ export default function PricingPage() {
               </AccordionPrimitive.Item>
             ))}
           </AccordionPrimitive.Root>
+
+          <p className="pricing-faq__related">
+            <Link to="/pricing-comparison">Compare AI voice agent pricing in India</Link>
+            {' or '}
+            <Link to="/calculator">Estimate your savings with the cost calculator</Link>.
+          </p>
 
           <div className="pricing-faq__footer">
             <p className="pricing-faq__footer-text">Still have questions?</p>

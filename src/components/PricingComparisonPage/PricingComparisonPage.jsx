@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { ArrowUpRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import FlowButton from '../FlowButton/FlowButton'
 import './PricingComparisonPage.css'
 
@@ -165,6 +166,10 @@ export default function PricingComparisonPage() {
         <div className="pricing-compare__cta-actions">
           <FlowButton text="Start a Pilot" variant="black" />
         </div>
+        <p className="pricing-compare__related">
+          See <Link to="/pricing">Alterity pricing details</Link>, or{' '}
+          <Link to="/calculator">estimate your savings with the cost calculator</Link>.
+        </p>
       </div>
 
       <p className="pricing-compare__footnote">

@@ -148,9 +148,12 @@ export default function Hero() {
   return (
     <section className="hero">
       <div className="hero__content">
-        <h1 className="hero__heading">
-          <span className="hero__heading-muted">Voice AI Agents for</span>
-          <span className="hero__heading-rotate">
+        <div className="hero__heading">
+          <h1 className="hero__heading-title">
+            <span className="hero__heading-muted">Voice AI Agents for </span>
+            <span className="hero__sr-only">{INDUSTRIES[industryIndex]}</span>
+          </h1>
+          <span className="hero__heading-rotate" aria-hidden="true">
             &nbsp;
             {INDUSTRIES.map((industry, index) => (
               <motion.span
@@ -168,7 +171,7 @@ export default function Hero() {
               </motion.span>
             ))}
           </span>
-        </h1>
+        </div>
 
         <p className="hero__subheader">
           Deploy human-like AI voice agents that answer calls, automate workflows, and run your business operations with speed and reliability.

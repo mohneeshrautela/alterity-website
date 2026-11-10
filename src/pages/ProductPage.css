@@ -4,4 +4,6 @@
 .product-page__hero p { max-width: 650px; margin: 24px auto 0; color: rgba(29,18,5,.7); font-size: clamp(17px, 1.5vw, 20px); line-height: 1.65; }
 .product-page__actions { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 34px; }
 .product-page__walkthrough { width: 100%; max-width: 1120px; margin: 0 auto; }
+.product-page__related { max-width: 1120px; margin: 64px auto 0; color: rgba(29,18,5,.7); font-size: 16px; line-height: 1.65; text-align: center; }
+.product-page__related a { color: var(--dark); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 @media (max-width: 600px) { .product-page { padding: 118px 16px 80px; } .product-page__hero { margin-bottom: 64px; } .product-page__hero h1 { letter-spacing: -1px; } }

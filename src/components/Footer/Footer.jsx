@@ -7,7 +7,16 @@ const NAV_LINKS = [
   { label: 'Why Us', to: '/why-us' },
   { label: 'Use Cases', to: '/use-cases' },
   { label: 'Pricing', to: '/pricing' },
+  { label: 'Pricing comparison', to: '/pricing-comparison' },
   { label: 'Cost Calculator', to: '/calculator' },
+]
+const USE_CASE_LINKS = [
+  { label: 'NBFC and lending', to: '/use-cases/nbfc-lending' },
+  { label: 'Pharma and healthcare', to: '/use-cases/pharma-healthcare' },
+  { label: 'Logistics', to: '/use-cases/logistics' },
+  { label: 'Education', to: '/use-cases/education' },
+  { label: 'Insurance', to: '/use-cases/insurance' },
+  { label: 'E-commerce and retail', to: '/use-cases/ecommerce-retail' },
 ]
 const LEGAL_LINKS = [
   { label: 'Terms', to: '/terms' },
@@ -29,10 +38,16 @@ export default function Footer() {
             <p className="footer__socials-heading">Socials</p>
             <div className="footer__socials-row">
               <a href="https://x.com/alterityio" target="_blank" rel="noopener noreferrer" className="footer__social-link" aria-label="Twitter"><img src="/twitter.png" alt="Twitter" /></a>
-              <a href="https://www.linkedin.com/company/alterity-io?trk=public_post_follow-view-profile" target="_blank" rel="noopener noreferrer" className="footer__social-link" aria-label="LinkedIn"><img src="/linkedin.png" alt="LinkedIn" /></a>
+              <a href="https://www.linkedin.com/company/alterity-io" target="_blank" rel="noopener noreferrer" className="footer__social-link" aria-label="LinkedIn"><img src="/linkedin.png" alt="LinkedIn" /></a>
             </div>
           </div>
-          <ul className="footer__nav-list">{NAV_LINKS.map(link => <li key={link.to}><Link to={link.to} className="footer__nav-link">{link.label}</Link></li>)}</ul>
+          <div className="footer__nav-groups">
+            <ul className="footer__nav-list">{NAV_LINKS.map(link => <li key={link.to}><Link to={link.to} className="footer__nav-link">{link.label}</Link></li>)}</ul>
+            <div className="footer__nav-group">
+              <p className="footer__nav-heading">Use cases</p>
+              <ul className="footer__nav-list footer__nav-list--sub">{USE_CASE_LINKS.map(link => <li key={link.to}><Link to={link.to} className="footer__nav-link">{link.label}</Link></li>)}</ul>
+            </div>
+          </div>
         </div>
         <div className="footer__big-logo" aria-hidden="true">Alterity</div>
         <div className="footer__divider"></div>

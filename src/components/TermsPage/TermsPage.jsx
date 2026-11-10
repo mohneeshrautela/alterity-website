@@ -103,7 +103,7 @@ const SECTIONS = [
   {
     num: '18',
     title: 'Privacy Policy',
-    body: 'For details on how we collect, use, and protect your data, please review our Privacy Policy at https://alterity.io/privacy/',
+    body: 'For details on how we collect, use, and protect your data, please review our Privacy Policy at https://www.alterity.io/privacy/',
   },
   {
     num: '19',
@@ -123,7 +123,7 @@ export default function TermsPage() {
           <p className="terms-page__intro" style={{ fontSize: '13px', opacity: 0.6, marginBottom: '8px' }}>Last Updated: September 22, 2026</p>
           <p className="terms-page__intro">
             By accessing or using the website at{' '}
-            <a href="https://alterity.io" className="terms-page__link">https://alterity.io</a>{' '}
+            <a href="https://www.alterity.io/" className="terms-page__link">https://www.alterity.io/</a>{' '}
             and any related web applications (collectively referred to as the "Service"), you acknowledge that you have read,
             understood, and agree to be bound by the following Terms and Conditions. These Terms govern your use of the Service
             and apply to all individuals who visit, access, or use it in any capacity. If you do not agree with these Terms,

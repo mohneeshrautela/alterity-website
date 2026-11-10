@@ -80,6 +80,10 @@ export default function IVRPage() {
           Test a flow in the built-in simulator, which walks keypresses step by step, before assigning it to
           a number.
         </p>
+        <p className="ivr-page__body">
+          Compare plans on the <Link to="/pricing">pricing page</Link>, or browse{' '}
+          <Link to="/use-cases">voice AI use cases by industry</Link>.
+        </p>
         <div className="ivr-page__actions">
           <Link className="btn-dark" to="/contact">Start a Pilot <ArrowRight size={16} /></Link>
         </div>

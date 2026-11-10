@@ -15,14 +15,16 @@ export function AccordionItem({ className = '', ...props }) {
 
 export function AccordionTrigger({ className = '', children, ...props }) {
   return (
-    <AccordionPrimitive.Header className="accordion-header">
-      <AccordionPrimitive.Trigger
-        className={`accordion-trigger ${className}`}
-        {...props}
-      >
-        {children}
-        <ChevronDown className="accordion-chevron" size={18} strokeWidth={2} />
-      </AccordionPrimitive.Trigger>
+    <AccordionPrimitive.Header asChild>
+      <h2 className="accordion-header">
+        <AccordionPrimitive.Trigger
+          className={`accordion-trigger ${className}`}
+          {...props}
+        >
+          {children}
+          <ChevronDown className="accordion-chevron" size={18} strokeWidth={2} />
+        </AccordionPrimitive.Trigger>
+      </h2>
     </AccordionPrimitive.Header>
   )
 }
@@ -30,6 +32,7 @@ export function AccordionTrigger({ className = '', children, ...props }) {
 export function AccordionContent({ className = '', children, ...props }) {
   return (
     <AccordionPrimitive.Content
+      forceMount
       className="accordion-content"
       {...props}
     >

@@ -16,6 +16,7 @@ export default function ProductPage() {
         </div>
       </header>
       <section id="walkthrough" className="product-page__walkthrough"><ProductWalkthrough /></section>
+      <p className="product-page__related">Design menu-based call flows in <Link to="/ivr">IVR Studio</Link>, or explore <Link to="/use-cases">voice AI use cases by industry</Link>.</p>
     </div>
   )
 }

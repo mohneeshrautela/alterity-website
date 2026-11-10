@@ -87,7 +87,7 @@
   border-radius: 50%;
   background: rgba(0, 0, 0, 0.05);
   border: 2px solid rgba(0, 0, 0, 0.14);
-  color: rgba(0, 0, 0, 0.35);
+  color: #5c5849;
   font-size: 11px;
   font-weight: 800;
   display: flex;
@@ -448,6 +448,48 @@
   justify-content: space-between;
   font-size: 10.5px;
   color: rgba(0, 0, 0, 0.35);
+}
+
+/* ── How it works (static explainer) ─────────────────────── */
+.calc-explainer {
+  margin-top: 64px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.calc-explainer__heading {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  color: #000000;
+  margin: 32px 0 12px;
+}
+
+.calc-explainer__heading:first-child {
+  margin-top: 0;
+}
+
+.calc-explainer p {
+  margin: 0 0 12px;
+}
+
+.calc-explainer ul {
+  margin: 0 0 12px;
+  padding-left: 20px;
+}
+
+.calc-explainer li {
+  margin-bottom: 6px;
+}
+
+.calc-explainer a {
+  color: #000000;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 /* ============================================================

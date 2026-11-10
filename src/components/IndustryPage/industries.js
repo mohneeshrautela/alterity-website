@@ -2,6 +2,7 @@ export const INDUSTRIES = {
   'nbfc-lending': {
     kicker: 'NBFC and lending',
     heroWord: 'NBFC collections',
+    hubSummary: 'Pre-due reminders, due-day calls and promise-to-pay follow-ups, in the languages your customers speak. Calling windows are enforced by the dialer, and every attempt is logged with its outcome and cost.',
     sub: 'Run pre-due reminders, due-day calls and promise-to-pay follow-ups in the languages your customers speak - from your approved script, inside your calling windows, with every attempt logged and answered calls recorded and transcribed.',
     metaTitle: 'Voice AI agents for NBFC collections | Alterity',
     metaDesc: 'AI voice agents for EMI reminders, due-day calls and promise-to-pay follow-ups, with calling windows, consistent scripts and complete call records.',
@@ -34,6 +35,7 @@ export const INDUSTRIES = {
   'pharma-healthcare': {
     kicker: 'Pharma and healthcare',
     heroWord: 'pharma distribution',
+    hubSummary: 'Distributor, stockist and chemist calls answered around the clock, with order and sample follow-ups and patient reminders on schedule. Agents carry information and logistics, and anything medical is transferred to your professionals.',
     sub: 'Answer distributor, stockist and chemist calls around the clock, follow up on orders and samples, and keep patient reminders on schedule. Agents carry information and logistics; medical advice stays with your professionals.',
     metaTitle: 'Voice AI agents for pharma distribution | Alterity',
     metaDesc: 'AI voice agents for distributor, stockist and chemist follow-ups, order-status lines and patient reminders, in the languages your partners and patients speak.',
@@ -67,6 +69,7 @@ export const INDUSTRIES = {
   logistics: {
     kicker: 'Logistics',
     heroWord: 'delivery confirmations',
+    hubSummary: 'Confirm COD orders and delivery slots before dispatch, chase failed deliveries, and answer shipment questions around the clock. Structured outcomes sync back to your systems over webhooks once connected.',
     sub: 'Confirm COD orders and delivery slots before dispatch, chase failed deliveries, and answer shipment questions around the clock. Answered calls end with structured outcomes that sync back to your systems over webhooks.',
     metaTitle: 'Voice AI agents for delivery confirmation | Alterity',
     metaDesc: 'AI voice agents for COD and slot confirmations, NDR follow-ups and shipment-status support, wired into your systems through webhooks.',
@@ -100,6 +103,7 @@ export const INDUSTRIES = {
   education: {
     kicker: 'Education',
     heroWord: 'admission enquiry follow-ups',
+    hubSummary: 'Call new admission enquiries while they are still warm, and answer course questions around the clock. Qualified leads are routed to your counsellors, and parents are kept informed in the language they speak at home.',
     sub: 'Call new enquiries while they are still warm, answer course questions around the clock, and keep parents informed, in the language they speak at home.',
     metaTitle: 'Voice AI agents for admission enquiry follow-ups | Alterity',
     metaDesc: 'AI voice agents that call new admission enquiries as they land, answer course questions around the clock, and keep parents informed in the languages families speak.',
@@ -133,6 +137,7 @@ export const INDUSTRIES = {
   insurance: {
     kicker: 'Insurance',
     heroWord: 'insurance renewals',
+    hubSummary: 'Call policyholders before lapse, nudge due premiums, and answer claims-status questions in your policyholders\' languages. Answered calls stay on record with recordings, transcripts and summaries.',
     sub: 'Call policyholders before lapse, nudge due premiums, and answer claims-status questions in your policyholders\' languages, with answered calls on record.',
     metaTitle: 'Voice AI agents for insurance renewals | Alterity',
     metaDesc: 'AI voice agents for renewal reminders, premium nudges and claims-status support, with answered calls on record.',
@@ -166,6 +171,7 @@ export const INDUSTRIES = {
   'ecommerce-retail': {
     kicker: 'E-commerce and retail',
     heroWord: 'COD order confirmation',
+    hubSummary: 'Confirm cash-on-delivery orders before they ship, reschedule deliveries by call, and answer order questions without growing your support team. Returns intake and win-back calls can be added during setup.',
     sub: 'Confirm cash-on-delivery orders before they ship, reschedule deliveries by call, and answer order questions without growing your support team.',
     metaTitle: 'Voice AI agents for COD order confirmation | Alterity',
     metaDesc: 'AI voice agents for COD confirmation, delivery rescheduling, returns intake and order-status support, connected to your store systems.',
