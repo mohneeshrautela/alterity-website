@@ -63,10 +63,16 @@ const FAQ_ITEMS = [
       'Three things happen in real time on every turn of the conversation: speech-to-text transcribes what the caller says, a language model decides the next response using your script and business rules, and text-to-speech speaks the reply back in a natural voice, fast enough to feel like a normal phone call. Alterity adds telephony, integrations, and guardrails around this loop, and the agent is designed to follow the script and rules you configure.',
   },
   {
-    id: 'faq-6',
-    question: 'Can Alterity integrate with our existing systems?',
+    id: 'faq-new-5',
+    question: 'Can the agent hand a call to my team mid-conversation?',
     answer:
-      'Yes. Alterity integrates with CRMs, help desks, scheduling platforms, telephony providers, and other business tools. This enables your AI agents to access customer information, update records, trigger workflows, and deliver personalized conversations without disrupting your existing operations.',
+      'Yes. You set the transfer rules - for example when a caller asks for a person or a call meets your escalation criteria - and the agent hands the call to a number you configure, mid-conversation. In IVR Studio, a flow step can route the caller to an AI agent or to your team.',
+  },
+  {
+    id: 'faq-6',
+    question: 'Which systems does Alterity integrate with?',
+    answer:
+      'Zoho CRM, HubSpot and Salesforce integrations, plus Jira, plus webhooks so call outcomes sync back into your systems. If you need a specific system, raise it during pilot scoping - integration coverage is confirmed per deployment.',
   },
 ]
 
