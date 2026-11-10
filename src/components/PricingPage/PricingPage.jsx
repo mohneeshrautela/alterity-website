@@ -42,6 +42,12 @@ const PRICING_FAQ_ITEMS = [
     answer:
       "Reach out via the contact button below with your monthly call volume and use case, and our team will follow up with a tailored quote, typically within one business day.",
   },
+  {
+    id: 'pricing-faq-7',
+    question: 'What does a month of AI calling cost?',
+    answer:
+      "Alterity charges a flat ₹4 per connected minute plus GST, with no setup fee and no minimum - speech-to-text, the language model, the voice, telephony and analytics are bundled. Billing works in steps: a call of up to 30 seconds is billed as 30 seconds, a call longer than 30 seconds and up to 60 seconds is billed as one minute, and beyond one minute you pay per second. Any answered call counts as connected, including short pickups and answering machines. For example, a 20-second call bills 30 seconds (₹2), a 45-second call bills one minute (₹4), and a 90-second call bills 90 seconds (₹6) - all plus GST. A month with 10,000 billable minutes, after this per-call rounding, costs ₹40,000 plus GST.",
+  },
 ]
 
 export default function PricingPage() {
