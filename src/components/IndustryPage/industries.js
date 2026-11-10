@@ -131,7 +131,7 @@ export const INDUSTRIES = {
     stripTitle: 'Built for admissions season',
     strip: ['Answers from your connected knowledge base', '20+ languages including major Indian languages', 'WhatsApp follow-ups', 'Answered-call recordings and transcripts'],
     faq: [
-      { q: 'How soon after an enquiry does it call?', a: 'New enquiries are dialled as they land in your connected enquiry source, inside the calling windows you set. We configure the trigger with you during the pilot.' },
+      { q: 'How are new enquiries called?', a: 'Through an outbound calling campaign set up during onboarding: you upload your enquiry list, and the agent calls each enquiry with your script. Every call ends with a structured outcome you can review.' },
       { q: 'Can it answer questions about our courses?', a: 'Yes, from a knowledge base you approve and connect. It is built to answer from your content rather than improvise, and you can set transfer rules for questions it should hand to a counsellor.' },
       { q: 'What languages can it speak?', a: 'Hindi, English, Hinglish and other major Indian languages, with voices tuned per language.' },
     ],
