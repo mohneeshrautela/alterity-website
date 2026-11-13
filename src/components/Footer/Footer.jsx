@@ -9,6 +9,7 @@ const NAV_LINKS = [
   { label: 'Pricing', to: '/pricing' },
   { label: 'Pricing comparison', to: '/pricing-comparison' },
   { label: 'Cost Calculator', to: '/calculator' },
+  { label: 'Blog', to: '/blog' },
 ]
 const USE_CASE_LINKS = [
   { label: 'NBFC and lending', to: '/use-cases/nbfc-lending' },
