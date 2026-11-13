@@ -3,6 +3,20 @@ export const USECASE_PROSE = {
   "nbfc-collections": {
     "kind": "usecases",
     "slug": "nbfc-collections",
+    "related": [
+      {
+        "to": "/blog/nbfc-collections-calls-explained",
+        "title": "How Payment Reminder and Collections Calls Work in NBFC Lending"
+      },
+      {
+        "to": "/compare/voice-vs-sms-whatsapp-payment-reminders",
+        "title": "Voice Calls vs SMS and WhatsApp for Payment Reminders"
+      },
+      {
+        "to": "/use-cases/nbfc-lending",
+        "title": "Voice AI agents for NBFC collections"
+      }
+    ],
     "title": "AI Callers for NBFC Collections in India",
     "description": "How NBFCs use AI voice agents for payment reminders, promise-to-pay follow-ups and multilingual collection calls, with human handoff and per-minute pricing.",
     "intro": [
@@ -63,6 +77,16 @@ export const USECASE_PROSE = {
   "cod-confirmation": {
     "kind": "usecases",
     "slug": "cod-confirmation",
+    "related": [
+      {
+        "to": "/use-cases/ecommerce-retail",
+        "title": "Voice AI agents for COD order confirmation"
+      },
+      {
+        "to": "/blog/evaluate-voice-ai-pilot",
+        "title": "How to Evaluate a Voice AI Pilot: Calls, Corrections and Human Handoffs"
+      }
+    ],
     "title": "AI COD Confirmation Calls for E-commerce in India",
     "description": "How e-commerce teams use AI voice agents to confirm COD orders before dispatch, reduce avoidable returns and capture cancellations early.",
     "intro": [
@@ -123,6 +147,16 @@ export const USECASE_PROSE = {
   "multilingual-outbound": {
     "kind": "usecases",
     "slug": "multilingual-outbound",
+    "related": [
+      {
+        "to": "/blog/test-multilingual-voice-agent",
+        "title": "How to Test a Multilingual Voice Agent Before You Buy"
+      },
+      {
+        "to": "/languages",
+        "title": "Languages Alterity agents speak"
+      }
+    ],
     "title": "AI Outbound Calling in Hindi and Indian Languages",
     "description": "AI outbound calls in 11 Indian languages plus English: payment reminders, order confirmations and reactivation in the customer's language.",
     "intro": [
@@ -183,6 +217,16 @@ export const USECASE_PROSE = {
   "ivr-ai-handoff": {
     "kind": "usecases",
     "slug": "ivr-ai-handoff",
+    "related": [
+      {
+        "to": "/compare/ai-voice-agents-vs-ivr",
+        "title": "AI Voice Agents vs Traditional IVR"
+      },
+      {
+        "to": "/ivr",
+        "title": "Alterity IVR"
+      }
+    ],
     "title": "Adding AI Voice Agents to Your Existing IVR",
     "description": "Keep your existing IVR and phone numbers: add AI voice agents that handle routine calls end to end and hand off to your team with full context.",
     "intro": [
@@ -237,6 +281,16 @@ export const COMPARE_PAGES = {
   "ai-voice-agents-vs-ivr": {
     "kind": "compare",
     "slug": "ai-voice-agents-vs-ivr",
+    "related": [
+      {
+        "to": "/use-cases/ivr-ai-handoff",
+        "title": "Adding AI Voice Agents to Your Existing IVR"
+      },
+      {
+        "to": "/ivr",
+        "title": "Alterity IVR"
+      }
+    ],
     "title": "AI Voice Agents vs Traditional IVR",
     "description": "AI voice agents vs traditional IVR: what each is good at, how the caller experience differs, when a hybrid makes sense, and how to compare costs.",
     "intro": [
@@ -288,6 +342,16 @@ export const COMPARE_PAGES = {
   "voice-vs-sms-whatsapp-payment-reminders": {
     "kind": "compare",
     "slug": "voice-vs-sms-whatsapp-payment-reminders",
+    "related": [
+      {
+        "to": "/use-cases/nbfc-collections",
+        "title": "AI Callers for NBFC Collections in India"
+      },
+      {
+        "to": "/blog/nbfc-collections-calls-explained",
+        "title": "How Payment Reminder and Collections Calls Work in NBFC Lending"
+      }
+    ],
     "title": "Voice Calls vs SMS and WhatsApp for Payment Reminders",
     "description": "SMS, WhatsApp or a voice call for payment reminders? Where each channel works, why teams combine them, and what AI voice reminders cost.",
     "intro": [
