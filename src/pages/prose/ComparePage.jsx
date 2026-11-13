@@ -13,6 +13,7 @@ export default function ComparePage() {
       title={page.title}
       intro={page.intro}
       sections={page.sections}
+      related={page.related || []}
     />
   )
 }
