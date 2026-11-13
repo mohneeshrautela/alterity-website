@@ -1,5 +1,6 @@
 export const INDUSTRIES = {
   'nbfc-lending': {
+    related: [{ to: '/use-cases/nbfc-collections', title: 'AI Callers for NBFC Collections in India' }, { to: '/blog/nbfc-collections-calls-explained', title: 'How Payment Reminder and Collections Calls Work in NBFC Lending' }],
     kicker: 'NBFC and lending',
     heroWord: 'NBFC collections',
     hubSummary: 'Pre-due reminders, due-day calls and promise-to-pay follow-ups, in the languages your customers speak. Calling windows are enforced by the dialer, and every attempt is logged with its outcome and cost.',
@@ -34,6 +35,7 @@ export const INDUSTRIES = {
     ],
   },
   'pharma-healthcare': {
+    related: [{ to: '/blog/appointment-reminder-calls-clinics', title: 'Appointment Reminder Calls for Clinics and Healthcare Providers' }],
     kicker: 'Pharma and healthcare',
     heroWord: 'pharma distribution',
     hubSummary: 'Distributor, stockist and chemist calls answered around the clock, with order and sample follow-ups and patient reminders on schedule. Agents carry information and logistics, and anything medical is transferred to your professionals.',
@@ -68,6 +70,7 @@ export const INDUSTRIES = {
     ],
   },
   logistics: {
+    related: [{ to: '/use-cases/cod-confirmation', title: 'AI COD Confirmation Calls for E-commerce in India' }],
     kicker: 'Logistics',
     heroWord: 'delivery confirmations',
     hubSummary: 'Confirm COD orders and delivery slots before dispatch, chase failed deliveries, and answer shipment questions around the clock. Structured outcomes sync back to your systems over webhooks once connected.',
@@ -103,6 +106,7 @@ export const INDUSTRIES = {
     ],
   },
   education: {
+    related: [{ to: '/blog/education-fee-admissions-calling', title: 'Fee Reminder and Admissions Calling for Education Providers' }],
     kicker: 'Education',
     heroWord: 'admission enquiry follow-ups',
     hubSummary: 'Call new admission enquiries while they are still warm, and answer course questions around the clock. Qualified leads are routed to your counsellors, and parents are kept informed in the language they speak at home.',
@@ -171,6 +175,7 @@ export const INDUSTRIES = {
     ],
   },
   'ecommerce-retail': {
+    related: [{ to: '/use-cases/cod-confirmation', title: 'AI COD Confirmation Calls for E-commerce in India' }],
     kicker: 'E-commerce and retail',
     heroWord: 'COD order confirmation',
     hubSummary: 'Confirm cash-on-delivery orders before they ship, reschedule deliveries by call, and answer order questions without growing your support team. Returns intake and win-back calls can be added during setup.',
