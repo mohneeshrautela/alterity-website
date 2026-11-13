@@ -17,6 +17,7 @@ export default function BlogPostPage() {
       meta={`${post.byline} · ${formatDate(post.datePublished)}`}
       intro={post.intro}
       sections={post.sections}
+      related={post.related || []}
     />
   )
 }
