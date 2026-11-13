@@ -2,6 +2,20 @@
 export const POSTS = [
   {
     "slug": "ai-voice-agent-vs-telecaller-cost-india",
+    "related": [
+      {
+        "to": "/blog/ai-voice-agent-monthly-cost-india",
+        "title": "What an AI Voice Agent Costs per Month in India"
+      },
+      {
+        "to": "/blog/compare-ai-voice-calling-prices-india",
+        "title": "How to Compare AI Voice Calling Prices in India"
+      },
+      {
+        "to": "/calculator",
+        "title": "Estimate your monthly cost"
+      }
+    ],
     "title": "AI Voice Agent vs Telecaller in India: The Real Cost per Call (2026)",
     "description": "What an AI voice agent costs per call in India versus a telecaller team: the ₹4 connected-minute rate, salary benchmarks and a worksheet.",
     "datePublished": "2026-11-13",
@@ -88,6 +102,16 @@ export const POSTS = [
   },
   {
     "slug": "evaluate-voice-ai-pilot",
+    "related": [
+      {
+        "to": "/blog/ai-voice-agent-monthly-cost-india",
+        "title": "What an AI Voice Agent Costs per Month in India"
+      },
+      {
+        "to": "/blog/test-multilingual-voice-agent",
+        "title": "How to Test a Multilingual Voice Agent Before You Buy"
+      }
+    ],
     "title": "How to Evaluate a Voice AI Pilot: Calls, Corrections and Human Handoffs",
     "description": "A practical way to evaluate a voice AI pilot: score tasks, test corrections and languages, and end with a written readout, not a demo.",
     "datePublished": "2026-11-13",
@@ -175,6 +199,16 @@ export const POSTS = [
   },
   {
     "slug": "connected-minute-voice-ai-billing",
+    "related": [
+      {
+        "to": "/blog/ai-voice-agent-monthly-cost-india",
+        "title": "What an AI Voice Agent Costs per Month in India"
+      },
+      {
+        "to": "/pricing",
+        "title": "Alterity voice AI pricing"
+      }
+    ],
     "title": "What a Connected Minute Means in Voice AI Billing",
     "description": "What a connected minute is in voice AI billing, how per-call rounding works at the public ₹4 rate, and what to ask any vendor about billing.",
     "datePublished": "2026-11-13",
@@ -235,6 +269,20 @@ export const POSTS = [
   },
   {
     "slug": "ai-voice-agent-monthly-cost-india",
+    "related": [
+      {
+        "to": "/blog/ai-voice-agent-vs-telecaller-cost-india",
+        "title": "AI Voice Agent vs Telecaller in India: The Real Cost per Call (2026)"
+      },
+      {
+        "to": "/blog/compare-ai-voice-calling-prices-india",
+        "title": "How to Compare AI Voice Calling Prices in India"
+      },
+      {
+        "to": "/calculator",
+        "title": "Estimate your monthly cost"
+      }
+    ],
     "title": "What an AI Voice Agent Costs per Month in India",
     "description": "Worked monthly costs for an AI voice agent in India at the public ₹4 rate: 1,000, 10,000 and 50,000 billable minutes, and what drives the total.",
     "datePublished": "2026-11-13",
@@ -295,6 +343,16 @@ export const POSTS = [
   },
   {
     "slug": "compare-ai-voice-calling-prices-india",
+    "related": [
+      {
+        "to": "/blog/connected-minute-voice-ai-billing",
+        "title": "What a Connected Minute Means in Voice AI Billing"
+      },
+      {
+        "to": "/pricing-comparison",
+        "title": "Voice AI pricing comparison"
+      }
+    ],
     "title": "How to Compare AI Voice Calling Prices in India",
     "description": "Per minute, per call, per seat or platform fee: put two AI voice calling quotes on the same footing, with Alterity's flat ₹4 rate as the worked example.",
     "datePublished": "2026-11-13",
@@ -347,6 +405,16 @@ export const POSTS = [
   },
   {
     "slug": "test-multilingual-voice-agent",
+    "related": [
+      {
+        "to": "/use-cases/multilingual-outbound",
+        "title": "AI Outbound Calling in Hindi and Indian Languages"
+      },
+      {
+        "to": "/languages",
+        "title": "Languages Alterity agents speak"
+      }
+    ],
     "title": "How to Test a Multilingual Voice Agent Before You Buy",
     "description": "A practical test protocol for multilingual voice agents: per-language scripts, code-switching, noisy lines, accents and mishearing recovery.",
     "datePublished": "2026-11-13",
@@ -408,6 +476,16 @@ export const POSTS = [
   },
   {
     "slug": "nbfc-collections-calls-explained",
+    "related": [
+      {
+        "to": "/use-cases/nbfc-collections",
+        "title": "AI Callers for NBFC Collections in India"
+      },
+      {
+        "to": "/compare/voice-vs-sms-whatsapp-payment-reminders",
+        "title": "Voice Calls vs SMS and WhatsApp for Payment Reminders"
+      }
+    ],
     "title": "How Payment Reminder and Collections Calls Work in NBFC Lending",
     "description": "The call calendar of a loan: pre-due reminders, missed-payment follow-ups, promise-to-pay tracking, and where automation fits in NBFC collections.",
     "datePublished": "2026-11-13",
@@ -460,6 +538,16 @@ export const POSTS = [
   },
   {
     "slug": "appointment-reminder-calls-clinics",
+    "related": [
+      {
+        "to": "/use-cases/pharma-healthcare",
+        "title": "Voice AI agents for pharma distribution"
+      },
+      {
+        "to": "/blog/evaluate-voice-ai-pilot",
+        "title": "How to Evaluate a Voice AI Pilot: Calls, Corrections and Human Handoffs"
+      }
+    ],
     "title": "Appointment Reminder Calls for Clinics and Healthcare Providers",
     "description": "How clinics use reminder calls: appointment confirmations, rescheduling and waitlist backfills in the patient's language, with clinical questions sent to staff.",
     "datePublished": "2026-11-13",
@@ -512,6 +600,16 @@ export const POSTS = [
   },
   {
     "slug": "education-fee-admissions-calling",
+    "related": [
+      {
+        "to": "/use-cases/education",
+        "title": "Voice AI agents for admission enquiry follow-ups"
+      },
+      {
+        "to": "/blog/evaluate-voice-ai-pilot",
+        "title": "How to Evaluate a Voice AI Pilot: Calls, Corrections and Human Handoffs"
+      }
+    ],
     "title": "Fee Reminder and Admissions Calling for Education Providers",
     "description": "How education providers use AI calling for fee reminders, admissions follow-ups and parent communication - in the family's language, at ₹4 per connected minute.",
     "datePublished": "2026-11-13",
