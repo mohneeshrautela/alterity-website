@@ -49,7 +49,7 @@ export default function ProsePage({ kicker, title, meta, intro = [], sections = 
           </section>
         )}
         <div className="prose-page__cta">
-          <FlowButton text="Start a Pilot" variant="dark" />
+          <FlowButton text="Start a Pilot" variant="black" />
           <Link to="/pricing" className="prose-page__pricing-link">See Alterity voice AI pricing</Link>
         </div>
       </div>
