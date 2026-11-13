@@ -1,0 +1,108 @@
+/* Prose page — blog posts, use-case explainers, comparison pages. Typography per TermsPage conventions. */
+
+.prose-page {
+  min-height: 100vh;
+  background: var(--cream);
+  padding: 120px 24px 80px;
+  font-family: var(--font);
+}
+
+.prose-page__inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.prose-page__eyebrow {
+  font-family: var(--font);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #666666;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.prose-page__title {
+  font-family: var(--font-heading);
+  font-size: clamp(30px, 4.5vw, 42px);
+  font-weight: 400;
+  line-height: 1.15;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+.prose-page__meta {
+  font-size: 13px;
+  color: #666666;
+  margin-bottom: 24px;
+}
+
+.prose-page__intro {
+  font-size: 15px;
+  line-height: 1.75;
+  color: #595959;
+  margin-bottom: 28px;
+}
+
+.prose-page__section {
+  margin-bottom: 28px;
+}
+
+.prose-page__h2 {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 500;
+  color: #000000;
+  margin: 32px 0 12px;
+  padding-top: 24px;
+  border-top: 1px solid #e3ddcf;
+}
+
+.prose-page__section:first-of-type .prose-page__h2 {
+  border-top: none;
+  padding-top: 0;
+}
+
+.prose-page__p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: #595959;
+  margin-bottom: 16px;
+}
+
+.prose-page__caption {
+  font-size: 12px;
+  line-height: 1.65;
+  color: #666666;
+}
+
+.prose-page__caption--inline {
+  margin: 8px 0 16px;
+}
+
+.prose-page__bullets {
+  margin: 0 0 16px;
+  padding-left: 22px;
+  font-size: 15px;
+  line-height: 1.75;
+  color: #595959;
+}
+
+.prose-page__bullets li {
+  margin-bottom: 10px;
+}
+
+.prose-page__cta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 36px;
+}
+
+.prose-page__pricing-link {
+  font-size: 14px;
+  color: #000000;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
