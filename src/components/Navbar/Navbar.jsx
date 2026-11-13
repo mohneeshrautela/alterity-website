@@ -9,6 +9,7 @@ const NAV_LINKS = [
   { label: 'Why Us', to: '/why-us' },
   { label: 'Use Cases', to: '/#calls' },
   { label: 'Pricing', to: '/pricing' },
+  { label: 'Blog', to: '/blog' },
 ]
 
 const USE_CASES = [
