@@ -2,6 +2,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import { createServer } from 'vite'
 import { publicRoutes, SEO_ROUTES, SITE_URL } from '../src/seo/routes.js'
+import { postBySlug } from '../src/seo/posts.js'
 
 const root = process.cwd()
 const template = await fs.readFile(path.join(root, 'dist/index.html'), 'utf8')
@@ -16,6 +17,7 @@ const urlFor = route => `${SITE_URL}${route === '/' ? '/' : route}`
 const ORG_ID = `${SITE_URL}/#organization`
 const WEBSITE_ID = `${SITE_URL}/#website`
 const USE_CASES_ROUTE = '/use-cases'
+const BLOG_ROUTE = '/blog'
 
 // Escape "<" so the serialised JSON can never close the script tag early.
 const jsonLdScript = graph => `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replaceAll('<', '\\u003c')}</script>`
@@ -24,6 +26,7 @@ const organization = {
   '@type': 'Organization',
   '@id': ORG_ID,
   name: 'Alterity Labs Pvt Ltd.',
+  alternateName: 'Alterity',
   url: `${SITE_URL}/`,
   logo: `${SITE_URL}/logo-512.png`,
   sameAs: ['https://x.com/alterityio', 'https://www.linkedin.com/company/alterity-io'],
@@ -58,6 +61,7 @@ const shortTitle = title => title.split(' | ')[0]
 const breadcrumbFor = (route, title) => {
   const items = [{ name: 'Home', item: urlFor('/') }]
   if (route.startsWith(`${USE_CASES_ROUTE}/`)) items.push({ name: 'Use cases', item: urlFor(USE_CASES_ROUTE) })
+  if (route.startsWith(`${BLOG_ROUTE}/`)) items.push({ name: 'Blog', item: urlFor(BLOG_ROUTE) })
   items.push({ name: shortTitle(title), item: urlFor(route) })
   return {
     '@type': 'BreadcrumbList',
@@ -74,6 +78,19 @@ const graphFor = (route, meta) => {
   ]
   if (route !== '/') graph.push(breadcrumbFor(route, meta.title))
   if (route === '/' || route === '/product') graph.push(softwareApplication)
+  if (route.startsWith(`${BLOG_ROUTE}/`)) {
+    const post = postBySlug(route.slice(BLOG_ROUTE.length + 1))
+    if (post) {
+      graph.push({
+        '@type': 'BlogPosting',
+        headline: post.title,
+        description: post.description,
+        datePublished: post.datePublished,
+        author: { '@id': ORG_ID },
+        mainEntityOfPage: { '@id': `${canonical}#webpage` },
+      })
+    }
+  }
   return graph
 }
 
