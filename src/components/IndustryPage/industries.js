@@ -129,7 +129,7 @@ export const INDUSTRIES = {
       'Fee reminders - we sync the fee schedule and configure the WhatsApp payment-link follow-up.',
     ],
     stripTitle: 'Built for admissions season',
-    strip: ['Answers from your connected knowledge base', '20+ languages including major Indian languages', 'WhatsApp follow-ups', 'Answered-call recordings and transcripts'],
+    strip: ['Answers from your connected knowledge base', 'Agents call end to end in 11 Indian languages - Hindi, Bengali, Tamil, Telugu, Kannada, Malayalam, Marathi, Gujarati, Punjabi, Odia and Urdu - plus English and mainstream foreign languages', 'WhatsApp follow-ups', 'Answered-call recordings and transcripts'],
     faq: [
       { q: 'How are new enquiries called?', a: 'Through an outbound calling campaign set up during onboarding: you upload your enquiry list, and the agent calls each enquiry with your script. Every call ends with a structured outcome you can review.' },
       { q: 'Can it answer questions about our courses?', a: 'Yes, from a knowledge base you approve and connect. It is built to answer from your content rather than improvise, and you can set transfer rules for questions it should hand to a counsellor.' },
