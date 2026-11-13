@@ -3,13 +3,28 @@ import * as AccordionPrimitive from '@radix-ui/react-accordion'
 import { ArrowRight, Plus } from 'lucide-react'
 import FlowButton from '../FlowButton/FlowButton'
 import { INDUSTRIES } from './industries'
+import ProsePage from '../../pages/prose/ProsePage'
+import { USECASE_PROSE } from '../../pages/prose/pagesData'
 import '../FAQSection/FAQSection.css'
 import './IndustryPage.css'
 
 export default function IndustryPage() {
   const { slug } = useParams()
   const p = INDUSTRIES[slug]
-  if (!p) return <Navigate to="/" replace />
+  const prose = USECASE_PROSE[slug]
+  if (!p) {
+    if (prose) {
+      return (
+        <ProsePage
+          kicker="Use case"
+          title={prose.title}
+          intro={prose.intro}
+          sections={prose.sections}
+        />
+      )
+    }
+    return <Navigate to="/" replace />
+  }
 
   const setupItems = p.setup || []
   const otherIndustries = Object.entries(INDUSTRIES).filter(([s]) => s !== slug)
