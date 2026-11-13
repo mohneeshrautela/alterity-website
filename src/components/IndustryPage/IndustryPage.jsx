@@ -20,6 +20,7 @@ export default function IndustryPage() {
           title={prose.title}
           intro={prose.intro}
           sections={prose.sections}
+          related={prose.related || []}
         />
       )
     }
@@ -149,11 +150,24 @@ export default function IndustryPage() {
         </div>
       </section>
 
+      {p.related && p.related.length > 0 && (
+        <section className="ind-sect">
+          <p className="ind-more">Keep reading:{' '}
+            {p.related.map((r, i) => (
+              <span key={r.to}>
+                {i > 0 && ' · '}
+                <Link to={r.to}>{r.title}</Link>
+              </span>
+            ))}
+          </p>
+        </section>
+      )}
+
       <section className="ind-sect">
         <div className="ind-band">
           <h3>See it on your own call list.</h3>
           <FlowButton text="Start a Pilot" variant="black" />
-          <p className="ind-band-sub">Pricing is &#8377;4 per connected minute, exclusive of GST, billed in 30-second pulses - <Link to="/pricing">See Alterity voice AI pricing</Link></p>
+          <p className="ind-band-sub">Pricing is &#8377;4 per connected minute, exclusive of GST - up to 30 seconds bills as 30 seconds, 31 to 60 seconds bills as a full minute, beyond that per second - <Link to="/pricing">See Alterity voice AI pricing</Link></p>
         </div>
       </section>
     </div>
