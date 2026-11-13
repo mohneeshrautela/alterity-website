@@ -18,7 +18,7 @@ function Block({ block }) {
   return <p className="prose-page__p">{block.text}</p>
 }
 
-export default function ProsePage({ kicker, title, meta, intro = [], sections = [] }) {
+export default function ProsePage({ kicker, title, meta, intro = [], sections = [], related = [] }) {
   return (
     <div className="prose-page">
       <div className="prose-page__inner">
@@ -36,6 +36,18 @@ export default function ProsePage({ kicker, title, meta, intro = [], sections = 
             ))}
           </section>
         ))}
+        {related.length > 0 && (
+          <section className="prose-page__related">
+            <h2 className="prose-page__related-heading">Keep reading</h2>
+            <ul className="prose-page__related-list">
+              {related.map((r) => (
+                <li key={r.to}>
+                  <Link to={r.to} className="prose-page__pricing-link">{r.title}</Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
         <div className="prose-page__cta">
           <FlowButton text="Start a Pilot" variant="dark" />
           <Link to="/pricing" className="prose-page__pricing-link">See Alterity voice AI pricing</Link>
