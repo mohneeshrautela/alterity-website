@@ -51,6 +51,15 @@ const FAQ_ITEMS = [
     ),
   },
   {
+    id: 'faq-new-2b',
+    question: 'What happens to our call recordings and data?',
+    answer: (
+      <>
+        Every call is recorded and transcribed. You can listen to recordings and read transcripts in your dashboard. We keep them only as long as needed to run the service, encrypt them in transit and at rest, and prioritize storing data on secure servers in India. Full detail is in our <Link to="/privacy">privacy policy</Link>.
+      </>
+    ),
+  },
+  {
     id: 'faq-new-3',
     question: 'Do people hang up when they realize it is an AI?',
     answer:
