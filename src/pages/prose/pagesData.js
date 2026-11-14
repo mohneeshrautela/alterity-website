@@ -274,6 +274,84 @@ export const USECASE_PROSE = {
         ]
       }
     ]
+  },
+  "payment-reminders": {
+    "kind": "usecases",
+    "slug": "payment-reminders",
+    "related": [
+      {
+        "to": "/compare/voice-vs-sms-whatsapp-payment-reminders",
+        "title": "Voice Calls vs SMS and WhatsApp for Payment Reminders"
+      },
+      {
+        "to": "/use-cases/nbfc-collections",
+        "title": "AI Callers for NBFC Collections in India"
+      },
+      {
+        "to": "/use-cases/multilingual-outbound",
+        "title": "AI Outbound Calling in Hindi and Indian Languages"
+      }
+    ],
+    "title": "AI Voice Agents for Payment Reminder Calls",
+    "description": "How finance and operations teams use AI voice agents for payment reminder calls, in the customer's language, with human handoff and per-minute pricing.",
+    "intro": [
+      "Payment reminders repeat on a schedule: before the due date, on it, and after it. An AI voice agent runs those calls at scale, in the customer's language, and hands the call to a person when the conversation needs one."
+    ],
+    "sections": [
+      {
+        "heading": "1. The workflows it runs",
+        "blocks": [
+          {
+            "kind": "p",
+            "text": "Reminder calls go out before a due date, on it, and after it. After a missed payment, the agent follows up and records the outcome of every call - promised to pay, asked for a callback, wrong number, unreachable. Every call is recorded and transcribed, so the review that matters - what was said, what was committed - does not depend on agent notes."
+          }
+        ]
+      },
+      {
+        "heading": "2. In the customer's language",
+        "blocks": [
+          {
+            "kind": "p",
+            "text": "Agents call end to end in 11 Indian languages - Hindi, Bengali, Tamil, Telugu, Kannada, Malayalam, Marathi, Gujarati, Punjabi, Odia and Urdu - plus English and mainstream foreign languages. The agent understands speech in all 22 scheduled Indian languages and follows the caller when they switch between Hindi and English within the same call. Language is configured per campaign, so a portfolio that spans regions runs each region's calls in its own language."
+          }
+        ]
+      },
+      {
+        "heading": "3. When a person takes over",
+        "blocks": [
+          {
+            "kind": "p",
+            "text": "A reminder call can turn into a dispute, a negotiation or a hardship conversation. Those belong with a person. The agent works inside a defined scope; when a call crosses it, the call routes to your team with the recording and transcript attached, so your team can pick up the conversation with the full context. What the agent may and may not do is set before the first call goes out."
+          }
+        ]
+      },
+      {
+        "heading": "4. What it costs",
+        "blocks": [
+          {
+            "kind": "p",
+            "text": "Alterity charges a flat ₹4 per connected minute plus GST, pay as you go, with no setup fee and no minimum monthly commitment. The rate bundles speech-to-text, the language model, the voice, telephony and analytics. Each call bills in steps: up to 30 seconds bills as 30 seconds, 31 to 60 seconds bills as a full minute, beyond that per second. A hypothetical example: a month with 10,000 billable minutes - after the per-call rounding - costs ₹40,000 plus GST. The pricing page works through more volumes."
+          },
+          {
+            "kind": "caption",
+            "text": "Pricing source: alterity.io/pricing, verified 12 November 2026. See the agent on your own reminder flows: start a pilot."
+          }
+        ]
+      },
+      {
+        "heading": "5. Where it fits in your stack",
+        "blocks": [
+          {
+            "kind": "p",
+            "text": "Alterity integrates with CRMs including Zoho, HubSpot and Salesforce, so call outcomes land on the customer's record. The platform also connects with your existing telephony and IVR setup - the agent can sit behind your current numbers rather than replacing them. Voice calls are one layer of a reminder sequence - where SMS and WhatsApp fit alongside them is covered in the comparison linked below."
+          },
+          {
+            "kind": "caption",
+            "text": "CRM integrations confirmed by the Alterity team, November 2026. See it on your reminders: start a pilot."
+          }
+        ]
+      }
+    ]
   }
 }
 
