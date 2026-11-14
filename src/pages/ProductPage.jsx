@@ -9,6 +9,7 @@ export default function ProductPage() {
       <header className="product-page__hero">
         <span className="terms-page__eyebrow">Product walkthrough</span>
         <h1>See the Alterity voice-agent platform</h1>
+        <p className="product-page__definition">Alterity builds AI voice agents for Indian businesses - agents that call end to end in 11 Indian languages plus English. <Link to="/pricing">Pricing</Link> is a flat ₹4 per connected minute plus GST, pay as you go.</p>
         <p>Configure agents, launch campaigns, review call activity, and monitor usage in one operational workspace.</p>
         <div className="product-page__actions">
           <a className="btn-dark" href="#walkthrough">Explore the platform <ArrowRight size={16} /></a>
