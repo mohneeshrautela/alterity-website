@@ -290,6 +290,10 @@ export const USECASE_PROSE = {
       {
         "to": "/use-cases/multilingual-outbound",
         "title": "AI Outbound Calling in Hindi and Indian Languages"
+      },
+      {
+        "to": "/use-cases/insurance-premium-renewal-reminders",
+        "title": "AI voice agents for insurance premium renewal reminders"
       }
     ],
     "title": "AI Voice Agents for Payment Reminder Calls",
@@ -348,6 +352,102 @@ export const USECASE_PROSE = {
           {
             "kind": "caption",
             "text": "CRM integrations confirmed by the Alterity team, November 2026. See it on your reminders: start a pilot."
+          }
+        ]
+      }
+    ]
+  },
+  "insurance-premium-renewal-reminders": {
+    "kind": "usecases",
+    "slug": "insurance-premium-renewal-reminders",
+    "related": [
+      {
+        "to": "/use-cases/insurance",
+        "title": "Voice AI agents for insurance renewals"
+      },
+      {
+        "to": "/use-cases/payment-reminders",
+        "title": "AI Voice Agents for Payment Reminder Calls"
+      }
+    ],
+    "title": "AI voice agents for insurance premium renewal reminders",
+    "description": "Alterity's AI voice agents run insurance premium renewal reminder calls in 11 Indian languages - before the due date, during the grace period and after lapse - with insurer-approved scripts, payment-link follow-up and every call on record. Flat Rs 4 per connected minute plus GST.",
+    "intro": [
+      "Premiums lapse when reminders arrive late, in the wrong language, or without a way to pay on the call. An AI voice agent runs the renewal cadence for every policy on the list - before the due date, on it, through the grace period, and after lapse - in the policyholder's language, and hands the call to a person when the conversation needs one."
+    ],
+    "sections": [
+      {
+        "heading": "1. The renewal window, run as a cadence",
+        "blocks": [
+          {
+            "kind": "p",
+            "text": "Sync the policies due in a window, approve the script with your compliance team, and set the calling hours. The dialer calls inside those hours: a first reminder before the due date, a nudge on it, follow-ups through the grace period, and revival calls after lapse. Every call ends in a logged outcome - renewed, promised to pay, asked for a callback, wrong number, unreachable - captured as structured fields that sync back to your systems over webhooks. Every call is recorded and transcribed, so what was said and what was committed never depends on agent notes."
+          }
+        ]
+      },
+      {
+        "heading": "2. In the policyholder's language",
+        "blocks": [
+          {
+            "kind": "p",
+            "text": "Agents call end to end in 11 Indian languages - Hindi, Bengali, Tamil, Telugu, Kannada, Malayalam, Marathi, Gujarati, Punjabi, Odia and Urdu - plus English and mainstream foreign languages. The agent understands speech in all 22 scheduled Indian languages and follows the caller when they switch between Hindi and English within the same call. Language is configured per campaign, so a portfolio that spans regions runs each region's calls in its own language."
+          }
+        ]
+      },
+      {
+        "heading": "3. Approved scripts and disclosures, not improvisation",
+        "blocks": [
+          {
+            "kind": "p",
+            "text": "Renewal options, premium amounts and required disclosures are read from your approved script and knowledge base - not improvised. What the agent may and may not say is set before the first call goes out. When a conversation crosses that scope - a coverage dispute, an advice question, a grievance - the call routes to your team with the recording and transcript attached, so your people pick it up with full context. The complete call stays on record either way."
+          }
+        ]
+      },
+      {
+        "heading": "4. Payment follow-through on the same call",
+        "blocks": [
+          {
+            "kind": "p",
+            "text": "When a policyholder is ready to pay, the agent sends a payment link over WhatsApp after the call and logs the commitment. Renewal intent and payment outcomes land on the policy record through CRM integrations including Zoho, HubSpot and Salesforce, so the reminder list, the call outcome and the payment status stay in one place."
+          }
+        ]
+      },
+      {
+        "heading": "5. What it costs",
+        "blocks": [
+          {
+            "kind": "p",
+            "text": "Alterity charges a flat Rs 4 per connected minute plus GST, pay as you go, with no setup fee and no minimum monthly commitment. The rate bundles speech-to-text, the language model, the voice, telephony and analytics. Each call bills in steps: up to 30 seconds bills as 30 seconds, 31 to 60 seconds bills as a full minute, beyond that per second. A hypothetical example: a month with 10,000 billable minutes - after the per-call rounding - costs Rs 40,000 plus GST. The pricing page works through more volumes."
+          },
+          {
+            "kind": "caption",
+            "text": "Pricing source: alterity.io/pricing, verified 17 November 2026. Run the cadence on your own renewal list: start a pilot."
+          }
+        ]
+      },
+      {
+        "heading": "6. Where it fits in your stack",
+        "blocks": [
+          {
+            "kind": "p",
+            "text": "The agent can sit behind your existing numbers and IVR rather than replacing them, and connects with your current telephony setup. The dialer, agents and dashboard behind these steps are described on the product page. See the agent on your renewal flows: start a pilot."
+          }
+        ]
+      },
+      {
+        "heading": "Asked before a pilot",
+        "blocks": [
+          {
+            "kind": "p",
+            "text": "Can it explain policy terms or coverage? It answers from your approved knowledge base. Questions beyond approved wording are handed to your team, and the full call stays on record."
+          },
+          {
+            "kind": "p",
+            "text": "How does the grace-period cadence work? You set the windows: reminders before the due date, on it, during the grace period, and revival calls after lapse. The dialer calls inside the hours you set, and intent is captured as structured fields per call."
+          },
+          {
+            "kind": "p",
+            "text": "Does it work in regional languages? Yes - 11 Indian languages plus English, including Hindi-English switching within the same call, set per campaign. See which languages Alterity agents speak."
           }
         ]
       }
