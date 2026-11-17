@@ -141,6 +141,7 @@ export const INDUSTRIES = {
     ],
   },
   insurance: {
+    related: [{ to: '/use-cases/insurance-premium-renewal-reminders', title: 'AI voice agents for insurance premium renewal reminders' }],
     kicker: 'Insurance',
     heroWord: 'insurance renewals',
     hubSummary: 'Call policyholders before lapse, nudge due premiums, and answer claims-status questions in your policyholders\' languages. Answered calls stay on record with recordings, transcripts and summaries.',
