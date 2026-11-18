@@ -1,8 +1,21 @@
 import { Link } from 'react-router-dom'
 import FlowButton from '../../components/FlowButton/FlowButton'
+import { DIAGRAMS } from './Diagrams'
 import './ProsePage.css'
 
 function Block({ block }) {
+  if (block.kind === 'diagram') {
+    const Diagram = DIAGRAMS[block.diagram]
+    if (!Diagram) return null
+    return (
+      <figure className="prose-page__diagram">
+        <Diagram />
+        {block.caption && (
+          <figcaption className="prose-page__caption prose-page__caption--inline">{block.caption}</figcaption>
+        )}
+      </figure>
+    )
+  }
   if (block.kind === 'bullets') {
     return (
       <ul className="prose-page__bullets">
