@@ -24,7 +24,7 @@ export const USECASE_PROSE = {
     ],
     "sections": [
       {
-        "heading": "1. The workflows it runs",
+        "heading": "1. What does the collections call calendar look like?",
         "blocks": [
           {
             "kind": "p",
@@ -33,38 +33,42 @@ export const USECASE_PROSE = {
         ]
       },
       {
-        "heading": "2. In the borrower's language",
+        "heading": "2. Which languages do borrowers take the call in?",
         "blocks": [
           {
             "kind": "p",
-            "text": "Agents call end to end in 11 Indian languages - Hindi, Bengali, Tamil, Telugu, Kannada, Malayalam, Marathi, Gujarati, Punjabi, Odia and Urdu - plus English and mainstream foreign languages. The agent understands speech in all 22 scheduled Indian languages and follows the caller when they switch between Hindi and English within the same call. Language is configured per campaign, so a portfolio that spans regions runs each region's calls in its own language."
+            "text": "A lending portfolio usually spans states, so language is configured per campaign and each region's borrowers hear the call in their own language. Agents call end to end in 11 Indian languages - Hindi, Bengali, Tamil, Telugu, Kannada, Malayalam, Marathi, Gujarati, Punjabi, Odia and Urdu - plus English and mainstream foreign languages. The agent understands speech in all 22 scheduled Indian languages and follows the caller when they switch between Hindi and English within the same call."
           }
         ]
       },
       {
-        "heading": "3. When a person takes over",
+        "heading": "3. When does a collections call go to your team?",
         "blocks": [
           {
             "kind": "p",
-            "text": "A collections call can turn into a negotiation, a dispute or a hardship conversation. Those belong with a person. The agent works inside a defined scope; when a call crosses it, the call routes to your team with the recording and transcript attached, so the borrower does not repeat themselves. What the agent may and may not do is set before the first call goes out."
+            "text": "When a collections call turns into a negotiation on the amount or date, a dispute over the account, or a hardship conversation, it belongs with a person. The agent works inside a scope set before the first call goes out; a call that crosses it routes to your team with the recording and transcript attached, so the borrower does not repeat themselves."
           }
         ]
       },
       {
-        "heading": "4. What it costs",
+        "heading": "4. What do collections calls cost?",
         "blocks": [
           {
             "kind": "p",
-            "text": "Alterity charges a flat ₹4 per connected minute plus GST, pay as you go, with no setup fee and no minimum monthly commitment. The rate bundles speech-to-text, the language model, the voice, telephony and analytics. Each call bills in steps: up to 30 seconds bills as 30 seconds, 31 to 60 seconds bills as a full minute, and beyond a minute you pay per second. A month with 10,000 billable minutes - after the per-call rounding - costs ₹40,000 plus GST. The pricing page works through more volumes."
+            "text": "Alterity charges a flat ₹4 per connected minute plus GST, pay as you go, with no setup fee and no minimum monthly commitment. The rate bundles speech-to-text, the language model, the voice, telephony and analytics. Each call bills in steps: up to 30 seconds bills as 30 seconds, 31 to 60 seconds bills as a full minute, beyond that per second. A hypothetical example: a month with 10,000 billable minutes across pre-due, follow-up and promise-to-pay calls costs ₹40,000 plus GST. The pricing page works through more volumes."
+          },
+          {
+            "kind": "caption",
+            "text": "Pricing source: alterity.io/pricing, verified 18 November 2026. See it on your portfolio: start a pilot."
           }
         ]
       },
       {
-        "heading": "5. Where it fits in your stack",
+        "heading": "5. How does it fit your lending stack?",
         "blocks": [
           {
             "kind": "p",
-            "text": "Alterity integrates with CRMs including Zoho, HubSpot and Salesforce, so call outcomes land on the borrower's record. The platform also connects with your existing telephony and IVR setup - the agent can sit behind your current numbers rather than replacing them."
+            "text": "Call outcomes - promised to pay, callback requested, unreachable - land on the borrower's record: Alterity integrates with CRMs including Zoho, HubSpot and Salesforce, and connects with your existing telephony and IVR setup, so the agent sits behind your current numbers rather than replacing them."
           },
           {
             "kind": "caption",
@@ -103,7 +107,7 @@ export const USECASE_PROSE = {
         ]
       },
       {
-        "heading": "2. The workflows it runs",
+        "heading": "2. Which orders get called?",
         "blocks": [
           {
             "kind": "p",
@@ -112,25 +116,31 @@ export const USECASE_PROSE = {
         ]
       },
       {
-        "heading": "3. In the customer's language",
+        "heading": "3. Which languages do buyers hear?",
         "blocks": [
           {
             "kind": "p",
-            "text": "Agents call end to end in 11 Indian languages - Hindi, Bengali, Tamil, Telugu, Kannada, Malayalam, Marathi, Gujarati, Punjabi, Odia and Urdu - plus English and mainstream foreign languages, and follow the caller when they switch between Hindi and English within the same call. Confirmation calls are short; language friction is an easy way to lose one."
+            "text": "Confirmation calls are short, and language friction is an easy way to lose one - so the buyer hears the call in their own language. Agents call end to end in 11 Indian languages - Hindi, Bengali, Tamil, Telugu, Kannada, Malayalam, Marathi, Gujarati, Punjabi, Odia and Urdu - plus English and mainstream foreign languages, and follow the caller when they switch between Hindi and English within the same call."
+          },
+          {
+            "kind": "callout",
+            "text": "Language coverage applies to every outbound workflow, not just confirmations.",
+            "to": "/use-cases/multilingual-outbound",
+            "cta": "AI outbound calling in Hindi and Indian languages"
           }
         ]
       },
       {
-        "heading": "4. When a person takes over",
+        "heading": "4. When does the buyer reach a person?",
         "blocks": [
           {
             "kind": "p",
-            "text": "A customer who is confused, upset or asking to change something unusual should reach a person. The agent works inside a defined scope and routes those calls to your team with the recording and transcript attached."
+            "text": "When a buyer is confused, upset, or asking for an unusual change - a different product, a partial cancellation, an address outside the usual format - the call belongs with a person. The agent works inside a defined scope and routes those calls to your team with the recording and transcript attached."
           }
         ]
       },
       {
-        "heading": "5. What it costs",
+        "heading": "5. What do confirmation calls cost?",
         "blocks": [
           {
             "kind": "p",
@@ -138,7 +148,7 @@ export const USECASE_PROSE = {
           },
           {
             "kind": "caption",
-            "text": "Pricing source: alterity.io/pricing, verified 12 November 2026. Integrates with CRMs including Zoho, HubSpot and Salesforce. See it on your order flow: start a pilot."
+            "text": "Pricing source: alterity.io/pricing, verified 18 November 2026. Integrates with CRMs including Zoho, HubSpot and Salesforce. See it on your order flow: start a pilot."
           }
         ]
       }
@@ -164,16 +174,22 @@ export const USECASE_PROSE = {
     ],
     "sections": [
       {
-        "heading": "1. The workflows it runs",
+        "heading": "1. Which outbound workflows run in Indian languages?",
         "blocks": [
           {
             "kind": "p",
             "text": "Payment and EMI reminders before and after the due date. Order and delivery confirmations. Appointment reminders and rescheduling. Reactivation calls to lapsed customers. Feedback calls after a delivery or a service visit. Each call goes out in the customer's language, taken from their profile or previous interactions, and every outcome lands back on their record."
+          },
+          {
+            "kind": "callout",
+            "text": "The most common multilingual workflow we see: reminder calls before and after a due date.",
+            "to": "/use-cases/payment-reminders",
+            "cta": "AI voice agents for payment reminder calls"
           }
         ]
       },
       {
-        "heading": "2. The languages it speaks",
+        "heading": "2. Which languages does it speak?",
         "blocks": [
           {
             "kind": "p",
@@ -182,7 +198,7 @@ export const USECASE_PROSE = {
         ]
       },
       {
-        "heading": "3. What to test before you buy",
+        "heading": "3. How should you test a multilingual agent before buying?",
         "blocks": [
           {
             "kind": "p",
@@ -191,24 +207,24 @@ export const USECASE_PROSE = {
         ]
       },
       {
-        "heading": "4. When a person takes over",
+        "heading": "4. When does a call go to your team?",
         "blocks": [
           {
             "kind": "p",
-            "text": "A customer who is confused, upset or asking for something unusual should reach a person. The agent works inside a defined scope and routes those calls to your team with the recording and transcript attached."
+            "text": "A customer who is confused, upset or asking for something outside the call's purpose should reach a person - whatever language the conversation is in. The agent works inside a defined scope and routes those calls to your team with the recording and transcript attached."
           }
         ]
       },
       {
-        "heading": "5. What it costs",
+        "heading": "5. What do multilingual outbound calls cost?",
         "blocks": [
           {
             "kind": "p",
-            "text": "Alterity charges a flat ₹4 per connected minute plus GST, pay as you go, with no setup fee and no minimum monthly commitment - the rate bundles speech-to-text, the language model, the voice, telephony and analytics. Each call bills in steps: up to 30 seconds bills as 30 seconds, 31 to 60 seconds bills as a full minute, and beyond a minute you pay per second. A hypothetical example: if each of 2,000 answered calls lasts 50 seconds, every call rounds up to one minute - 2,000 billable minutes, ₹8,000 plus GST. The actual cost depends on each answered call's duration and the rounding steps."
+            "text": "Alterity charges a flat ₹4 per connected minute plus GST, pay as you go, with no setup fee and no minimum monthly commitment - the rate bundles speech-to-text, the language model, the voice, telephony and analytics. Each call bills in steps: up to 30 seconds bills as 30 seconds, 31 to 60 seconds bills as a full minute, beyond that per second. Language does not change the rate: a call in Tamil bills the same as a call in English. A hypothetical example: if each of 2,000 answered calls lasts 50 seconds, every call rounds up to one minute - 2,000 billable minutes, ₹8,000 plus GST. The actual cost depends on each answered call's duration and the rounding steps."
           },
           {
             "kind": "caption",
-            "text": "Pricing source: alterity.io/pricing, verified 12 November 2026. Language list per the live languages page. Hear it in your customers' language: start a pilot."
+            "text": "Pricing source: alterity.io/pricing, verified 18 November 2026. Language list per the live languages page. Hear it in your customers' language: start a pilot."
           }
         ]
       }
@@ -307,51 +323,57 @@ export const USECASE_PROSE = {
     ],
     "sections": [
       {
-        "heading": "1. The workflows it runs",
+        "heading": "1. What reminder workflows does it run?",
         "blocks": [
           {
             "kind": "p",
-            "text": "Reminder calls go out before a due date, on it, and after it. After a missed payment, the agent follows up and records the outcome of every call - promised to pay, asked for a callback, wrong number, unreachable. Every call is recorded and transcribed, so the review that matters - what was said, what was committed - does not depend on agent notes."
+            "text": "The full reminder calendar: calls before a due date, on it, and after it. After a missed payment, the agent follows up and records the outcome of every call - promised to pay, asked for a callback, wrong number, unreachable. Every call is recorded and transcribed, so the review that matters - what was said, what was committed - does not depend on agent notes."
+          },
+          {
+            "kind": "callout",
+            "text": "Voice is one layer of a reminder sequence - SMS and WhatsApp cover the rest differently.",
+            "to": "/compare/voice-vs-sms-whatsapp-payment-reminders",
+            "cta": "Voice calls vs SMS and WhatsApp for payment reminders"
           }
         ]
       },
       {
-        "heading": "2. In the customer's language",
+        "heading": "2. Which languages do reminder calls run in?",
         "blocks": [
           {
             "kind": "p",
-            "text": "Agents call end to end in 11 Indian languages - Hindi, Bengali, Tamil, Telugu, Kannada, Malayalam, Marathi, Gujarati, Punjabi, Odia and Urdu - plus English and mainstream foreign languages. The agent understands speech in all 22 scheduled Indian languages and follows the caller when they switch between Hindi and English within the same call. Language is configured per campaign, so a portfolio that spans regions runs each region's calls in its own language."
+            "text": "Language is configured per campaign, so a reminder portfolio that spans regions runs each region's calls in its own language. Agents call end to end in 11 Indian languages - Hindi, Bengali, Tamil, Telugu, Kannada, Malayalam, Marathi, Gujarati, Punjabi, Odia and Urdu - plus English and mainstream foreign languages. The agent understands speech in all 22 scheduled Indian languages and follows the caller when they switch between Hindi and English within the same call."
           }
         ]
       },
       {
-        "heading": "3. When a person takes over",
+        "heading": "3. When does a person take over?",
         "blocks": [
           {
             "kind": "p",
-            "text": "A reminder call can turn into a dispute, a negotiation or a hardship conversation. Those belong with a person. The agent works inside a defined scope; when a call crosses it, the call routes to your team with the recording and transcript attached, so your team can pick up the conversation with the full context. What the agent may and may not do is set before the first call goes out."
+            "text": "When a reminder call turns into a dispute about the amount, a negotiation on dates, or a hardship conversation, it belongs with a person. The agent works inside a scope set before the first call goes out; a call that crosses it routes to your team with the recording and transcript attached, so your team picks up the conversation with full context instead of starting over."
           }
         ]
       },
       {
-        "heading": "4. What it costs",
+        "heading": "4. What do reminder calls cost?",
         "blocks": [
           {
             "kind": "p",
-            "text": "Alterity charges a flat ₹4 per connected minute plus GST, pay as you go, with no setup fee and no minimum monthly commitment. The rate bundles speech-to-text, the language model, the voice, telephony and analytics. Each call bills in steps: up to 30 seconds bills as 30 seconds, 31 to 60 seconds bills as a full minute, beyond that per second. A hypothetical example: a month with 10,000 billable minutes - after the per-call rounding - costs ₹40,000 plus GST. The pricing page works through more volumes."
+            "text": "Alterity charges a flat ₹4 per connected minute plus GST, pay as you go, with no setup fee and no minimum monthly commitment. The rate bundles speech-to-text, the language model, the voice, telephony and analytics. Each call bills in steps: up to 30 seconds bills as 30 seconds, 31 to 60 seconds bills as a full minute, beyond that per second. A hypothetical example: if each of 5,000 reminder calls in a month lasts 45 seconds, every call rounds up to one minute - 5,000 billable minutes, ₹20,000 plus GST. The pricing page works through more volumes."
           },
           {
             "kind": "caption",
-            "text": "Pricing source: alterity.io/pricing, verified 12 November 2026. See the agent on your own reminder flows: start a pilot."
+            "text": "Pricing source: alterity.io/pricing, verified 18 November 2026. See the agent on your own reminder flows: start a pilot."
           }
         ]
       },
       {
-        "heading": "5. Where it fits in your stack",
+        "heading": "5. How does it fit your existing stack?",
         "blocks": [
           {
             "kind": "p",
-            "text": "Alterity integrates with CRMs including Zoho, HubSpot and Salesforce, so call outcomes land on the customer's record. The platform also connects with your existing telephony and IVR setup - the agent can sit behind your current numbers rather than replacing them. Voice calls are one layer of a reminder sequence - where SMS and WhatsApp fit alongside them is covered in the comparison linked below."
+            "text": "Reminder outcomes land on the customer's record: Alterity integrates with CRMs including Zoho, HubSpot and Salesforce, and connects with your existing telephony and IVR setup - the agent sits behind your current numbers rather than replacing them. Voice is one layer of a reminder sequence; where SMS and WhatsApp fit alongside it is covered in the comparison linked below."
           },
           {
             "kind": "caption",
@@ -386,6 +408,12 @@ export const USECASE_PROSE = {
           {
             "kind": "p",
             "text": "Sync the policies due in a window, approve the script with your compliance team, and set the calling hours. The dialer calls inside those hours: a first reminder before the due date, a nudge on it, follow-ups through the grace period, and revival calls after lapse. Every call ends in a logged outcome - renewed, promised to pay, asked for a callback, wrong number, unreachable - captured as structured fields that sync back to your systems over webhooks. Every call is recorded and transcribed, so what was said and what was committed never depends on agent notes."
+          },
+          {
+            "kind": "callout",
+            "text": "The same reminder cadence runs outside insurance - EMIs, invoices, subscription dues.",
+            "to": "/use-cases/payment-reminders",
+            "cta": "AI voice agents for payment reminder calls"
           }
         ]
       },
@@ -501,6 +529,12 @@ export const USECASE_PROSE = {
           {
             "kind": "p",
             "text": "Your published numbers stay the same - callers keep dialing the numbers they already know. The new flow sits behind your current lines, and specific menu options route to the AI agent for the intents it handles best; everything else follows the paths you set. Call types move from fixed flows to conversation one at a time, so a pilot can start with a single line - after-hours calls, status checks, or one busy menu option - and widen as it proves out."
+          },
+          {
+            "kind": "callout",
+            "text": "Want to keep your current IVR exactly as it is and add agents only where they help?",
+            "to": "/use-cases/ivr-ai-handoff",
+            "cta": "Adding AI voice agents to your existing IVR"
           }
         ]
       },
