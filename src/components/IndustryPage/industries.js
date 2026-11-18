@@ -173,6 +173,7 @@ export const INDUSTRIES = {
       { q: 'Can it explain policy terms?', a: 'It answers from your approved knowledge base. Questions beyond approved wording can be handed to your team, and the full call stays on record.' },
       { q: 'How do renewal campaigns work?', a: 'You sync the policies due in a window, the dialer calls inside the hours you set, and intent is captured as structured fields per call.' },
       { q: 'Does it work in regional languages?', a: 'Yes. Hindi, English, Hinglish and other major Indian languages are supported per agent.' },
+      { q: 'How does it handle insurance disclosures?', a: 'Required disclosures and renewal wording are read from your approved script and knowledge base, not improvised - what the agent may and may not say is set before the first call goes out, and every call stays on record with a recording and transcript. Pricing is a flat ₹4 per connected minute plus GST, with no setup fee and no minimum monthly commitment.' },
     ],
   },
   'ecommerce-retail': {
