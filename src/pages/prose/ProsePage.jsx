@@ -25,6 +25,16 @@ function Block({ block }) {
       </ul>
     )
   }
+  if (block.kind === 'callout') {
+    return (
+      <aside className="prose-page__callout">
+        <p className="prose-page__callout-text">
+          {block.text}{' '}
+          <Link to={block.to} className="prose-page__pricing-link">{block.cta}</Link>
+        </p>
+      </aside>
+    )
+  }
   if (block.kind === 'caption') {
     return <p className="prose-page__caption prose-page__caption--inline">{block.text}</p>
   }
