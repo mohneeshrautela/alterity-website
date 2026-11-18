@@ -429,6 +429,12 @@ export const POSTS = [
           {
             "kind": "p",
             "text": "Pull phrases from your own call recordings, not from a textbook: how your customers actually greet, how they state an order number or an amount, how they ask the questions your team hears daily. A demo built on the vendor's script tells you about the vendor's script."
+          },
+          {
+            "kind": "callout",
+            "text": "The use-case page for the workflows these tests cover.",
+            "to": "/use-cases/multilingual-outbound",
+            "cta": "AI outbound calling in Hindi and Indian languages"
           }
         ]
       },
@@ -500,6 +506,12 @@ export const POSTS = [
           {
             "kind": "p",
             "text": "Before the EMI date, a reminder goes out as a service call, not a chase. On or after the due date, follow-ups begin on missed payments. When a borrower commits to a date, that promise-to-pay gets its own callback on the day, to check it was kept. Each stage has its own tone, script and success measure."
+          },
+          {
+            "kind": "callout",
+            "text": "How this calendar runs on Alterity, with pricing and handoff details.",
+            "to": "/use-cases/nbfc-collections",
+            "cta": "AI callers for NBFC collections in India"
           }
         ]
       },
