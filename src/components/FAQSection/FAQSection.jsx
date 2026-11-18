@@ -72,6 +72,12 @@ const FAQ_ITEMS = [
       'Three things happen in real time on every turn of the conversation: speech-to-text transcribes what the caller says, a language model decides the next response using your script and business rules, and text-to-speech speaks the reply back in a natural voice, fast enough to feel like a normal phone call. Alterity adds telephony, integrations, and guardrails around this loop, and the agent is designed to follow the script and rules you configure.',
   },
   {
+    id: 'faq-new-4b',
+    question: 'How fast does the AI agent respond during a call?',
+    answer:
+      'Alterity\'s agents respond in about 400 milliseconds after a caller finishes speaking, so the conversation keeps a natural pace without awkward silences. Listening, deciding and speaking happen as one continuous real-time loop on every turn, and you can hear the pace for yourself on a test call during a pilot.',
+  },
+  {
     id: 'faq-new-5',
     question: 'Can the agent hand a call to my team mid-conversation?',
     answer:
