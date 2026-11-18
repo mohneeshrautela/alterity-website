@@ -144,10 +144,10 @@ export const INDUSTRIES = {
     related: [{ to: '/use-cases/insurance-premium-renewal-reminders', title: 'AI voice agents for insurance premium renewal reminders' }],
     kicker: 'Insurance',
     heroWord: 'insurance renewals',
-    hubSummary: 'Call policyholders before lapse, nudge due premiums, and answer claims-status questions in your policyholders\' languages. Answered calls stay on record with recordings, transcripts and summaries.',
-    sub: 'Call policyholders before lapse, nudge due premiums, and answer claims-status questions in your policyholders\' languages, with answered calls on record.',
-    metaTitle: 'Voice AI agents for insurance renewals | Alterity',
-    metaDesc: 'AI voice agents for renewal reminders, premium nudges and claims-status support, with answered calls on record.',
+    hubSummary: 'AI voice agents call policyholders before a premium lapses, explain renewal options from your approved script, send a payment link after the call, and log the outcome - in your policyholders\' languages, with recordings and transcripts on record.',
+    sub: 'AI voice agents call policyholders before a premium lapses, explain renewal options from your approved script, send a payment link after the call, and log the outcome - in your policyholders\' languages, with recordings and transcripts on record.',
+    metaTitle: 'AI Voice Agents for Insurance Renewals and Reminders | Alterity',
+    metaDesc: 'AI voice agents for insurance renewal reminders, premium nudges and claims-status answers - in policyholders\' languages, with every answered call on record.',
     cards: [
       { label: 'Retention', title: 'Renewal reminders', desc: 'Call policyholders before lapse, explain renewal options from your approved script, and log intent per call.' },
       { label: 'Collections', title: 'Premium due nudges', desc: 'Friendly reminders for due and lapsed premiums, with a payment link over WhatsApp after the call.', setup: true },
@@ -172,6 +172,7 @@ export const INDUSTRIES = {
     faq: [
       { q: 'Can it explain policy terms?', a: 'It answers from your approved knowledge base. Questions beyond approved wording can be handed to your team, and the full call stays on record.' },
       { q: 'How do renewal campaigns work?', a: 'You sync the policies due in a window, the dialer calls inside the hours you set, and intent is captured as structured fields per call.' },
+      { q: 'How can insurers use voice AI for premium renewal reminders?', a: 'You sync the policies due in a renewal window and approve the script with your compliance team. The agent calls each policyholder inside the calling hours you set, explains renewal options from the approved script, sends a payment link over WhatsApp after the call, and captures the outcome - renewed, callback requested, or handed to your team - as structured fields, with the recording and transcript on record.' },
       { q: 'Does it work in regional languages?', a: 'Yes. Hindi, English, Hinglish and other major Indian languages are supported per agent.' },
       { q: 'How does it handle insurance disclosures?', a: 'Required disclosures and renewal wording are read from your approved script and knowledge base, not improvised - what the agent may and may not say is set before the first call goes out, and every call stays on record with a recording and transcript. Pricing is a flat ₹4 per connected minute plus GST, with no setup fee and no minimum monthly commitment.' },
     ],
