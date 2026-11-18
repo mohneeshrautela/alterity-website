@@ -80,6 +80,20 @@
   margin: 8px 0 16px;
 }
 
+.prose-page__callout {
+  margin: 4px 0 20px;
+  padding: 14px 18px;
+  border-left: 3px solid #1a1a1a;
+  background: #f7f7f5;
+}
+
+.prose-page__callout-text {
+  font-size: 15px;
+  line-height: 1.75;
+  color: #595959;
+  margin: 0;
+}
+
 .prose-page__bullets {
   margin: 0 0 16px;
   padding-left: 22px;
