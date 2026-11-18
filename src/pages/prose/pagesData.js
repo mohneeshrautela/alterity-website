@@ -223,6 +223,10 @@ export const USECASE_PROSE = {
         "title": "AI Voice Agents vs Traditional IVR"
       },
       {
+        "to": "/use-cases/ivr-replacement",
+        "title": "Replace your IVR with an AI-powered one"
+      },
+      {
         "to": "/ivr",
         "title": "Alterity IVR"
       }
@@ -238,7 +242,7 @@ export const USECASE_PROSE = {
         "blocks": [
           {
             "kind": "p",
-            "text": "The agent answers first and handles its scope - routine questions, confirmations, reminders, status checks - routing anything else to your team. Or your existing IVR keeps answering, and specific menu options route to the agent for the intents it handles best. Either way, your published numbers stay the same and callers keep dialing the numbers they already know."
+            "text": "Your existing IVR keeps answering every call, and specific menu options route to the agent for the intents it handles best - routine questions, confirmations, reminders, status checks. Anything else follows the paths you set, including straight to your team. Either way, your published numbers stay the same and callers keep dialing the numbers they already know."
           }
         ]
       },
@@ -256,7 +260,7 @@ export const USECASE_PROSE = {
         "blocks": [
           {
             "kind": "p",
-            "text": "Keeping the IVR in front makes sense while you pilot, or for lines where some callers expect a menu. As the agent proves itself on a scope, more intents can move from menu options to straight conversation. That progression is a choice you make call type by call type - not something the setup forces."
+            "text": "The IVR stays in front for as long as it serves the line - nothing in the setup forces the menu out. As the agent proves itself on a scope, more menu options can route to it, and that progression is a choice you make call type by call type."
           }
         ]
       },
@@ -452,6 +456,117 @@ export const USECASE_PROSE = {
         ]
       }
     ]
+  },
+
+  "ivr-replacement": {
+    "kind": "usecases",
+    "slug": "ivr-replacement",
+    "related": [
+      {
+        "to": "/compare/ai-voice-agents-vs-ivr",
+        "title": "AI Voice Agents vs Traditional IVR"
+      },
+      {
+        "to": "/use-cases/ivr-ai-handoff",
+        "title": "Adding AI Voice Agents to Your Existing IVR"
+      },
+      {
+        "to": "/ivr",
+        "title": "Alterity IVR"
+      }
+    ],
+    "title": "Replace your IVR with an AI-powered one",
+    "description": "Replace your IVR with an AI-powered one: menus where they work, AI voice agents in 11 Indian languages when calls need it. Rs 4 per connected minute plus GST.",
+    "intro": [
+      "Replacing your IVR does not mean ripping out the menu your callers know. An Alterity IVR is a flow: keypad menus, information playback and digit capture where they work, an AI voice agent at the steps where a caller's need goes beyond a menu, and your team when a person should take over. Your published numbers stay the same, and call types move to the new flow one at a time."
+    ],
+    "sections": [
+      {
+        "heading": "1. Menus where they win, AI where they don't",
+        "blocks": [
+          {
+            "kind": "p",
+            "text": "Every call lands in a flow you design - routing, information and keypad input where a fixed path works. When a caller's need goes beyond a menu, the flow hands that call to an Alterity AI voice agent: it understands free-form speech, asks follow-up questions and can take actions during the call. Where you configure it, the agent transfers the caller to your team, with the recording, transcript and collected details traveling with the call."
+          },
+          {
+            "kind": "diagram",
+            "diagram": "ivr-first-flow",
+            "caption": "One flow: menus serve the routine, AI takes the calls that need conversation, your team takes the rest - with full context."
+          }
+        ]
+      },
+      {
+        "heading": "2. Keep your numbers, move one call type at a time",
+        "blocks": [
+          {
+            "kind": "p",
+            "text": "Your published numbers stay the same - callers keep dialing the numbers they already know. The new flow sits behind your current lines, and specific menu options route to the AI agent for the intents it handles best; everything else follows the paths you set. Call types move from fixed flows to conversation one at a time, so a pilot can start with a single line - after-hours calls, status checks, or one busy menu option - and widen as it proves out."
+          }
+        ]
+      },
+      {
+        "heading": "3. AI is a step, not a requirement",
+        "blocks": [
+          {
+            "kind": "p",
+            "text": "A menu-only flow is complete on its own and can be assigned to one of your phone numbers - simple routing, information playback and digit capture may never need an agent at all. Alterity's IVR Studio builds both on one canvas - menu, information, digit collection, AI agent and human-handoff steps - so each line gets the mix that fits it, and the mix can change call type by call type."
+          },
+          {
+            "kind": "diagram",
+            "diagram": "ivr-example-flow",
+            "caption": "An example flow on one number: menu steps, an AI agent step and human-handoff steps, designed in the same IVR Studio canvas."
+          }
+        ]
+      },
+      {
+        "heading": "4. In the caller's language",
+        "blocks": [
+          {
+            "kind": "p",
+            "text": "Agents speak to callers end to end in 11 Indian languages - Hindi, Bengali, Tamil, Telugu, Kannada, Malayalam, Marathi, Gujarati, Punjabi, Odia and Urdu - plus English and mainstream foreign languages. The agent understands speech in all 22 scheduled Indian languages and follows the caller when they switch between Hindi and English within the same call. Language is configured per campaign, so a portfolio that spans regions runs each region's calls in its own language."
+          }
+        ]
+      },
+      {
+        "heading": "5. What it costs",
+        "blocks": [
+          {
+            "kind": "p",
+            "text": "Alterity charges a flat \u20B94 per connected minute plus GST, pay as you go, with no setup fee and no minimum monthly commitment. The rate bundles speech-to-text, the language model, the voice, telephony and analytics. Each call bills in steps: up to 30 seconds bills as 30 seconds, 31 to 60 seconds bills as a full minute, beyond that per second. A hypothetical example: a month with 10,000 billable minutes - after the per-call rounding - costs \u20B940,000 plus GST. The pricing page works through more volumes."
+          },
+          {
+            "kind": "caption",
+            "text": "Pricing source: alterity.io/pricing, verified 17 November 2026. Hear the difference on your own line: start a pilot."
+          }
+        ]
+      },
+      {
+        "heading": "6. Every call on record",
+        "blocks": [
+          {
+            "kind": "p",
+            "text": "Each call is recorded and transcribed, with summaries and outcomes in the same dashboard as your agents, campaigns and flows. What was said and what was committed never depends on agent notes."
+          }
+        ]
+      },
+      {
+        "heading": "Asked before a pilot",
+        "blocks": [
+          {
+            "kind": "p",
+            "text": "Do we have to replace the whole IVR at once? No. Most teams start with one line or one intent behind their existing numbers and move more call types as the flow proves itself. Menus and AI run together on the same number indefinitely."
+          },
+          {
+            "kind": "p",
+            "text": "What happens when a caller needs a person? The flow transfers the call to your team with the recording and transcript attached, along with whatever the caller has already told the menu or the agent, so your people continue the conversation instead of starting it over."
+          },
+          {
+            "kind": "p",
+            "text": "Does it work in regional languages? Yes - 11 Indian languages plus English, including Hindi-English switching within the same call, set per campaign. See which languages Alterity agents speak."
+          }
+        ]
+      }
+    ]
   }
 }
 
@@ -498,7 +613,7 @@ export const COMPARE_PAGES = {
         "blocks": [
           {
             "kind": "p",
-            "text": "Many setups combine the two: the IVR keeps answering, and specific options route to an AI agent for the intents it handles best - or the agent answers first and hands off what falls outside its scope. Call types can move from fixed flows to conversation one at a time, and on Alterity the agent can sit behind your current numbers rather than replacing them."
+            "text": "Many setups combine the two: the IVR keeps answering, and specific options route to an AI agent for the intents it handles best, with the agent handing off to your team where you configure it. Call types can move from fixed flows to conversation one at a time, and on Alterity the agent can sit behind your current numbers rather than replacing them."
           }
         ]
       },
