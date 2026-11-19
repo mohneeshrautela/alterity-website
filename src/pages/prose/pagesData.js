@@ -610,6 +610,10 @@ export const COMPARE_PAGES = {
     "slug": "ai-voice-agents-vs-ivr",
     "related": [
       {
+        "to": "/pricing-comparison",
+        "title": "AI Voice Agent Pricing in India, Compared (Nov 2026)"
+      },
+      {
         "to": "/use-cases/ivr-ai-handoff",
         "title": "Adding AI Voice Agents to Your Existing IVR"
       },
@@ -660,7 +664,7 @@ export const COMPARE_PAGES = {
           },
           {
             "kind": "caption",
-            "text": "Pricing source: alterity.io/pricing, verified 12 November 2026. Try the difference on your own line: start a pilot."
+            "text": "Pricing source: alterity.io/pricing, verified 19 November 2026. Try the difference on your own line: start a pilot."
           }
         ]
       }
