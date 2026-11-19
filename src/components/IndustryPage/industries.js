@@ -40,8 +40,9 @@ export const INDUSTRIES = {
     heroWord: 'pharma distribution',
     hubSummary: 'Distributor, stockist and chemist calls answered around the clock, with order and sample follow-ups and patient reminders on schedule. Agents carry information and logistics, and anything medical is transferred to your professionals.',
     sub: 'Answer distributor, stockist and chemist calls around the clock, follow up on orders and samples, and keep patient reminders on schedule. Agents carry information and logistics; medical advice stays with your professionals.',
-    metaTitle: 'Voice AI agents for pharma distribution | Alterity',
-    metaDesc: 'AI voice agents for distributor, stockist and chemist follow-ups, order-status lines and patient reminders, in the languages your partners and patients speak.',
+    metaTitle: 'Voice AI Agents for Pharma and Healthcare Calls | Alterity',
+    metaDesc: "AI voice agents for distributor and stockist follow-ups, order-status lines, and patient refill reminders - in your partners' and patients' languages.",
+    reviewed: 'November 2026',
     cards: [
       { label: 'Distribution', title: 'Distributor and chemist line', desc: 'An inbound line that answers order-status and scheme questions from your knowledge base, at any hour.', setup: true },
       { label: 'Field support', title: 'Physician engagement follow-ups', desc: 'Follow up after medical-rep visits with sample feedback and literature-drop confirmations, logged against each doctor in your CRM.', setup: true },
@@ -148,6 +149,7 @@ export const INDUSTRIES = {
     sub: 'AI voice agents call policyholders before a premium lapses, explain renewal options from your approved script, send a payment link after the call, and log the outcome - in your policyholders\' languages, with recordings and transcripts on record.',
     metaTitle: 'AI Voice Agents for Insurance Renewals and Reminders | Alterity',
     metaDesc: 'AI voice agents for insurance renewal reminders, premium nudges and claims-status answers - in policyholders\' languages, with every answered call on record.',
+    reviewed: 'November 2026',
     cards: [
       { label: 'Retention', title: 'Renewal reminders', desc: 'Call policyholders before lapse, explain renewal options from your approved script, and log intent per call.' },
       { label: 'Collections', title: 'Premium due nudges', desc: 'Friendly reminders for due and lapsed premiums, with a payment link over WhatsApp after the call.', setup: true },
