@@ -14,7 +14,7 @@ const FAQ_ITEMS = [
     id: 'faq-2',
     question: "How does Alterity's pricing work?",
     answer:
-      (<>Alterity offers flexible <Link to="/pricing">pricing</Link> based on your business needs, call volume, and deployment requirements. Whether you&apos;re running a pilot or scaling to thousands of conversations, our team will recommend a plan that aligns with your goals and usage.</>),
+      (<>Alterity charges a flat ₹4 per connected minute plus GST, pay as you go, with no setup fee and no minimum monthly commitment - speech-to-text, the language model, the voice, telephony and analytics are all bundled. Committed monthly volumes move to a custom enterprise plan. Full detail on our <Link to="/pricing">pricing page</Link>, verified November 2026.</>),
   },
   {
     id: 'faq-3',
@@ -32,7 +32,7 @@ const FAQ_ITEMS = [
     id: 'faq-5',
     question: 'Which languages does Alterity support?',
     answer:
-      'Alterity supports conversations in multiple languages, including English, Hindi, Tamil, Telugu, Bengali, Marathi, Kannada, Malayalam, Gujarati, Punjabi, and more. Our AI is designed to understand regional accents and can naturally switch between languages during a conversation, creating a seamless experience for your customers.',
+      'Alterity agents call end to end in 11 Indian languages - Hindi, Bengali, Tamil, Telugu, Kannada, Malayalam, Marathi, Gujarati, Punjabi, Odia and Urdu - plus English and mainstream foreign languages. The agent understands speech in all 22 scheduled Indian languages and can switch between Hindi and English within a call.',
   },
   {
     id: 'faq-new-1',
