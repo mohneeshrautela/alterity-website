@@ -131,6 +131,12 @@ export default function IndustryPage() {
         </div>
       </section>
 
+      {p.reviewed && (
+        <section className="ind-sect">
+          <p className="ind-more">Content last reviewed {p.reviewed}.</p>
+        </section>
+      )}
+
       <section className="ind-sect">
         <p className="ind-more">Language is set per campaign. <Link to="/languages">See which languages Alterity agents speak</Link>.</p>
       </section>
