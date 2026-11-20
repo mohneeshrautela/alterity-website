@@ -9,6 +9,9 @@ export default function Seo() {
     document.title = meta.title
     document.querySelector('meta[name="description"]')?.setAttribute('content', meta.description)
     document.querySelector('link[rel="canonical"]')?.setAttribute('href', `${SITE_URL}${pathname === '/' ? '/' : pathname}`)
+    const ogImage = `${SITE_URL}${meta.image || '/og-image.png'}`
+    document.querySelector('meta[property="og:image"]')?.setAttribute('content', ogImage)
+    document.querySelector('meta[name="twitter:image"]')?.setAttribute('content', ogImage)
   }, [pathname])
   return null
 }
