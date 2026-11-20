@@ -43,6 +43,7 @@ export const INDUSTRIES = {
     metaTitle: 'Voice AI Agents for Pharma and Healthcare Calls | Alterity',
     metaDesc: "AI voice agents for distributor and stockist follow-ups, order-status lines, and patient refill reminders - in your partners' and patients' languages.",
     reviewed: 'November 2026',
+    image: { src: '/images/diagram-pharma.png', alt: 'A pharmacy mortar and pill bottle connected to a ringing telephone.', caption: 'Distribution and patient calls on one line: information and logistics from the agent, anything medical to your professionals.' },
     cards: [
       { label: 'Distribution', title: 'Distributor and chemist line', desc: 'An inbound line that answers order-status and scheme questions from your knowledge base, at any hour.', setup: true },
       { label: 'Field support', title: 'Physician engagement follow-ups', desc: 'Follow up after medical-rep visits with sample feedback and literature-drop confirmations, logged against each doctor in your CRM.', setup: true },

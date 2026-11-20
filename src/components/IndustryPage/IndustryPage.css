@@ -90,6 +90,30 @@
 }
 
 /* Sections */
+.ind-figure {
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 0 40px;
+}
+
+.ind-figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  display: block;
+}
+
+.ind-figure-caption {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #8a8578;
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .ind-figure { padding: 0 20px; }
+}
+
 .ind-sect {
   max-width: 1100px;
   margin: 0 auto;

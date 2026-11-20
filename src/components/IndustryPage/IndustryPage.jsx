@@ -53,6 +53,13 @@ export default function IndustryPage() {
         </div>
       </div>
 
+      {p.image && (
+        <figure className="ind-figure">
+          <img src={p.image.src} alt={p.image.alt || ''} loading="lazy" />
+          {p.image.caption && <figcaption className="ind-figure-caption">{p.image.caption}</figcaption>}
+        </figure>
+      )}
+
       <section className="ind-sect">
         <div className="ind-label">Use cases</div>
         <h2 className="ind-h2">What the agents actually do</h2>
