@@ -16,6 +16,16 @@ function Block({ block }) {
       </figure>
     )
   }
+  if (block.kind === 'image') {
+    return (
+      <figure className="prose-page__image">
+        <img src={block.src} alt={block.alt || ''} loading="lazy" />
+        {block.caption && (
+          <figcaption className="prose-page__caption prose-page__caption--inline">{block.caption}</figcaption>
+        )}
+      </figure>
+    )
+  }
   if (block.kind === 'bullets') {
     return (
       <ul className="prose-page__bullets">

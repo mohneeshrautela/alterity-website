@@ -652,6 +652,12 @@ export const COMPARE_PAGES = {
           {
             "kind": "p",
             "text": "Many setups combine the two: the IVR keeps answering, and specific options route to an AI agent for the intents it handles best, with the agent handing off to your team where you configure it. Call types can move from fixed flows to conversation one at a time, and on Alterity the agent can sit behind your current numbers rather than replacing them."
+          },
+          {
+            "kind": "image",
+            "src": "/images/diagram-compare.png",
+            "alt": "One phone line splitting into a keypad menu path and an AI conversation path, both able to hand off to a person.",
+            "caption": "One line, two ways to answer: the keypad menu takes the routine, the AI agent takes the conversation, and either can hand off to your team."
           }
         ]
       },
