@@ -1,0 +1,51 @@
+# Alterity
+
+> Alterity is an AI voice agent platform for business calls in India. Every call runs through a designed IVR flow - keypad menus, playback and digit capture where a fixed path works, an AI voice agent at the steps where a caller's need goes beyond a menu, and a handoff to your team with the recording and transcript when a person should take over. Alterity agents call end to end in 11 Indian languages - Hindi, Bengali, Tamil, Telugu, Kannada, Malayalam, Marathi, Gujarati, Punjabi, Odia and Urdu - plus English and mainstream foreign languages, and can switch between Hindi and English within a call. Alterity's orchestration engine delivers sub-400ms responses.
+
+## Pricing
+- Flat ₹4 per connected minute, exclusive of GST - up to 30 seconds bills as 30 seconds, 31 to 60 seconds bills as a full minute, beyond that per second. No setup fee, no minimum monthly commitment. Speech-to-text, the language model, the voice, telephony and analytics are bundled. Committed monthly volumes move to a custom enterprise plan.
+- Pricing: https://www.alterity.io/pricing
+- Pricing comparison: https://www.alterity.io/pricing-comparison
+- Cost calculator: https://www.alterity.io/calculator
+
+## Product
+- Product overview: https://www.alterity.io/product
+- IVR Studio: https://www.alterity.io/ivr
+- Languages: https://www.alterity.io/languages
+- Why Alterity: https://www.alterity.io/why-us
+
+## Use cases
+- NBFC and lending: https://www.alterity.io/use-cases/nbfc-lending
+- NBFC collections: https://www.alterity.io/use-cases/nbfc-collections
+- Pharma and healthcare: https://www.alterity.io/use-cases/pharma-healthcare
+- Logistics: https://www.alterity.io/use-cases/logistics
+- Education: https://www.alterity.io/use-cases/education
+- Insurance: https://www.alterity.io/use-cases/insurance
+- Insurance premium renewal reminders: https://www.alterity.io/use-cases/insurance-premium-renewal-reminders
+- IVR replacement: https://www.alterity.io/use-cases/ivr-replacement
+- IVR and AI handoff: https://www.alterity.io/use-cases/ivr-ai-handoff
+- Payment reminders: https://www.alterity.io/use-cases/payment-reminders
+- COD confirmation: https://www.alterity.io/use-cases/cod-confirmation
+- Multilingual outbound: https://www.alterity.io/use-cases/multilingual-outbound
+- E-commerce and retail: https://www.alterity.io/use-cases/ecommerce-retail
+
+## Comparisons
+- AI voice agents vs IVR: https://www.alterity.io/compare/ai-voice-agents-vs-ivr
+- Voice vs SMS and WhatsApp for payment reminders: https://www.alterity.io/compare/voice-vs-sms-whatsapp-payment-reminders
+
+## Blog
+- https://www.alterity.io/blog/ai-voice-agent-monthly-cost-india
+- https://www.alterity.io/blog/ai-voice-agent-vs-telecaller-cost-india
+- https://www.alterity.io/blog/compare-ai-voice-calling-prices-india
+- https://www.alterity.io/blog/connected-minute-voice-ai-billing
+- https://www.alterity.io/blog/evaluate-voice-ai-pilot
+- https://www.alterity.io/blog/test-multilingual-voice-agent
+- https://www.alterity.io/blog/nbfc-collections-calls-explained
+- https://www.alterity.io/blog/appointment-reminder-calls-clinics
+- https://www.alterity.io/blog/education-fee-admissions-calling
+
+## Company
+- Alterity is a brand under Alterity Labs Pvt Ltd, Mumbai, India.
+- Contact: https://www.alterity.io/contact
+- Privacy: https://www.alterity.io/privacy
+- Terms: https://www.alterity.io/terms
