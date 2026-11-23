@@ -39,3 +39,22 @@ export const SEO_ROUTES = {
   '/use-cases/ecommerce-retail': { title: 'Voice AI agents for COD order confirmation | Alterity', description: 'AI voice agents for COD order confirmation, delivery rescheduling, returns intake and order-status support, connected to your store systems.' },
 }
 export const publicRoutes = Object.keys(SEO_ROUTES)
+
+export const FAQ_ROUTES = {
+  '/use-cases/insurance-premium-renewal-reminders': [
+    { q: 'Can it explain policy terms or coverage?', a: 'It answers from your approved knowledge base. Questions beyond approved wording are handed to your team, and the full call stays on record.' },
+    { q: 'How is a voice agent different from renewal reminder software?', a: 'Reminder software sends notifications. A voice agent holds the conversation: it calls each policyholder, answers questions from your approved knowledge base, takes payment intent on the call, and hands over to your team when needed, with every call on record.' },
+    { q: 'How does the grace-period cadence work?', a: 'You set the windows: reminders before the due date, on it, during the grace period, and revival calls after lapse. The dialer calls inside the hours you set, and intent is captured as structured fields per call.' },
+    { q: 'Does it work in regional languages?', a: 'Yes - 11 Indian languages plus English, including Hindi-English switching within the same call, set per campaign. See which languages Alterity agents speak.' },
+  ],
+  '/use-cases/pharma-healthcare': [
+    { q: 'Does the agent give medical advice?', a: 'Agents are configured for logistics and information from your approved content. Transfer rules send anything that sounds like advice, dosing or symptoms to your team, and we set that boundary up with you during the pilot.' },
+    { q: 'Can callers reach a person?', a: "Yes. Agents can be configured to transfer to your staff, and the call's recording and transcript stay on record." },
+    { q: 'How does it connect to our systems?', a: 'Call outcomes are delivered as structured fields over webhooks, so your CRM or distribution software stays current.' },
+  ],
+  '/use-cases/ivr-replacement': [
+    { q: 'Do we have to replace the whole IVR at once?', a: 'No. Most teams start with one line or one intent behind their existing numbers and move more call types as the flow proves itself. Menus and AI run together on the same number indefinitely.' },
+    { q: 'What happens when a caller needs a person?', a: 'The flow transfers the call to your team with the recording and transcript attached, along with whatever the caller has already told the menu or the agent, so your people continue the conversation instead of starting it over.' },
+    { q: 'Does it work in regional languages?', a: 'Yes - 11 Indian languages plus English, including Hindi-English switching within the same call, set per campaign. See which languages Alterity agents speak.' },
+  ],
+}
