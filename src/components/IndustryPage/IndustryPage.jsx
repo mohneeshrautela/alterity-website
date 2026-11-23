@@ -47,6 +47,7 @@ export default function IndustryPage() {
           Voice AI agents for <span className="ind-u">{p.heroWord}</span>
         </h1>
         <p className="ind-sub">{p.sub}</p>
+        {p.answer && <p className="ind-sub">{p.answer}</p>}
         <div className="ind-btnrow">
           <FlowButton text="Start a Pilot" variant="black" />
           <Link to="/pricing" className="btn-outlined">See Alterity voice AI pricing</Link>
