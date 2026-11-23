@@ -114,6 +114,14 @@ export default function PricingComparisonPage() {
           <span className="pricing-compare__heading-highlight">compared</span>
         </h1>
         <p className="pricing-compare__subtext">
+          AI voice agent pricing in India ranges from about ₹4 to ₹30 per minute.
+          What each rate bundles, how time is rounded, and which minimums apply differ per
+          platform, so the numbers are not directly comparable. Alterity charges a flat
+          ₹4 per connected minute plus GST, pay as you go, with speech-to-text, the
+          language model, the voice, telephony and analytics bundled, no setup fee and no
+          minimum monthly commitment.
+        </p>
+        <p className="pricing-compare__subtext">
           {CHECKED} This is a selected comparison, not the full market, and not a claim
           that Alterity is the cheapest. These are headline rates only. What each rate
           bundles, how time is rounded, and which minimums apply differ per platform,
