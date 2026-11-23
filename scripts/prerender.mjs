@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { createServer } from 'vite'
-import { publicRoutes, SEO_ROUTES, SITE_URL } from '../src/seo/routes.js'
+import { publicRoutes, SEO_ROUTES, SITE_URL, FAQ_ROUTES } from '../src/seo/routes.js'
 import { postBySlug } from '../src/seo/posts.js'
 
 const root = process.cwd()
@@ -91,6 +91,13 @@ const graphFor = (route, meta) => {
       })
     }
   }
+  const faqs = FAQ_ROUTES[route]
+  if (faqs) {
+    graph.push({
+      '@type': 'FAQPage',
+      mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+    })
+  }
   return graph
 }
 
@@ -136,7 +143,11 @@ for (const route of publicRoutes) {
     .replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/, () => jsonLdScript(graphFor(route, meta)))
     .replace('</head>', () => `${tags}\n  </head>`)
     .replace('<div id="root"></div>', () => `<div id="root">${appHtml}</div>`)
-  if (!/<h1[\s>]/i.test(appHtml) || appHtml.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().length < 120) throw new Error(`Prerender validation failed for ${route}`)
+  const plainText = appHtml.replace(/<[^>]+>/g, ' ')
+  for (const f of FAQ_ROUTES[route] || []) {
+    if (!plainText.includes(f.q)) throw new Error(`FAQ question missing from ${route}: ${f.q}`)
+  }
+  if (!/<h1[\s>]/i.test(appHtml) || plainText.replace(/\s+/g, ' ').trim().length < 120) throw new Error(`Prerender validation failed for ${route}`)
   const out = route === '/' ? path.join(root, 'dist/index.html') : path.join(root, 'dist', route.slice(1), 'index.html')
   await fs.mkdir(path.dirname(out), { recursive: true })
   await fs.writeFile(out, html)
