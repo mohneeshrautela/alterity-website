@@ -40,6 +40,7 @@ export const INDUSTRIES = {
     heroWord: 'pharma distribution',
     hubSummary: 'Distributor, stockist and chemist calls answered around the clock, with order and sample follow-ups and patient reminders on schedule. Agents carry information and logistics, and anything medical is transferred to your professionals.',
     sub: 'Answer distributor, stockist and chemist calls around the clock, follow up on orders and samples, and keep patient reminders on schedule. Agents carry information and logistics; medical advice stays with your professionals.',
+    answer: 'An AI voice agent for pharma and healthcare answers distributor, stockist and chemist calls around the clock and runs outbound follow-ups: order and sample reminders, appointment reminders and rescheduling, and refill nudges, in the caller\'s own language. It shares information and logistics from your approved content; anything that sounds like medical advice, dosing or symptoms transfers to your team.',
     metaTitle: 'Voice AI Agents for Pharma and Healthcare Calls | Alterity',
     metaDesc: "AI voice agents for distributor and stockist follow-ups, order-status lines, and patient refill reminders - in your partners' and patients' languages.",
     reviewed: 'November 2026',
