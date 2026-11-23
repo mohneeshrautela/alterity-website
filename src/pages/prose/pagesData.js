@@ -399,6 +399,7 @@ export const USECASE_PROSE = {
     "title": "AI voice agents for insurance premium renewal reminders",
     "description": "Alterity's AI voice agents run insurance premium renewal reminder calls in 11 Indian languages - before the due date, during the grace period and after lapse - with insurer-approved scripts, payment-link follow-up and every call on record. Flat Rs 4 per connected minute plus GST.",
     "intro": [
+      "An AI voice agent for insurance premium renewals calls every policyholder on your list before the due date, on the due date, and through the grace period, in the policyholder's language. It follows your approved script and disclosures, takes payment intent on the call, captures the outcome as structured fields, and hands the call to your team when a person is needed.",
       "Premiums lapse when reminders arrive late, in the wrong language, or without a way to pay on the call. An AI voice agent runs the renewal cadence for every policy on the list - before the due date, on it, through the grace period, and after lapse - in the policyholder's language, and hands the call to a person when the conversation needs one."
     ],
     "sections": [
@@ -469,6 +470,10 @@ export const USECASE_PROSE = {
       {
         "heading": "Asked before a pilot",
         "blocks": [
+          {
+            "kind": "p",
+            "text": "How is a voice agent different from renewal reminder software? Reminder software sends notifications. A voice agent holds the conversation: it calls each policyholder, answers questions from your approved knowledge base, takes payment intent on the call, and hands over to your team when needed, with every call on record."
+          },
           {
             "kind": "p",
             "text": "Can it explain policy terms or coverage? It answers from your approved knowledge base. Questions beyond approved wording are handed to your team, and the full call stays on record."
