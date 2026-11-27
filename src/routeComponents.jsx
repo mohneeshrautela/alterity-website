@@ -54,6 +54,7 @@ export const IndustryPage = lazyRoute(() => import('./components/IndustryPage/In
 export const BlogIndexPage = lazyRoute(() => import('./pages/blog/BlogIndexPage'))
 export const BlogPostPage = lazyRoute(() => import('./pages/blog/BlogPostPage'))
 export const ComparePage = lazyRoute(() => import('./pages/prose/ComparePage'))
+export const BuyersGuidePage = lazyRoute(() => import('./pages/prose/BuyersGuidePage'))
 
 // Route patterns, mirroring the <Route> paths in src/App.jsx.
 const ROUTE_TABLE = [
@@ -73,6 +74,7 @@ const ROUTE_TABLE = [
   { path: '/blog', component: BlogIndexPage },
   { path: '/blog/:slug', component: BlogPostPage },
   { path: '/compare/:slug', component: ComparePage },
+  { path: '/buyers-guide', component: BuyersGuidePage },
 ]
 
 // Preloads the page component that matches a URL (query string and hash are ignored).
