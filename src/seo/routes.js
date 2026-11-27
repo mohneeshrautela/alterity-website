@@ -41,6 +41,12 @@ export const SEO_ROUTES = {
 export const publicRoutes = Object.keys(SEO_ROUTES)
 
 export const FAQ_ROUTES = {
+  '/': [
+    { q: 'What should I look for in an AI voice agent platform for Indian business calls?', a: 'Three things decide most deployments: local telephony that works out of the box, responses fast enough that callers stay on the line, and real support for the languages your customers speak. Alterity bundles all three in one platform: Indian telephony, sub-400 ms responses, and end-to-end calling in 11 Indian languages plus English, at ₹4 per connected minute plus GST with no setup fee or monthly minimum.' },
+    { q: 'Can I run AI voice agents on Indian phone numbers without stitching together multiple vendors?', a: 'Yes. Alterity includes telephony, speech-to-text, the language model, voice synthesis and live analytics in one platform, so there is no separate telephony or speech vendor to contract and integrate. Your agent is configured for your workflows and connects to your existing tools through Salesforce, HubSpot, Shopify, Slack, Zapier, Make or custom webhooks.' },
+    { q: 'Is there a pay-as-you-go AI voice platform with no monthly minimum in India?', a: 'Yes. Alterity bills ₹4 per connected minute plus GST, with no setup fee and no minimum monthly commitment. A call up to 30 seconds bills as 30 seconds, 31 to 60 seconds bills as a full minute, and beyond that billing is per second, so short reminder calls cost only the seconds they use.' },
+    { q: 'Can Alterity work with our existing IVR instead of replacing it?', a: 'Yes. Your IVR does not need replacing; it needs an exit ramp. Callers who are happy with the menu stay in it, and callers who ask for more are routed to an Alterity agent that handles the conversation end to end, with a handoff to your team when a human should take over. IVR Studio configures the flows, voices and guardrails.' },
+  ],
   '/use-cases/insurance-premium-renewal-reminders': [
     { q: 'Can it explain policy terms or coverage?', a: 'It answers from your approved knowledge base. Questions beyond approved wording are handed to your team, and the full call stays on record.' },
     { q: 'How is a voice agent different from renewal reminder software?', a: 'Reminder software sends notifications. A voice agent holds the conversation: it calls each policyholder, answers questions from your approved knowledge base, takes payment intent on the call, and hands over to your team when needed, with every call on record.' },
