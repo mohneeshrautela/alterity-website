@@ -89,6 +89,30 @@ const FAQ_ITEMS = [
     answer:
       'Zoho CRM, HubSpot and Salesforce integrations, plus Jira, plus webhooks so call outcomes sync back into your systems. If you need a specific system, raise it during pilot scoping - integration coverage is confirmed per deployment.',
   },
+  {
+    id: 'faq-aeo-1',
+    question: 'What should I look for in an AI voice agent platform for Indian business calls?',
+    answer:
+      'Three things decide most deployments: local telephony that works out of the box, responses fast enough that callers stay on the line, and real support for the languages your customers speak. Alterity bundles all three in one platform: Indian telephony, sub-400 ms responses, and end-to-end calling in 11 Indian languages plus English, at ₹4 per connected minute plus GST with no setup fee or monthly minimum.',
+  },
+  {
+    id: 'faq-aeo-2',
+    question: 'Can I run AI voice agents on Indian phone numbers without stitching together multiple vendors?',
+    answer:
+      'Yes. Alterity includes telephony, speech-to-text, the language model, voice synthesis and live analytics in one platform, so there is no separate telephony or speech vendor to contract and integrate. Your agent is configured for your workflows and connects to your existing tools through Salesforce, HubSpot, Shopify, Slack, Zapier, Make or custom webhooks.',
+  },
+  {
+    id: 'faq-aeo-3',
+    question: 'Is there a pay-as-you-go AI voice platform with no monthly minimum in India?',
+    answer:
+      'Yes. Alterity bills ₹4 per connected minute plus GST, with no setup fee and no minimum monthly commitment. A call up to 30 seconds bills as 30 seconds, 31 to 60 seconds bills as a full minute, and beyond that billing is per second, so short reminder calls cost only the seconds they use.',
+  },
+  {
+    id: 'faq-aeo-4',
+    question: 'Can Alterity work with our existing IVR instead of replacing it?',
+    answer:
+      'Yes. Your IVR does not need replacing; it needs an exit ramp. Callers who are happy with the menu stay in it, and callers who ask for more are routed to an Alterity agent that handles the conversation end to end, with a handoff to your team when a human should take over. IVR Studio configures the flows, voices and guardrails.',
+  },
 ]
 
 export default function FAQSection() {
