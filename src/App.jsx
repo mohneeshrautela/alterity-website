@@ -18,6 +18,7 @@ import {
   BlogIndexPage,
   BlogPostPage,
   ComparePage,
+  BuyersGuidePage,
 } from './routeComponents'
 
 const ContactModal = lazy(() => import('./components/ContactModal/ContactModal'))
@@ -45,6 +46,7 @@ function App() {
           <Route path="/blog" element={<BlogIndexPage />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/compare/:slug" element={<ComparePage />} />
+          <Route path="/buyers-guide" element={<BuyersGuidePage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
